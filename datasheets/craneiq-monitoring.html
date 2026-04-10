@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="craneIQ Monitoring — standalone crane condition monitoring. Load spectrum, DWP, vibration, hours run. No control system changes. UK, Ireland and EU.">
+<title>craneIQ Monitoring — Keep your cranes running — catch problems before they become failures</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logos/craneiq-monogram.svg">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#020406;--deep:#040810;--hull:#07101a;--panel:#0b1722;--console:#0e1d2c;
+  --border:#162840;--bhi:#204060;
+  --dim:#1c3450;--muted:#3a5a78;--mid:#628098;--steel:#92b0c4;--bright:#c4d8e8;--white:#e4f0f8;
+  --brand:#008B9A;--brand-hi:#00a8ba;--radar:#4ccc80;
+  --accent:#8855dd;
+  --ff:'Open Sans',sans-serif;--mono:'Share Tech Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:14px;line-height:1.7}
+::-webkit-scrollbar{width:3px;background:var(--void)}
+::-webkit-scrollbar-thumb{background:var(--bhi)}
+
+/* NAV */
+.nav{height:52px;background:var(--hull);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 40px;
+  position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.nav-logo{font-family:var(--ff);font-size:17px;line-height:1;letter-spacing:-.01em;text-decoration:none}
+.nav-logo .crane{font-weight:300;color:var(--bright)}
+.nav-logo .iq{font-weight:600;color:var(--brand)}
+.nav-back{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted);
+  text-decoration:none;text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color .14s}
+.nav-back::before{content:'←'}
+.nav-back:hover{color:var(--accent)}
+
+/* HERO */
+.hero{background:var(--hull);border-bottom:1px solid var(--border);
+  padding:52px 40px 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 55% 120% at 85% 50%,rgba(0,139,154,.055) 0%,transparent 70%)}
+.hero-inner{max-width:1060px;margin:0 auto;position:relative;z-index:1}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:24px;flex-wrap:wrap}
+.hero-wm{font-family:var(--ff);font-size:44px;line-height:1;letter-spacing:-.02em}
+.hero-wm .crane{font-weight:300;color:var(--bright)}
+.hero-wm .iq{font-weight:600;color:var(--accent)}
+.hero-wm .pname{font-weight:400;font-size:23px;color:var(--accent);margin-left:5px}
+.hero-tagline{font-family:var(--ff);font-weight:300;font-size:17px;color:var(--mid);margin-top:7px;letter-spacing:-.005em}
+.hero-meta{text-align:right;flex-shrink:0}
+.hero-code{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--mid);display:block}
+.hero-model{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--muted);display:block;margin-top:3px}
+.hero-stats{display:flex;gap:0;border-top:1px solid var(--border);padding-top:22px;flex-wrap:wrap;gap:0}
+.hstat{padding:0 28px 0 0;margin-right:28px;border-right:1px solid var(--border)}
+.hstat:last-child{border:none;margin:0;padding:0}
+.hstat-val{font-family:var(--ff);font-weight:600;font-size:18px;color:var(--white);line-height:1}
+.hstat-lbl{font-family:var(--mono);font-size:7.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-top:3px}
+
+/* BODY */
+.body-wrap{max-width:1060px;margin:0 auto;padding:52px 40px}
+.sec-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:var(--accent);
+  text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,#8855dd55,transparent)}
+
+/* Differentiator banner */
+.diff-banner{background:var(--console);border:1px solid var(--bhi);border-radius:3px;
+  padding:18px 24px;margin-bottom:28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.diff-banner-icon{font-family:var(--mono);font-size:18px;color:var(--accent);flex-shrink:0}
+.diff-banner-text{font-size:13px;color:var(--steel);line-height:1.65}
+.diff-banner-text strong{color:var(--white);font-weight:600}
+
+/* Overview */
+.overview{font-size:13.5px;color:var(--steel);line-height:1.9;margin-bottom:28px}
+.overview strong{color:var(--white);font-weight:600}
+
+/* Two col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-bottom:24px}
+.col{background:var(--panel);padding:32px 28px}
+.col-dark{background:var(--console)}
+
+/* Feature list */
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.feat-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;
+  color:var(--bright);line-height:1.5;padding-bottom:11px;border-bottom:1px solid var(--border)}
+.feat-list li:last-child{border:none;padding:0}
+.feat-list li::before{content:'—';color:var(--accent);font-weight:600;flex-shrink:0;margin-top:1px}
+.feat-list li span{color:var(--muted);font-size:11.5px;display:block;margin-top:2px}
+
+/* Spec table */
+.spec-table{width:100%;border-collapse:collapse}
+.spec-table tr:nth-child(even) td{background:var(--panel)}
+.spec-table td{padding:9px 14px;border-bottom:1px solid var(--border);font-size:12px;vertical-align:middle}
+.spec-table tr:last-child td{border-bottom:none}
+.spec-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.spec-val{font-family:var(--ff);font-weight:600;font-size:12.5px;color:var(--white);text-align:right}
+
+/* Certs */
+.certs{display:flex;gap:8px;margin-top:20px}
+.cert{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;
+  padding:5px 12px;border:1px solid var(--bhi);border-radius:2px;color:var(--mid)}
+
+/* Who it's for */
+.audience-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;
+  overflow:hidden;margin-bottom:24px}
+.aud-cell{background:var(--panel);padding:20px 22px}
+.aud-title{font-family:var(--ff);font-weight:600;font-size:12px;color:var(--white);margin-bottom:5px}
+.aud-body{font-size:11.5px;color:var(--muted);line-height:1.65}
+
+/* CTA bar */
+.cta-bar{background:var(--hull);border:1px solid var(--border);border-radius:3px;
+  padding:24px 28px;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:32px;gap:16px;flex-wrap:wrap;position:relative;overflow:hidden}
+.cta-bar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),transparent)}
+.cta-text strong{display:block;color:var(--white);font-size:15px;font-weight:600;margin-bottom:4px}
+.cta-text p{font-size:12px;color:var(--muted);line-height:1.65;max-width:480px}
+.btn-primary{background:var(--accent);color:var(--void);font-family:var(--ff);font-weight:600;
+  font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:12px 26px;
+  border-radius:2px;text-decoration:none;white-space:nowrap;transition:background .14s;display:inline-block}
+.btn-primary:hover{opacity:.88}
+.btn-ghost{background:transparent;color:var(--steel);font-family:var(--ff);font-weight:400;
+  font-size:11px;letter-spacing:.05em;padding:11px 22px;border-radius:2px;
+  border:1px solid var(--bhi);text-decoration:none;white-space:nowrap;transition:.14s;display:inline-block}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap}
+
+/* Products strip */
+.strip-wrap{border-top:1px solid var(--border);padding-top:40px}
+.strip-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:var(--muted);
+  text-transform:uppercase;margin-bottom:14px}
+.strip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.strip-card{background:var(--panel);padding:14px 16px;text-decoration:none;
+  border-top:2px solid;transition:background .15s}
+.strip-card:hover{background:var(--console)}
+.strip-card .sc{font-family:var(--ff);font-size:12px;line-height:1}
+.strip-card .sc .c{font-weight:300;color:var(--mid)}
+.strip-card .sc .iq{font-weight:600}
+.strip-card .sp{font-family:var(--mono);font-size:7.5px;letter-spacing:.06em;
+  color:var(--dim);text-transform:uppercase;margin-top:3px}
+
+/* FOOTER */
+footer{background:var(--hull);border-top:1px solid var(--border);
+  padding:22px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer p{font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+footer a{color:var(--muted);text-decoration:none;transition:color .14s}
+footer a:hover{color:var(--accent)}
+.footer-wm .crane{font-weight:300;color:var(--bright)}
+.footer-wm .iq{font-weight:600;color:var(--brand)}
+
+@media(max-width:720px){
+  .two-col{grid-template-columns:1fr}
+  .nav{padding:0 20px}
+  .hero{padding:36px 20px 28px}
+  .body-wrap{padding:36px 20px}
+  footer{padding:20px}
+  .hstat{border:none;padding:0;margin:0 0 8px}
+  .hero-stats{gap:0;display:grid;grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><span class="crane">crane</span><span class="iq">IQ</span></a>
+  <a href="../index.html#products" class="nav-back">All Products</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div>
+        <div class="hero-wm">
+          <span class="crane">crane</span><span class="iq">IQ</span><span class="pname">Monitoring</span>
+        </div>
+        <div class="hero-tagline">Keep your cranes running — catch problems before they become failures</div>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-code">CIQ-MON</span>
+        <span class="hero-model">Model CIQ-M1 &nbsp;·&nbsp; UK / Ireland / EU</span>
+      </div>
+    </div>
+    <div class="hero-stats"><div class="hstat"><div class="hstat-val">Standalone</div><div class="hstat-lbl">No control system changes</div></div><div class="hstat"><div class="hstat-val">Early warning</div><div class="hstat-lbl">Diagnose before failure</div></div><div class="hstat"><div class="hstat-val">32 GB</div><div class="hstat-lbl">Onboard storage</div></div><div class="hstat"><div class="hstat-val">Any crane</div><div class="hstat-lbl">Retrofit instantly</div></div></div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <!-- Differentiator banner -->
+  <div class="diff-banner">
+    <div class="diff-banner-icon">⊕</div>
+    <div class="diff-banner-text">
+      <strong>Works alongside what you already have.</strong>
+      craneIQ Monitoring sits between the operator and the existing crane controller — no rip-and-replace, no proprietary lock-in. 
+      Fits any crane from any manufacturer, new or old.
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <div class="sec-lbl">Overview</div>
+  <p class="overview">Crane breakdowns are expensive. Unplanned downtime in a galvanizing plant, steel mill or manufacturing facility can cost far more than any monitoring system. <strong>craneIQ Monitoring gives engineering teams the data to keep cranes running.</strong> It fits alongside any existing crane control system without touching it — no rewiring, no changes, no risk. From day one it starts recording load history, design life consumption, hours run, and vibration data. When something starts to change, you know about it before it becomes a failure.</p>
+
+  <!-- Two col -->
+  <div class="two-col">
+    <div class="col">
+      <div class="sec-lbl">What it does for you</div>
+      <ul class="feat-list"><li>Diagnose problems early — before breakdown<span>Vibration monitoring and load data reveal developing mechanical issues before they cause unplanned downtime</span></li><li>Records every lift automatically<span>Full load spectrum history from day one — know exactly what your crane has been lifting and for how long</span></li><li>Tracks crane design life (DWP)<span>Continuous calculation of design working period consumption — know when inspections and replacements are actually due, not just guessed</span></li><li>Logs hours run and operation count<span>Complete usage history for maintenance planning, insurance and compliance records</span></li><li>No changes to existing controls<span>craneIQ Monitoring sits completely standalone — it watches and records without touching the crane controls</span></li><li>No proprietary lock-in<span>Open architecture — data is accessible in standard formats that your engineers and third-party maintenance teams can use</span></li><li>Fits any crane, any age<span>Attaches to any overhead crane regardless of manufacturer, age or control system</span></li><li>Connects to craneIQ Cloud<span>View all data remotely, receive alerts, and share reports with maintenance teams or insurers</span></li></ul>
+    </div>
+    <div class="col col-dark">
+      <div class="sec-lbl">Compatibility &amp; installation</div>
+      <table class="spec-table"><tr><td class="spec-lbl">Works on</td><td class="spec-val">Any overhead crane</td></tr><tr><td class="spec-lbl">Installation</td><td class="spec-val">Completely standalone</td></tr><tr><td class="spec-lbl">Existing controls</td><td class="spec-val">Untouched — zero risk</td></tr><tr><td class="spec-lbl">Fitted by</td><td class="spec-val">Qualified electrician</td></tr><tr><td class="spec-lbl">Lock-in</td><td class="spec-val">None — open data formats</td></tr><tr><td class="spec-lbl">Power supply</td><td class="spec-val">12–24V DC</td></tr><tr><td class="spec-lbl">Available</td><td class="spec-val">UK / Ireland / EU</td></tr></table>
+      <div class="sec-lbl" style="margin-top:24px">What is monitored</div>
+      <table class="spec-table"><tr><td class="spec-lbl">Load spectrum</td><td class="spec-val">Every lift, every weight</td></tr><tr><td class="spec-lbl">DWP</td><td class="spec-val">Design life consumption</td></tr><tr><td class="spec-lbl">Hours run</td><td class="spec-val">Continuous logging</td></tr><tr><td class="spec-lbl">Operations</td><td class="spec-val">Total lift count</td></tr><tr><td class="spec-lbl">Vibration</td><td class="spec-val">Mechanical health</td></tr></table>
+      <div class="certs">
+        <span class="cert">CE</span><span class="cert">UKCA</span><span class="cert">RoHS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Who it's for -->
+  <div class="sec-lbl">Who it's for</div>
+  <div class="audience-grid">
+    <div class="aud-cell">
+      <div class="aud-title">Plant Managers</div>
+      <div class="aud-body">Reduce downtime, protect equipment, keep cranes running safely and efficiently without disrupting production.</div>
+    </div>
+    <div class="aud-cell">
+      <div class="aud-title">Engineering Managers</div>
+      <div class="aud-body">A system that integrates cleanly with existing controls, uses no proprietary hardware, and can be interrogated and maintained without specialist support.</div>
+    </div>
+    <div class="aud-cell">
+      <div class="aud-title">Crane Partners</div>
+      <div class="aud-body">Add intelligent capability to any crane you supply or service — without being tied to a single manufacturer's ecosystem.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-bar">
+    <div class="cta-text">
+      <strong>Talk to us about craneIQ Monitoring</strong>
+      <p>We work with plant managers, engineering teams and crane partners across the UK, Ireland and EU. Get in touch to discuss your application.</p>
+    </div>
+    <div class="btn-row">
+      <a href="mailto:joe@pointnode.io" class="btn-primary">Contact Us</a>
+      <a href="../index.html#products" class="btn-ghost">← All Products</a>
+    </div>
+  </div>
+
+  <!-- Products strip -->
+  <div class="strip-wrap">
+    <div class="strip-lbl">Other craneIQ products</div>
+    <div class="strip-grid" id="sg"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-wm" style="font-family:var(--ff);font-size:16px;letter-spacing:-.01em">
+    <span class="crane">crane</span><span class="iq">IQ</span>
+  </div>
+  <p>Pointnode Ltd &nbsp;·&nbsp; West Midlands, UK &nbsp;·&nbsp; 
+    <a href="mailto:joe@pointnode.io">joe@pointnode.io</a> &nbsp;·&nbsp; 
+    <a href="../index.html">craneiq.co.uk</a>
+  </p>
+</footer>
+
+<script>
+const P=[
+  {id:'core',      a:'#008B9A',n:'Core',      t:'Hoist & trolley controller'},
+  {id:'automation',a:'#4488cc',n:'Automation',t:'Crane automation'},
+  {id:'monitoring',a:'#8855dd',n:'Monitoring',t:'Condition monitoring'},
+  {id:'cloud',     a:'#2299bb',n:'Cloud',     t:'Remote visibility'},
+  {id:'vision',    a:'#009966',n:'Vision',    t:'Hook tracking'},
+  {id:'antisway',  a:'#cc7700',n:'Antisway',  t:'Anti-sway system'},
+  {id:'zoning',    a:'#cc3344',n:'Zoning',    t:'No-fly zones'},
+  {id:'loadtrack', a:'#cc9900',n:'LoadTrack', t:'Load logging'},
+];
+const sg=document.getElementById('sg');
+P.forEach(p=>{
+  const a=document.createElement('a');
+  a.className='strip-card';
+  a.href='craneiq-'+p.id+'.html';
+  a.style.borderTopColor=p.a;
+  a.innerHTML='<div class="sc"><span class="c">crane</span><span class="iq" style="color:'+p.a+'">IQ</span></div>'
+    +'<div class="sp" style="color:'+p.a+'">'+p.n+'</div>';
+  sg.appendChild(a);
+});
+</script>
+</body>
+</html>
