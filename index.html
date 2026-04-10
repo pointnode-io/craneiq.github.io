@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="craneIQ — Overhead crane technology. Intelligent control, automation and monitoring for any crane. West Midlands, UK.">
-<meta name="keywords" content="overhead crane, crane automation, crane monitoring, anti-sway, crane safety, crane controller, UK">
+<meta name="description" content="craneIQ — Intelligent control, automation and monitoring for any overhead crane. Proven in galvanizing plants, steel mills, foundries and harsh industrial environments. West Midlands, UK.">
+<meta name="keywords" content="overhead crane, crane automation, crane monitoring, anti-sway, crane safety, crane controller, galvanizing crane, UK">
 <meta property="og:title" content="craneIQ — Overhead Crane Technology">
-<meta property="og:description" content="Intelligent control, automation and monitoring for any crane — new or existing. Engineered in the UK.">
+<meta property="og:description" content="Intelligent control, automation and monitoring for any overhead crane — new or existing. No proprietary lock-in. Engineered in the UK.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://craneiq.co.uk">
 <title>craneIQ — Overhead Crane Technology</title>
 <link rel="icon" type="image/svg+xml" href="assets/logos/craneiq-monogram.svg">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -31,66 +30,64 @@ body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:1
   background:rgba(2,4,6,.94);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;padding:0 48px}
-.nav-logo{font-family:var(--ff);font-size:18px;line-height:1;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:baseline;gap:0}
+.nav-logo{font-family:var(--ff);font-size:18px;line-height:1;letter-spacing:-.01em;text-decoration:none}
 .nav-logo .crane{font-weight:300;color:var(--bright)}
 .nav-logo .iq{font-weight:600;color:var(--brand)}
-.nav-links{display:flex;gap:0;align-items:center}
+.nav-links{display:flex;align-items:center}
 .nav-links a{font-family:var(--ff);font-size:12px;font-weight:400;color:var(--muted);
   text-decoration:none;padding:0 18px;letter-spacing:.02em;
   transition:color .15s;border-right:1px solid var(--border);line-height:56px}
-.nav-links a:last-child{border:none}
 .nav-links a:hover{color:var(--brand)}
 .nav-cta{background:var(--brand)!important;color:var(--void)!important;
   font-weight:600!important;padding:0 20px!important;border-radius:2px;
-  letter-spacing:.04em;font-size:11px!important;text-transform:uppercase}
-.nav-cta:hover{background:var(--brand-hi)!important;color:var(--void)!important}
-.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}
-.nav-toggle span{display:block;width:20px;height:1.5px;background:var(--steel);margin:4px 0;transition:.2s}
-.pulse{width:5px;height:5px;border-radius:50%;background:var(--radar);display:inline-block;
-  margin-right:7px;animation:pa 2.8s ease-in-out infinite;vertical-align:middle;flex-shrink:0}
+  letter-spacing:.06em;font-size:11px!important;text-transform:uppercase;border:none!important}
+.nav-cta:hover{background:var(--brand-hi)!important}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:4px}
+.nav-toggle span{display:block;width:20px;height:1.5px;background:var(--steel)}
+.pulse{width:5px;height:5px;border-radius:50%;background:var(--radar);
+  display:inline-block;margin-right:7px;vertical-align:middle;
+  animation:pa 2.8s ease-in-out infinite}
 @keyframes pa{0%,100%{box-shadow:0 0 0 0 rgba(76,204,128,.45)}50%{box-shadow:0 0 0 4px rgba(76,204,128,0)}}
-
-/* Mobile nav */
 .nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;z-index:99;
-  background:var(--hull);border-bottom:1px solid var(--border);padding:16px 0}
+  background:var(--hull);border-bottom:1px solid var(--border);padding:8px 0}
 .nav-mobile.open{display:block}
 .nav-mobile a{display:block;font-size:13px;color:var(--steel);text-decoration:none;
-  padding:12px 32px;border-bottom:1px solid var(--border);transition:color .14s}
+  padding:12px 28px;border-bottom:1px solid var(--border);transition:color .14s}
 .nav-mobile a:hover{color:var(--brand)}
 
 /* ── HERO ── */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;
-  justify-content:center;overflow:hidden;padding:100px 48px 80px;
-  background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(0,139,154,.06) 0%,transparent 70%)}
-.hero-grid{position:absolute;inset:0;
-  background:linear-gradient(rgba(0,139,154,.018) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,139,154,.018) 1px,transparent 1px);
-  background-size:56px 56px;pointer-events:none}
-.hero-rings{position:absolute;right:0;top:50%;transform:translateY(-50%);
-  width:560px;height:560px;pointer-events:none;overflow:hidden}
-.ring{position:absolute;border-radius:50%;top:50%;left:50%;
-  transform:translate(-50%,-50%);border:1px solid}
-.sweep{position:absolute;top:50%;left:50%;width:280px;height:1px;
-  transform-origin:0 50%;animation:spin 9s linear infinite}
-.sweep::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(76,204,128,.35),transparent)}
-@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.hero-cross-h{position:absolute;top:50%;left:0;right:0;height:1px;
-  background:rgba(76,204,128,.04);transform:translateY(-50%)}
-.hero-cross-v{position:absolute;left:50%;top:0;bottom:0;width:1px;
-  background:rgba(76,204,128,.04);transform:translateX(-50%)}
+  justify-content:center;overflow:hidden;padding:100px 48px 80px}
+
+/* Fine grid */
+.hero-grid{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(rgba(0,139,154,.016) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,139,154,.016) 1px,transparent 1px);
+  background-size:56px 56px}
+
+/* Subtle glow behind the graphic */
+.hero-glow{position:absolute;top:10%;right:0;width:640px;height:640px;
+  border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(0,139,154,.07) 0%,transparent 65%)}
+
+/* ── CROSSHAIR + HOOK GRAPHIC ── */
+.hero-graphic{position:absolute;right:4%;top:50%;transform:translateY(-50%);
+  width:480px;height:480px;pointer-events:none}
+
+.hero-graphic svg{width:100%;height:100%;opacity:.18}
 
 .hero-content{position:relative;z-index:2;max-width:660px}
 .hero-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.3em;
   color:var(--brand);text-transform:uppercase;margin-bottom:24px;
   display:flex;align-items:center;gap:12px}
 .hero-eyebrow::before{content:'';width:20px;height:1px;background:var(--brand)}
-.hero-wm{font-family:var(--ff);font-size:clamp(52px,8vw,96px);
+.hero-wm{font-family:var(--ff);font-size:clamp(54px,8vw,96px);
   line-height:.95;letter-spacing:-.025em;margin-bottom:14px}
 .hero-wm .crane{font-weight:300;color:var(--bright)}
 .hero-wm .iq{font-weight:600;color:var(--brand)}
-.hero-headline{font-family:var(--ff);font-weight:300;font-size:clamp(17px,2.2vw,24px);
-  color:var(--mid);line-height:1.45;margin-bottom:28px;letter-spacing:-.005em}
+.hero-headline{font-family:var(--ff);font-weight:300;
+  font-size:clamp(17px,2.2vw,24px);color:var(--mid);
+  line-height:1.45;margin-bottom:28px;letter-spacing:-.005em}
 .hero-body{font-size:13.5px;color:var(--muted);line-height:1.85;
   max-width:500px;margin-bottom:36px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
@@ -105,7 +102,7 @@ body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:1
   padding:12px 28px;border:1px solid var(--bhi)}
 .btn-secondary:hover{border-color:var(--brand);color:var(--brand)}
 
-.hero-stats{display:flex;gap:0;margin-top:52px;
+.hero-stats{display:flex;margin-top:52px;
   border-top:1px solid var(--border);padding-top:24px;flex-wrap:wrap}
 .stat{padding:0 28px 0 0;margin-right:28px;border-right:1px solid var(--border)}
 .stat:last-child{border:none;margin:0;padding:0}
@@ -117,10 +114,10 @@ body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:1
 /* ── SECTIONS ── */
 section{border-bottom:1px solid var(--border)}
 .section-inner{max-width:1100px;margin:0 auto;padding:88px 48px}
-.sec-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.28em;
+.sec-tag{font-family:var(--mono);font-size:9px;letter-spacing:.28em;
   color:var(--brand);text-transform:uppercase;margin-bottom:14px;
   display:flex;align-items:center;gap:10px}
-.sec-eyebrow::before{content:'';width:16px;height:1px;background:var(--brand)}
+.sec-tag::before{content:'';width:16px;height:1px;background:var(--brand)}
 .sec-title{font-family:var(--ff);font-weight:600;
   font-size:clamp(24px,3vw,38px);color:var(--white);
   letter-spacing:-.01em;line-height:1.1;margin-bottom:12px}
@@ -129,72 +126,78 @@ section{border-bottom:1px solid var(--border)}
 
 /* ── PRODUCT GRID ── */
 .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;background:var(--border);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
+  gap:1px;background:var(--border);border-radius:3px;overflow:hidden;
+  border:1px solid var(--border)}
 .prod-card{background:var(--panel);padding:26px 22px;position:relative;
-  overflow:hidden;transition:background .2s;text-decoration:none;display:block;color:inherit}
+  overflow:hidden;transition:background .2s;text-decoration:none;
+  display:flex;flex-direction:column;color:inherit}
 .prod-card:hover{background:var(--console)}
 .prod-card:hover .prod-arrow{opacity:1;transform:translateX(0)}
 .prod-bar{position:absolute;top:0;left:0;right:0;height:2px}
-.prod-icon{width:34px;height:34px;margin-bottom:15px}
+.prod-icon{width:34px;height:34px;margin-bottom:14px;flex-shrink:0}
 .prod-wm{font-family:var(--ff);font-size:15px;line-height:1;
-  letter-spacing:-.01em;margin-bottom:6px}
+  letter-spacing:-.01em;margin-bottom:5px}
 .prod-wm .crane{font-weight:300;color:var(--mid)}
 .prod-wm .iq{font-weight:600}
 .pn{font-weight:400;font-size:10px;letter-spacing:.08em;
   display:block;margin-top:3px;text-transform:uppercase}
-.prod-tagline{font-size:11.5px;color:var(--muted);line-height:1.55;margin-bottom:14px}
-.prod-features{list-style:none;display:flex;flex-direction:column;gap:4px;margin-bottom:16px}
-.prod-features li{font-size:10px;color:var(--dim);padding-left:10px;position:relative;line-height:1.5}
+.prod-tagline{font-size:11.5px;color:var(--muted);line-height:1.5;margin-bottom:14px;flex:1}
+.prod-features{list-style:none;display:flex;flex-direction:column;
+  gap:5px;margin-bottom:16px}
+.prod-features li{font-size:10px;color:var(--dim);
+  padding-left:10px;position:relative;line-height:1.5}
 .prod-features li::before{content:'—';position:absolute;left:0;color:var(--border)}
 .prod-features li.hi{color:var(--mid)}
 .prod-features li.hi::before{color:var(--brand)}
 .prod-footer{display:flex;justify-content:space-between;align-items:center;
-  padding-top:12px;border-top:1px solid var(--border)}
+  padding-top:12px;border-top:1px solid var(--border);margin-top:auto}
 .prod-code{font-family:var(--mono);font-size:7.5px;letter-spacing:.12em;color:var(--dim)}
 .prod-arrow{font-family:var(--mono);font-size:11px;color:var(--brand);
   opacity:0;transform:translateX(-6px);transition:opacity .2s,transform .2s}
-.prod-dl{font-family:var(--mono);font-size:8px;letter-spacing:.08em;
-  color:var(--brand);text-decoration:none;opacity:.7;transition:opacity .15s}
-.prod-dl:hover{opacity:1}
 
-/* ── WHY SECTION ── */
+/* ── WHY ── */
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1px;background:var(--border);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
+  gap:1px;background:var(--border);border-radius:3px;overflow:hidden;
+  border:1px solid var(--border)}
 .why-card{background:var(--console);padding:30px 26px}
 .why-num{font-family:var(--mono);font-size:9px;letter-spacing:.2em;
-  color:var(--brand);margin-bottom:13px}
+  color:var(--brand);margin-bottom:12px}
 .why-title{font-family:var(--ff);font-weight:600;font-size:15px;
   color:var(--white);margin-bottom:8px}
 .why-body{font-size:12px;color:var(--muted);line-height:1.8}
 
 /* ── COMPATIBILITY ── */
-.compat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;
-  background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.compat-grid{display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--border);border:1px solid var(--border);
+  border-radius:3px;overflow:hidden}
 .compat-cell{background:var(--panel);padding:36px 32px}
+.compat-cell:nth-child(2){background:var(--console)}
 .compat-title{font-family:var(--ff);font-weight:600;font-size:17px;
   color:var(--white);margin-bottom:10px}
 .compat-body{font-size:12.5px;color:var(--muted);line-height:1.85;margin-bottom:18px}
 .tags{display:flex;gap:7px;flex-wrap:wrap}
 .tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;
-  color:var(--mid);padding:5px 10px;border:1px solid var(--bhi);border-radius:2px;
-  text-transform:uppercase;white-space:nowrap}
+  color:var(--mid);padding:5px 10px;border:1px solid var(--bhi);
+  border-radius:2px;text-transform:uppercase;white-space:nowrap}
 
 /* ── CTA ── */
-.cta-band{background:var(--hull);padding:80px 48px;text-align:center;border-bottom:1px solid var(--border)}
+.cta-band{background:var(--hull);padding:80px 48px;
+  text-align:center;border-bottom:1px solid var(--border)}
 .cta-band .sec-title{margin:0 auto 10px}
 .cta-band .sec-sub{margin:0 auto 32px;max-width:480px}
-.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
-.cta-contact-line{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;
+.cta-actions{display:flex;gap:12px;justify-content:center;
+  flex-wrap:wrap;margin-bottom:24px}
+.cta-note{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;
   color:var(--dim);text-transform:uppercase}
-.cta-contact-line a{color:var(--muted);text-decoration:none;transition:color .14s}
-.cta-contact-line a:hover{color:var(--brand)}
+.cta-note a{color:var(--muted);text-decoration:none;transition:color .14s}
+.cta-note a:hover{color:var(--brand)}
 
 /* ── FOOTER ── */
 .site-footer{background:var(--hull);border-top:1px solid var(--border);
   padding:52px 48px 32px;display:grid;
   grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
 .footer-logo{font-family:var(--ff);font-size:20px;line-height:1;
-  letter-spacing:-.01em;margin-bottom:12px;display:flex;align-items:baseline}
+  letter-spacing:-.01em;margin-bottom:12px}
 .footer-logo .crane{font-weight:300;color:var(--bright)}
 .footer-logo .iq{font-weight:600;color:var(--brand)}
 .footer-tagline{font-size:12px;color:var(--muted);line-height:1.75;margin-bottom:16px}
@@ -213,47 +216,8 @@ section{border-bottom:1px solid var(--border)}
 .footer-bottom p{font-family:var(--mono);font-size:8px;letter-spacing:.1em;
   color:var(--dim);text-transform:uppercase}
 
-/* ── PRODUCT MODALS ── */
-.modal-overlay{display:none;position:fixed;inset:0;z-index:200;
-  background:rgba(2,4,6,.92);backdrop-filter:blur(8px);
-  align-items:center;justify-content:center;padding:24px}
-.modal-overlay.open{display:flex}
-.modal{background:var(--panel);border:1px solid var(--bhi);border-radius:4px;
-  width:100%;max-width:680px;max-height:90vh;overflow-y:auto;position:relative}
-.modal-bar{height:3px;width:100%;border-radius:4px 4px 0 0}
-.modal-inner{padding:32px}
-.modal-close{position:absolute;top:16px;right:16px;background:var(--border);
-  border:none;color:var(--steel);cursor:pointer;width:28px;height:28px;
-  border-radius:2px;font-size:14px;display:flex;align-items:center;justify-content:center;
-  transition:background .14s}
-.modal-close:hover{background:var(--bhi)}
-.modal-wm{font-family:var(--ff);font-size:22px;letter-spacing:-.01em;
-  margin-bottom:5px;line-height:1}
-.modal-wm .crane{font-weight:300;color:var(--mid)}
-.modal-wm .iq{font-weight:600}
-.modal-tagline{font-size:13px;color:var(--muted);margin-bottom:20px}
-.modal-desc{font-size:13px;color:var(--steel);line-height:1.8;margin-bottom:24px}
-.modal-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
-.modal-col-title{font-family:var(--mono);font-size:8px;letter-spacing:.2em;
-  color:var(--brand);text-transform:uppercase;margin-bottom:10px}
-.modal-features{list-style:none;display:flex;flex-direction:column;gap:5px}
-.modal-features li{font-size:12px;color:var(--bright);padding-left:14px;position:relative}
-.modal-features li::before{content:'—';position:absolute;left:0;color:var(--brand)}
-.modal-specs{border:1px solid var(--border);border-radius:2px;overflow:hidden}
-.spec-row{display:flex;justify-content:space-between;align-items:center;
-  padding:7px 12px;border-bottom:1px solid var(--border)}
-.spec-row:last-child{border-bottom:none}
-.spec-row:nth-child(even){background:var(--console)}
-.spec-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
-.spec-val{font-family:var(--ff);font-weight:600;font-size:11px;color:var(--white)}
-.modal-dl{display:inline-flex;align-items:center;gap:8px;
-  background:var(--brand);color:var(--void);font-family:var(--ff);
-  font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-  padding:11px 22px;border-radius:2px;text-decoration:none;transition:background .14s}
-.modal-dl:hover{background:var(--brand-hi)}
-
-/* Fade in animation */
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+/* Fade in */
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .hero-content>*{animation:fadeUp .65s ease both}
 .hero-content>*:nth-child(1){animation-delay:.06s}
 .hero-content>*:nth-child(2){animation-delay:.14s}
@@ -261,24 +225,24 @@ section{border-bottom:1px solid var(--border)}
 .hero-content>*:nth-child(4){animation-delay:.30s}
 .hero-content>*:nth-child(5){animation-delay:.38s}
 
-/* ── RESPONSIVE ── */
 @media(max-width:1000px){
   .prod-grid{grid-template-columns:repeat(2,1fr)}
   .site-footer{grid-template-columns:1fr 1fr}
+  .hero-graphic{width:340px;height:340px;right:1%}
 }
-@media(max-width:700px){
+@media(max-width:680px){
   .nav{padding:0 20px}
   .nav-links{display:none}
-  .nav-toggle{display:block}
+  .nav-toggle{display:flex}
   .hero{padding:90px 20px 60px}
   .section-inner{padding:60px 20px}
   .prod-grid,.why-grid,.compat-grid{grid-template-columns:1fr}
   .cta-band{padding:60px 20px}
   .site-footer{grid-template-columns:1fr;padding:40px 20px 24px}
   .footer-bottom{padding:14px 20px}
-  .hero-stats{gap:16px}
+  .hero-stats{gap:14px}
   .stat{border:none;padding:0;margin:0}
-  .modal-cols{grid-template-columns:1fr}
+  .hero-graphic{display:none}
 }
 </style>
 </head>
@@ -307,21 +271,78 @@ section{border-bottom:1px solid var(--border)}
 <!-- HERO -->
 <div class="hero">
   <div class="hero-grid"></div>
-  <div class="hero-rings">
-    <div class="ring" style="width:80px;height:80px;border-color:rgba(76,204,128,.07)"></div>
-    <div class="ring" style="width:180px;height:180px;border-color:rgba(76,204,128,.055)"></div>
-    <div class="ring" style="width:290px;height:290px;border-color:rgba(76,204,128,.038)"></div>
-    <div class="ring" style="width:410px;height:410px;border-color:rgba(76,204,128,.024)"></div>
-    <div class="ring" style="width:530px;height:530px;border-color:rgba(76,204,128,.014)"></div>
-    <div class="hero-cross-h"></div>
-    <div class="hero-cross-v"></div>
-    <div class="sweep"></div>
+  <div class="hero-glow"></div>
+
+  <!-- Crosshair + crane hook graphic -->
+  <div class="hero-graphic">
+    <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer circle -->
+      <circle cx="240" cy="240" r="220" stroke="#008B9A" stroke-width="1"/>
+      <!-- Inner circles -->
+      <circle cx="240" cy="240" r="160" stroke="#008B9A" stroke-width="0.75" opacity="0.7"/>
+      <circle cx="240" cy="240" r="80" stroke="#008B9A" stroke-width="0.75" opacity="0.5"/>
+      <circle cx="240" cy="240" r="24" stroke="#008B9A" stroke-width="1" opacity="0.8"/>
+
+      <!-- Crosshair lines — full width -->
+      <line x1="0" y1="240" x2="480" y2="240" stroke="#008B9A" stroke-width="0.75" opacity="0.6"/>
+      <line x1="240" y1="0" x2="240" y2="480" stroke="#008B9A" stroke-width="0.75" opacity="0.6"/>
+
+      <!-- 45 degree tick marks on outer ring -->
+      <line x1="240" y1="18" x2="240" y2="38" stroke="#008B9A" stroke-width="1.5"/>
+      <line x1="240" y1="442" x2="240" y2="462" stroke="#008B9A" stroke-width="1.5"/>
+      <line x1="18" y1="240" x2="38" y2="240" stroke="#008B9A" stroke-width="1.5"/>
+      <line x1="442" y1="240" x2="462" y2="240" stroke="#008B9A" stroke-width="1.5"/>
+
+      <!-- Corner bracket decorators -->
+      <path d="M60 60 L60 30 L30 30" stroke="#008B9A" stroke-width="1" fill="none" opacity="0.5"/>
+      <path d="M420 60 L420 30 L450 30" stroke="#008B9A" stroke-width="1" fill="none" opacity="0.5"/>
+      <path d="M60 420 L60 450 L30 450" stroke="#008B9A" stroke-width="1" fill="none" opacity="0.5"/>
+      <path d="M420 420 L420 450 L450 450" stroke="#008B9A" stroke-width="1" fill="none" opacity="0.5"/>
+
+      <!-- Crane beam / runway at top -->
+      <line x1="100" y1="80" x2="380" y2="80" stroke="#008B9A" stroke-width="3" stroke-linecap="round"/>
+      <!-- Trolley -->
+      <rect x="215" y="70" width="50" height="18" rx="3" stroke="#008B9A" stroke-width="1.5" fill="none"/>
+      <!-- Hoist rope -->
+      <line x1="240" y1="88" x2="240" y2="190" stroke="#008B9A" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Hook shank -->
+      <line x1="240" y1="190" x2="240" y2="220" stroke="#008B9A" stroke-width="2" stroke-linecap="round"/>
+      <!-- Hook curve — the C shape -->
+      <path d="M240 220 C240 220, 240 256, 224 260 C210 264, 204 254, 207 244 C210 234, 220 234, 228 242"
+            stroke="#008B9A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Hook tip dot — sits at crosshair centre -->
+      <circle cx="240" cy="240" r="5" fill="#008B9A"/>
+
+      <!-- Runway end stops -->
+      <line x1="100" y1="72" x2="100" y2="88" stroke="#008B9A" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      <line x1="380" y1="72" x2="380" y2="88" stroke="#008B9A" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+      <!-- Range tick labels -->
+      <text x="248" y="36" font-family="Share Tech Mono,monospace" font-size="10" fill="#008B9A" opacity="0.6">0°</text>
+      <text x="248" y="468" font-family="Share Tech Mono,monospace" font-size="10" fill="#008B9A" opacity="0.6">180°</text>
+      <text x="454" y="244" font-family="Share Tech Mono,monospace" font-size="10" fill="#008B9A" opacity="0.6">90°</text>
+      <text x="6" y="244" font-family="Share Tech Mono,monospace" font-size="10" fill="#008B9A" opacity="0.6">270°</text>
+
+      <!-- Small data readout boxes — instrument panel feel -->
+      <rect x="300" y="300" width="80" height="28" rx="2" stroke="#008B9A" stroke-width="0.75" fill="#008B9A0a"/>
+      <text x="308" y="312" font-family="Share Tech Mono,monospace" font-size="7" fill="#008B9A" opacity="0.7">LOAD</text>
+      <text x="308" y="322" font-family="Share Tech Mono,monospace" font-size="8" fill="#008B9A" font-weight="bold">0.00 t</text>
+
+      <rect x="100" y="300" width="80" height="28" rx="2" stroke="#008B9A" stroke-width="0.75" fill="#008B9A0a"/>
+      <text x="108" y="312" font-family="Share Tech Mono,monospace" font-size="7" fill="#008B9A" opacity="0.7">SWAY</text>
+      <text x="108" y="322" font-family="Share Tech Mono,monospace" font-size="8" fill="#008B9A" font-weight="bold">0.0°</text>
+
+      <rect x="300" y="140" width="80" height="28" rx="2" stroke="#008B9A" stroke-width="0.75" fill="#008B9A0a"/>
+      <text x="308" y="152" font-family="Share Tech Mono,monospace" font-size="7" fill="#008B9A" opacity="0.7">STATUS</text>
+      <text x="308" y="162" font-family="Share Tech Mono,monospace" font-size="8" fill="#4ccc80" font-weight="bold">NOMINAL</text>
+    </svg>
   </div>
+
   <div class="hero-content">
-    <div class="hero-eyebrow">Overhead Crane Technology</div>
+    <div class="hero-eyebrow">Overhead Crane Technology · UK / Ireland / EU</div>
     <div class="hero-wm"><span class="crane">crane</span><span class="iq">IQ</span></div>
-    <div class="hero-headline">Intelligent control, automation<br>and monitoring for any crane.</div>
-    <div class="hero-body">craneIQ brings advanced automation, safety, and monitoring technology to any overhead crane — new or existing. A modular product family engineered in the West Midlands, UK.</div>
+    <div class="hero-headline">Make any overhead crane<br>smarter, safer, and more productive.</div>
+    <div class="hero-body">craneIQ sits alongside your existing crane controls — adding intelligence without replacing what already works. No proprietary lock-in, no specialist engineers, no rip-and-replace. Proven in galvanizing plants, steel mills, foundries, and other harsh industrial environments for years.</div>
     <div class="hero-actions">
       <a href="#products" class="btn btn-primary">Explore Products</a>
       <a href="#contact" class="btn btn-secondary">Contact Us</a>
@@ -329,8 +350,8 @@ section{border-bottom:1px solid var(--border)}
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">8</div><div class="stat-lbl">Products</div></div>
       <div class="stat"><div class="stat-num">Any</div><div class="stat-lbl">Crane — new or retrofit</div></div>
-      <div class="stat"><div class="stat-num">UK</div><div class="stat-lbl">Engineered, West Midlands</div></div>
-      <div class="stat"><div class="stat-num">24/7</div><div class="stat-lbl">Remote support</div></div>
+      <div class="stat"><div class="stat-num">No</div><div class="stat-lbl">Proprietary lock-in</div></div>
+      <div class="stat"><div class="stat-num">UK</div><div class="stat-lbl">Engineered & supported</div></div>
     </div>
   </div>
 </div>
@@ -338,9 +359,9 @@ section{border-bottom:1px solid var(--border)}
 <!-- PRODUCTS -->
 <section id="products">
   <div class="section-inner">
-    <div class="sec-eyebrow">Product Family</div>
+    <div class="sec-tag">Product Family</div>
     <div class="sec-title">Eight products.<br>One intelligent system.</div>
-    <div class="sec-sub">Each craneIQ product works standalone or as part of a complete system. All can be retrofitted to any existing crane. Click any product to learn more.</div>
+    <div class="sec-sub">Each craneIQ product sits alongside your existing crane controls — adding a specific capability without replacing anything. Start with one, add more when you need them.</div>
     <div class="prod-grid" id="prodGrid"></div>
   </div>
 </section>
@@ -348,39 +369,39 @@ section{border-bottom:1px solid var(--border)}
 <!-- WHY -->
 <section id="why" style="background:var(--panel)">
   <div class="section-inner">
-    <div class="sec-eyebrow">Why craneIQ</div>
-    <div class="sec-title">Built for the real world<br>of overhead cranes.</div>
-    <div class="sec-sub">craneIQ products are developed by engineers with deep experience in overhead crane systems. Every feature solves a real operational problem.</div>
+    <div class="sec-tag">Why craneIQ</div>
+    <div class="sec-title">Intelligence that sits alongside<br>what you already have.</div>
+    <div class="sec-sub">craneIQ is different from traditional crane technology suppliers. We don't ask you to replace your crane, your controls, or your way of working.</div>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-num">01</div>
-        <div class="why-title">Retrofit to any crane</div>
-        <div class="why-body">All craneIQ products are designed to fit any overhead crane regardless of age or manufacturer. No crane replacement required — protect your existing investment.</div>
+        <div class="why-title">No proprietary lock-in</div>
+        <div class="why-body">craneIQ products use open architecture that works with any manufacturer's controls. Your engineers can interrogate and maintain the system without specialist support or manufacturer permission.</div>
       </div>
       <div class="why-card">
         <div class="why-num">02</div>
-        <div class="why-title">No complex programming</div>
-        <div class="why-body">craneIQ Automation uses a teach-and-replay system like robot programming. Drive the crane, record the path, replay on command. No specialist engineers needed.</div>
+        <div class="why-title">Proven in the harshest environments</div>
+        <div class="why-body">Galvanizing plants, steel mills, foundries, automotive lines — craneIQ has been running reliably in some of the most demanding industrial environments for years. Not just rated for it. Proven in it.</div>
       </div>
       <div class="why-card">
         <div class="why-num">03</div>
-        <div class="why-title">Modular by design</div>
-        <div class="why-body">Start with one product and add more over time. Core, Automation, Monitoring, and Cloud are designed to integrate seamlessly when deployed together.</div>
+        <div class="why-title">Operators perform immediately</div>
+        <div class="why-body">Operators with limited training can move loads with dramatically less sway, position accurately, and work safely from day one. craneIQ Antisway and Automation remove the dependency on years of operator experience.</div>
       </div>
       <div class="why-card">
         <div class="why-num">04</div>
-        <div class="why-title">Real-time cloud visibility</div>
-        <div class="why-body">craneIQ Cloud puts live condition monitoring data in your browser or phone. Email and SMS alerts. Remote access for support and software updates — no site visit needed.</div>
+        <div class="why-title">Keeps cranes running</div>
+        <div class="why-body">craneIQ Monitoring gives engineering teams the data to diagnose problems early — before unplanned downtime occurs. Every lift recorded, design life tracked, vibration monitored continuously.</div>
       </div>
       <div class="why-card">
         <div class="why-num">05</div>
-        <div class="why-title">Protect cranes and people</div>
-        <div class="why-body">From side pull prevention with craneIQ Vision to collision avoidance with craneIQ Zoning — craneIQ products are built around safety outcomes, not just features.</div>
+        <div class="why-title">Prevents incidents — proven</div>
+        <div class="why-body">craneIQ Vision has stopped real snag and side pull events on working cranes. craneIQ Zoning prevents collisions with buildings, other cranes, and floor-level equipment automatically.</div>
       </div>
       <div class="why-card">
         <div class="why-num">06</div>
-        <div class="why-title">UK engineered, 24/7 supported</div>
-        <div class="why-body">Designed and built in the West Midlands. Remote access support available around the clock for diagnostics, software updates, and technical assistance.</div>
+        <div class="why-title">UK engineered, remotely supported</div>
+        <div class="why-body">Designed and built in the West Midlands. When something needs attention, the craneIQ team can connect remotely to diagnose and resolve — no engineer travelling to site, no waiting.</div>
       </div>
     </div>
   </div>
@@ -389,23 +410,24 @@ section{border-bottom:1px solid var(--border)}
 <!-- COMPATIBILITY -->
 <section id="compatibility">
   <div class="section-inner">
-    <div class="sec-eyebrow">Compatibility</div>
-    <div class="sec-title">Works with what<br>you already have.</div>
-    <div class="sec-sub">craneIQ products integrate with existing crane systems and common industrial protocols — no rip-and-replace required.</div>
+    <div class="sec-tag">Compatibility</div>
+    <div class="sec-title">Fits what you have.<br>Works the way you work.</div>
+    <div class="sec-sub">craneIQ products sit between the operator and the existing crane controller. No rip-and-replace, no major rewiring, no changes to the crane structure.</div>
     <div class="compat-grid">
       <div class="compat-cell">
-        <div class="compat-title">New or existing crane</div>
-        <div class="compat-body">Every craneIQ product can be retrofitted to any overhead crane, regardless of age, manufacturer, or existing control system. craneIQ Core replaces or supplements existing hoist controllers with no changes to the crane structure.</div>
+        <div class="compat-title">Any crane, any age</div>
+        <div class="compat-body">Every craneIQ product works alongside any overhead crane regardless of age, manufacturer, or existing control system. craneIQ Core sits between the operator and the existing hoist controller. craneIQ Antisway needs only the VFDs already on your crane. Nothing needs to be replaced.</div>
         <div class="tags">
           <span class="tag">New cranes</span>
           <span class="tag">Retrofit</span>
           <span class="tag">Any manufacturer</span>
           <span class="tag">Any age</span>
+          <span class="tag">No lock-in</span>
         </div>
       </div>
-      <div class="compat-cell" style="background:var(--console)">
-        <div class="compat-title">Industrial protocols</div>
-        <div class="compat-body">craneIQ products communicate using standard industrial automation protocols. Connect to existing PLCs, SCADA systems, and MES platforms. craneIQ Cloud integrates with your monitoring infrastructure.</div>
+      <div class="compat-cell">
+        <div class="compat-title">Open architecture</div>
+        <div class="compat-body">craneIQ uses standard industrial protocols and open data formats. Connect to existing PLCs, SCADA systems, and MES platforms. Your engineers and third-party maintenance teams can work with it without manufacturer involvement.</div>
         <div class="tags">
           <span class="tag">EtherNet/IP</span>
           <span class="tag">Modbus TCP</span>
@@ -419,19 +441,19 @@ section{border-bottom:1px solid var(--border)}
   </div>
 </section>
 
-<!-- CTA / CONTACT -->
+<!-- CTA -->
 <div class="cta-band" id="contact">
-  <div class="sec-eyebrow" style="justify-content:center">Get Started</div>
-  <div class="sec-title" style="text-align:center">Ready to upgrade<br>your crane?</div>
-  <div class="sec-sub" style="text-align:center;margin:0 auto 32px">Talk to the craneIQ team about which products are right for your application. We cover new installations and retrofit to any existing crane.</div>
+  <div class="sec-tag" style="justify-content:center">Get in Touch</div>
+  <div class="sec-title" style="text-align:center">Talk to us about<br>your crane application.</div>
+  <div class="sec-sub" style="text-align:center;margin:0 auto 32px">We work with plant managers, engineering teams, and crane partners across the UK, Ireland and EU. Tell us what you're trying to achieve.</div>
   <div class="cta-actions">
     <a href="mailto:joe@pointnode.io" class="btn btn-primary">Email Us</a>
     <a href="https://craneiq.co.uk/contact-us" class="btn btn-secondary">Contact Form</a>
   </div>
-  <div class="cta-contact-line" style="margin-top:20px">
+  <div class="cta-note">
     <a href="mailto:joe@pointnode.io">joe@pointnode.io</a>
     &nbsp;·&nbsp; West Midlands, UK
-    &nbsp;·&nbsp; <a href="https://craneiq.co.uk">craneiq.co.uk</a>
+    &nbsp;·&nbsp; craneiq.co.uk
   </div>
 </div>
 
@@ -447,14 +469,14 @@ section{border-bottom:1px solid var(--border)}
   </div>
   <div class="footer-col">
     <h4>Products</h4>
-    <a href="#products" onclick="openModal('core')">craneIQ Core</a>
-    <a href="#products" onclick="openModal('automation')">craneIQ Automation</a>
-    <a href="#products" onclick="openModal('monitoring')">craneIQ Monitoring</a>
-    <a href="#products" onclick="openModal('cloud')">craneIQ Cloud</a>
-    <a href="#products" onclick="openModal('vision')">craneIQ Vision</a>
-    <a href="#products" onclick="openModal('antisway')">craneIQ Antisway</a>
-    <a href="#products" onclick="openModal('zoning')">craneIQ Zoning</a>
-    <a href="#products" onclick="openModal('loadtrack')">craneIQ LoadTrack</a>
+    <a href="datasheets/craneiq-core.html">craneIQ Core</a>
+    <a href="datasheets/craneiq-automation.html">craneIQ Automation</a>
+    <a href="datasheets/craneiq-monitoring.html">craneIQ Monitoring</a>
+    <a href="datasheets/craneiq-cloud.html">craneIQ Cloud</a>
+    <a href="datasheets/craneiq-vision.html">craneIQ Vision</a>
+    <a href="datasheets/craneiq-antisway.html">craneIQ Antisway</a>
+    <a href="datasheets/craneiq-zoning.html">craneIQ Zoning</a>
+    <a href="datasheets/craneiq-loadtrack.html">craneIQ LoadTrack</a>
   </div>
   <div class="footer-col">
     <h4>Company</h4>
@@ -464,116 +486,103 @@ section{border-bottom:1px solid var(--border)}
     <a href="https://pointnode.io">Pointnode Ltd</a>
   </div>
   <div class="footer-col">
-    <h4>Datasheets</h4>
-    <a href="assets/datasheets/craneiq-core-datasheet.pdf" target="_blank">Core</a>
-    <a href="assets/datasheets/craneiq-automation-datasheet.pdf" target="_blank">Automation</a>
-    <a href="assets/datasheets/craneiq-monitoring-datasheet.pdf" target="_blank">Monitoring</a>
-    <a href="assets/datasheets/craneiq-cloud-datasheet.pdf" target="_blank">Cloud</a>
-    <a href="assets/datasheets/craneiq-vision-datasheet.pdf" target="_blank">Vision</a>
-    <a href="assets/datasheets/craneiq-antisway-datasheet.pdf" target="_blank">Antisway</a>
-    <a href="assets/datasheets/craneiq-zoning-datasheet.pdf" target="_blank">Zoning</a>
-    <a href="assets/datasheets/craneiq-loadtrack-datasheet.pdf" target="_blank">LoadTrack</a>
+    <h4>Industries</h4>
+    <a href="#products">Galvanizing</a>
+    <a href="#products">Steel & Metals</a>
+    <a href="#products">Automotive</a>
+    <a href="#products">Waste to Energy</a>
+    <a href="#products">Foundries</a>
+    <a href="#products">Manufacturing</a>
   </div>
 </footer>
 <div class="footer-bottom">
   <p>© 2025 Pointnode Ltd · craneIQ is a product of Pointnode Ltd · West Midlands, UK</p>
-  <p>craneiq.co.uk</p>
-</div>
-
-<!-- PRODUCT MODALS -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
-  <div class="modal" id="modal">
-    <div class="modal-bar" id="modalBar"></div>
-    <div class="modal-inner">
-      <button class="modal-close" onclick="closeModal()">✕</button>
-      <div id="modalContent"></div>
-    </div>
-  </div>
+  <p>craneiq.co.uk · UK / Ireland / EU</p>
 </div>
 
 <script>
 const products = [
-  { id:'core',       name:'Core',       code:'CIQ-COR', model:'CIQ-C1',  accent:'#008B9A',
-    tagline:'The intelligent hoist & trolley controller',
-    desc:'craneIQ Core is a hoist and trolley controller with built-in load protection functions — slack rope, shock load, and side pull detection. It includes condition monitoring with a load spectrum recorder and Design Working Period calculator. Anti-sway control is available for travel movements. Fits any overhead crane, new or existing.',
-    features:['Slack rope detection and protection','Shock load protection','Side pull detection','Load spectrum recorder','DWP calculator','Anti-sway for travel movements','Tandem hoist monitoring','New and retrofit installations'],
-    specs:[['Supply voltage','24V DC'],['Protocol','EtherNet/IP'],['Mounting','DIN Rail'],['IP Rating','IP20'],['I/O','24 in / 16 out'],['Operating temp','-10 to +55°C']],
-    topFeatures:['Slack rope protection','Load spectrum recorder','Anti-sway for travel'] },
-  { id:'automation', name:'Automation', code:'CIQ-AUT', model:'CIQ-A1',  accent:'#4488cc',
-    tagline:'Recipe-based plug-and-play crane automation',
-    desc:'craneIQ Automation automates crane systems using a standard recipe-based system. Operators teach movements by driving the crane — the system records the path and replays it on command, like robot teach programming for overhead cranes. No specialist engineers required. Includes built-in anti-sway and condition monitoring.',
-    features:['Recipe-based automation','Teach and replay programming','No specialist engineering','Built-in anti-sway','Condition monitoring included','Any crane control system','Eliminates programming time','New and retrofit'],
-    specs:[['Supply voltage','24V DC'],['I/O','32 in / 24 out'],['Communications','EtherNet/IP, Modbus'],['Programming','Teach / recipe'],['Mounting','DIN Rail'],['Operating temp','-10 to +55°C']],
-    topFeatures:['Teach & replay programming','Built-in anti-sway','No specialist engineers'] },
-  { id:'monitoring', name:'Monitoring', code:'CIQ-MON', model:'CIQ-M1',  accent:'#8855dd',
-    tagline:'Standalone crane health monitoring',
-    desc:'craneIQ Monitoring is a standalone condition monitoring system that can be added to any overhead crane without affecting its existing control system. It continuously records load spectrum data, calculates DWP consumption, logs hours run, operations count, and monitors vibration.',
-    features:['Load spectrum recorder','DWP calculator','Hours run logging','Operations counter','Vibration monitoring','Historical data trending','32 GB local storage','No control system changes'],
-    specs:[['Supply voltage','12-24V DC'],['Storage','32 GB flash'],['Sensors','Load, vibration, encoder'],['Output','USB / cloud'],['Mounting','DIN Rail or panel'],['Operating temp','-10 to +55°C']],
-    topFeatures:['Load spectrum recorder','DWP calculator','Vibration monitoring'] },
-  { id:'cloud',      name:'Cloud',      code:'CIQ-CLD', model:'CIQ-K1',  accent:'#2299bb',
-    tagline:'Remote visibility and alerts anywhere',
-    desc:'craneIQ Cloud provides a live dashboard of all condition monitoring data. Configurable alerts and alarms delivered via email and SMS when thresholds are exceeded. Remote access for diagnostics and software updates without a site visit.',
-    features:['Live cloud dashboard','Email alerts','SMS alarm notifications','Remote diagnostics','Remote software updates','Multi-site management','Role-based access','5-year data retention'],
-    specs:[['Connectivity','4G / WiFi / Ethernet'],['Access','Web, iOS, Android'],['Alerts','Email & SMS'],['Data retention','5 years'],['Users','Unlimited'],['Uptime SLA','99.9%']],
-    topFeatures:['Live cloud dashboard','Email & SMS alerts','Remote diagnostics'] },
-  { id:'vision',     name:'Vision',     code:'CIQ-VIS', model:'CIQ-V1',  accent:'#009966',
-    tagline:'Hook tracking and snag prevention',
-    desc:'craneIQ Vision is a camera-based hook tracking system that detects and prevents side pull and snag events in real time. Auto-centre function positions the hook directly above the load before lifting. Protects crane, load, and operator.',
-    features:['Real-time hook tracking','Side pull prevention','Snag event prevention','Auto hook centring','Operator safety alerts','Any hoist type','IP67 camera unit','New and retrofit'],
-    specs:[['Resolution','4K / 30fps'],['Camera IP','IP67'],['Supply','12-24V DC'],['Interface','PoE / WiFi'],['Detection range','Up to 12m'],['Response time','< 20ms']],
-    topFeatures:['Side pull prevention','Snag detection','Auto hook centring'] },
-  { id:'antisway',   name:'Antisway',   code:'CIQ-ASW', model:'CIQ-S1',  accent:'#cc7700',
-    tagline:'Retrofit anti-sway — no special sensors',
-    desc:'craneIQ Antisway retrofits to any crane with VFDs on travel motions. No special sensors, encoders, or cameras required. Open-loop algorithm minimises load swing on any number of axes. Commissions in less than one day.',
-    features:['No sensors or encoders','Existing VFDs only','Single or multi-axis','Reduces load swing','Improves cycle time','< 1 day commissioning','All major VFD brands','New and retrofit'],
-    specs:[['Requirement','VFDs on travel'],['Axes','1, 2 or 3'],['Supply','24V DC'],['Commissioning','< 1 day'],['VFD interface','Analogue / fieldbus'],['Operating temp','-10 to +55°C']],
-    topFeatures:['No special sensors','Any number of axes','< 1 day to commission'] },
-  { id:'zoning',     name:'Zoning',     code:'CIQ-ZON', model:'CIQ-Z1',  accent:'#cc3344',
-    tagline:'No-fly zones and collision prevention',
-    desc:'craneIQ Zoning prevents cranes entering configured no-fly zones or colliding with buildings, other cranes, or floor-level machinery. Automatic deceleration and stop before restricted areas. Works at crane level and floor level.',
-    features:['Configurable no-fly zones','Multi-crane collision prevention','Floor-level protection','Crane-level protection','Auto deceleration & stop','Visual & audible warnings','Unlimited zones','New and retrofit'],
-    specs:[['Zones','Unlimited'],['Detection','Laser, encoder, RFID'],['Supply','24V DC'],['Response time','< 50ms'],['Outputs','Safe stop relay'],['Operating temp','-10 to +55°C']],
-    topFeatures:['Configurable no-fly zones','Multi-crane anti-collision','Auto deceleration & stop'] },
-  { id:'loadtrack',  name:'LoadTrack',  code:'CIQ-LTK', model:'CIQ-L1',  accent:'#cc9900',
-    tagline:'Load logging and wireless weight display',
-    desc:'craneIQ LoadTrack logs every lift and displays live weights on wireless displays anywhere in the factory. Also logs process cycles — ideal for galvanising, waste-to-energy, or any process where crane lift data drives production records or billing.',
-    features:['Continuous load logging','Wireless weight displays','Displays within 100m','Process cycle logging','Galvanising compatible','Waste-to-energy tracking','Historical lift reports','CSV / cloud / Modbus output'],
-    specs:[['Display range','Up to 100m'],['Accuracy','±0.5%'],['Supply','12-24V DC'],['Output','CSV / cloud / Modbus'],['Log storage','5 years'],['Operating temp','-10 to +55°C']],
-    topFeatures:['Wireless weight displays','Process cycle logging','Historical lift reports'] },
+  { id:'core',       name:'Core',       accent:'#008B9A', icon:'core',
+    tagline:'Makes any crane smarter — protects loads, records every lift, tracks crane health.',
+    features:['Prevents slack rope & shock loads','Stops side pull before damage occurs','Records every lift automatically','Tracks crane design life (DWP)','Anti-sway on travel movements'] },
+  { id:'automation', name:'Automation', accent:'#4488cc', icon:'automation',
+    tagline:'Automate crane cycles with teach-and-replay — no code, no specialist engineers.',
+    features:['Teach & replay — no programming','Recipe-based automation','Operators perform immediately','Built-in anti-sway included','Commission in less than a day'] },
+  { id:'monitoring', name:'Monitoring', accent:'#8855dd', icon:'monitoring',
+    tagline:'Standalone crane health monitoring — diagnose problems before they cause downtime.',
+    features:['Diagnose problems early','Load spectrum recorded continuously','Design life (DWP) tracked','Vibration monitoring','No changes to existing controls'] },
+  { id:'cloud',      name:'Cloud',      accent:'#2299bb', icon:'cloud',
+    tagline:'Live crane data in your browser — email and SMS alerts, remote support anywhere.',
+    features:['Live dashboard on any device','Email & SMS threshold alerts','Remote diagnostics — no site visit','Multi-site crane overview','5-year data retention'] },
+  { id:'vision',     name:'Vision',     accent:'#009966', icon:'vision',
+    tagline:'Camera-based hook tracking that stops snags and side pulls before they happen.',
+    features:['Stops side pull events','Prevents snag incidents','Proven in the field','Auto hook centring','IP67 camera for harsh environments'] },
+  { id:'antisway',   name:'Antisway',   accent:'#cc7700', icon:'antisway',
+    tagline:'Dramatically reduces load swing — no sensors, just the VFDs you already have.',
+    features:['No sensors or encoders needed','Dramatic reduction in swing','Operators with any experience level','Improves safety & cycle times','Commissions in less than a day'] },
+  { id:'zoning',     name:'Zoning',     accent:'#cc3344', icon:'zoning',
+    tagline:'Keeps cranes out of restricted areas — automatically, without relying on operators.',
+    features:['Software-defined no-fly zones','Multi-crane collision prevention','Protects buildings & structures','Floor-level machine & personnel zones','Smooth auto deceleration & stop'] },
+  { id:'loadtrack',  name:'LoadTrack',  accent:'#cc9900', icon:'loadtrack',
+    tagline:'Weighs and logs every lift automatically — with wireless displays anywhere in the factory.',
+    features:['Every lift weighed & recorded','Wireless displays up to 100m','Galvanizing cycle logging','Waste to energy tracking','Replace manual weight recording'] },
 ];
 
-const iconPaths = {
-  core:`<rect x="4" y="14" width="24" height="12" rx="2" stroke="{c}" stroke-width="1.4" fill="none"/><circle cx="16" cy="20" r="4" stroke="{c}" stroke-width="1.2" fill="none"/><circle cx="16" cy="20" r="1.3" fill="{c}"/><line x1="16" y1="4" x2="16" y2="14" stroke="{c}" stroke-width="1.4" stroke-linecap="round"/><line x1="8" y1="4" x2="24" y2="4" stroke="{c}" stroke-width="1.8" stroke-linecap="round" opacity=".4"/>`,
-  automation:`<path d="M16 3 L28 10 L28 22 L16 29 L4 22 L4 10 Z" stroke="{c}" stroke-width="1.4" fill="none"/><path d="M13 12 L22 16 L13 20 Z" stroke="{c}" stroke-width="1.2" fill="{c}44" stroke-linejoin="round"/>`,
-  monitoring:`<rect x="3" y="20" width="5" height="9" rx="1" stroke="{c}" stroke-width="1.2" fill="{c}22"/><rect x="10" y="15" width="5" height="14" rx="1" stroke="{c}" stroke-width="1.2" fill="{c}22"/><rect x="17" y="10" width="5" height="19" rx="1" stroke="{c}" stroke-width="1.2" fill="{c}22"/><rect x="24" y="6" width="5" height="23" rx="1" stroke="{c}" stroke-width="1.2" fill="{c}22"/><polyline points="5.5,19 12.5,14 19.5,9 26.5,5" stroke="{c}" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>`,
-  cloud:`<path d="M22 22 H10 C7 22 5 20 5 17.5 C5 15 7 13 9.5 13 C9.2 12.4 9 11.7 9 11 C9 8.2 11.2 6 14 6 C16.3 6 18.2 7.5 18.8 9.5 C19.2 9.2 19.6 9 20 9 C22.2 9 24 10.8 24 13 C26.2 13.4 28 15.4 28 17.8 C28 20.2 26.2 22 24 22 Z" stroke="{c}" stroke-width="1.4" fill="none"/><line x1="16" y1="24" x2="16" y2="29" stroke="{c}" stroke-width="1.3" stroke-linecap="round" opacity=".6"/><line x1="12" y1="27" x2="20" y2="27" stroke="{c}" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>`,
-  vision:`<rect x="4" y="10" width="20" height="14" rx="2" stroke="{c}" stroke-width="1.4" fill="none"/><path d="M24 13.5 L30 10.5 L30 22.5 L24 19.5" stroke="{c}" stroke-width="1.4" fill="none" stroke-linejoin="round"/><line x1="14" y1="11" x2="14" y2="23" stroke="{c}" stroke-width=".8" opacity=".4"/><line x1="4" y1="17" x2="24" y2="17" stroke="{c}" stroke-width=".8" opacity=".4"/><circle cx="14" cy="17" r="2.5" stroke="{c}" stroke-width="1.1" fill="none"/>`,
-  antisway:`<line x1="16" y1="3" x2="16" y2="10" stroke="{c}" stroke-width="1.4" stroke-linecap="round"/><line x1="6" y1="3" x2="26" y2="3" stroke="{c}" stroke-width="1.8" stroke-linecap="round" opacity=".4"/><path d="M16 10 Q24 18 20 26" stroke="{c}" stroke-width="1.4" fill="none" stroke-linecap="round"/><path d="M16 10 Q8 18 12 26" stroke="{c}" stroke-width="1.1" fill="none" stroke-linecap="round" opacity=".4" stroke-dasharray="2 2"/><circle cx="20" cy="26" r="2.5" stroke="{c}" stroke-width="1.3" fill="{c}33"/>`,
-  zoning:`<rect x="4" y="4" width="24" height="24" rx="2" stroke="{c}" stroke-width="1.4" fill="none" stroke-dasharray="3 2"/><line x1="12" y1="12" x2="20" y2="20" stroke="{c}" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="12" x2="12" y2="20" stroke="{c}" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="6" stroke="{c}" stroke-width="1.2" fill="none"/>`,
-  loadtrack:`<line x1="4" y1="9" x2="28" y2="9" stroke="{c}" stroke-width="1.4" stroke-linecap="round"/><line x1="16" y1="5" x2="16" y2="9" stroke="{c}" stroke-width="1.4" stroke-linecap="round"/><path d="M4 9 C4 9,2 16,7 18 C11 20,13 18,13 18 C13 18,15 15,13 9" stroke="{c}" stroke-width="1.2" fill="none" opacity=".8"/><path d="M28 9 C28 9,30 16,25 18 C21 20,19 18,19 18 C19 18,17 15,19 9" stroke="{c}" stroke-width="1.2" fill="none" opacity=".8"/><circle cx="20" cy="25" r="1.2" fill="{c}"/>`,
+const icons = {
+  core:`<rect x="4" y="14" width="24" height="12" rx="2" stroke="{c}" stroke-width="1.4" fill="none"/>
+    <circle cx="16" cy="20" r="4" stroke="{c}" stroke-width="1.2" fill="none"/>
+    <circle cx="16" cy="20" r="1.3" fill="{c}"/>
+    <line x1="16" y1="4" x2="16" y2="14" stroke="{c}" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="8" y1="4" x2="24" y2="4" stroke="{c}" stroke-width="1.8" stroke-linecap="round" opacity=".4"/>`,
+  automation:`<path d="M16 3 L28 10 L28 22 L16 29 L4 22 L4 10 Z" stroke="{c}" stroke-width="1.4" fill="none"/>
+    <path d="M13 12 L22 16 L13 20 Z" stroke="{c}" stroke-width="1.2" fill="{c}44" stroke-linejoin="round"/>`,
+  monitoring:`<rect x="3" y="20" width="5" height="9" rx="1" stroke="{c}" stroke-width="1.2" fill="{c}22"/>
+    <rect x="10" y="15" width="5" height="14" rx="1" stroke="{c}" stroke-width="1.2" fill="{c}22"/>
+    <rect x="17" y="10" width="5" height="19" rx="1" stroke="{c}" stroke-width="1.2" fill="{c}22"/>
+    <rect x="24" y="6" width="5" height="23" rx="1" stroke="{c}" stroke-width="1.2" fill="{c}22"/>
+    <polyline points="5.5,19 12.5,14 19.5,9 26.5,5" stroke="{c}" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>`,
+  cloud:`<path d="M22 22 H10 C7 22 5 20 5 17.5 C5 15 7 13 9.5 13 C9.2 12.4 9 11.7 9 11 C9 8.2 11.2 6 14 6 C16.3 6 18.2 7.5 18.8 9.5 C19.2 9.2 19.6 9 20 9 C22.2 9 24 10.8 24 13 C26.2 13.4 28 15.4 28 17.8 C28 20.2 26.2 22 24 22 Z" stroke="{c}" stroke-width="1.4" fill="none"/>
+    <line x1="16" y1="24" x2="16" y2="29" stroke="{c}" stroke-width="1.3" stroke-linecap="round" opacity=".6"/>
+    <line x1="12" y1="27" x2="20" y2="27" stroke="{c}" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>`,
+  vision:`<rect x="4" y="10" width="20" height="14" rx="2" stroke="{c}" stroke-width="1.4" fill="none"/>
+    <path d="M24 13.5 L30 10.5 L30 22.5 L24 19.5" stroke="{c}" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+    <line x1="14" y1="11" x2="14" y2="23" stroke="{c}" stroke-width=".8" opacity=".4"/>
+    <line x1="4" y1="17" x2="24" y2="17" stroke="{c}" stroke-width=".8" opacity=".4"/>
+    <circle cx="14" cy="17" r="2.5" stroke="{c}" stroke-width="1.1" fill="none"/>`,
+  antisway:`<line x1="16" y1="3" x2="16" y2="10" stroke="{c}" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="6" y1="3" x2="26" y2="3" stroke="{c}" stroke-width="1.8" stroke-linecap="round" opacity=".4"/>
+    <path d="M16 10 Q24 18 20 26" stroke="{c}" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    <path d="M16 10 Q8 18 12 26" stroke="{c}" stroke-width="1.1" fill="none" stroke-linecap="round" opacity=".4" stroke-dasharray="2 2"/>
+    <circle cx="20" cy="26" r="2.5" stroke="{c}" stroke-width="1.3" fill="{c}33"/>`,
+  zoning:`<rect x="4" y="4" width="24" height="24" rx="2" stroke="{c}" stroke-width="1.4" fill="none" stroke-dasharray="3 2"/>
+    <line x1="12" y1="12" x2="20" y2="20" stroke="{c}" stroke-width="2" stroke-linecap="round"/>
+    <line x1="20" y1="12" x2="12" y2="20" stroke="{c}" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="16" cy="16" r="6" stroke="{c}" stroke-width="1.2" fill="none"/>`,
+  loadtrack:`<line x1="4" y1="9" x2="28" y2="9" stroke="{c}" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="16" y1="5" x2="16" y2="9" stroke="{c}" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M4 9 C4 9,2 16,7 18 C11 20,13 18,13 18 C13 18,15 15,13 9" stroke="{c}" stroke-width="1.2" fill="none" opacity=".8"/>
+    <path d="M28 9 C28 9,30 16,25 18 C21 20,19 18,19 18 C19 18,17 15,19 9" stroke="{c}" stroke-width="1.2" fill="none" opacity=".8"/>
+    <circle cx="20" cy="25" r="1.2" fill="{c}"/>`,
 };
 
-function makeSVG(id, c, size) {
-  const paths = (iconPaths[id]||'').replace(/\{c\}/g, c);
-  return `<svg viewBox="0 0 32 32" fill="none" width="${size}" height="${size}">
-    <rect x=".5" y=".5" width="31" height="31" rx="5" stroke="${c}28" fill="${c}07"/>
-    ${paths}
-  </svg>`;
-}
-
-// Build product grid
 const pg = document.getElementById('prodGrid');
 products.forEach(p => {
-  const feats = p.topFeatures.map(f=>`<li class="hi">${f}</li>`).join('') +
-    p.features.slice(3,6).map(f=>`<li>${f}</li>`).join('');
-  const el = document.createElement('a');
-  el.className = 'prod-card';
-  el.href = '#';
-  el.onclick = (e) => { e.preventDefault(); openModal(p.id); };
-  el.innerHTML = `
+  const paths = (icons[p.icon]||'').replace(/\{c\}/g, p.accent);
+  const feats = p.features.map((f,i) =>
+    `<li class="${i<3?'hi':''}">${f}</li>`
+  ).join('');
+
+  const card = document.createElement('a');
+  card.className = 'prod-card';
+  card.href = `datasheets/craneiq-${p.id}.html`;
+  card.innerHTML = `
     <div class="prod-bar" style="background:linear-gradient(90deg,transparent,${p.accent},transparent)"></div>
-    <div class="prod-icon">${makeSVG(p.id, p.accent, 34)}</div>
+    <div class="prod-icon">
+      <svg viewBox="0 0 32 32" fill="none" width="34" height="34">
+        <rect x=".5" y=".5" width="31" height="31" rx="5" stroke="${p.accent}28" fill="${p.accent}07"/>
+        ${paths}
+      </svg>
+    </div>
     <div class="prod-wm">
       <span class="crane">crane</span><span class="iq" style="color:${p.accent}">IQ</span>
       <span class="pn" style="color:${p.accent}">${p.name}</span>
@@ -581,57 +590,18 @@ products.forEach(p => {
     <div class="prod-tagline">${p.tagline}</div>
     <ul class="prod-features">${feats}</ul>
     <div class="prod-footer">
-      <span class="prod-code">${p.code}</span>
+      <span class="prod-code">${p.id === 'core' ? 'CIQ-COR' :
+        p.id === 'automation' ? 'CIQ-AUT' :
+        p.id === 'monitoring' ? 'CIQ-MON' :
+        p.id === 'cloud' ? 'CIQ-CLD' :
+        p.id === 'vision' ? 'CIQ-VIS' :
+        p.id === 'antisway' ? 'CIQ-ASW' :
+        p.id === 'zoning' ? 'CIQ-ZON' : 'CIQ-LTK'}</span>
       <span class="prod-arrow">→</span>
     </div>`;
-  pg.appendChild(el);
+  pg.appendChild(card);
 });
 
-// Modal
-function openModal(id) {
-  const p = products.find(x => x.id === id);
-  if (!p) return;
-  document.getElementById('modalBar').style.background = p.accent;
-  const specs = p.specs.map(s=>`<div class="spec-row"><span class="spec-lbl">${s[0]}</span><span class="spec-val">${s[1]}</span></div>`).join('');
-  const feats = p.features.map(f=>`<li>${f}</li>`).join('');
-  document.getElementById('modalContent').innerHTML = `
-    <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
-      ${makeSVG(p.id, p.accent, 40)}
-      <div>
-        <div class="modal-wm"><span class="crane">crane</span><span class="iq" style="color:${p.accent}">IQ</span> <span style="font-weight:400;color:${p.accent};font-size:18px">${p.name}</span></div>
-        <div class="modal-tagline">${p.tagline}</div>
-      </div>
-    </div>
-    <div class="modal-desc">${p.desc}</div>
-    <div class="modal-cols">
-      <div>
-        <div class="modal-col-title">Key Features</div>
-        <ul class="modal-features">${feats}</ul>
-      </div>
-      <div>
-        <div class="modal-col-title">Specifications</div>
-        <div class="modal-specs">${specs}</div>
-      </div>
-    </div>
-    <a href="assets/datasheets/craneiq-${id}-datasheet.pdf" target="_blank" class="modal-dl">
-      Download Datasheet ↓
-    </a>`;
-  document.getElementById('modalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function closeModalOutside(e) {
-  if (e.target === document.getElementById('modalOverlay')) closeModal();
-}
-
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-// Mobile nav
 function toggleNav() {
   document.getElementById('navMobile').classList.toggle('open');
 }
