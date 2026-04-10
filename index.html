@@ -75,33 +75,10 @@ body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:1
   width:480px;height:480px;pointer-events:none}
 .hero-graphic svg{width:100%;height:100%}
 
-/* Pendulum animation — swings then dampens to rest */
-#pendulum-group{transform-origin:240px 88px;transform-box:fill-box}
-.swinging{animation:swing 5.5s ease-in-out forwards}
-@keyframes swing{
-  0%  {transform:rotate(18deg)}
-  8%  {transform:rotate(-16deg)}
-  16% {transform:rotate(14deg)}
-  24% {transform:rotate(-11deg)}
-  32% {transform:rotate(8deg)}
-  40% {transform:rotate(-5.5deg)}
-  48% {transform:rotate(3.5deg)}
-  56% {transform:rotate(-2deg)}
-  64% {transform:rotate(1deg)}
-  72% {transform:rotate(-.4deg)}
-  80% {transform:rotate(.1deg)}
-  100%{transform:rotate(0deg)}
-}
-
-/* ANTISWAY readout fades in when swing settles */
+/* Pendulum — JS drives rotate(angle,cx,cy) directly on the SVG element */
 #antisway-label{opacity:0;transition:opacity .8s ease}
-#antisway-label.active{opacity:1}
-
-/* Status box text swap */
-#status-nominal{transition:opacity .4s}
+#status-nominal{transition:opacity .6s ease}
 #status-active{opacity:0;transition:opacity .8s ease}
-#status-active.show{opacity:1}
-#status-nominal.hide{opacity:0}
 
 .hero-content{position:relative;z-index:2;max-width:660px}
 .hero-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.3em;
@@ -688,22 +665,26 @@ function toggleNav() {
   const antisway= document.getElementById('antisway-label');
   if (!group) return;
 
-  const PIVOT_X = 240, PIVOT_Y = 88;
-  const START_AMP = 18;
-  const PERIOD = 2.4;
+  // SVG pivot point — bottom centre of trolley
+  const PX = 240, PY = 88;
+
+  // Physics params
+  const START_AMP = 18;  // degrees
+  const PERIOD    = 2.4; // seconds — realistic for ~3m rope
 
   let startTime = null;
   let settled   = false;
 
   function getAngle(t) {
-    const freeSecs  = 3.0;
-    const dampSecs  = 5.0;
+    const freeSecs = 3.0;
+    const dampSecs = 5.0;
     if (t < freeSecs) {
+      // Free swing
       return START_AMP * Math.cos((2 * Math.PI / PERIOD) * t);
     } else if (t < freeSecs + dampSecs) {
+      // Exponential dampening — antisway active
       const dt = t - freeSecs;
-      const decay = Math.exp(-dt * 1.1);
-      return START_AMP * decay * Math.cos((2 * Math.PI / PERIOD) * t);
+      return START_AMP * Math.exp(-dt * 1.1) * Math.cos((2 * Math.PI / PERIOD) * t);
     }
     return 0;
   }
@@ -713,16 +694,15 @@ function toggleNav() {
     const t = (ts - startTime) / 1000;
     const angle = getAngle(t);
 
-    group.setAttribute('transform',
-      `translate(${PIVOT_X},${PIVOT_Y}) rotate(${angle}) translate(${-PIVOT_X},${-PIVOT_Y})`
-    );
+    // KEY FIX: use SVG rotate(angle, cx, cy) — rotates around exact pivot point
+    // This is pure SVG transform syntax — no CSS transform-origin needed
+    group.setAttribute('transform', `rotate(${angle}, ${PX}, ${PY})`);
+
     if (swayVal) swayVal.textContent = Math.abs(angle).toFixed(1) + '°';
 
     if (t >= 8.0 && !settled) {
       settled = true;
-      group.setAttribute('transform',
-        `translate(${PIVOT_X},${PIVOT_Y}) rotate(0) translate(${-PIVOT_X},${-PIVOT_Y})`
-      );
+      group.setAttribute('transform', `rotate(0, ${PX}, ${PY})`);
       if (swayVal)  swayVal.textContent  = '0.0°';
       if (antisway) antisway.style.opacity = '1';
       if (statusN)  statusN.style.opacity  = '0';
@@ -732,6 +712,7 @@ function toggleNav() {
     if (!settled) requestAnimationFrame(tick);
   }
 
+  // Small delay so page renders first
   setTimeout(() => requestAnimationFrame(tick), 800);
 })();
 </script>
