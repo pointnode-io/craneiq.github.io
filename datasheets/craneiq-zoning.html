@@ -191,27 +191,180 @@ footer a:hover{color:var(--accent)}
   <div class="diff-banner">
     <div class="diff-banner-icon">⊕</div>
     <div class="diff-banner-text">
-      <strong>Works alongside what you already have.</strong>
-      craneIQ Zoning sits between the operator and the existing crane controller — no rip-and-replace, no proprietary lock-in. 
-      Fits any crane from any manufacturer, new or old.
+      <strong>Software-defined zones. Change them without touching a sensor.</strong>
+      Zone boundaries are configured in software — no moving hardware, no physical repositioning.
+      Part of the craneIQ platform — integrates with Core, Monitoring and Cloud.
     </div>
   </div>
 
   <!-- Overview -->
   <div class="sec-lbl">Overview</div>
-  <p class="overview">Overhead crane collisions with buildings, equipment and other cranes are preventable — but they keep happening, because traditional safety measures rely entirely on the operator. <strong>craneIQ Zoning removes that reliance.</strong> Zone boundaries are configured in software — when a crane approaches a restricted area, the system automatically decelerates and stops it before it can enter. No barriers, no physical stops, no reliance on operator awareness. Whether you need to protect a structural column, keep cranes apart on a shared runway, or restrict access above a pedestrian area, craneIQ Zoning can be configured to suit your specific site layout.</p>
+  <p class="overview">Overhead crane collisions with buildings, equipment and other cranes are preventable — but they keep happening because traditional safety measures rely entirely on the operator. <strong>craneIQ Zoning removes that reliance.</strong> Using laser distance sensors combined with software-defined zone boundaries, the system automatically decelerates and stops the crane before it enters a restricted area. Zones are configured in software — add a new machine to the shop floor, change a pedestrian route, or add a new restricted area, and the zone boundary updates in software without physically moving any sensors or hardware. As part of the craneIQ platform, Zoning integrates directly with craneIQ Core and craneIQ Cloud — zone events are logged, visible remotely, and part of the complete crane data picture.
+  <!-- Illustration -->
+  <div style="margin:0 0 28px;border-radius:4px;overflow:hidden;border:1px solid var(--border);line-height:0">
+<svg style="width:100%;height:auto;display:block;max-width:100%" viewBox="0 0 700 460" xmlns="http://www.w3.org/2000/svg" font-family="'Share Tech Mono', 'Courier New', monospace">
+  <defs>
+    <pattern id="grid4" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#cc3344" stroke-width="0.3" opacity="0.1"/>
+    </pattern>
+    <filter id="gz"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="gzs"><feGaussianBlur stdDeviation="1.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#008B9A"/>
+    </marker>
+  </defs>
+  <rect width="700" height="460" fill="#020406"/>
+  <rect width="700" height="460" fill="url(#grid4)"/>
+
+  <text x="350" y="36" text-anchor="middle" fill="#e4f0f8" font-size="16" font-weight="bold" letter-spacing="2">craneIQ Zoning</text>
+  <text x="350" y="54" text-anchor="middle" fill="#3a5a78" font-size="9" letter-spacing="3">SOFTWARE-DEFINED ZONES · UNLIMITED BOUNDARIES · AUTO DECELERATION &amp; STOP</text>
+
+  <!-- Factory floor — top down view -->
+  <rect x="50" y="70" width="600" height="350" rx="6" fill="#07101a" stroke="#162840" stroke-width="2"/>
+
+  <!-- Floor grid -->
+  <line x1="50" y1="140" x2="650" y2="140" stroke="#0e1d2c" stroke-width="1"/>
+  <line x1="50" y1="210" x2="650" y2="210" stroke="#0e1d2c" stroke-width="1"/>
+  <line x1="50" y1="280" x2="650" y2="280" stroke="#0e1d2c" stroke-width="1"/>
+  <line x1="50" y1="350" x2="650" y2="350" stroke="#0e1d2c" stroke-width="1"/>
+  <line x1="170" y1="70" x2="170" y2="420" stroke="#0e1d2c" stroke-width="1"/>
+  <line x1="290" y1="70" x2="290" y2="420" stroke="#0e1d2c" stroke-width="1"/>
+  <line x1="410" y1="70" x2="410" y2="420" stroke="#0e1d2c" stroke-width="1"/>
+  <line x1="530" y1="70" x2="530" y2="420" stroke="#0e1d2c" stroke-width="1"/>
+
+  <!-- ZONE 1: Machine no-fly -->
+  <rect x="72" y="302" width="136" height="98" rx="4" fill="#cc3344" opacity="0.08" stroke="#cc3344" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <rect x="90" y="318" width="100" height="64" rx="3" fill="#0b1722" stroke="#3a5a78" stroke-width="1.5"/>
+  <rect x="100" y="326" width="80" height="48" rx="2" fill="#07101a"/>
+  <circle cx="140" cy="350" r="14" fill="#162840" stroke="#3a5a78" stroke-width="1"/>
+  <circle cx="140" cy="350" r="6" fill="#3a5a78"/>
+  <text x="140" y="295" text-anchor="middle" fill="#cc3344" font-size="8" letter-spacing="1">NO-FLY ZONE</text>
+  <text x="140" y="284" text-anchor="middle" fill="#cc3344" font-size="7" opacity="0.7">MACHINE CENTRE</text>
+  <circle cx="72" cy="279" r="10" fill="#cc3344" opacity="0.2" stroke="#cc3344" stroke-width="1.2"/>
+  <text x="72" y="283" text-anchor="middle" fill="#cc3344" font-size="10" font-weight="bold">1</text>
+
+  <!-- ZONE 2: Pedestrian walkway -->
+  <rect x="446" y="72" width="58" height="348" rx="0" fill="#cc3344" opacity="0.07" stroke="#cc3344" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <line x1="456" y1="72" x2="456" y2="420" stroke="#cc3344" stroke-width="0.8" stroke-dasharray="10 6" opacity="0.4"/>
+  <line x1="494" y1="72" x2="494" y2="420" stroke="#cc3344" stroke-width="0.8" stroke-dasharray="10 6" opacity="0.4"/>
+  <!-- Person icon -->
+  <circle cx="475" cy="248" r="6" fill="#3a5a78"/>
+  <line x1="475" y1="254" x2="475" y2="274" stroke="#3a5a78" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="475" y1="260" x2="465" y2="270" stroke="#3a5a78" stroke-width="2" stroke-linecap="round"/>
+  <line x1="475" y1="260" x2="485" y2="270" stroke="#3a5a78" stroke-width="2" stroke-linecap="round"/>
+  <line x1="475" y1="274" x2="466" y2="288" stroke="#3a5a78" stroke-width="2" stroke-linecap="round"/>
+  <line x1="475" y1="274" x2="484" y2="288" stroke="#3a5a78" stroke-width="2" stroke-linecap="round"/>
+  <text x="475" y="176" text-anchor="middle" fill="#cc3344" font-size="8" letter-spacing="0.5" transform="rotate(-90,475,176)">PEDESTRIAN ZONE</text>
+  <circle cx="446" cy="80" r="10" fill="#cc3344" opacity="0.2" stroke="#cc3344" stroke-width="1.2"/>
+  <text x="446" y="84" text-anchor="middle" fill="#cc3344" font-size="10" font-weight="bold">2</text>
+
+  <!-- ZONE 3: Building wall -->
+  <rect x="584" y="72" width="66" height="348" rx="0" fill="#cc3344" opacity="0.1" stroke="#cc3344" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <text x="617" y="258" text-anchor="middle" fill="#cc3344" font-size="7.5" letter-spacing="0.5" transform="rotate(-90,617,258)">BUILDING WALL</text>
+  <line x1="594" y1="80" x2="594" y2="412" stroke="#cc3344" stroke-width="0.6" opacity="0.3"/>
+  <line x1="610" y1="80" x2="610" y2="412" stroke="#cc3344" stroke-width="0.6" opacity="0.3"/>
+  <line x1="626" y1="80" x2="626" y2="412" stroke="#cc3344" stroke-width="0.6" opacity="0.3"/>
+  <circle cx="584" cy="80" r="10" fill="#cc3344" opacity="0.2" stroke="#cc3344" stroke-width="1.2"/>
+  <text x="584" y="84" text-anchor="middle" fill="#cc3344" font-size="10" font-weight="bold">3</text>
+
+  <!-- Crane runway rails — top down -->
+  <rect x="50" y="98" width="600" height="8" rx="2" fill="#D4A017" opacity="0.7"/>
+  <rect x="50" y="132" width="600" height="8" rx="2" fill="#D4A017" opacity="0.7"/>
+
+  <!-- Crane bridge top-down -->
+  <rect x="200" y="88" width="220" height="52" rx="5" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
+  <rect x="210" y="96" width="200" height="36" rx="3" fill="#D4A017" opacity="0.3"/>
+  <!-- Trolley top-down with crosshair target (load position) -->
+  <rect x="293" y="92" width="34" height="44" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
+  <rect x="299" y="100" width="22" height="28" rx="3" fill="#cc3344" opacity="0.9" filter="url(#gzs)"/>
+  <text x="310" y="117" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="bold">IQ</text>
+
+  <!-- Load crosshair (below crane, projected on floor) -->
+  <g opacity="0.5">
+    <circle cx="310" cy="195" r="12" fill="none" stroke="#008B9A" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <circle cx="310" cy="195" r="3.5" fill="#008B9A" opacity="0.6"/>
+    <line x1="292" y1="195" x2="298" y2="195" stroke="#008B9A" stroke-width="1.2"/>
+    <line x1="322" y1="195" x2="328" y2="195" stroke="#008B9A" stroke-width="1.2"/>
+    <line x1="310" y1="177" x2="310" y2="183" stroke="#008B9A" stroke-width="1.2"/>
+    <line x1="310" y1="207" x2="310" y2="213" stroke="#008B9A" stroke-width="1.2"/>
+  </g>
+
+  <!-- Travel arrow — crane approaching zone 2 -->
+  <path d="M 420 114 L 500 114" fill="none" stroke="#008B9A" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Decel zone -->
+  <rect x="424" y="78" width="16" height="44" rx="2" fill="#cc7700" opacity="0.2" stroke="#cc7700" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="432" y="70" text-anchor="middle" fill="#cc7700" font-size="7" letter-spacing="0.5">SLOW</text>
+  <rect x="440" y="78" width="8" height="44" rx="1" fill="#cc3344" opacity="0.25" stroke="#cc3344" stroke-width="1"/>
+  <text x="444" y="70" text-anchor="middle" fill="#cc3344" font-size="7">STOP</text>
+
+  <!-- Status badges -->
+  <rect x="56" y="436" width="130" height="16" rx="3" fill="#071a15" stroke="#cc3344" stroke-width="1"/>
+  <text x="121" y="448" text-anchor="middle" fill="#cc3344" font-size="8" letter-spacing="1">3 ZONES ACTIVE</text>
+  <rect x="276" y="428" width="148" height="24" rx="4" fill="#071a15" stroke="#cc3344" stroke-width="1.5"/>
+  <circle cx="300" cy="440" r="6" fill="#cc3344" opacity="0.2"/>
+  <text x="300" y="444" text-anchor="middle" fill="#4ccc80" font-size="10">✓</text>
+  <text x="375" y="444" text-anchor="middle" fill="#e4f0f8" font-size="9" font-weight="bold">PROTECTION ACTIVE</text>
+  <rect x="514" y="436" width="132" height="16" rx="3" fill="#071a15" stroke="#cc3344" stroke-width="1"/>
+  <text x="580" y="448" text-anchor="middle" fill="#cc3344" font-size="8" letter-spacing="1">RESPONSE &lt;50ms</text>
+</svg>
+  </div>
+
+  <!-- Scenarios section -->
+  <div class="sec-lbl" style="margin-bottom:14px">Common scenarios</div>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-bottom:24px">
+    <div style="background:var(--panel);padding:20px 22px">
+      <div style="font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);margin-bottom:5px">Crane to crane — shared runways</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7">Two or more cranes sharing the same runway. craneIQ Zoning prevents them getting too close — automatically decelerating the approaching crane before contact can occur. No reliance on operators watching each other.</div>
+    </div>
+    <div style="background:var(--console);padding:20px 22px">
+      <div style="font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);margin-bottom:5px">Crane to building — structural protection</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7">Keep the crane away from columns, end walls, roof steelwork and other structural elements. Particularly important where cranes operate close to the building fabric or where visibility is limited.</div>
+    </div>
+    <div style="background:var(--console);padding:20px 22px">
+      <div style="font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);margin-bottom:5px">No-fly zones — floor level machinery</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7">Restrict crane entry above sensitive equipment, machine centres, or areas where a swinging load would cause damage. Zone boundaries can be defined at any height — crane level, load level, or both.</div>
+    </div>
+    <div style="background:var(--panel);padding:20px 22px">
+      <div style="font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);margin-bottom:5px">Personnel protection — walkways and offices</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7">Prevent crane operation above pedestrian routes, welfare areas, or in-plant offices. A zone boundary above these areas ensures automatic intervention before the crane can enter — without relying on operator awareness.</div>
+    </div>
+  </div>
 
   <!-- Two col -->
   <div class="two-col">
     <div class="col">
       <div class="sec-lbl">What it does for you</div>
-      <ul class="feat-list"><li>Configurable no-fly zones — software defined<span>Define any restricted area in software — no physical barriers, no steelwork modifications</span></li><li>Multi-crane anti-collision on shared runways<span>Prevents two cranes getting too close — automatically decelerates the approaching crane before contact</span></li><li>Protects building steelwork and structures<span>Keeps the crane away from columns, walls and roof elements that would be damaged by impact</span></li><li>Floor-level protection for machinery and personnel<span>Define zones above sensitive equipment, pedestrian walkways or areas where crane entry is not permitted</span></li><li>Smooth automatic deceleration — no sudden stops<span>The crane slows down gradually as it approaches a boundary — no shock loads, no load swing from abrupt stops</span></li><li>Visual and audible warnings before intervention<span>Operator is warned as they approach a zone boundary — the system only intervenes if they continue</span></li><li>Unlimited zones per crane<span>No practical limit on the number of restricted areas that can be defined</span></li><li>Fits any crane, any age<span>Works alongside existing controls without replacing them</span></li></ul>
+      <ul class="feat-list">
+        <li>Software-defined zones — change them without moving hardware<span>Zone boundaries exist in software — update them as your facility changes without physically repositioning any sensors</span></li>
+        <li>Multi-crane anti-collision on shared runways<span>Prevents two cranes getting too close — automatically decelerates the approaching crane before contact</span></li>
+        <li>Protects buildings, structures and steelwork<span>Keeps the crane away from columns, walls and roof elements that would be damaged by impact</span></li>
+        <li>Floor-level protection for machinery and personnel<span>Define restricted areas above sensitive equipment, walkways or in-plant offices</span></li>
+        <li>Smooth automatic deceleration — no sudden stops<span>The crane slows gradually as it approaches a boundary — no shock loads, no load swing from abrupt stops</span></li>
+        <li>Warning before intervention<span>Operator receives visual and audible warning approaching a zone boundary — system only intervenes if they continue</span></li>
+        <li>Unlimited zones per crane<span>No practical limit on the number of zones — configure as many as your site requires</span></li>
+        <li>Part of the craneIQ platform<span>Zone events logged and visible in craneIQ Cloud — integrates with Core and Monitoring for a complete picture</span></li>
+      </ul>
     </div>
     <div class="col col-dark">
       <div class="sec-lbl">Compatibility &amp; installation</div>
-      <table class="spec-table"><tr><td class="spec-lbl">Works on</td><td class="spec-val">Any overhead crane</td></tr><tr><td class="spec-lbl">Zones</td><td class="spec-val">Unlimited, software configured</td></tr><tr><td class="spec-lbl">Detection</td><td class="spec-val">Laser, encoder, RFID</td></tr><tr><td class="spec-lbl">Response time</td><td class="spec-val">< 50ms</td></tr><tr><td class="spec-lbl">Output</td><td class="spec-val">Safe stop relay</td></tr><tr><td class="spec-lbl">Power supply</td><td class="spec-val">24V DC</td></tr><tr><td class="spec-lbl">Available</td><td class="spec-val">Worldwide</td></tr></table>
+      <table class="spec-table">
+        <tr><td class="spec-lbl">Works on</td><td class="spec-val">Any overhead crane</td></tr>
+        <tr><td class="spec-lbl">Zones</td><td class="spec-val">Unlimited, software configured</td></tr>
+        <tr><td class="spec-lbl">Detection</td><td class="spec-val">Laser, encoder, RFID</td></tr>
+        <tr><td class="spec-lbl">Response time</td><td class="spec-val">&lt; 50ms</td></tr>
+        <tr><td class="spec-lbl">Output</td><td class="spec-val">Safe stop relay</td></tr>
+        <tr><td class="spec-lbl">Power supply</td><td class="spec-val">24V DC</td></tr>
+        <tr><td class="spec-lbl">Platform</td><td class="spec-val">Integrates with craneIQ Core & Cloud</td></tr>
+        <tr><td class="spec-lbl">Available</td><td class="spec-val">Worldwide</td></tr>
+      </table>
       <div class="sec-lbl" style="margin-top:24px">What it protects against</div>
-      <table class="spec-table"><tr><td class="spec-lbl">Other cranes</td><td class="spec-val">Collision prevention</td></tr><tr><td class="spec-lbl">Buildings & steelwork</td><td class="spec-val">Impact prevention</td></tr><tr><td class="spec-lbl">Floor machinery</td><td class="spec-val">Access restriction</td></tr><tr><td class="spec-lbl">Pedestrian areas</td><td class="spec-val">Zone enforcement</td></tr></table>
+      <table class="spec-table">
+        <tr><td class="spec-lbl">Other cranes</td><td class="spec-val">Collision prevention</td></tr>
+        <tr><td class="spec-lbl">Buildings &amp; steelwork</td><td class="spec-val">Impact prevention</td></tr>
+        <tr><td class="spec-lbl">Floor machinery</td><td class="spec-val">Access restriction</td></tr>
+        <tr><td class="spec-lbl">Pedestrian areas</td><td class="spec-val">Zone enforcement</td></tr>
+      </table>
       <div class="certs">
         <span class="cert">CE</span><span class="cert">UKCA</span><span class="cert">RoHS</span>
       </div>
