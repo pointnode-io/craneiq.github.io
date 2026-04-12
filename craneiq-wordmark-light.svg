@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="320" height="72">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&amp;display=swap');
+      .crane{font-family:'Open Sans',sans-serif;font-weight:300;font-size:42px;fill:#c4d8e8;letter-spacing:-0.01em}
+      .iq{font-family:'Open Sans',sans-serif;font-weight:600;font-size:42px;fill:#cc3344;letter-spacing:-0.01em}
+      .pname{font-family:'Open Sans',sans-serif;font-weight:400;font-size:13px;fill:#cc3344;letter-spacing:0.06em;text-transform:uppercase}
+    </style>
+  </defs>
+  <!-- Product icon box -->
+  <rect x="0" y="4" width="64" height="64" rx="8" fill="#cc334412" stroke="#cc334430" stroke-width="1"/>
+  <g transform="translate(16, 20) scale(2)">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <rect x="4" y="4" width="24" height="24" rx="2" stroke="#cc3344" stroke-width="1.4" fill="none" stroke-dasharray="3 2"/>
+      <line x1="12" y1="12" x2="20" y2="20" stroke="#cc3344" stroke-width="2" stroke-linecap="round"/>
+      <line x1="20" y1="12" x2="12" y2="20" stroke="#cc3344" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="16" cy="16" r="6" stroke="#cc3344" stroke-width="1.2" fill="none"/>
+    </svg>
+  </g>
+  <!-- Wordmark -->
+  <text x="80" y="46"><tspan class="crane">crane</tspan><tspan class="iq">IQ</tspan></text>
+  <text x="81" y="62" class="pname">Zoning</text>
+  <!-- Accent line -->
+  <line x1="80" y1="50" x2="310" y2="50" stroke="#cc3344" stroke-width="0.5" opacity="0.2"/>
+</svg>

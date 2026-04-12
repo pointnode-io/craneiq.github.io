@@ -3,28 +3,432 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>craneIQ — Page Not Found</title>
-<link rel="icon" type="image/svg+xml" href="assets/logos/craneiq-monogram.svg">
+<meta name="description" content="craneIQ Vision — camera-based hook tracking system that prevents side pull and snag events in real time. Auto hook centring. Worldwide.">
+<title>craneIQ Vision — Stop snags and side pulls before they happen</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logos/craneiq-monogram.svg">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-:root{--void:#020406;--hull:#07101a;--border:#162840;--brand:#008B9A;--mid:#628098;--steel:#92b0c4;--bright:#c4d8e8;--ff:'Open Sans',sans-serif;--mono:'Share Tech Mono',monospace}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--void);color:var(--steel);font-family:var(--ff);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center}
-.wm{font-family:var(--ff);font-size:28px;line-height:1;letter-spacing:-.01em;margin-bottom:40px;text-decoration:none;display:block}
-.wm .crane{font-weight:300;color:var(--bright)}
-.wm .iq{font-weight:600;color:var(--brand)}
-.code{font-family:var(--mono);font-size:10px;letter-spacing:.28em;color:var(--brand);text-transform:uppercase;margin-bottom:16px}
-h1{font-family:var(--ff);font-weight:600;font-size:28px;color:var(--bright);margin-bottom:10px}
-p{font-size:13px;color:var(--mid);line-height:1.75;max-width:360px;margin-bottom:32px}
-a.btn{background:var(--brand);color:var(--void);font-family:var(--ff);font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:12px 24px;border-radius:2px;text-decoration:none;transition:background .14s}
-a.btn:hover{background:#00a8ba}
+:root{
+  --void:#020406;--deep:#040810;--hull:#07101a;--panel:#0b1722;--console:#0e1d2c;
+  --border:#162840;--bhi:#204060;
+  --dim:#1c3450;--muted:#3a5a78;--mid:#628098;--steel:#92b0c4;--bright:#c4d8e8;--white:#e4f0f8;
+  --brand:#008B9A;--brand-hi:#00a8ba;--radar:#4ccc80;
+  --accent:#009966;
+  --ff:'Open Sans',sans-serif;--mono:'Share Tech Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:14px;line-height:1.85}
+::-webkit-scrollbar{width:3px;background:var(--void)}
+::-webkit-scrollbar-thumb{background:var(--bhi)}
+
+/* NAV */
+.nav{height:54px;background:var(--hull);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 40px;
+  position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.nav-logo{font-family:var(--ff);font-size:18px;line-height:1;letter-spacing:-.01em;text-decoration:none}
+.nav-logo .crane{font-weight:300;color:var(--bright)}
+.nav-logo .iq{font-weight:600;color:var(--brand)}
+.nav-back{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--muted);
+  text-decoration:none;text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color .14s}
+.nav-back::before{content:'←'}
+.nav-back:hover{color:var(--accent)}
+
+/* HERO */
+.hero{background:var(--hull);border-bottom:1px solid var(--border);
+  padding:52px 40px 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 55% 120% at 85% 50%,rgba(0,139,154,.055) 0%,transparent 70%)}
+.hero-inner{max-width:1060px;margin:0 auto;position:relative;z-index:1}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:24px;flex-wrap:wrap}
+.hero-wm{font-family:var(--ff);font-size:44px;line-height:1;letter-spacing:-.02em}
+.hero-wm .crane{font-weight:300;color:var(--bright)}
+.hero-wm .iq{font-weight:600;color:var(--accent)}
+.hero-wm .pname{font-weight:400;font-size:23px;color:var(--accent);margin-left:5px}
+.hero-tagline{font-family:var(--ff);font-weight:300;font-size:18px;color:var(--mid);margin-top:8px;letter-spacing:-.005em}
+.hero-meta{text-align:right;flex-shrink:0}
+.hero-code{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--mid);display:block}
+.hero-model{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--muted);display:block;margin-top:4px}
+.hero-stats{display:flex;gap:0;border-top:1px solid var(--border);padding-top:22px;flex-wrap:wrap}
+.hstat{padding:0 28px 0 0;margin-right:28px;border-right:1px solid var(--border)}
+.hstat:last-child{border:none;margin:0;padding:0}
+.hstat-val{font-family:var(--ff);font-weight:600;font-size:20px;color:var(--white);line-height:1}
+.hstat-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+
+/* BODY */
+.body-wrap{max-width:1060px;margin:0 auto;padding:52px 40px}
+.sec-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--accent);
+  text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,#008B9A55,transparent)}
+
+/* Differentiator banner */
+.diff-banner{background:var(--console);border:1px solid var(--bhi);border-radius:3px;
+  padding:20px 24px;margin-bottom:28px;display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.diff-banner-icon{font-family:var(--mono);font-size:18px;color:var(--accent);flex-shrink:0;padding-top:2px}
+.diff-banner-text{font-size:14px;color:var(--steel);line-height:1.75}
+.diff-banner-text strong{color:var(--white);font-weight:600;display:block;margin-bottom:4px}
+
+/* Overview */
+.overview{font-size:14px;color:var(--steel);line-height:1.95;margin-bottom:28px}
+.overview strong{color:var(--white);font-weight:600}
+
+/* Two col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-bottom:24px}
+.col{background:var(--panel);padding:32px 28px}
+.col-dark{background:var(--console)}
+
+/* Feature list */
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.feat-list li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;
+  color:var(--bright);line-height:1.55;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.feat-list li:last-child{border:none;padding:0}
+.feat-list li::before{content:'—';color:var(--accent);font-weight:600;flex-shrink:0;margin-top:2px}
+.feat-list li span{color:var(--muted);font-size:12.5px;display:block;margin-top:3px;line-height:1.8}
+
+/* Spec table */
+.spec-table{width:100%;border-collapse:collapse}
+.spec-table tr:nth-child(even) td{background:var(--panel)}
+.spec-table td{padding:10px 14px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle}
+.spec-table tr:last-child td{border-bottom:none}
+.spec-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.spec-val{font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);text-align:right}
+
+/* Certs */
+.certs{display:flex;gap:8px;margin-top:20px}
+.cert{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.1em;
+  padding:6px 14px;border:1px solid var(--bhi);border-radius:2px;color:var(--mid)}
+
+/* Who it's for */
+.audience-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;
+  overflow:hidden;margin-bottom:24px}
+.aud-cell{background:var(--panel);padding:22px 24px}
+.aud-title{font-family:var(--ff);font-weight:600;font-size:14px;color:var(--white);margin-bottom:7px}
+.aud-body{font-size:13px;color:var(--muted);line-height:1.8}
+
+/* CTA bar */
+.cta-bar{background:var(--hull);border:1px solid var(--border);border-radius:3px;
+  padding:28px 32px;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:32px;gap:16px;flex-wrap:wrap;position:relative;overflow:hidden}
+.cta-bar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),transparent)}
+.cta-text strong{display:block;color:var(--white);font-size:16px;font-weight:600;margin-bottom:6px}
+.cta-text p{font-size:13px;color:var(--muted);line-height:1.75;max-width:480px}
+.btn-primary{background:var(--accent);color:var(--void);font-family:var(--ff);font-weight:600;
+  font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;padding:13px 28px;
+  border-radius:2px;text-decoration:none;white-space:nowrap;transition:background .14s;display:inline-block}
+.btn-primary:hover{opacity:.88}
+.btn-ghost{background:transparent;color:var(--steel);font-family:var(--ff);font-weight:400;
+  font-size:11.5px;letter-spacing:.05em;padding:12px 24px;border-radius:2px;
+  border:1px solid var(--bhi);text-decoration:none;white-space:nowrap;transition:.14s;display:inline-block}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap}
+
+/* Products strip */
+.strip-wrap{border-top:1px solid var(--border);padding-top:40px}
+.strip-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--muted);
+  text-transform:uppercase;margin-bottom:16px}
+.strip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.strip-card{background:var(--panel);padding:16px 18px;text-decoration:none;
+  border-top:2px solid;transition:background .15s}
+.strip-card:hover{background:var(--console)}
+.strip-card .sc{font-family:var(--ff);font-size:13px;line-height:1}
+.strip-card .sc .c{font-weight:300;color:var(--mid)}
+.strip-card .sc .iq{font-weight:600}
+.strip-card .sp{font-family:var(--mono);font-size:8px;letter-spacing:.06em;
+  color:var(--dim);text-transform:uppercase;margin-top:4px}
+
+/* FOOTER */
+footer{background:var(--hull);border-top:1px solid var(--border);
+  padding:22px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer p{font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
+footer a{color:var(--muted);text-decoration:none;transition:color .14s}
+footer a:hover{color:var(--accent)}
+.footer-wm .crane{font-weight:300;color:var(--bright)}
+.footer-wm .iq{font-weight:600;color:var(--brand)}
+
+@media(max-width:720px){
+  .two-col{grid-template-columns:1fr}
+  .nav{padding:0 20px}
+  .hero{padding:36px 20px 28px}
+  .body-wrap{padding:36px 20px}
+  footer{padding:20px}
+  .hstat{border:none;padding:0;margin:0 0 8px}
+  .hero-stats{gap:0;display:grid;grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
-  <a href="/" class="wm"><span class="crane">crane</span><span class="iq">IQ</span></a>
-  <div class="code">404 — Page Not Found</div>
-  <h1>Nothing to lift here.</h1>
-  <p>The page you're looking for doesn't exist. Head back to the craneIQ homepage to explore our products.</p>
-  <a href="/" class="btn">Back to Homepage</a>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><span class="crane">crane</span><span class="iq">IQ</span></a>
+  <a href="../index.html#products" class="nav-back">All Products</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div>
+        <div class="hero-wm">
+          <span class="crane">crane</span><span class="iq">IQ</span><span class="pname">Vision</span>
+        </div>
+        <div class="hero-tagline">Stop snags and side pulls before they happen</div>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-code">CIQ-VIS</span>
+        <span class="hero-model">Model CIQ-V1 &nbsp;·&nbsp; Worldwide</span>
+      </div>
+    </div>
+    <div class="hero-stats"><div class="hstat"><div class="hstat-val">Real-time</div><div class="hstat-lbl">Hook position tracking</div></div><div class="hstat"><div class="hstat-val">Stops</div><div class="hstat-lbl">Side pull & snag events</div></div><div class="hstat"><div class="hstat-val">Auto</div><div class="hstat-lbl">Hook centring</div></div><div class="hstat"><div class="hstat-val">Proven</div><div class="hstat-lbl">Incidents prevented</div></div></div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <!-- Differentiator banner -->
+  <div class="diff-banner">
+    <div class="diff-banner-icon">⊕</div>
+    <div class="diff-banner-text">
+      <strong>Camera on the crane. Passive target on the hook block. Nothing else.</strong>
+      No electronics or moving parts on the hook. No mechanical wear. No calibration drift.
+      Works for any reeving arrangement on any hoist type.
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <div class="sec-lbl">Overview</div>
+  <p class="overview">Side pulls and snag events are among the most damaging things that can happen to an overhead crane and its load. A snag can happen in seconds — a hook catches on a load or structure, the hoist continues, and thousands of pounds of force are applied where they should never be. <strong>craneIQ Vision watches the hook continuously and stops these events before damage occurs.</strong> The system uses a camera mounted on the crane structure and a simple passive target on the hook block — no electronics, no moving parts, nothing to calibrate or maintain on the hook itself. Because it is camera-based rather than sensor-based, it works regardless of reeving arrangement — single fall, double fall, or any other configuration. In the field, craneIQ Vision has prevented real snag and side pull incidents that would otherwise have caused significant crane and load damage.
+  <!-- Illustration -->
+  <div style="margin:0 0 28px;border-radius:4px;overflow:hidden;border:1px solid var(--border);line-height:0">
+<svg style="width:100%;height:auto;display:block;max-width:100%" viewBox="0 0 860 400" xmlns="http://www.w3.org/2000/svg" font-family="'Open Sans',sans-serif">
+<defs>
+  <pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse">
+    <path d="M32 0L0 0 0 32" fill="none" stroke="#009966" stroke-width="0.25" opacity="0.1"/>
+  </pattern>
+  <filter id="glow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="860" height="400" fill="#020406"/>
+<rect width="860" height="400" fill="url(#g)"/>
+
+<text x="430" y="30" text-anchor="middle" fill="#c4d8e8" font-size="15" font-weight="600" letter-spacing="1">craneIQ Vision</text>
+<text x="430" y="46" text-anchor="middle" fill="#3a5a78" font-size="9" letter-spacing="3" font-family="'Share Tech Mono',monospace">CAMERA ON CRANE · PASSIVE TARGET ON HOOK · ANY REEVING ARRANGEMENT</text>
+
+<!-- Runway -->
+<rect x="60" y="76" width="740" height="16" rx="3" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
+<clipPath id="cv"><rect x="60" y="76" width="740" height="16" rx="3"/></clipPath>
+<g clip-path="url(#cv)" opacity="0.2">
+  <line x1="60" y1="76" x2="78" y2="92" stroke="#020406" stroke-width="6"/><line x1="86" y1="76" x2="104" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="112" y1="76" x2="130" y2="92" stroke="#020406" stroke-width="6"/><line x1="138" y1="76" x2="156" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="164" y1="76" x2="182" y2="92" stroke="#020406" stroke-width="6"/><line x1="190" y1="76" x2="208" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="216" y1="76" x2="234" y2="92" stroke="#020406" stroke-width="6"/><line x1="242" y1="76" x2="260" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="268" y1="76" x2="286" y2="92" stroke="#020406" stroke-width="6"/><line x1="294" y1="76" x2="312" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="320" y1="76" x2="338" y2="92" stroke="#020406" stroke-width="6"/><line x1="346" y1="76" x2="364" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="372" y1="76" x2="390" y2="92" stroke="#020406" stroke-width="6"/><line x1="398" y1="76" x2="416" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="424" y1="76" x2="442" y2="92" stroke="#020406" stroke-width="6"/><line x1="450" y1="76" x2="468" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="476" y1="76" x2="494" y2="92" stroke="#020406" stroke-width="6"/><line x1="502" y1="76" x2="520" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="528" y1="76" x2="546" y2="92" stroke="#020406" stroke-width="6"/><line x1="554" y1="76" x2="572" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="580" y1="76" x2="598" y2="92" stroke="#020406" stroke-width="6"/><line x1="606" y1="76" x2="624" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="632" y1="76" x2="650" y2="92" stroke="#020406" stroke-width="6"/><line x1="658" y1="76" x2="676" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="684" y1="76" x2="702" y2="92" stroke="#020406" stroke-width="6"/><line x1="710" y1="76" x2="728" y2="92" stroke="#020406" stroke-width="6"/>
+  <line x1="736" y1="76" x2="754" y2="92" stroke="#020406" stroke-width="6"/>
+</g>
+<rect x="54" y="66" width="12" height="38" rx="3" fill="#D4A017"/>
+<rect x="794" y="66" width="12" height="38" rx="3" fill="#D4A017"/>
+
+<!-- Trolley -->
+<rect x="360" y="62" width="140" height="30" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
+<circle cx="378" cy="62" r="7" fill="#D4A017"/><circle cx="482" cy="62" r="7" fill="#D4A017"/>
+<rect x="378" y="70" width="44" height="16" rx="2" fill="#009966" filter="url(#glow)"/>
+<rect x="380" y="72" width="40" height="12" rx="1" fill="#006644"/>
+<text x="400" y="81" text-anchor="middle" fill="#4ccc80" font-size="6.5" font-weight="600" letter-spacing="0.5" font-family="'Share Tech Mono',monospace">craneIQ</text>
+
+<!-- Camera mount on bridge -->
+<rect x="548" y="92" width="6" height="20" rx="2" fill="#D4A017"/>
+<rect x="536" y="110" width="32" height="20" rx="3" fill="#0b1722" stroke="#009966" stroke-width="1.8" filter="url(#glow)"/>
+<circle cx="537" cy="120" r="7" fill="#07101a" stroke="#009966" stroke-width="1.4"/>
+<circle cx="537" cy="120" r="4" fill="#020406" stroke="#009966" stroke-width="1"/>
+<circle cx="537" cy="120" r="1.8" fill="#009966" opacity="0.85"/>
+<circle cx="535" cy="118" r="0.8" fill="#fff" opacity="0.4"/>
+<rect x="546" y="124" width="24" height="8" rx="2" fill="#162840" stroke="#009966" stroke-width="0.8"/>
+<text x="558" y="130" text-anchor="middle" fill="#009966" font-size="6.5" font-family="'Share Tech Mono',monospace">IP67</text>
+
+<!-- Camera callout line + label -->
+<line x1="568" y1="120" x2="622" y2="120" stroke="#009966" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.7"/>
+<rect x="622" y="108" width="192" height="36" rx="3" fill="#071a15" stroke="#009966" stroke-width="1.5"/>
+<text x="638" y="123" fill="#c4d8e8" font-size="11" font-weight="600">Camera</text>
+<text x="638" y="136" fill="#3a5a78" font-size="9">Mounted on crane structure</text>
+
+<!-- View cone from camera -->
+<polygon points="537,130 446,275 640,275" fill="#009966" opacity="0.04"/>
+<line x1="537" y1="130" x2="446" y2="275" stroke="#009966" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.25"/>
+<line x1="537" y1="130" x2="640" y2="275" stroke="#009966" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.25"/>
+
+<!-- Rope -->
+<line x1="430" y1="92" x2="430" y2="222" stroke="#92b0c4" stroke-width="2" stroke-linecap="round"/>
+
+<!-- Passive target on hook — KEY element -->
+<g filter="url(#glow)">
+  <rect x="413" y="204" width="34" height="26" rx="2" fill="#009966" opacity="0.1" stroke="#009966" stroke-width="1.6"/>
+  <circle cx="430" cy="217" r="9" fill="none" stroke="#009966" stroke-width="1.8"/>
+  <circle cx="430" cy="217" r="3" fill="#009966" opacity="0.9"/>
+  <line x1="415" y1="217" x2="421" y2="217" stroke="#009966" stroke-width="1.5"/>
+  <line x1="439" y1="217" x2="445" y2="217" stroke="#009966" stroke-width="1.5"/>
+  <line x1="430" y1="202" x2="430" y2="208" stroke="#009966" stroke-width="1.5"/>
+  <line x1="430" y1="226" x2="430" y2="232" stroke="#009966" stroke-width="1.5"/>
+</g>
+
+<!-- Target callout line + label -->
+<line x1="413" y1="217" x2="238" y2="217" stroke="#009966" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.7"/>
+<rect x="46" y="196" width="192" height="52" rx="3" fill="#071a15" stroke="#009966" stroke-width="1.5"/>
+<rect x="46" y="196" width="192" height="4" rx="2" fill="#009966"/>
+<text x="62" y="214" fill="#c4d8e8" font-size="11" font-weight="600">Passive Target</text>
+<text x="62" y="228" fill="#3a5a78" font-size="9">No electronics on hook block</text>
+<text x="62" y="240" fill="#3a5a78" font-size="9">Works for any reeving arrangement</text>
+
+<!-- Load -->
+<rect x="394" y="230" width="72" height="55" rx="3" fill="#0b1722" stroke="#009966" stroke-width="1.5"/>
+<rect x="400" y="236" width="60" height="43" rx="2" fill="#07101a"/>
+<line x1="408" y1="230" x2="430" y2="222" stroke="#628098" stroke-width="1" stroke-dasharray="3 2"/>
+<line x1="452" y1="230" x2="430" y2="222" stroke="#628098" stroke-width="1" stroke-dasharray="3 2"/>
+<ellipse cx="430" cy="288" rx="38" ry="5" fill="#000" opacity="0.35"/>
+
+<!-- Status bar -->
+<rect x="250" y="326" width="360" height="34" rx="3" fill="#071a15" stroke="#009966" stroke-width="1.5"/>
+<rect x="250" y="326" width="360" height="3" rx="2" fill="#009966"/>
+<circle cx="274" cy="343" r="7" fill="#009966" opacity="0.12" stroke="#009966" stroke-width="1"/>
+<text x="274" y="347" text-anchor="middle" fill="#4ccc80" font-size="10">✓</text>
+<text x="430" y="340" text-anchor="middle" fill="#c4d8e8" font-size="10" font-weight="600">HOOK POSITION: CENTRED</text>
+<text x="430" y="353" text-anchor="middle" fill="#009966" font-size="8" letter-spacing="0.5" font-family="'Share Tech Mono',monospace">SIDE PULL: NONE DETECTED</text>
+</svg>
+  </div>
+
+  <!-- How it works section -->
+  <div class="sec-lbl" style="margin-bottom:14px">How it works</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-bottom:24px">
+    <div style="background:var(--panel);padding:22px 20px">
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:#009966;text-transform:uppercase;margin-bottom:8px">01 — Camera</div>
+      <div style="font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);margin-bottom:6px">Mounted on the crane structure</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.85">An IP67 rated camera sits on the crane bridge or end carriage — fixed, protected, and well away from the load. Nothing moves, nothing wears.</div>
+    </div>
+    <div style="background:var(--console);padding:22px 20px">
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:#009966;text-transform:uppercase;margin-bottom:8px">02 — Target</div>
+      <div style="font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);margin-bottom:6px">Passive target on the hook block</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.85">A simple passive target attaches to the hook block — no electronics, no power supply, no moving parts. Nothing to calibrate. Nothing to maintain. Works on any reeving arrangement.</div>
+    </div>
+    <div style="background:var(--panel);padding:22px 20px">
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:#009966;text-transform:uppercase;margin-bottom:8px">03 — Detection</div>
+      <div style="font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);margin-bottom:6px">Continuous real-time monitoring</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.85">The camera tracks the target position continuously. The moment it detects the hook moving outside the safe envelope — side pull, snag, or misalignment — it intervenes in under 20ms.</div>
+    </div>
+  </div>
+
+  <!-- Two col -->
+  <div class="two-col">
+    <div class="col">
+      <div class="sec-lbl">What it does for you</div>
+      <ul class="feat-list">
+        <li>Prevents side pull events<span>Detects when the hook is not directly below the hoist and stops the lift before angled loading damages the crane</span></li>
+        <li>Prevents snag events<span>Continuously monitors hook position — issues a stop command the moment a snag is detected</span></li>
+        <li>Works for any reeving arrangement<span>Single fall, double fall, or any configuration — camera-based detection is unaffected by how the rope is rigged</span></li>
+        <li>Proven in the field — incidents prevented<span>craneIQ Vision has stopped real snag and side pull events on working cranes, preventing significant damage</span></li>
+        <li>Auto hook centring<span>Automatically drives the crane to position the hook directly above the load before hoisting — no operator judgment needed</span></li>
+        <li>Nothing to maintain on the hook<span>Passive target only — no electronics, no battery, no moving parts, no calibration schedule</span></li>
+        <li>IP67 camera for harsh environments<span>Sealed against dust, moisture and chemical fumes — proven in galvanizing plants and steel mills</span></li>
+        <li>Fits any crane, any age<span>Mounts on the crane bridge or end carriage — no structural changes required</span></li>
+      </ul>
+    </div>
+    <div class="col col-dark">
+      <div class="sec-lbl">Compatibility &amp; installation</div>
+      <table class="spec-table">
+        <tr><td class="spec-lbl">Works on</td><td class="spec-val">Any overhead crane</td></tr>
+        <tr><td class="spec-lbl">Camera IP rating</td><td class="spec-val">IP67</td></tr>
+        <tr><td class="spec-lbl">Power supply</td><td class="spec-val">12–24V DC</td></tr>
+        <tr><td class="spec-lbl">Detection range</td><td class="spec-val">Up to 15m hook height</td></tr>
+        <tr><td class="spec-lbl">Reeving</td><td class="spec-val">Any arrangement</td></tr>
+        <tr><td class="spec-lbl">Available</td><td class="spec-val">Worldwide</td></tr>
+      </table>
+      <div class="sec-lbl" style="margin-top:24px">Protection provided</div>
+      <table class="spec-table">
+        <tr><td class="spec-lbl">Side pull</td><td class="spec-val">Detected and stopped</td></tr>
+        <tr><td class="spec-lbl">Snag events</td><td class="spec-val">Detected and stopped</td></tr>
+        <tr><td class="spec-lbl">Hook centring</td><td class="spec-val">Automatic before lift</td></tr>
+        <tr><td class="spec-lbl">Response time</td><td class="spec-val">&lt; 20ms</td></tr>
+      </table>
+      <div class="certs">
+        <span class="cert">CE</span><span class="cert">UKCA</span><span class="cert">RoHS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Who it's for -->
+  <div class="sec-lbl">Who it's for</div>
+  <div class="audience-grid">
+    <div class="aud-cell">
+      <div class="aud-title">Plant Managers</div>
+      <div class="aud-body">Reduce downtime, protect equipment, keep cranes running safely and efficiently without disrupting production.</div>
+    </div>
+    <div class="aud-cell">
+      <div class="aud-title">Engineering Managers</div>
+      <div class="aud-body">A system that integrates cleanly with existing controls, uses no proprietary hardware, and can be interrogated and maintained without specialist support.</div>
+    </div>
+    <div class="aud-cell">
+      <div class="aud-title">Crane Partners</div>
+      <div class="aud-body">Add intelligent capability to any crane you supply or service — without being tied to a single manufacturer's ecosystem.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-bar">
+    <div class="cta-text">
+      <strong>Talk to us about craneIQ Vision</strong>
+      <p>We work with plant managers, engineering teams and crane partners worldwide. Engineered in the West Midlands, UK — installed globally. Get in touch to discuss your application.</p>
+    </div>
+    <div class="btn-row">
+      <a href="mailto:joe@pointnode.io" class="btn-primary">Contact Us</a>
+      <a href="../index.html#products" class="btn-ghost">← All Products</a>
+    </div>
+  </div>
+
+  <!-- Products strip -->
+  <div class="strip-wrap">
+    <div class="strip-lbl">Other craneIQ products</div>
+    <div class="strip-grid" id="sg"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-wm" style="font-family:var(--ff);font-size:16px;letter-spacing:-.01em">
+    <span class="crane">crane</span><span class="iq">IQ</span>
+  </div>
+  <p>Pointnode Ltd · West Midlands, UK &nbsp;·&nbsp; 
+    <a href="mailto:joe@pointnode.io">joe@pointnode.io</a> &nbsp;·&nbsp; 
+    <a href="../index.html">craneiq.co.uk</a>
+  </p>
+</footer>
+
+<script>
+const P=[
+  {id:'core',      a:'#008B9A',n:'Core',      t:'Hoist & trolley controller'},
+  {id:'automation',a:'#4488cc',n:'Automation',t:'Crane automation'},
+  {id:'monitoring',a:'#8855dd',n:'Monitoring',t:'Condition monitoring'},
+  {id:'cloud',     a:'#2299bb',n:'Cloud',     t:'Remote visibility'},
+  {id:'vision',    a:'#009966',n:'Vision',    t:'Hook tracking'},
+  {id:'antisway',  a:'#cc7700',n:'Antisway',  t:'Anti-sway system'},
+  {id:'zoning',    a:'#cc3344',n:'Zoning',    t:'No-fly zones'},
+  {id:'loadtrack', a:'#cc9900',n:'LoadTrack', t:'Load logging'},
+];
+const sg=document.getElementById('sg');
+P.forEach(p=>{
+  const a=document.createElement('a');
+  a.className='strip-card';
+  a.href='craneiq-'+p.id+'.html';
+  a.style.borderTopColor=p.a;
+  a.innerHTML='<div class="sc"><span class="c">crane</span><span class="iq" style="color:'+p.a+'">IQ</span></div>'
+    +'<div class="sp" style="color:'+p.a+'">'+p.n+'</div>';
+  sg.appendChild(a);
+});
+</script>
 </body>
 </html>

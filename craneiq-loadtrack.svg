@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="320" height="72">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&amp;display=swap');
+      .crane{font-family:'Open Sans',sans-serif;font-weight:300;font-size:42px;fill:#c4d8e8;letter-spacing:-0.01em}
+      .iq{font-family:'Open Sans',sans-serif;font-weight:600;font-size:42px;fill:#4488cc;letter-spacing:-0.01em}
+      .pname{font-family:'Open Sans',sans-serif;font-weight:400;font-size:13px;fill:#4488cc;letter-spacing:0.06em;text-transform:uppercase}
+    </style>
+  </defs>
+  <!-- Product icon box -->
+  <rect x="0" y="4" width="64" height="64" rx="8" fill="#4488cc12" stroke="#4488cc30" stroke-width="1"/>
+  <g transform="translate(16, 20) scale(2)">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <path d="M16 3 L28 10 L28 22 L16 29 L4 22 L4 10 Z" stroke="#4488cc" stroke-width="1.4" fill="none"/>
+      <path d="M13 12 L22 16 L13 20 Z" stroke="#4488cc" stroke-width="1.2" fill="#4488cc55" stroke-linejoin="round"/>
+    </svg>
+  </g>
+  <!-- Wordmark -->
+  <text x="80" y="46"><tspan class="crane">crane</tspan><tspan class="iq">IQ</tspan></text>
+  <text x="81" y="62" class="pname">Automation</text>
+  <!-- Accent line -->
+  <line x1="80" y1="50" x2="310" y2="50" stroke="#4488cc" stroke-width="0.5" opacity="0.2"/>
+</svg>

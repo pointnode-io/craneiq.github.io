@@ -369,264 +369,170 @@ section{border-bottom:1px solid var(--border)}
     <div class="sec-title">Eight products.<br>One intelligent platform.</div>
     <div class="sec-sub">Each craneIQ product sits alongside your existing crane controls. Start with one, add more as you need them. All work together as part of the craneIQ platform.</div>
 
-    <!-- Overview illustration -->
-    <div style="margin:0 0 48px;border-radius:4px;overflow:hidden;border:1px solid var(--border);line-height:0">
-      <svg style="width:100%;height:auto;display:block" viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" font-family="'Share Tech Mono','Courier New',monospace">
-  <defs>
-    <pattern id="og" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#008B9A" stroke-width="0.3" opacity="0.1"/>
-    </pattern>
-    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="gs"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <marker id="al" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
-      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#628098"/>
-    </marker>
-  </defs>
+    <!-- Overview — responsive HTML + crane SVG -->
+    <style>
+    .ov-wrap{background:var(--hull);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:0}
+    .ov-top,.ov-bot{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+    .ov-card{background:var(--panel);padding:18px 20px}
+    .ov-card-name{font-family:var(--ff);font-size:13px;font-weight:600;margin-bottom:6px;line-height:1}
+    .ov-card-name .c{font-weight:300;color:var(--mid)}
+    .ov-card-sub{font-size:12px;color:var(--muted);line-height:1.65}
+    .ov-crane{background:var(--console);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:24px 32px;display:flex;align-items:center;justify-content:center}
+    @media(max-width:800px){.ov-top,.ov-bot{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.ov-top,.ov-bot{grid-template-columns:1fr}}
+    </style>
+    <div class="ov-wrap">
 
-  <!-- Background -->
-  <rect width="1000" height="620" fill="#020406"/>
-  <rect width="1000" height="620" fill="url(#og)"/>
+      <!-- Top 4 products -->
+      <div class="ov-top">
+        <div class="ov-card" style="border-top:3px solid #8855dd">
+          <div class="ov-card-name"><span class="c">crane</span><span style="color:#8855dd">IQ Monitoring</span></div>
+          <div class="ov-card-sub">Standalone DWP tracking · Hoist, brake &amp; motor health · Zero risk to existing controls</div>
+        </div>
+        <div class="ov-card" style="border-top:3px solid #008B9A">
+          <div class="ov-card-name"><span class="c">crane</span><span style="color:#008B9A">IQ Core</span></div>
+          <div class="ov-card-sub">Hoist controller · Overload stops at 110% · Load spectrum · DWP from 100%</div>
+        </div>
+        <div class="ov-card" style="border-top:3px solid #2299bb">
+          <div class="ov-card-name"><span class="c">crane</span><span style="color:#2299bb">IQ Cloud</span></div>
+          <div class="ov-card-sub">Live data anywhere · Email &amp; SMS alerts · Remote diagnostics · Any device</div>
+        </div>
+        <div class="ov-card" style="border-top:3px solid #009966">
+          <div class="ov-card-name"><span class="c">crane</span><span style="color:#009966">IQ Vision</span></div>
+          <div class="ov-card-sub">Camera on crane · Passive target on hook · Side pull &amp; snag prevention</div>
+        </div>
+      </div>
 
-  <!-- Title -->
-  <text x="500" y="38" text-anchor="middle" fill="#e4f0f8" font-size="18" font-weight="bold" letter-spacing="3">craneIQ</text>
-  <text x="500" y="56" text-anchor="middle" fill="#3a5a78" font-size="11.5" letter-spacing="4">COMPLETE CRANE INTELLIGENCE · ANY CRANE · ANY MANUFACTURER · NO LOCK-IN</text>
+      <!-- Crane illustration -->
+      <div class="ov-crane">
+        <svg viewBox="0 0 900 130" style="width:100%;max-width:1000px;height:auto;display:block" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="cgs2"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <clipPath id="cr1"><rect x="10" y="10" width="880" height="14" rx="3"/></clipPath>
+            <clipPath id="cr2"><rect x="10" y="68" width="880" height="14" rx="3"/></clipPath>
+          </defs>
+          <!-- Rail 1 -->
+          <rect x="10" y="10" width="880" height="14" rx="3" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
+          <g clip-path="url(#cr1)" opacity="0.2">
+            <line x1="10" y1="10" x2="28" y2="24" stroke="#020406" stroke-width="7"/><line x1="36" y1="10" x2="54" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="62" y1="10" x2="80" y2="24" stroke="#020406" stroke-width="7"/><line x1="88" y1="10" x2="106" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="114" y1="10" x2="132" y2="24" stroke="#020406" stroke-width="7"/><line x1="140" y1="10" x2="158" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="166" y1="10" x2="184" y2="24" stroke="#020406" stroke-width="7"/><line x1="192" y1="10" x2="210" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="218" y1="10" x2="236" y2="24" stroke="#020406" stroke-width="7"/><line x1="244" y1="10" x2="262" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="270" y1="10" x2="288" y2="24" stroke="#020406" stroke-width="7"/><line x1="296" y1="10" x2="314" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="322" y1="10" x2="340" y2="24" stroke="#020406" stroke-width="7"/><line x1="348" y1="10" x2="366" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="374" y1="10" x2="392" y2="24" stroke="#020406" stroke-width="7"/><line x1="400" y1="10" x2="418" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="426" y1="10" x2="444" y2="24" stroke="#020406" stroke-width="7"/><line x1="452" y1="10" x2="470" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="478" y1="10" x2="496" y2="24" stroke="#020406" stroke-width="7"/><line x1="504" y1="10" x2="522" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="530" y1="10" x2="548" y2="24" stroke="#020406" stroke-width="7"/><line x1="556" y1="10" x2="574" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="582" y1="10" x2="600" y2="24" stroke="#020406" stroke-width="7"/><line x1="608" y1="10" x2="626" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="634" y1="10" x2="652" y2="24" stroke="#020406" stroke-width="7"/><line x1="660" y1="10" x2="678" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="686" y1="10" x2="704" y2="24" stroke="#020406" stroke-width="7"/><line x1="712" y1="10" x2="730" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="738" y1="10" x2="756" y2="24" stroke="#020406" stroke-width="7"/><line x1="764" y1="10" x2="782" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="790" y1="10" x2="808" y2="24" stroke="#020406" stroke-width="7"/><line x1="816" y1="10" x2="834" y2="24" stroke="#020406" stroke-width="7"/>
+            <line x1="842" y1="10" x2="860" y2="24" stroke="#020406" stroke-width="7"/><line x1="868" y1="10" x2="886" y2="24" stroke="#020406" stroke-width="7"/>
+          </g>
+          <!-- Rail 2 -->
+          <rect x="10" y="68" width="880" height="14" rx="3" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
+          <g clip-path="url(#cr2)" opacity="0.2">
+            <line x1="10" y1="68" x2="28" y2="82" stroke="#020406" stroke-width="7"/><line x1="36" y1="68" x2="54" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="62" y1="68" x2="80" y2="82" stroke="#020406" stroke-width="7"/><line x1="88" y1="68" x2="106" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="114" y1="68" x2="132" y2="82" stroke="#020406" stroke-width="7"/><line x1="140" y1="68" x2="158" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="166" y1="68" x2="184" y2="82" stroke="#020406" stroke-width="7"/><line x1="192" y1="68" x2="210" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="218" y1="68" x2="236" y2="82" stroke="#020406" stroke-width="7"/><line x1="244" y1="68" x2="262" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="270" y1="68" x2="288" y2="82" stroke="#020406" stroke-width="7"/><line x1="296" y1="68" x2="314" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="322" y1="68" x2="340" y2="82" stroke="#020406" stroke-width="7"/><line x1="348" y1="68" x2="366" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="374" y1="68" x2="392" y2="82" stroke="#020406" stroke-width="7"/><line x1="400" y1="68" x2="418" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="426" y1="68" x2="444" y2="82" stroke="#020406" stroke-width="7"/><line x1="452" y1="68" x2="470" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="478" y1="68" x2="496" y2="82" stroke="#020406" stroke-width="7"/><line x1="504" y1="68" x2="522" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="530" y1="68" x2="548" y2="82" stroke="#020406" stroke-width="7"/><line x1="556" y1="68" x2="574" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="582" y1="68" x2="600" y2="82" stroke="#020406" stroke-width="7"/><line x1="608" y1="68" x2="626" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="634" y1="68" x2="652" y2="82" stroke="#020406" stroke-width="7"/><line x1="660" y1="68" x2="678" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="686" y1="68" x2="704" y2="82" stroke="#020406" stroke-width="7"/><line x1="712" y1="68" x2="730" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="738" y1="68" x2="756" y2="82" stroke="#020406" stroke-width="7"/><line x1="764" y1="68" x2="782" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="790" y1="68" x2="808" y2="82" stroke="#020406" stroke-width="7"/><line x1="816" y1="68" x2="834" y2="82" stroke="#020406" stroke-width="7"/>
+            <line x1="842" y1="68" x2="860" y2="82" stroke="#020406" stroke-width="7"/><line x1="868" y1="68" x2="886" y2="82" stroke="#020406" stroke-width="7"/>
+          </g>
+          <!-- End carriages -->
+          <rect x="4" y="4" width="26" height="88" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
+          <circle cx="17" cy="4" r="7" fill="#D4A017"/><circle cx="17" cy="92" r="7" fill="#D4A017"/>
+          <rect x="870" y="4" width="26" height="88" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
+          <circle cx="883" cy="4" r="7" fill="#D4A017"/><circle cx="883" cy="92" r="7" fill="#D4A017"/>
+          <!-- Bridge -->
+          <rect x="30" y="24" width="840" height="44" rx="5" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
+          <line x1="180" y1="24" x2="180" y2="68" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
+          <line x1="360" y1="24" x2="360" y2="68" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
+          <line x1="540" y1="24" x2="540" y2="68" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
+          <line x1="720" y1="24" x2="720" y2="68" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
+          <!-- Trolley -->
+          <rect x="400" y="17" width="150" height="58" rx="5" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
+          <circle cx="420" cy="17" r="8" fill="#D4A017"/><circle cx="532" cy="17" r="8" fill="#D4A017"/>
+          <!-- Hoist drum -->
+          <rect x="418" y="28" width="112" height="36" rx="4" fill="#D4A017" stroke="#B8860B" stroke-width="1.5"/>
+          <ellipse cx="474" cy="46" rx="12" ry="14" fill="#B8860B"/>
+          <ellipse cx="474" cy="46" rx="7" ry="8" fill="#D4A017"/>
+          <!-- Product units -->
+          <!-- Core -->
+          <rect x="418" y="30" width="38" height="18" rx="2" fill="#008B9A" filter="url(#cgs2)"/>
+          <text x="437" y="42" text-anchor="middle" fill="#020406" font-size="9" font-weight="bold" font-family="Open Sans,sans-serif">CORE</text>
+          <!-- Monitoring -->
+          <rect x="240" y="31" width="42" height="18" rx="2" fill="#8855dd" filter="url(#cgs2)"/>
+          <text x="261" y="43" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold" font-family="Open Sans,sans-serif">MON</text>
+          <!-- LoadTrack -->
+          <rect x="534" y="31" width="42" height="18" rx="2" fill="#cc9900" filter="url(#cgs2)"/>
+          <text x="555" y="43" text-anchor="middle" fill="#020406" font-size="7.5" font-weight="bold" font-family="Open Sans,sans-serif">LOAD</text>
+          <!-- Vision camera -->
+          <rect x="680" y="27" width="32" height="22" rx="3" fill="#009966" filter="url(#cgs2)"/>
+          <circle cx="682" cy="38" r="7" fill="#020406" stroke="#009966" stroke-width="1.5"/>
+          <circle cx="682" cy="38" r="3.5" fill="#009966" opacity="0.9"/>
+          <!-- Antisway VFD left carriage -->
+          <rect x="6" y="36" width="26" height="18" rx="2" fill="#cc7700" filter="url(#cgs2)"/>
+          <text x="19" y="48" text-anchor="middle" fill="#020406" font-size="8" font-weight="bold" font-family="Open Sans,sans-serif">VFD</text>
+          <!-- Zoning right carriage -->
+          <rect x="872" y="36" width="24" height="18" rx="2" fill="#cc3344" filter="url(#cgs2)"/>
+          <text x="884" y="48" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Open Sans,sans-serif">ZON</text>
+          <!-- Cloud wifi -->
+          <path d="M 466 16 Q 474 6 482 16" fill="none" stroke="#2299bb" stroke-width="2" opacity="0.8"/>
+          <path d="M 460 10 Q 474 -2 488 10" fill="none" stroke="#2299bb" stroke-width="1.4" opacity="0.5"/>
+          <circle cx="474" cy="18" r="3" fill="#2299bb" opacity="0.8"/>
+          <!-- Rope -->
+          <line x1="474" y1="75" x2="474" y2="120" stroke="#92b0c4" stroke-width="3" stroke-linecap="round"/>
+          <!-- Crosshair at bottom -->
+          <circle cx="474" cy="123" r="9" fill="none" stroke="#008B9A" stroke-width="2.2" filter="url(#cgs2)"/>
+          <circle cx="474" cy="123" r="3" fill="#008B9A"/>
+          <line x1="459" y1="123" x2="465" y2="123" stroke="#008B9A" stroke-width="2"/>
+          <line x1="483" y1="123" x2="489" y2="123" stroke="#008B9A" stroke-width="2"/>
+          <line x1="474" y1="108" x2="474" y2="114" stroke="#008B9A" stroke-width="2"/>
+          <!-- Automation pendant -->
+          <line x1="370" y1="68" x2="370" y2="120" stroke="#4488cc" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <rect x="358" y="112" width="24" height="16" rx="3" fill="#0b1722" stroke="#4488cc" stroke-width="1"/>
+          <rect x="362" y="116" width="16" height="3" rx="1" fill="#4488cc" opacity="0.7"/>
+          <rect x="362" y="121" width="16" height="3" rx="1" fill="#4488cc" opacity="0.5"/>
+        </svg>
+      </div>
 
-  <!-- ══════════════════════════════════════════
-       CRANE STRUCTURE — front/slightly 3/4 view
-       ══════════════════════════════════════════ -->
+      <!-- Bottom 4 products -->
+      <div class="ov-bot">
+        <div class="ov-card" style="border-bottom:3px solid #cc7700">
+          <div class="ov-card-name"><span class="c">crane</span><span style="color:#cc7700">IQ Antisway</span></div>
+          <div class="ov-card-sub">No sensors · No encoders · Uses existing travel VFDs only</div>
+        </div>
+        <div class="ov-card" style="border-bottom:3px solid #4488cc">
+          <div class="ov-card-name"><span class="c">crane</span><span style="color:#4488cc">IQ Automation</span></div>
+          <div class="ov-card-sub">Teach &amp; replay · No code · Any operator · Commissions in 1 day</div>
+        </div>
+        <div class="ov-card" style="border-bottom:3px solid #cc9900">
+          <div class="ov-card-name"><span class="c">crane</span><span style="color:#cc9900">IQ LoadTrack</span></div>
+          <div class="ov-card-sub">Every lift weighed &amp; logged · Wireless display · Process cycle logging</div>
+        </div>
+        <div class="ov-card" style="border-bottom:3px solid #cc3344">
+          <div class="ov-card-name"><span class="c">crane</span><span style="color:#cc3344">IQ Zoning</span></div>
+          <div class="ov-card-sub">Software-defined no-fly zones · Multi-crane collision prevention</div>
+        </div>
+      </div>
 
-  <!-- Runway rails (two parallel) -->
-  <rect x="80"  y="130" width="840" height="16" rx="3" fill="#D4A017" stroke="#B8860B" stroke-width="1.5"/>
-  <rect x="80"  y="182" width="840" height="16" rx="3" fill="#D4A017" stroke="#B8860B" stroke-width="1.5"/>
-
-  <!-- Runway hazard stripes -->
-  <clipPath id="r1"><rect x="80" y="130" width="840" height="16" rx="3"/></clipPath>
-  <g clip-path="url(#r1)" opacity="0.18">
-    <line x1="80" y1="130" x2="100" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="108" y1="130" x2="128" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="136" y1="130" x2="156" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="164" y1="130" x2="184" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="192" y1="130" x2="212" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="220" y1="130" x2="240" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="248" y1="130" x2="268" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="276" y1="130" x2="296" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="304" y1="130" x2="324" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="332" y1="130" x2="352" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="360" y1="130" x2="380" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="388" y1="130" x2="408" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="416" y1="130" x2="436" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="444" y1="130" x2="464" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="472" y1="130" x2="492" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="500" y1="130" x2="520" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="528" y1="130" x2="548" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="556" y1="130" x2="576" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="584" y1="130" x2="604" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="612" y1="130" x2="632" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="640" y1="130" x2="660" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="668" y1="130" x2="688" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="696" y1="130" x2="716" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="724" y1="130" x2="744" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="752" y1="130" x2="772" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="780" y1="130" x2="800" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="808" y1="130" x2="828" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="836" y1="130" x2="856" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="864" y1="130" x2="884" y2="146" stroke="#020406" stroke-width="7"/>
-    <line x1="892" y1="130" x2="912" y2="146" stroke="#020406" stroke-width="7"/>
-  </g>
-
-  <!-- End carriages -->
-  <rect x="72"  y="112" width="36" height="100" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
-  <rect x="892" y="112" width="36" height="100" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
-  <!-- Carriage wheels -->
-  <circle cx="90"  cy="112" r="8" fill="#D4A017"/>
-  <circle cx="90"  cy="212" r="8" fill="#D4A017"/>
-  <circle cx="910" cy="112" r="8" fill="#D4A017"/>
-  <circle cx="910" cy="212" r="8" fill="#D4A017"/>
-
-  <!-- Bridge beam — main horizontal -->
-  <rect x="108" y="148" width="784" height="34" rx="5" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
-  <!-- Bridge detail — stiffeners -->
-  <line x1="200" y1="148" x2="200" y2="182" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
-  <line x1="350" y1="148" x2="350" y2="182" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
-  <line x1="500" y1="148" x2="500" y2="182" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
-  <line x1="650" y1="148" x2="650" y2="182" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
-  <line x1="800" y1="148" x2="800" y2="182" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
-
-  <!-- Trolley -->
-  <rect x="440" y="140" width="120" height="44" rx="5" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
-  <!-- Trolley wheels on bridge -->
-  <circle cx="458" cy="140" r="7" fill="#D4A017"/>
-  <circle cx="542" cy="140" r="7" fill="#D4A017"/>
-
-  <!-- Hoist drum on trolley -->
-  <rect x="456" y="150" width="88" height="26" rx="4" fill="#D4A017" stroke="#B8860B" stroke-width="1.5"/>
-  <ellipse cx="500" cy="163" rx="10" ry="12" fill="#B8860B"/>
-  <ellipse cx="500" cy="163" rx="6" ry="8" fill="#D4A017"/>
-
-  <!-- Hoist rope -->
-  <line x1="500" y1="184" x2="500" y2="360" stroke="#92b0c4" stroke-width="3" stroke-linecap="round"/>
-
-  <!-- Load crosshair target -->
-  <g filter="url(#gs)">
-    <circle cx="500" cy="366" r="18" fill="none" stroke="#008B9A" stroke-width="2.5"/>
-    <circle cx="500" cy="366" r="6"  fill="#008B9A" opacity="0.85"/>
-    <line x1="472" y1="366" x2="482" y2="366" stroke="#008B9A" stroke-width="2.2"/>
-    <line x1="518" y1="366" x2="528" y2="366" stroke="#008B9A" stroke-width="2.2"/>
-    <line x1="500" y1="338" x2="500" y2="348" stroke="#008B9A" stroke-width="2.2"/>
-    <line x1="500" y1="384" x2="500" y2="394" stroke="#008B9A" stroke-width="2.2"/>
-  </g>
-
-  <!-- Load box -->
-  <rect x="458" y="385" width="84" height="64" rx="4" fill="#0b1722" stroke="#008B9A" stroke-width="1.8"/>
-  <rect x="466" y="393" width="68" height="48" rx="3" fill="#07101a"/>
-  <ellipse cx="500" cy="452" rx="44" ry="7" fill="#000" opacity="0.4"/>
-
-  <!-- Control pendant cable + pendant -->
-  <line x1="390" y1="165" x2="390" y2="480" stroke="#628098" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <rect x="372" y="480" width="36" height="60" rx="5" fill="#0b1722" stroke="#628098" stroke-width="1.5"/>
-  <rect x="378" y="488" width="24" height="8" rx="2" fill="#162840"/>
-  <rect x="378" y="500" width="24" height="8" rx="2" fill="#162840"/>
-  <rect x="378" y="512" width="24" height="8" rx="2" fill="#162840"/>
-  <rect x="378" y="524" width="24" height="8" rx="2" fill="#162840"/>
-
-  <!-- ══════════════════════════════════════════
-       PRODUCT CALLOUT BOXES
-       ══════════════════════════════════════════ -->
-
-  <!-- Helper: callout line macro (inline) -->
-
-  <!-- 1. CORE — on the trolley/control box -->
-  <!-- Core unit on trolley -->
-  <rect x="456" y="152" width="30" height="18" rx="2" fill="#008B9A" filter="url(#gs)"/>
-  <text x="471" y="164" text-anchor="middle" fill="#020406" font-size="11" font-weight="bold">IQ</text>
-  <!-- Callout line -->
-  <line x1="486" y1="161" x2="580" y2="80"  stroke="#628098" stroke-width="1" marker-end="url(#al)" opacity="0.8"/>
-  <!-- Callout box -->
-  <rect x="580" y="44" width="168" height="52" rx="4" fill="#071a15" stroke="#008B9A" stroke-width="1.8"/>
-  <rect x="580" y="44" width="168" height="4" rx="2" fill="#008B9A"/>
-  <text x="596" y="62" fill="#e4f0f8" font-size="11" font-weight="bold">craneIQ Core</text>
-  <text x="596" y="75" fill="#3a5a78" font-size="13">Hoist controller · DWP · Load</text>
-  <text x="596" y="85" fill="#3a5a78" font-size="13">spectrum · Overload protection</text>
-
-  <!-- 2. ANTISWAY — VFDs on end carriage left -->
-  <!-- VFD unit on left carriage -->
-  <rect x="78" y="155" width="24" height="18" rx="2" fill="#cc7700" filter="url(#gs)"/>
-  <text x="90" y="167" text-anchor="middle" fill="#020406" font-size="11" font-weight="bold">VFD</text>
-  <!-- Callout line -->
-  <line x1="78" y1="164" x2="44" y2="258"  stroke="#628098" stroke-width="1" marker-end="url(#al)" opacity="0.8"/>
-  <!-- Callout box -->
-  <rect x="20" y="258" width="168" height="52" rx="4" fill="#1a0f00" stroke="#cc7700" stroke-width="1.8"/>
-  <rect x="20" y="258" width="168" height="4" rx="2" fill="#cc7700"/>
-  <text x="36" y="276" fill="#e4f0f8" font-size="11" font-weight="bold">craneIQ Antisway</text>
-  <text x="36" y="289" fill="#3a5a78" font-size="13">No sensors · No encoders</text>
-  <text x="36" y="299" fill="#3a5a78" font-size="13">Uses existing VFDs only</text>
-
-  <!-- 3. MONITORING — standalone unit on bridge -->
-  <!-- Monitoring unit on bridge -->
-  <rect x="300" y="152" width="30" height="18" rx="2" fill="#8855dd" filter="url(#gs)"/>
-  <text x="315" y="164" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">MON</text>
-  <!-- Callout line -->
-  <line x1="300" y1="161" x2="200" y2="88"  stroke="#628098" stroke-width="1" marker-end="url(#al)" opacity="0.8"/>
-  <!-- Callout box -->
-  <rect x="20" y="44" width="168" height="52" rx="4" fill="#120a1f" stroke="#8855dd" stroke-width="1.8"/>
-  <rect x="20" y="44" width="168" height="4" rx="2" fill="#8855dd"/>
-  <text x="36" y="62" fill="#e4f0f8" font-size="11" font-weight="bold">craneIQ Monitoring</text>
-  <text x="36" y="75" fill="#3a5a78" font-size="13">Standalone · Zero risk · DWP</text>
-  <text x="36" y="85" fill="#3a5a78" font-size="13">Brake · Motor · Vibration</text>
-
-  <!-- 4. VISION — camera on bridge + target on rope -->
-  <!-- Camera on bridge -->
-  <rect x="620" y="148" width="26" height="20" rx="3" fill="#009966" filter="url(#gs)"/>
-  <circle cx="622" cy="158" r="6" fill="#020406" stroke="#009966" stroke-width="1.5"/>
-  <circle cx="622" cy="158" r="3" fill="#009966" opacity="0.8"/>
-  <!-- Callout line -->
-  <line x1="646" y1="158" x2="760" y2="90"  stroke="#628098" stroke-width="1" marker-end="url(#al)" opacity="0.8"/>
-  <!-- Callout box -->
-  <rect x="760" y="54" width="168" height="52" rx="4" fill="#001a0f" stroke="#009966" stroke-width="1.8"/>
-  <rect x="760" y="54" width="168" height="4" rx="2" fill="#009966"/>
-  <text x="776" y="72" fill="#e4f0f8" font-size="11" font-weight="bold">craneIQ Vision</text>
-  <text x="776" y="85" fill="#3a5a78" font-size="13">Camera on crane · Passive target</text>
-  <text x="776" y="95" fill="#3a5a78" font-size="13">Side pull &amp; snag prevention</text>
-
-  <!-- 5. ZONING — laser on right end carriage -->
-  <!-- Laser unit on right carriage -->
-  <rect x="898" y="155" width="24" height="18" rx="2" fill="#cc3344" filter="url(#gs)"/>
-  <text x="910" y="167" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">ZONE</text>
-  <!-- Zone boundary dashed line from carriage -->
-  <line x1="898" y1="164" x2="860" y2="164" stroke="#cc3344" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/>
-  <!-- Callout line -->
-  <line x1="922" y1="164" x2="960" y2="258"  stroke="#628098" stroke-width="1" marker-end="url(#al)" opacity="0.8"/>
-  <!-- Callout box -->
-  <rect x="812" y="258" width="168" height="52" rx="4" fill="#1a0007" stroke="#cc3344" stroke-width="1.8"/>
-  <rect x="812" y="258" width="168" height="4" rx="2" fill="#cc3344"/>
-  <text x="828" y="276" fill="#e4f0f8" font-size="11" font-weight="bold">craneIQ Zoning</text>
-  <text x="828" y="289" fill="#3a5a78" font-size="13">Software-defined no-fly zones</text>
-  <text x="828" y="299" fill="#3a5a78" font-size="13">Multi-crane collision prevention</text>
-
-  <!-- 6. AUTOMATION — on pendant / control -->
-  <!-- Automation indicator on pendant -->
-  <rect x="372" y="500" width="24" height="8" rx="2" fill="#4488cc" filter="url(#gs)"/>
-  <!-- Callout line -->
-  <line x1="372" y1="504" x2="244" y2="400"  stroke="#628098" stroke-width="1" marker-end="url(#al)" opacity="0.8"/>
-  <!-- Callout box -->
-  <rect x="20" y="340" width="168" height="52" rx="4" fill="#000d1a" stroke="#4488cc" stroke-width="1.8"/>
-  <rect x="20" y="340" width="168" height="4" rx="2" fill="#4488cc"/>
-  <text x="36" y="358" fill="#e4f0f8" font-size="11" font-weight="bold">craneIQ Automation</text>
-  <text x="36" y="371" fill="#3a5a78" font-size="13">Teach &amp; replay · No code</text>
-  <text x="36" y="381" fill="#3a5a78" font-size="13">Any operator · Commissions in 1 day</text>
-
-  <!-- 7. LOADTRACK — load cell on hoist / display -->
-  <!-- LoadTrack unit on hoist -->
-  <rect x="540" y="152" width="30" height="18" rx="2" fill="#cc9900" filter="url(#gs)"/>
-  <text x="555" y="164" text-anchor="middle" fill="#020406" font-size="13" font-weight="bold">LOAD</text>
-  <!-- Display unit on wall (right side, floor level) -->
-  <rect x="820" y="420" width="56" height="36" rx="4" fill="#0b1722" stroke="#cc9900" stroke-width="1.8"/>
-  <rect x="826" y="426" width="44" height="24" rx="2" fill="#07101a"/>
-  <text x="848" y="438" text-anchor="middle" fill="#cc9900" font-size="12">LOAD</text>
-  <text x="848" y="449" text-anchor="middle" fill="#e4f0f8" font-size="12.5" font-weight="bold">4.2 t</text>
-  <!-- Wireless signal from hoist to display -->
-  <line x1="820" y1="438" x2="650" y2="300" stroke="#cc9900" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
-  <!-- Callout line from LoadTrack unit -->
-  <line x1="570" y1="152" x2="680" y2="80"  stroke="#628098" stroke-width="1" marker-end="url(#al)" opacity="0.8"/>
-  <!-- Callout box -->
-  <rect x="680" y="44" width="70" height="52" rx="4" fill="#1a0f00" stroke="#cc9900" stroke-width="1.8"/>
-  <rect x="680" y="44" width="70" height="4" rx="2" fill="#cc9900"/>
-  <text x="715" y="62" text-anchor="middle" fill="#e4f0f8" font-size="11.5" font-weight="bold">LoadTrack</text>
-  <text x="715" y="75" text-anchor="middle" fill="#3a5a78" font-size="12">Every lift</text>
-  <text x="715" y="85" text-anchor="middle" fill="#3a5a78" font-size="12">logged</text>
-
-  <!-- 8. CLOUD — signal rising from Core unit -->
-  <!-- WiFi/signal arcs above crane -->
-  <path d="M 490 120 Q 500 108 510 120" fill="none" stroke="#2299bb" stroke-width="2" opacity="0.7"/>
-  <path d="M 480 112 Q 500  94 520 112" fill="none" stroke="#2299bb" stroke-width="1.5" opacity="0.5"/>
-  <path d="M 470 104 Q 500  80 530 104" fill="none" stroke="#2299bb" stroke-width="1" opacity="0.3"/>
-  <circle cx="500" cy="128" r="3" fill="#2299bb" opacity="0.8"/>
-  <!-- Cloud callout line -->
-  <line x1="530" y1="100" x2="640" y2="60"  stroke="#628098" stroke-width="1" marker-end="url(#al)" opacity="0.8"/>
-  <!-- Cloud callout box -->
-  <rect x="640" y="24" width="112" height="38" rx="4" fill="#001219" stroke="#2299bb" stroke-width="1.8"/>
-  <rect x="640" y="24" width="112" height="4" rx="2" fill="#2299bb"/>
-  <text x="696" y="40" text-anchor="middle" fill="#e4f0f8" font-size="11.5" font-weight="bold">craneIQ Cloud</text>
-  <text x="696" y="53" text-anchor="middle" fill="#3a5a78" font-size="12">Live data · Alerts · Remote</text>
-
-  <!-- ══════════════════════════════════════════
-       BOTTOM STRIP — key message
-       ══════════════════════════════════════════ -->
-  <rect x="50" y="560" width="900" height="40" rx="4" fill="#07101a" stroke="#162840" stroke-width="1"/>
-  <!-- 8 product dots -->
-  <circle cx="120" cy="580" r="5" fill="#008B9A"/>
-  <circle cx="185" cy="580" r="5" fill="#4488cc"/>
-  <circle cx="250" cy="580" r="5" fill="#8855dd"/>
-  <circle cx="315" cy="580" r="5" fill="#2299bb"/>
-  <circle cx="380" cy="580" r="5" fill="#009966"/>
-  <circle cx="445" cy="580" r="5" fill="#cc7700"/>
-  <circle cx="510" cy="580" r="5" fill="#cc3344"/>
-  <circle cx="575" cy="580" r="5" fill="#cc9900"/>
-  <text x="610" y="584" fill="#3a5a78" font-size="13" letter-spacing="1">·</text>
-  <text x="630" y="584" fill="#628098" font-size="13" letter-spacing="1.5">ALL PRODUCTS SIT ALONGSIDE EXISTING CONTROLS</text>
-  <text x="630" y="594" fill="#3a5a78" font-size="12.5" letter-spacing="1">NO PROPRIETARY LOCK-IN · ANY CRANE · ANY MANUFACTURER · WORLDWIDE</text>
-</svg>
     </div>
+
 
     <div class="prod-grid" id="prodGrid"></div>
   </div>

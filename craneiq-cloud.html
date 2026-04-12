@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="craneIQ Antisway — retrofit anti-sway system that needs only existing VFDs. No sensors or encoders. Dramatically reduces load swing. Worldwide.">
+<title>craneIQ Antisway — Dramatic reduction in load swing — no sensors, no complexity</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logos/craneiq-monogram.svg">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#020406;--deep:#040810;--hull:#07101a;--panel:#0b1722;--console:#0e1d2c;
+  --border:#162840;--bhi:#204060;
+  --dim:#1c3450;--muted:#3a5a78;--mid:#628098;--steel:#92b0c4;--bright:#c4d8e8;--white:#e4f0f8;
+  --brand:#008B9A;--brand-hi:#00a8ba;--radar:#4ccc80;
+  --accent:#cc7700;
+  --ff:'Open Sans',sans-serif;--mono:'Share Tech Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:14px;line-height:1.85}
+::-webkit-scrollbar{width:3px;background:var(--void)}
+::-webkit-scrollbar-thumb{background:var(--bhi)}
+
+/* NAV */
+.nav{height:54px;background:var(--hull);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 40px;
+  position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.nav-logo{font-family:var(--ff);font-size:18px;line-height:1;letter-spacing:-.01em;text-decoration:none}
+.nav-logo .crane{font-weight:300;color:var(--bright)}
+.nav-logo .iq{font-weight:600;color:var(--brand)}
+.nav-back{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--muted);
+  text-decoration:none;text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color .14s}
+.nav-back::before{content:'←'}
+.nav-back:hover{color:var(--accent)}
+
+/* HERO */
+.hero{background:var(--hull);border-bottom:1px solid var(--border);
+  padding:52px 40px 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 55% 120% at 85% 50%,rgba(0,139,154,.055) 0%,transparent 70%)}
+.hero-inner{max-width:1060px;margin:0 auto;position:relative;z-index:1}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:24px;flex-wrap:wrap}
+.hero-wm{font-family:var(--ff);font-size:44px;line-height:1;letter-spacing:-.02em}
+.hero-wm .crane{font-weight:300;color:var(--bright)}
+.hero-wm .iq{font-weight:600;color:var(--accent)}
+.hero-wm .pname{font-weight:400;font-size:23px;color:var(--accent);margin-left:5px}
+.hero-tagline{font-family:var(--ff);font-weight:300;font-size:18px;color:var(--mid);margin-top:8px;letter-spacing:-.005em}
+.hero-meta{text-align:right;flex-shrink:0}
+.hero-code{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--mid);display:block}
+.hero-model{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--muted);display:block;margin-top:4px}
+.hero-stats{display:flex;gap:0;border-top:1px solid var(--border);padding-top:22px;flex-wrap:wrap}
+.hstat{padding:0 28px 0 0;margin-right:28px;border-right:1px solid var(--border)}
+.hstat:last-child{border:none;margin:0;padding:0}
+.hstat-val{font-family:var(--ff);font-weight:600;font-size:20px;color:var(--white);line-height:1}
+.hstat-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+
+/* BODY */
+.body-wrap{max-width:1060px;margin:0 auto;padding:52px 40px}
+.sec-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--accent);
+  text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,#008B9A55,transparent)}
+
+/* Differentiator banner */
+.diff-banner{background:var(--console);border:1px solid var(--bhi);border-radius:3px;
+  padding:20px 24px;margin-bottom:28px;display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.diff-banner-icon{font-family:var(--mono);font-size:18px;color:var(--accent);flex-shrink:0;padding-top:2px}
+.diff-banner-text{font-size:14px;color:var(--steel);line-height:1.75}
+.diff-banner-text strong{color:var(--white);font-weight:600;display:block;margin-bottom:4px}
+
+/* Overview */
+.overview{font-size:14px;color:var(--steel);line-height:1.95;margin-bottom:28px}
+.overview strong{color:var(--white);font-weight:600}
+
+/* Two col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-bottom:24px}
+.col{background:var(--panel);padding:32px 28px}
+.col-dark{background:var(--console)}
+
+/* Feature list */
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.feat-list li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;
+  color:var(--bright);line-height:1.55;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.feat-list li:last-child{border:none;padding:0}
+.feat-list li::before{content:'—';color:var(--accent);font-weight:600;flex-shrink:0;margin-top:2px}
+.feat-list li span{color:var(--muted);font-size:12.5px;display:block;margin-top:3px;line-height:1.8}
+
+/* Spec table */
+.spec-table{width:100%;border-collapse:collapse}
+.spec-table tr:nth-child(even) td{background:var(--panel)}
+.spec-table td{padding:10px 14px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle}
+.spec-table tr:last-child td{border-bottom:none}
+.spec-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.spec-val{font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);text-align:right}
+
+/* Certs */
+.certs{display:flex;gap:8px;margin-top:20px}
+.cert{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.1em;
+  padding:6px 14px;border:1px solid var(--bhi);border-radius:2px;color:var(--mid)}
+
+/* Who it's for */
+.audience-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;
+  overflow:hidden;margin-bottom:24px}
+.aud-cell{background:var(--panel);padding:22px 24px}
+.aud-title{font-family:var(--ff);font-weight:600;font-size:14px;color:var(--white);margin-bottom:7px}
+.aud-body{font-size:13px;color:var(--muted);line-height:1.8}
+
+/* CTA bar */
+.cta-bar{background:var(--hull);border:1px solid var(--border);border-radius:3px;
+  padding:28px 32px;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:32px;gap:16px;flex-wrap:wrap;position:relative;overflow:hidden}
+.cta-bar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),transparent)}
+.cta-text strong{display:block;color:var(--white);font-size:16px;font-weight:600;margin-bottom:6px}
+.cta-text p{font-size:13px;color:var(--muted);line-height:1.75;max-width:480px}
+.btn-primary{background:var(--accent);color:var(--void);font-family:var(--ff);font-weight:600;
+  font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;padding:13px 28px;
+  border-radius:2px;text-decoration:none;white-space:nowrap;transition:background .14s;display:inline-block}
+.btn-primary:hover{opacity:.88}
+.btn-ghost{background:transparent;color:var(--steel);font-family:var(--ff);font-weight:400;
+  font-size:11.5px;letter-spacing:.05em;padding:12px 24px;border-radius:2px;
+  border:1px solid var(--bhi);text-decoration:none;white-space:nowrap;transition:.14s;display:inline-block}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap}
+
+/* Products strip */
+.strip-wrap{border-top:1px solid var(--border);padding-top:40px}
+.strip-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--muted);
+  text-transform:uppercase;margin-bottom:16px}
+.strip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.strip-card{background:var(--panel);padding:16px 18px;text-decoration:none;
+  border-top:2px solid;transition:background .15s}
+.strip-card:hover{background:var(--console)}
+.strip-card .sc{font-family:var(--ff);font-size:13px;line-height:1}
+.strip-card .sc .c{font-weight:300;color:var(--mid)}
+.strip-card .sc .iq{font-weight:600}
+.strip-card .sp{font-family:var(--mono);font-size:8px;letter-spacing:.06em;
+  color:var(--dim);text-transform:uppercase;margin-top:4px}
+
+/* FOOTER */
+footer{background:var(--hull);border-top:1px solid var(--border);
+  padding:22px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer p{font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
+footer a{color:var(--muted);text-decoration:none;transition:color .14s}
+footer a:hover{color:var(--accent)}
+.footer-wm .crane{font-weight:300;color:var(--bright)}
+.footer-wm .iq{font-weight:600;color:var(--brand)}
+
+@media(max-width:720px){
+  .two-col{grid-template-columns:1fr}
+  .nav{padding:0 20px}
+  .hero{padding:36px 20px 28px}
+  .body-wrap{padding:36px 20px}
+  footer{padding:20px}
+  .hstat{border:none;padding:0;margin:0 0 8px}
+  .hero-stats{gap:0;display:grid;grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><span class="crane">crane</span><span class="iq">IQ</span></a>
+  <a href="../index.html#products" class="nav-back">All Products</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div>
+        <div class="hero-wm">
+          <span class="crane">crane</span><span class="iq">IQ</span><span class="pname">Antisway</span>
+        </div>
+        <div class="hero-tagline">Dramatic reduction in load swing — no sensors, no complexity</div>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-code">CIQ-ASW</span>
+        <span class="hero-model">Model CIQ-S1 &nbsp;·&nbsp; Worldwide</span>
+      </div>
+    </div>
+    <div class="hero-stats"><div class="hstat"><div class="hstat-val">No sensors</div><div class="hstat-lbl">Just existing VFDs</div></div><div class="hstat"><div class="hstat-val">Dramatic</div><div class="hstat-lbl">Reduction in swing</div></div><div class="hstat"><div class="hstat-val">Any axis</div><div class="hstat-lbl">1, 2 or 3</div></div><div class="hstat"><div class="hstat-val">< 1 day</div><div class="hstat-lbl">To commission</div></div></div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <!-- Differentiator banner -->
+  <div class="diff-banner">
+    <div class="diff-banner-icon">⊕</div>
+    <div class="diff-banner-text">
+      <strong>No sensors. No encoders. No cameras. Just the VFDs already on your crane.</strong>
+      Some anti-sway systems require additional hardware — encoders on the hoist, height measuring units, 
+      specialist commissioning. craneIQ Antisway needs none of it.
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <div class="sec-lbl">Overview</div>
+  <p class="overview">Load swing costs time, causes accidents, and puts enormous stress on cranes and structures. Anti-sway technology has existed for years — but most implementations require additional sensors, encoders or measurement hardware to be fitted to the crane, adding complexity, cost and ongoing maintenance. <strong>craneIQ Antisway takes a fundamentally different approach.</strong> It works purely from the Variable Frequency Drives already fitted to your crane's travel motions. No sensors. No encoders. No cameras. No height measuring unit. The open-loop algorithm profiles the VFD speed reference to move the crane in a way that naturally suppresses swing on any number of axes simultaneously. The result: operators with limited training immediately move loads with dramatically less sway, improving safety, accuracy and cycle times — commissioned and running in less than a day.
+  <!-- Illustration -->
+  <div style="margin:0 0 28px;border-radius:4px;overflow:hidden;border:1px solid var(--border);line-height:0">
+<svg style="width:100%;height:auto;display:block;max-width:100%" viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg" font-family="'Open Sans',sans-serif">
+<defs>
+  <pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse">
+    <path d="M32 0L0 0 0 32" fill="none" stroke="#008B9A" stroke-width="0.25" opacity="0.12"/>
+  </pattern>
+  <filter id="glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="900" height="440" fill="#020406"/>
+<rect width="900" height="440" fill="url(#g)"/>
+
+<!-- Divider -->
+<line x1="450" y1="16" x2="450" y2="424" stroke="#162840" stroke-width="1" stroke-dasharray="5 4"/>
+
+<!-- LEFT PANEL — Without -->
+<rect x="16" y="20" width="164" height="22" rx="2" fill="#07101a" stroke="#162840" stroke-width="1"/>
+<text x="98" y="35" text-anchor="middle" fill="#3a5a78" font-size="8" letter-spacing="2" font-family="'Share Tech Mono',monospace">WITHOUT ANTISWAY</text>
+
+<!-- Runway left -->
+<rect x="30" y="65" width="400" height="14" rx="3" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
+<clipPath id="cl"><rect x="30" y="65" width="400" height="14" rx="3"/></clipPath>
+<g clip-path="url(#cl)" opacity="0.2">
+  <line x1="30" y1="65" x2="46" y2="79" stroke="#020406" stroke-width="5"/><line x1="52" y1="65" x2="68" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="74" y1="65" x2="90" y2="79" stroke="#020406" stroke-width="5"/><line x1="96" y1="65" x2="112" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="118" y1="65" x2="134" y2="79" stroke="#020406" stroke-width="5"/><line x1="140" y1="65" x2="156" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="162" y1="65" x2="178" y2="79" stroke="#020406" stroke-width="5"/><line x1="184" y1="65" x2="200" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="206" y1="65" x2="222" y2="79" stroke="#020406" stroke-width="5"/><line x1="228" y1="65" x2="244" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="250" y1="65" x2="266" y2="79" stroke="#020406" stroke-width="5"/><line x1="272" y1="65" x2="288" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="294" y1="65" x2="310" y2="79" stroke="#020406" stroke-width="5"/><line x1="316" y1="65" x2="332" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="338" y1="65" x2="354" y2="79" stroke="#020406" stroke-width="5"/><line x1="360" y1="65" x2="376" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="382" y1="65" x2="398" y2="79" stroke="#020406" stroke-width="5"/><line x1="404" y1="65" x2="420" y2="79" stroke="#020406" stroke-width="5"/>
+</g>
+<!-- End stops left -->
+<rect x="26" y="57" width="10" height="34" rx="2" fill="#D4A017"/>
+<rect x="424" y="57" width="10" height="34" rx="2" fill="#D4A017"/>
+<!-- Trolley left -->
+<rect x="170" y="57" width="80" height="22" rx="3" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
+<circle cx="184" cy="57" r="5" fill="#D4A017"/><circle cx="236" cy="57" r="5" fill="#D4A017"/>
+<!-- craneIQ unit -->
+<rect x="190" y="61" width="36" height="12" rx="2" fill="#008B9A" opacity="0.85"/>
+<text x="208" y="70" text-anchor="middle" fill="#020406" font-size="6" font-weight="600" font-family="'Share Tech Mono',monospace">craneIQ</text>
+
+<!-- Rope left — angled 18° -->
+<line x1="208" y1="79" x2="165" y2="255" stroke="#92b0c4" stroke-width="1.8" stroke-linecap="round"/>
+<!-- Sway arc -->
+<path d="M208 86 Q185 170 165 255" fill="none" stroke="#cc3344" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.5"/>
+<!-- Swing arrows -->
+<path d="M 136 190 L 150 183 L 148 196 Z" fill="#cc3344" opacity="0.6"/>
+<path d="M 210 190 L 196 183 L 198 196 Z" fill="#cc3344" opacity="0.6"/>
+<text x="173" y="212" text-anchor="middle" fill="#cc3344" font-size="8" letter-spacing="0.5" font-family="'Share Tech Mono',monospace">SWING</text>
+
+<!-- Crosshair left — red, off centre -->
+<circle cx="165" cy="257" r="13" fill="none" stroke="#cc3344" stroke-width="1.8"/>
+<circle cx="165" cy="257" r="4" fill="#cc3344" opacity="0.8"/>
+<line x1="146" y1="257" x2="152" y2="257" stroke="#cc3344" stroke-width="1.5"/>
+<line x1="178" y1="257" x2="184" y2="257" stroke="#cc3344" stroke-width="1.5"/>
+<line x1="165" y1="238" x2="165" y2="244" stroke="#cc3344" stroke-width="1.5"/>
+<line x1="165" y1="270" x2="165" y2="276" stroke="#cc3344" stroke-width="1.5"/>
+
+<!-- Load left -->
+<rect x="130" y="268" width="70" height="54" rx="3" fill="#1c3450" stroke="#3a5a78" stroke-width="1.5"/>
+<rect x="137" y="275" width="56" height="40" rx="2" fill="#162840"/>
+<ellipse cx="165" cy="324" rx="36" ry="5" fill="#000" opacity="0.3"/>
+
+<!-- Sway badge left -->
+<rect x="42" y="276" width="68" height="24" rx="2" fill="#0e1d2c" stroke="#cc3344" stroke-width="1"/>
+<text x="76" y="286" text-anchor="middle" fill="#cc3344" font-size="7" letter-spacing="1" font-family="'Share Tech Mono',monospace">SWAY</text>
+<text x="76" y="296" text-anchor="middle" fill="#cc3344" font-size="10" font-weight="600">18.4°</text>
+
+<!-- Miss marker left -->
+<text x="165" y="362" text-anchor="middle" fill="#cc3344" font-size="18" font-weight="bold">✕</text>
+<text x="165" y="380" text-anchor="middle" fill="#3a5a78" font-size="8" letter-spacing="1" font-family="'Share Tech Mono',monospace">MISSED</text>
+
+<!-- RIGHT PANEL — With Antisway -->
+<rect x="720" y="20" width="164" height="22" rx="2" fill="#071a15" stroke="#008B9A" stroke-width="1"/>
+<text x="802" y="35" text-anchor="middle" fill="#008B9A" font-size="8" letter-spacing="2" font-family="'Share Tech Mono',monospace">ANTISWAY ACTIVE</text>
+
+<!-- Runway right -->
+<rect x="470" y="65" width="400" height="14" rx="3" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
+<clipPath id="cr"><rect x="470" y="65" width="400" height="14" rx="3"/></clipPath>
+<g clip-path="url(#cr)" opacity="0.2">
+  <line x1="470" y1="65" x2="486" y2="79" stroke="#020406" stroke-width="5"/><line x1="492" y1="65" x2="508" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="514" y1="65" x2="530" y2="79" stroke="#020406" stroke-width="5"/><line x1="536" y1="65" x2="552" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="558" y1="65" x2="574" y2="79" stroke="#020406" stroke-width="5"/><line x1="580" y1="65" x2="596" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="602" y1="65" x2="618" y2="79" stroke="#020406" stroke-width="5"/><line x1="624" y1="65" x2="640" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="646" y1="65" x2="662" y2="79" stroke="#020406" stroke-width="5"/><line x1="668" y1="65" x2="684" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="690" y1="65" x2="706" y2="79" stroke="#020406" stroke-width="5"/><line x1="712" y1="65" x2="728" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="734" y1="65" x2="750" y2="79" stroke="#020406" stroke-width="5"/><line x1="756" y1="65" x2="772" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="778" y1="65" x2="794" y2="79" stroke="#020406" stroke-width="5"/><line x1="800" y1="65" x2="816" y2="79" stroke="#020406" stroke-width="5"/>
+  <line x1="822" y1="65" x2="838" y2="79" stroke="#020406" stroke-width="5"/><line x1="844" y1="65" x2="860" y2="79" stroke="#020406" stroke-width="5"/>
+</g>
+<rect x="466" y="57" width="10" height="34" rx="2" fill="#D4A017"/>
+<rect x="864" y="57" width="10" height="34" rx="2" fill="#D4A017"/>
+<!-- Trolley right -->
+<rect x="650" y="57" width="80" height="22" rx="3" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
+<circle cx="664" cy="57" r="5" fill="#D4A017"/><circle cx="716" cy="57" r="5" fill="#D4A017"/>
+<rect x="670" y="61" width="36" height="12" rx="2" fill="#008B9A" opacity="0.9" filter="url(#glow)"/>
+<text x="688" y="70" text-anchor="middle" fill="#020406" font-size="6" font-weight="600" font-family="'Share Tech Mono',monospace">craneIQ</text>
+
+<!-- Rope right — vertical, teal -->
+<line x1="688" y1="79" x2="688" y2="255" stroke="#008B9A" stroke-width="2" stroke-linecap="round" filter="url(#glow)"/>
+<!-- Vertical guide -->
+<line x1="688" y1="86" x2="688" y2="380" stroke="#008B9A" stroke-width="0.8" stroke-dasharray="3 5" opacity="0.2"/>
+
+<!-- Crosshair right — teal, centred -->
+<g filter="url(#glow)">
+  <circle cx="688" cy="257" r="13" fill="none" stroke="#008B9A" stroke-width="2"/>
+  <circle cx="688" cy="257" r="4" fill="#008B9A" opacity="0.9"/>
+  <line x1="669" y1="257" x2="675" y2="257" stroke="#008B9A" stroke-width="1.8"/>
+  <line x1="701" y1="257" x2="707" y2="257" stroke="#008B9A" stroke-width="1.8"/>
+  <line x1="688" y1="238" x2="688" y2="244" stroke="#008B9A" stroke-width="1.8"/>
+  <line x1="688" y1="270" x2="688" y2="276" stroke="#008B9A" stroke-width="1.8"/>
+</g>
+
+<!-- Load right -->
+<rect x="653" y="268" width="70" height="54" rx="3" fill="#071a15" stroke="#008B9A" stroke-width="1.8"/>
+<rect x="660" y="275" width="56" height="40" rx="2" fill="#0e1d2c"/>
+<ellipse cx="688" cy="324" rx="36" ry="5" fill="#000" opacity="0.3"/>
+
+<!-- Sway badge right — zero -->
+<rect x="790" y="276" width="68" height="24" rx="2" fill="#071a15" stroke="#008B9A" stroke-width="1"/>
+<text x="824" y="286" text-anchor="middle" fill="#008B9A" font-size="7" letter-spacing="1" font-family="'Share Tech Mono',monospace">SWAY</text>
+<text x="824" y="296" text-anchor="middle" fill="#4ccc80" font-size="10" font-weight="600">0.0°</text>
+
+<!-- On target right -->
+<text x="688" y="362" text-anchor="middle" fill="#4ccc80" font-size="18" font-weight="bold" filter="url(#glow)">✓</text>
+<text x="688" y="380" text-anchor="middle" fill="#008B9A" font-size="8" letter-spacing="1" font-family="'Share Tech Mono',monospace">ON TARGET</text>
+
+<!-- Caption -->
+<text x="450" y="418" text-anchor="middle" fill="#3a5a78" font-size="8" letter-spacing="2" font-family="'Share Tech Mono',monospace">craneIQ ANTISWAY · NO SENSORS · NO ENCODERS · COMMISSIONS IN UNDER A DAY</text>
+</svg>
+  </div>
+
+  <!-- How it's different box -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-bottom:24px">
+    <div style="background:var(--panel);padding:22px 24px">
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-bottom:10px">Typical anti-sway systems need</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.9">
+        Encoders on the hoist<br>
+        Height measuring units<br>
+        Specialist commissioning engineers<br>
+        Ongoing sensor calibration<br>
+        Additional hardware to maintain<br>
+        Multiple days to commission
+      </div>
+    </div>
+    <div style="background:var(--console);padding:22px 24px;border-left:2px solid #cc7700">
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.16em;color:#cc7700;text-transform:uppercase;margin-bottom:10px">craneIQ Antisway needs</div>
+      <div style="font-size:12px;color:var(--bright);line-height:1.9">
+        The VFDs already on your crane<br>
+        Nothing else<br>
+        —<br>
+        —<br>
+        —<br>
+        Less than one day to commission
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- No sensors illustration -->
+  <div style="margin:0 0 28px;border-radius:4px;overflow:hidden;border:1px solid var(--border);line-height:0">
+<svg style="width:100%;height:auto;display:block;max-width:100%" viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" font-family="'Share Tech Mono', 'Courier New', monospace">
+  <defs>
+    <pattern id="grid2" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#008B9A" stroke-width="0.3" opacity="0.12"/>
+    </pattern>
+    <filter id="g2"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="g2s"><feGaussianBlur stdDeviation="1.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="700" height="420" fill="#020406"/>
+  <rect width="700" height="420" fill="url(#grid2)"/>
+  <ellipse cx="350" cy="180" rx="220" ry="140" fill="#008B9A" opacity="0.04"/>
+
+  <text x="350" y="48" text-anchor="middle" fill="#e4f0f8" font-size="16" font-weight="bold" letter-spacing="2">craneIQ Antisway</text>
+  <text x="350" y="66" text-anchor="middle" fill="#3a5a78" font-size="9" letter-spacing="3">OPEN-LOOP ANTI-SWAY · ANY CRANE WITH TRAVEL VFDs · COMMISSIONS IN UNDER A DAY</text>
+
+  <!-- Runway -->
+  <rect x="80" y="90" width="540" height="24" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
+  <clipPath id="cns"><rect x="80" y="90" width="540" height="24" rx="4"/></clipPath>
+  <g clip-path="url(#cns)" opacity="0.2">
+    <line x1="80" y1="90" x2="106" y2="114" stroke="#020406" stroke-width="8"/><line x1="116" y1="90" x2="142" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="152" y1="90" x2="178" y2="114" stroke="#020406" stroke-width="8"/><line x1="188" y1="90" x2="214" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="224" y1="90" x2="250" y2="114" stroke="#020406" stroke-width="8"/><line x1="260" y1="90" x2="286" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="296" y1="90" x2="322" y2="114" stroke="#020406" stroke-width="8"/><line x1="332" y1="90" x2="358" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="368" y1="90" x2="394" y2="114" stroke="#020406" stroke-width="8"/><line x1="404" y1="90" x2="430" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="440" y1="90" x2="466" y2="114" stroke="#020406" stroke-width="8"/><line x1="476" y1="90" x2="502" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="512" y1="90" x2="538" y2="114" stroke="#020406" stroke-width="8"/><line x1="548" y1="90" x2="574" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="584" y1="90" x2="610" y2="114" stroke="#020406" stroke-width="8"/>
+  </g>
+  <rect x="76" y="78" width="12" height="50" rx="3" fill="#D4A017" stroke="#B8860B" stroke-width="1.5"/>
+  <rect x="612" y="78" width="12" height="50" rx="3" fill="#D4A017" stroke="#B8860B" stroke-width="1.5"/>
+
+  <!-- Trolley -->
+  <rect x="295" y="72" width="110" height="32" rx="5" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
+  <circle cx="314" cy="72" r="7" fill="#D4A017"/>
+  <circle cx="386" cy="72" r="7" fill="#D4A017"/>
+  <!-- craneIQ unit -->
+  <rect x="328" y="78" width="44" height="20" rx="3" fill="#008B9A" filter="url(#g2s)"/>
+  <rect x="330" y="80" width="40" height="16" rx="2" fill="#005f6b"/>
+  <text x="350" y="91" text-anchor="middle" fill="#4ccc80" font-size="7" font-weight="bold" letter-spacing="1">craneIQ</text>
+  <circle cx="364" cy="84" r="3" fill="#4ccc80" filter="url(#g2s)"/>
+
+  <!-- Hoist rope -->
+  <line x1="350" y1="104" x2="350" y2="248" stroke="#92b0c4" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Crosshair target at end of rope -->
+  <g filter="url(#g2s)">
+    <circle cx="350" cy="252" r="14" fill="none" stroke="#008B9A" stroke-width="2"/>
+    <circle cx="350" cy="252" r="4" fill="#008B9A" opacity="0.85"/>
+    <line x1="326" y1="252" x2="336" y2="252" stroke="#008B9A" stroke-width="1.8"/>
+    <line x1="364" y1="252" x2="374" y2="252" stroke="#008B9A" stroke-width="1.8"/>
+    <line x1="350" y1="228" x2="350" y2="238" stroke="#008B9A" stroke-width="1.8"/>
+    <line x1="350" y1="266" x2="350" y2="276" stroke="#008B9A" stroke-width="1.8"/>
+  </g>
+
+  <!-- Load -->
+  <rect x="300" y="275" width="100" height="72" rx="4" fill="#0b1722" stroke="#008B9A" stroke-width="2"/>
+  <rect x="310" y="285" width="80" height="52" rx="3" fill="#07101a"/>
+  <ellipse cx="350" cy="350" rx="52" ry="8" fill="#000" opacity="0.4"/>
+
+  <!-- VFD units -->
+  <rect x="95" y="138" width="64" height="52" rx="4" fill="#0b1722" stroke="#008B9A" stroke-width="1.8" filter="url(#g2s)"/>
+  <text x="127" y="156" text-anchor="middle" fill="#008B9A" font-size="7.5" letter-spacing="1">VFD</text>
+  <rect x="104" y="161" width="46" height="3" rx="1" fill="#008B9A" opacity="0.6"/>
+  <rect x="104" y="168" width="36" height="3" rx="1" fill="#008B9A" opacity="0.4"/>
+  <rect x="104" y="175" width="40" height="3" rx="1" fill="#008B9A" opacity="0.3"/>
+  <text x="127" y="202" text-anchor="middle" fill="#008B9A" font-size="8" letter-spacing="1">BRIDGE</text>
+
+  <rect x="541" y="138" width="64" height="52" rx="4" fill="#0b1722" stroke="#008B9A" stroke-width="1.8" filter="url(#g2s)"/>
+  <text x="573" y="156" text-anchor="middle" fill="#008B9A" font-size="7.5" letter-spacing="1">VFD</text>
+  <rect x="550" y="161" width="46" height="3" rx="1" fill="#008B9A" opacity="0.6"/>
+  <rect x="550" y="168" width="36" height="3" rx="1" fill="#008B9A" opacity="0.4"/>
+  <rect x="550" y="175" width="40" height="3" rx="1" fill="#008B9A" opacity="0.3"/>
+  <text x="573" y="202" text-anchor="middle" fill="#008B9A" font-size="8" letter-spacing="1">TRAVEL</text>
+
+  <!-- Connection lines from craneIQ to VFDs -->
+  <line x1="328" y1="88" x2="159" y2="153" stroke="#008B9A" stroke-width="1.2" stroke-dasharray="5 3" opacity="0.7"/>
+  <line x1="372" y1="88" x2="541" y2="153" stroke="#008B9A" stroke-width="1.2" stroke-dasharray="5 3" opacity="0.7"/>
+
+  <!-- NO SENSORS badge left -->
+  <rect x="40" y="228" width="140" height="48" rx="6" fill="#020406" stroke="#008B9A" stroke-width="2"/>
+  <rect x="40" y="228" width="140" height="4" rx="2" fill="#008B9A"/>
+  <circle cx="64" cy="252" r="12" fill="#008B9A" opacity="0.15" stroke="#008B9A" stroke-width="1.5"/>
+  <text x="64" y="257" text-anchor="middle" fill="#4ccc80" font-size="14" font-weight="bold">✓</text>
+  <text x="130" y="246" text-anchor="middle" fill="#e4f0f8" font-size="11" font-weight="bold">NO SENSORS</text>
+  <text x="130" y="261" text-anchor="middle" fill="#3a5a78" font-size="8" letter-spacing="1">NEEDED</text>
+
+  <!-- NO ENCODERS badge right -->
+  <rect x="520" y="228" width="148" height="48" rx="6" fill="#020406" stroke="#008B9A" stroke-width="2"/>
+  <rect x="520" y="228" width="148" height="4" rx="2" fill="#008B9A"/>
+  <circle cx="544" cy="252" r="12" fill="#008B9A" opacity="0.15" stroke="#008B9A" stroke-width="1.5"/>
+  <text x="544" y="257" text-anchor="middle" fill="#4ccc80" font-size="14" font-weight="bold">✓</text>
+  <text x="612" y="246" text-anchor="middle" fill="#e4f0f8" font-size="11" font-weight="bold">NO ENCODERS</text>
+  <text x="612" y="261" text-anchor="middle" fill="#3a5a78" font-size="8" letter-spacing="1">NEEDED</text>
+
+  <!-- Bottom badge -->
+  <rect x="218" y="362" width="264" height="22" rx="4" fill="#071a15" stroke="#008B9A" stroke-width="1.2"/>
+  <text x="350" y="377" text-anchor="middle" fill="#008B9A" font-size="9" letter-spacing="2">USES EXISTING VFDs ONLY</text>
+</svg>
+  </div>
+
+  <!-- No sensors illustration -->
+  <div style="margin:0 0 28px;border-radius:4px;overflow:hidden;border:1px solid var(--border);line-height:0">
+<svg style="width:100%;height:auto;display:block;max-width:100%" viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" font-family="'Share Tech Mono', 'Courier New', monospace">
+  <defs>
+    <pattern id="grid2" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#008B9A" stroke-width="0.3" opacity="0.12"/>
+    </pattern>
+    <filter id="g2"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="g2s"><feGaussianBlur stdDeviation="1.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="700" height="420" fill="#020406"/>
+  <rect width="700" height="420" fill="url(#grid2)"/>
+  <ellipse cx="350" cy="180" rx="220" ry="140" fill="#008B9A" opacity="0.04"/>
+
+  <text x="350" y="48" text-anchor="middle" fill="#e4f0f8" font-size="16" font-weight="bold" letter-spacing="2">craneIQ Antisway</text>
+  <text x="350" y="66" text-anchor="middle" fill="#3a5a78" font-size="11.5" letter-spacing="3">OPEN-LOOP ANTI-SWAY · ANY CRANE WITH TRAVEL VFDs · COMMISSIONS IN UNDER A DAY</text>
+
+  <!-- Runway -->
+  <rect x="80" y="90" width="540" height="24" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
+  <clipPath id="cns"><rect x="80" y="90" width="540" height="24" rx="4"/></clipPath>
+  <g clip-path="url(#cns)" opacity="0.2">
+    <line x1="80" y1="90" x2="106" y2="114" stroke="#020406" stroke-width="8"/><line x1="116" y1="90" x2="142" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="152" y1="90" x2="178" y2="114" stroke="#020406" stroke-width="8"/><line x1="188" y1="90" x2="214" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="224" y1="90" x2="250" y2="114" stroke="#020406" stroke-width="8"/><line x1="260" y1="90" x2="286" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="296" y1="90" x2="322" y2="114" stroke="#020406" stroke-width="8"/><line x1="332" y1="90" x2="358" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="368" y1="90" x2="394" y2="114" stroke="#020406" stroke-width="8"/><line x1="404" y1="90" x2="430" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="440" y1="90" x2="466" y2="114" stroke="#020406" stroke-width="8"/><line x1="476" y1="90" x2="502" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="512" y1="90" x2="538" y2="114" stroke="#020406" stroke-width="8"/><line x1="548" y1="90" x2="574" y2="114" stroke="#020406" stroke-width="8"/>
+    <line x1="584" y1="90" x2="610" y2="114" stroke="#020406" stroke-width="8"/>
+  </g>
+  <rect x="76" y="78" width="12" height="50" rx="3" fill="#D4A017" stroke="#B8860B" stroke-width="1.5"/>
+  <rect x="612" y="78" width="12" height="50" rx="3" fill="#D4A017" stroke="#B8860B" stroke-width="1.5"/>
+
+  <!-- Trolley -->
+  <rect x="295" y="72" width="110" height="32" rx="5" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
+  <circle cx="314" cy="72" r="7" fill="#D4A017"/>
+  <circle cx="386" cy="72" r="7" fill="#D4A017"/>
+  <!-- craneIQ unit -->
+  <rect x="328" y="78" width="44" height="20" rx="3" fill="#008B9A" filter="url(#g2s)"/>
+  <rect x="330" y="80" width="40" height="16" rx="2" fill="#005f6b"/>
+  <text x="350" y="91" text-anchor="middle" fill="#4ccc80" font-size="12" font-weight="bold" letter-spacing="1">craneIQ</text>
+  <circle cx="364" cy="84" r="3" fill="#4ccc80" filter="url(#g2s)"/>
+
+  <!-- Hoist rope -->
+  <line x1="350" y1="104" x2="350" y2="248" stroke="#92b0c4" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Crosshair target at end of rope -->
+  <g filter="url(#g2s)">
+    <circle cx="350" cy="252" r="14" fill="none" stroke="#008B9A" stroke-width="2"/>
+    <circle cx="350" cy="252" r="4" fill="#008B9A" opacity="0.85"/>
+    <line x1="326" y1="252" x2="336" y2="252" stroke="#008B9A" stroke-width="1.8"/>
+    <line x1="364" y1="252" x2="374" y2="252" stroke="#008B9A" stroke-width="1.8"/>
+    <line x1="350" y1="228" x2="350" y2="238" stroke="#008B9A" stroke-width="1.8"/>
+    <line x1="350" y1="266" x2="350" y2="276" stroke="#008B9A" stroke-width="1.8"/>
+  </g>
+
+  <!-- Load -->
+  <rect x="300" y="275" width="100" height="72" rx="4" fill="#0b1722" stroke="#008B9A" stroke-width="2"/>
+  <rect x="310" y="285" width="80" height="52" rx="3" fill="#07101a"/>
+  <ellipse cx="350" cy="350" rx="52" ry="8" fill="#000" opacity="0.4"/>
+
+  <!-- VFD units -->
+  <rect x="95" y="138" width="64" height="52" rx="4" fill="#0b1722" stroke="#008B9A" stroke-width="1.8" filter="url(#g2s)"/>
+  <text x="127" y="156" text-anchor="middle" fill="#008B9A" font-size="12.5" letter-spacing="1">VFD</text>
+  <rect x="104" y="161" width="46" height="3" rx="1" fill="#008B9A" opacity="0.6"/>
+  <rect x="104" y="168" width="36" height="3" rx="1" fill="#008B9A" opacity="0.4"/>
+  <rect x="104" y="175" width="40" height="3" rx="1" fill="#008B9A" opacity="0.3"/>
+  <text x="127" y="202" text-anchor="middle" fill="#008B9A" font-size="13" letter-spacing="1">BRIDGE</text>
+
+  <rect x="541" y="138" width="64" height="52" rx="4" fill="#0b1722" stroke="#008B9A" stroke-width="1.8" filter="url(#g2s)"/>
+  <text x="573" y="156" text-anchor="middle" fill="#008B9A" font-size="12.5" letter-spacing="1">VFD</text>
+  <rect x="550" y="161" width="46" height="3" rx="1" fill="#008B9A" opacity="0.6"/>
+  <rect x="550" y="168" width="36" height="3" rx="1" fill="#008B9A" opacity="0.4"/>
+  <rect x="550" y="175" width="40" height="3" rx="1" fill="#008B9A" opacity="0.3"/>
+  <text x="573" y="202" text-anchor="middle" fill="#008B9A" font-size="13" letter-spacing="1">TRAVEL</text>
+
+  <!-- Connection lines from craneIQ to VFDs -->
+  <line x1="328" y1="88" x2="159" y2="153" stroke="#008B9A" stroke-width="1.2" stroke-dasharray="5 3" opacity="0.7"/>
+  <line x1="372" y1="88" x2="541" y2="153" stroke="#008B9A" stroke-width="1.2" stroke-dasharray="5 3" opacity="0.7"/>
+
+  <!-- NO SENSORS badge left -->
+  <rect x="40" y="228" width="140" height="48" rx="6" fill="#020406" stroke="#008B9A" stroke-width="2"/>
+  <rect x="40" y="228" width="140" height="4" rx="2" fill="#008B9A"/>
+  <circle cx="64" cy="252" r="12" fill="#008B9A" opacity="0.15" stroke="#008B9A" stroke-width="1.5"/>
+  <text x="64" y="257" text-anchor="middle" fill="#4ccc80" font-size="14" font-weight="bold">✓</text>
+  <text x="130" y="246" text-anchor="middle" fill="#e4f0f8" font-size="11" font-weight="bold">NO SENSORS</text>
+  <text x="130" y="261" text-anchor="middle" fill="#3a5a78" font-size="13" letter-spacing="1">NEEDED</text>
+
+  <!-- NO ENCODERS badge right -->
+  <rect x="520" y="228" width="148" height="48" rx="6" fill="#020406" stroke="#008B9A" stroke-width="2"/>
+  <rect x="520" y="228" width="148" height="4" rx="2" fill="#008B9A"/>
+  <circle cx="544" cy="252" r="12" fill="#008B9A" opacity="0.15" stroke="#008B9A" stroke-width="1.5"/>
+  <text x="544" y="257" text-anchor="middle" fill="#4ccc80" font-size="14" font-weight="bold">✓</text>
+  <text x="612" y="246" text-anchor="middle" fill="#e4f0f8" font-size="11" font-weight="bold">NO ENCODERS</text>
+  <text x="612" y="261" text-anchor="middle" fill="#3a5a78" font-size="13" letter-spacing="1">NEEDED</text>
+
+  <!-- Bottom badge -->
+  <rect x="218" y="362" width="264" height="22" rx="4" fill="#071a15" stroke="#008B9A" stroke-width="1.2"/>
+  <text x="350" y="377" text-anchor="middle" fill="#008B9A" font-size="11.5" letter-spacing="2">USES EXISTING VFDs ONLY</text>
+</svg>
+  </div>
+<!-- Two col -->
+  <div class="two-col">
+    <div class="col">
+      <div class="sec-lbl">What it does for you</div>
+      <ul class="feat-list">
+        <li>Dramatically reduces load swing
+          <span>Operators immediately notice the difference — loads travel smoothly and settle quickly without correction or waiting</span>
+        </li>
+        <li>Removes human error from load handling
+          <span>The system manages the crane's acceleration and deceleration profile — operators focus on positioning, not swing correction</span>
+        </li>
+        <li>Operators with any level of experience perform well
+          <span>New and inexperienced operators can move loads safely and efficiently from day one — no years of practice required</span>
+        </li>
+        <li>Improves safety — fewer near misses
+          <span>Less swing means less risk of loads striking structures, equipment or personnel during travel</span>
+        </li>
+        <li>Improves productivity and cycle times
+          <span>Less time waiting for swing to settle before placing loads — faster, more accurate load positioning every cycle</span>
+        </li>
+        <li>Reduces wear on brakes and mechanical components
+          <span>Smoother acceleration and braking reduces mechanical stress — extending component life and reducing maintenance costs</span>
+        </li>
+        <li>No sensors, encoders or additional hardware
+          <span>Nothing to install beyond the controller itself — nothing to calibrate, nothing to maintain, nothing to go wrong</span>
+        </li>
+        <li>Commissions in less than a day
+          <span>Minimal production disruption — typically installed and running within a single shift on any crane with travel VFDs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="col col-dark">
+      <div class="sec-lbl">Compatibility &amp; installation</div>
+      <table class="spec-table">
+        <tr><td class="spec-lbl">Requirement</td><td class="spec-val">VFDs on travel motions</td></tr>
+        <tr><td class="spec-lbl">Axes supported</td><td class="spec-val">1, 2 or 3</td></tr>
+        <tr><td class="spec-lbl">VFD brands</td><td class="spec-val">All major brands</td></tr>
+        <tr><td class="spec-lbl">Sensors required</td><td class="spec-val">None</td></tr>
+        <tr><td class="spec-lbl">Power supply</td><td class="spec-val">24V DC</td></tr>
+        <tr><td class="spec-lbl">Commissioning</td><td class="spec-val">Less than 1 day</td></tr>
+        <tr><td class="spec-lbl">Available</td><td class="spec-val">Worldwide</td></tr>
+      </table>
+      <div class="sec-lbl" style="margin-top:24px">How it works</div>
+      <table class="spec-table">
+        <tr><td class="spec-lbl">Method</td><td class="spec-val">Open-loop algorithm</td></tr>
+        <tr><td class="spec-lbl">Input</td><td class="spec-val">VFD speed reference</td></tr>
+        <tr><td class="spec-lbl">Output</td><td class="spec-val">Swing-suppressing speed profile</td></tr>
+        <tr><td class="spec-lbl">Encoders needed</td><td class="spec-val">None</td></tr>
+        <tr><td class="spec-lbl">Height sensor</td><td class="spec-val">Not required</td></tr>
+      </table>
+      <div class="certs">
+        <span class="cert">CE</span><span class="cert">UKCA</span><span class="cert">RoHS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Who it's for -->
+  <div class="sec-lbl">Who it's for</div>
+  <div class="audience-grid">
+    <div class="aud-cell">
+      <div class="aud-title">Plant Managers</div>
+      <div class="aud-body">Safer crane operations, faster cycle times, and less reliance on experienced operators — without a major installation project or production shutdown.</div>
+    </div>
+    <div class="aud-cell">
+      <div class="aud-title">Engineering Managers</div>
+      <div class="aud-body">No additional sensors or measurement hardware to specify, install or maintain. Works with the VFDs already on the crane. Commissions in a day without specialist support.</div>
+    </div>
+    <div class="aud-cell">
+      <div class="aud-title">Crane Partners</div>
+      <div class="aud-body">Add anti-sway to any crane with travel VFDs — new or existing — with minimal commissioning time and no additional hardware to source or support.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-bar">
+    <div class="cta-text">
+      <strong>Talk to us about craneIQ Antisway</strong>
+      <p>We work with plant managers, engineering teams and crane partners worldwide. Engineered in the West Midlands, UK — installed globally. Get in touch to discuss your application.</p>
+    </div>
+    <div class="btn-row">
+      <a href="mailto:joe@pointnode.io" class="btn-primary">Contact Us</a>
+      <a href="../index.html#products" class="btn-ghost">← All Products</a>
+    </div>
+  </div>
+
+  <!-- Products strip -->
+  <div class="strip-wrap">
+    <div class="strip-lbl">Other craneIQ products</div>
+    <div class="strip-grid" id="sg"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-wm" style="font-family:var(--ff);font-size:16px;letter-spacing:-.01em">
+    <span class="crane">crane</span><span class="iq">IQ</span>
+  </div>
+  <p>Pointnode Ltd · West Midlands, UK &nbsp;·&nbsp; 
+    <a href="mailto:joe@pointnode.io">joe@pointnode.io</a> &nbsp;·&nbsp; 
+    <a href="../index.html">craneiq.co.uk</a>
+  </p>
+</footer>
+
+<script>
+const P=[
+  {id:'core',      a:'#008B9A',n:'Core',      t:'Hoist & trolley controller'},
+  {id:'automation',a:'#4488cc',n:'Automation',t:'Crane automation'},
+  {id:'monitoring',a:'#8855dd',n:'Monitoring',t:'Condition monitoring'},
+  {id:'cloud',     a:'#2299bb',n:'Cloud',     t:'Remote visibility'},
+  {id:'vision',    a:'#009966',n:'Vision',    t:'Hook tracking'},
+  {id:'antisway',  a:'#cc7700',n:'Antisway',  t:'Anti-sway system'},
+  {id:'zoning',    a:'#cc3344',n:'Zoning',    t:'No-fly zones'},
+  {id:'loadtrack', a:'#cc9900',n:'LoadTrack', t:'Load logging'},
+];
+const sg=document.getElementById('sg');
+P.forEach(p=>{
+  const a=document.createElement('a');
+  a.className='strip-card';
+  a.href='craneiq-'+p.id+'.html';
+  a.style.borderTopColor=p.a;
+  a.innerHTML='<div class="sc"><span class="c">crane</span><span class="iq" style="color:'+p.a+'">IQ</span></div>'
+    +'<div class="sp" style="color:'+p.a+'">'+p.n+'</div>';
+  sg.appendChild(a);
+});
+</script>
+</body>
+</html>

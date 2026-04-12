@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="craneIQ Monitoring — standalone crane condition monitoring. Load spectrum, DWP, vibration, hours run. No control system changes. Worldwide.">
+<title>craneIQ Monitoring — Keep your cranes running — catch problems before they become failures</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logos/craneiq-monogram.svg">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#020406;--deep:#040810;--hull:#07101a;--panel:#0b1722;--console:#0e1d2c;
+  --border:#162840;--bhi:#204060;
+  --dim:#1c3450;--muted:#3a5a78;--mid:#628098;--steel:#92b0c4;--bright:#c4d8e8;--white:#e4f0f8;
+  --brand:#008B9A;--brand-hi:#00a8ba;--radar:#4ccc80;
+  --accent:#8855dd;
+  --ff:'Open Sans',sans-serif;--mono:'Share Tech Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:14px;line-height:1.85}
+::-webkit-scrollbar{width:3px;background:var(--void)}
+::-webkit-scrollbar-thumb{background:var(--bhi)}
+
+/* NAV */
+.nav{height:54px;background:var(--hull);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 40px;
+  position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.nav-logo{font-family:var(--ff);font-size:18px;line-height:1;letter-spacing:-.01em;text-decoration:none}
+.nav-logo .crane{font-weight:300;color:var(--bright)}
+.nav-logo .iq{font-weight:600;color:var(--brand)}
+.nav-back{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--muted);
+  text-decoration:none;text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color .14s}
+.nav-back::before{content:'←'}
+.nav-back:hover{color:var(--accent)}
+
+/* HERO */
+.hero{background:var(--hull);border-bottom:1px solid var(--border);
+  padding:52px 40px 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 55% 120% at 85% 50%,rgba(0,139,154,.055) 0%,transparent 70%)}
+.hero-inner{max-width:1060px;margin:0 auto;position:relative;z-index:1}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:24px;flex-wrap:wrap}
+.hero-wm{font-family:var(--ff);font-size:44px;line-height:1;letter-spacing:-.02em}
+.hero-wm .crane{font-weight:300;color:var(--bright)}
+.hero-wm .iq{font-weight:600;color:var(--accent)}
+.hero-wm .pname{font-weight:400;font-size:23px;color:var(--accent);margin-left:5px}
+.hero-tagline{font-family:var(--ff);font-weight:300;font-size:18px;color:var(--mid);margin-top:8px;letter-spacing:-.005em}
+.hero-meta{text-align:right;flex-shrink:0}
+.hero-code{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--mid);display:block}
+.hero-model{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--muted);display:block;margin-top:4px}
+.hero-stats{display:flex;gap:0;border-top:1px solid var(--border);padding-top:22px;flex-wrap:wrap}
+.hstat{padding:0 28px 0 0;margin-right:28px;border-right:1px solid var(--border)}
+.hstat:last-child{border:none;margin:0;padding:0}
+.hstat-val{font-family:var(--ff);font-weight:600;font-size:20px;color:var(--white);line-height:1}
+.hstat-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+
+/* BODY */
+.body-wrap{max-width:1060px;margin:0 auto;padding:52px 40px}
+.sec-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--accent);
+  text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,#008B9A55,transparent)}
+
+/* Differentiator banner */
+.diff-banner{background:var(--console);border:1px solid var(--bhi);border-radius:3px;
+  padding:20px 24px;margin-bottom:28px;display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.diff-banner-icon{font-family:var(--mono);font-size:18px;color:var(--accent);flex-shrink:0;padding-top:2px}
+.diff-banner-text{font-size:14px;color:var(--steel);line-height:1.75}
+.diff-banner-text strong{color:var(--white);font-weight:600;display:block;margin-bottom:4px}
+
+/* Overview */
+.overview{font-size:14px;color:var(--steel);line-height:1.95;margin-bottom:28px}
+.overview strong{color:var(--white);font-weight:600}
+
+/* Two col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-bottom:24px}
+.col{background:var(--panel);padding:32px 28px}
+.col-dark{background:var(--console)}
+
+/* Feature list */
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.feat-list li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;
+  color:var(--bright);line-height:1.55;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.feat-list li:last-child{border:none;padding:0}
+.feat-list li::before{content:'—';color:var(--accent);font-weight:600;flex-shrink:0;margin-top:2px}
+.feat-list li span{color:var(--muted);font-size:12.5px;display:block;margin-top:3px;line-height:1.8}
+
+/* Spec table */
+.spec-table{width:100%;border-collapse:collapse}
+.spec-table tr:nth-child(even) td{background:var(--panel)}
+.spec-table td{padding:10px 14px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle}
+.spec-table tr:last-child td{border-bottom:none}
+.spec-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.spec-val{font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);text-align:right}
+
+/* Certs */
+.certs{display:flex;gap:8px;margin-top:20px}
+.cert{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.1em;
+  padding:6px 14px;border:1px solid var(--bhi);border-radius:2px;color:var(--mid)}
+
+/* Who it's for */
+.audience-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;
+  overflow:hidden;margin-bottom:24px}
+.aud-cell{background:var(--panel);padding:22px 24px}
+.aud-title{font-family:var(--ff);font-weight:600;font-size:14px;color:var(--white);margin-bottom:7px}
+.aud-body{font-size:13px;color:var(--muted);line-height:1.8}
+
+/* CTA bar */
+.cta-bar{background:var(--hull);border:1px solid var(--border);border-radius:3px;
+  padding:28px 32px;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:32px;gap:16px;flex-wrap:wrap;position:relative;overflow:hidden}
+.cta-bar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),transparent)}
+.cta-text strong{display:block;color:var(--white);font-size:16px;font-weight:600;margin-bottom:6px}
+.cta-text p{font-size:13px;color:var(--muted);line-height:1.75;max-width:480px}
+.btn-primary{background:var(--accent);color:var(--void);font-family:var(--ff);font-weight:600;
+  font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;padding:13px 28px;
+  border-radius:2px;text-decoration:none;white-space:nowrap;transition:background .14s;display:inline-block}
+.btn-primary:hover{opacity:.88}
+.btn-ghost{background:transparent;color:var(--steel);font-family:var(--ff);font-weight:400;
+  font-size:11.5px;letter-spacing:.05em;padding:12px 24px;border-radius:2px;
+  border:1px solid var(--bhi);text-decoration:none;white-space:nowrap;transition:.14s;display:inline-block}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap}
+
+/* Products strip */
+.strip-wrap{border-top:1px solid var(--border);padding-top:40px}
+.strip-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--muted);
+  text-transform:uppercase;margin-bottom:16px}
+.strip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.strip-card{background:var(--panel);padding:16px 18px;text-decoration:none;
+  border-top:2px solid;transition:background .15s}
+.strip-card:hover{background:var(--console)}
+.strip-card .sc{font-family:var(--ff);font-size:13px;line-height:1}
+.strip-card .sc .c{font-weight:300;color:var(--mid)}
+.strip-card .sc .iq{font-weight:600}
+.strip-card .sp{font-family:var(--mono);font-size:8px;letter-spacing:.06em;
+  color:var(--dim);text-transform:uppercase;margin-top:4px}
+
+/* FOOTER */
+footer{background:var(--hull);border-top:1px solid var(--border);
+  padding:22px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer p{font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
+footer a{color:var(--muted);text-decoration:none;transition:color .14s}
+footer a:hover{color:var(--accent)}
+.footer-wm .crane{font-weight:300;color:var(--bright)}
+.footer-wm .iq{font-weight:600;color:var(--brand)}
+
+@media(max-width:720px){
+  .two-col{grid-template-columns:1fr}
+  .nav{padding:0 20px}
+  .hero{padding:36px 20px 28px}
+  .body-wrap{padding:36px 20px}
+  footer{padding:20px}
+  .hstat{border:none;padding:0;margin:0 0 8px}
+  .hero-stats{gap:0;display:grid;grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><span class="crane">crane</span><span class="iq">IQ</span></a>
+  <a href="../index.html#products" class="nav-back">All Products</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div>
+        <div class="hero-wm">
+          <span class="crane">crane</span><span class="iq">IQ</span><span class="pname">Monitoring</span>
+        </div>
+        <div class="hero-tagline">Keep your cranes running — catch problems before they become failures</div>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-code">CIQ-MON</span>
+        <span class="hero-model">Model CIQ-M1 &nbsp;·&nbsp; Worldwide</span>
+      </div>
+    </div>
+    <div class="hero-stats"><div class="hstat"><div class="hstat-val">Standalone</div><div class="hstat-lbl">No control system changes</div></div><div class="hstat"><div class="hstat-val">Early warning</div><div class="hstat-lbl">Diagnose before failure</div></div><div class="hstat"><div class="hstat-val">32 GB</div><div class="hstat-lbl">Onboard storage</div></div><div class="hstat"><div class="hstat-val">Any crane</div><div class="hstat-lbl">Retrofit instantly</div></div></div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <!-- Differentiator banner -->
+  <div class="diff-banner">
+    <div class="diff-banner-icon">⊕</div>
+    <div class="diff-banner-text">
+      <strong>Your crane's odometer — fitted to any crane, from any manufacturer.</strong>
+      Stands completely alone alongside existing controls. Nothing touched, nothing changed, zero risk.
+      Fits any overhead crane regardless of age, make or control system.
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <div class="sec-lbl">Overview</div>
+  <p class="overview">You would never run a fleet of vehicles with no odometers, no service indicators, and no way of knowing when something was wearing out. Yet most overhead cranes run exactly like that — no record of how many lifts they've made, no visibility of how much design life they've used, no early warning when something is changing. <strong>craneIQ Monitoring fixes that.</strong> It fits alongside any existing crane control system without touching it — no rewiring, no changes, zero risk to existing operations. From the moment it's switched on it starts recording: every lift logged, design life counted down from 100% based on actual usage, brake condition tracked, vibration trended. When something starts to change, you know about it before it becomes a breakdown. The data is yours — accessible on-site or via craneIQ Cloud — in open formats your engineers and third-party maintenance teams can work with directly.
+  <!-- Illustration -->
+  <div style="margin:0 0 28px;border-radius:4px;overflow:hidden;border:1px solid var(--border);line-height:0">
+<svg style="width:100%;height:auto;display:block;max-width:100%" viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="'Open Sans',sans-serif">
+<defs>
+  <pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse">
+    <path d="M32 0L0 0 0 32" fill="none" stroke="#8855dd" stroke-width="0.25" opacity="0.12"/>
+  </pattern>
+  <filter id="glow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="900" height="480" fill="#020406"/>
+<rect width="900" height="480" fill="url(#g)"/>
+
+<!-- Title -->
+<text x="450" y="32" text-anchor="middle" fill="#c4d8e8" font-size="15" font-weight="600" letter-spacing="1">craneIQ Monitoring</text>
+<text x="450" y="48" text-anchor="middle" fill="#3a5a78" font-size="9" letter-spacing="3" font-family="'Share Tech Mono',monospace">STANDALONE · ZERO RISK · ANY CRANE · ANY MANUFACTURER</text>
+
+<!-- CRANE -->
+<!-- Runway -->
+<rect x="180" y="72" width="540" height="16" rx="3" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
+<clipPath id="cb"><rect x="180" y="72" width="540" height="16" rx="3"/></clipPath>
+<g clip-path="url(#cb)" opacity="0.2">
+  <line x1="180" y1="72" x2="196" y2="88" stroke="#020406" stroke-width="5"/><line x1="202" y1="72" x2="218" y2="88" stroke="#020406" stroke-width="5"/>
+  <line x1="224" y1="72" x2="240" y2="88" stroke="#020406" stroke-width="5"/><line x1="246" y1="72" x2="262" y2="88" stroke="#020406" stroke-width="5"/>
+  <line x1="268" y1="72" x2="284" y2="88" stroke="#020406" stroke-width="5"/><line x1="290" y1="72" x2="306" y2="88" stroke="#020406" stroke-width="5"/>
+  <line x1="312" y1="72" x2="328" y2="88" stroke="#020406" stroke-width="5"/><line x1="334" y1="72" x2="350" y2="88" stroke="#020406" stroke-width="5"/>
+  <line x1="356" y1="72" x2="372" y2="88" stroke="#020406" stroke-width="5"/><line x1="378" y1="72" x2="394" y2="88" stroke="#020406" stroke-width="5"/>
+  <line x1="400" y1="72" x2="416" y2="88" stroke="#020406" stroke-width="5"/><line x1="422" y1="72" x2="438" y2="88" stroke="#020406" stroke-width="5"/>
+  <line x1="444" y1="72" x2="460" y2="88" stroke="#020406" stroke-width="5"/><line x1="466" y1="72" x2="482" y2="88" stroke="#020406" stroke-width="5"/>
+  <line x1="488" y1="72" x2="504" y2="88" stroke="#020406" stroke-width="5"/><line x1="510" y1="72" x2="526" y2="88" stroke="#020406" stroke-width="5"/>
+  <line x1="532" y1="72" x2="548" y2="88" stroke="#020406" stroke-width="5"/><line x1="554" y1="72" x2="570" y2="88" stroke="#020406" stroke-width="5"/>
+  <line x1="576" y1="72" x2="592" y2="88" stroke="#020406" stroke-width="5"/><line x1="598" y1="72" x2="614" y2="88" stroke="#020406" stroke-width="5"/>
+  <line x1="620" y1="72" x2="636" y2="88" stroke="#020406" stroke-width="5"/><line x1="642" y1="72" x2="658" y2="88" stroke="#020406" stroke-width="5"/>
+  <line x1="664" y1="72" x2="680" y2="88" stroke="#020406" stroke-width="5"/><line x1="686" y1="72" x2="702" y2="88" stroke="#020406" stroke-width="5"/>
+</g>
+<!-- Trolley -->
+<rect x="390" y="64" width="120" height="28" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
+<circle cx="408" cy="64" r="6" fill="#D4A017"/><circle cx="492" cy="64" r="6" fill="#D4A017"/>
+<!-- Monitoring unit — purple -->
+<rect x="408" y="70" width="74" height="16" rx="2" fill="#8855dd" filter="url(#glow)"/>
+<rect x="410" y="72" width="70" height="12" rx="1" fill="#5522aa"/>
+<text x="445" y="81" text-anchor="middle" fill="#d4b8ff" font-size="7" font-weight="600" letter-spacing="0.5" font-family="'Share Tech Mono',monospace">craneIQ MON</text>
+<!-- Rope -->
+<line x1="450" y1="92" x2="450" y2="200" stroke="#92b0c4" stroke-width="2" stroke-linecap="round"/>
+<!-- Crosshair target -->
+<g filter="url(#glow)">
+  <circle cx="450" cy="205" r="12" fill="none" stroke="#8855dd" stroke-width="1.8"/>
+  <circle cx="450" cy="205" r="3.5" fill="#8855dd"/>
+  <line x1="432" y1="205" x2="438" y2="205" stroke="#8855dd" stroke-width="1.5"/>
+  <line x1="462" y1="205" x2="468" y2="205" stroke="#8855dd" stroke-width="1.5"/>
+  <line x1="450" y1="187" x2="450" y2="193" stroke="#8855dd" stroke-width="1.5"/>
+  <line x1="450" y1="217" x2="450" y2="223" stroke="#8855dd" stroke-width="1.5"/>
+</g>
+<!-- Load box -->
+<rect x="414" y="218" width="72" height="55" rx="3" fill="#0b1722" stroke="#8855dd" stroke-width="1.5"/>
+<rect x="420" y="224" width="60" height="43" rx="2" fill="#07101a"/>
+<ellipse cx="450" cy="276" rx="38" ry="5" fill="#000" opacity="0.35"/>
+
+<!-- Load weight label -->
+<line x1="414" y1="245" x2="320" y2="245" stroke="#8855dd" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.5"/>
+<rect x="264" y="236" width="56" height="20" rx="2" fill="#0e1d2c" stroke="#8855dd" stroke-width="1"/>
+<text x="292" y="244" text-anchor="middle" fill="#8855dd" font-size="7" font-family="'Share Tech Mono',monospace">LOAD</text>
+<text x="292" y="253" text-anchor="middle" fill="#c4d8e8" font-size="10" font-weight="600">4.2 t</text>
+
+<!-- Connection lines to panels -->
+<line x1="410" y1="78" x2="310" y2="120" stroke="#8855dd" stroke-width="0.8" stroke-dasharray="4 3" opacity="0.4"/>
+<line x1="490" y1="78" x2="590" y2="120" stroke="#8855dd" stroke-width="0.8" stroke-dasharray="4 3" opacity="0.4"/>
+<line x1="410" y1="78" x2="310" y2="310" stroke="#8855dd" stroke-width="0.8" stroke-dasharray="4 3" opacity="0.3"/>
+<line x1="490" y1="78" x2="590" y2="310" stroke="#8855dd" stroke-width="0.8" stroke-dasharray="4 3" opacity="0.3"/>
+
+<!-- ── DWP PANEL ── -->
+<rect x="20" y="105" width="248" height="188" rx="3" fill="#0b1722" stroke="#8855dd" stroke-width="1.5"/>
+<rect x="20" y="105" width="248" height="4" rx="2" fill="#8855dd"/>
+<text x="36" y="123" fill="#8855dd" font-size="8" letter-spacing="1.5" font-family="'Share Tech Mono',monospace">DESIGN LIFE (DWP)</text>
+<text x="36" y="135" fill="#3a5a78" font-size="7" letter-spacing="1" font-family="'Share Tech Mono',monospace">COUNTS DOWN FROM 100%</text>
+
+<!-- Hoist -->
+<text x="36" y="153" fill="#628098" font-size="9">Hoist</text>
+<rect x="36" y="158" width="168" height="8" rx="2" fill="#162840"/>
+<rect x="36" y="158" width="116" height="8" rx="2" fill="#8855dd" opacity="0.85"/>
+<text x="212" y="165" fill="#d4b8ff" font-size="9" font-weight="600" text-anchor="end">69%</text>
+
+<!-- Brake -->
+<text x="36" y="181" fill="#628098" font-size="9">Brake</text>
+<rect x="36" y="186" width="168" height="8" rx="2" fill="#162840"/>
+<rect x="36" y="186" width="138" height="8" rx="2" fill="#8855dd" opacity="0.7"/>
+<text x="212" y="193" fill="#d4b8ff" font-size="9" font-weight="600" text-anchor="end">82%</text>
+
+<!-- Controls -->
+<text x="36" y="209" fill="#628098" font-size="9">Controls</text>
+<rect x="36" y="214" width="168" height="8" rx="2" fill="#162840"/>
+<rect x="36" y="214" width="151" height="8" rx="2" fill="#8855dd" opacity="0.55"/>
+<text x="212" y="221" fill="#d4b8ff" font-size="9" font-weight="600" text-anchor="end">90%</text>
+
+<!-- Motor -->
+<text x="36" y="237" fill="#628098" font-size="9">Motor</text>
+<rect x="36" y="242" width="168" height="8" rx="2" fill="#162840"/>
+<rect x="36" y="242" width="160" height="8" rx="2" fill="#8855dd" opacity="0.4"/>
+<text x="212" y="249" fill="#d4b8ff" font-size="9" font-weight="600" text-anchor="end">95%</text>
+
+<!-- ── LOAD SPECTRUM PANEL ── -->
+<rect x="20" y="305" width="248" height="148" rx="3" fill="#0b1722" stroke="#8855dd" stroke-width="1.5"/>
+<rect x="20" y="305" width="248" height="4" rx="2" fill="#8855dd" opacity="0.7"/>
+<text x="36" y="323" fill="#8855dd" font-size="8" letter-spacing="1.5" font-family="'Share Tech Mono',monospace">LOAD SPECTRUM</text>
+<!-- Bar chart -->
+<rect x="44" y="388" width="18" height="32" rx="1" fill="#8855dd" opacity="0.45"/>
+<rect x="68" y="374" width="18" height="46" rx="1" fill="#8855dd" opacity="0.6"/>
+<rect x="92" y="380" width="18" height="40" rx="1" fill="#8855dd" opacity="0.65"/>
+<rect x="116" y="364" width="18" height="56" rx="1" fill="#8855dd" opacity="0.8"/>
+<rect x="140" y="376" width="18" height="44" rx="1" fill="#8855dd" opacity="0.6"/>
+<rect x="164" y="368" width="18" height="52" rx="1" fill="#8855dd" opacity="0.72"/>
+<rect x="188" y="374" width="18" height="46" rx="1" fill="#8855dd" opacity="0.55"/>
+<line x1="36" y1="420" x2="232" y2="420" stroke="#162840" stroke-width="1"/>
+<text x="44" y="432" fill="#3a5a78" font-size="8">0 t</text>
+<text x="134" y="432" text-anchor="middle" fill="#3a5a78" font-size="8">Load range</text>
+<text x="224" y="432" text-anchor="end" fill="#3a5a78" font-size="8">SWL</text>
+
+<!-- ── USAGE STATS PANEL ── -->
+<rect x="632" y="105" width="248" height="188" rx="3" fill="#0b1722" stroke="#8855dd" stroke-width="1.5"/>
+<rect x="632" y="105" width="248" height="4" rx="2" fill="#8855dd"/>
+<text x="648" y="123" fill="#8855dd" font-size="8" letter-spacing="1.5" font-family="'Share Tech Mono',monospace">USAGE STATS</text>
+
+<text x="648" y="143" fill="#628098" font-size="9">Hours run</text>
+<text x="872" y="143" fill="#d4b8ff" font-size="9" font-weight="600" text-anchor="end">1,847 h</text>
+<line x1="648" y1="149" x2="872" y2="149" stroke="#162840" stroke-width="0.8"/>
+
+<text x="648" y="163" fill="#628098" font-size="9">Total lifts</text>
+<text x="872" y="163" fill="#d4b8ff" font-size="9" font-weight="600" text-anchor="end">12,440</text>
+<line x1="648" y1="169" x2="872" y2="169" stroke="#162840" stroke-width="0.8"/>
+
+<text x="648" y="183" fill="#628098" font-size="9">Motor starts</text>
+<text x="872" y="183" fill="#d4b8ff" font-size="9" font-weight="600" text-anchor="end">24,880</text>
+<line x1="648" y1="189" x2="872" y2="189" stroke="#162840" stroke-width="0.8"/>
+
+<text x="648" y="203" fill="#628098" font-size="9">Brakings</text>
+<text x="872" y="203" fill="#d4b8ff" font-size="9" font-weight="600" text-anchor="end">18,660</text>
+<line x1="648" y1="209" x2="872" y2="209" stroke="#162840" stroke-width="0.8"/>
+
+<text x="648" y="223" fill="#628098" font-size="9">Overloads</text>
+<text x="872" y="223" fill="#4ccc80" font-size="9" font-weight="600" text-anchor="end">0</text>
+<line x1="648" y1="229" x2="872" y2="229" stroke="#162840" stroke-width="0.8"/>
+
+<text x="648" y="243" fill="#628098" font-size="9">E-stops</text>
+<text x="872" y="243" fill="#d4b8ff" font-size="9" font-weight="600" text-anchor="end">3</text>
+<line x1="648" y1="249" x2="872" y2="249" stroke="#162840" stroke-width="0.8"/>
+
+<text x="648" y="263" fill="#628098" font-size="9">Over temperatures</text>
+<text x="872" y="263" fill="#4ccc80" font-size="9" font-weight="600" text-anchor="end">0</text>
+
+<!-- ── VIBRATION PANEL ── -->
+<rect x="632" y="305" width="248" height="148" rx="3" fill="#0b1722" stroke="#8855dd" stroke-width="1.5"/>
+<rect x="632" y="305" width="248" height="4" rx="2" fill="#8855dd" opacity="0.7"/>
+<text x="648" y="323" fill="#8855dd" font-size="8" letter-spacing="1.5" font-family="'Share Tech Mono',monospace">VIBRATION</text>
+<polyline points="648,380 660,366 668,386 676,372 684,382 692,368 700,379 708,373 716,384 724,365 732,378 740,372 748,383 756,367 764,378 772,374 780,381 788,369 796,376 804,372 812,380 820,370 828,376 836,373" fill="none" stroke="#8855dd" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+<line x1="648" y1="394" x2="840" y2="394" stroke="#162840" stroke-width="1"/>
+<text x="744" y="412" text-anchor="middle" fill="#4ccc80" font-size="9" font-weight="600" letter-spacing="1" font-family="'Share Tech Mono',monospace">NOMINAL</text>
+<text x="744" y="426" text-anchor="middle" fill="#3a5a78" font-size="8">Within normal range</text>
+
+<!-- Status bar -->
+<rect x="280" y="418" width="340" height="34" rx="3" fill="#071220" stroke="#8855dd" stroke-width="1.5"/>
+<rect x="280" y="418" width="340" height="3" rx="1" fill="#8855dd" opacity="0.9"/>
+<circle cx="304" cy="435" r="7" fill="#8855dd" opacity="0.15" stroke="#8855dd" stroke-width="1"/>
+<text x="304" y="439" text-anchor="middle" fill="#4ccc80" font-size="10">✓</text>
+<text x="450" y="432" text-anchor="middle" fill="#c4d8e8" font-size="10" font-weight="600">MONITORING ACTIVE</text>
+<text x="450" y="444" text-anchor="middle" fill="#8855dd" font-size="8" letter-spacing="0.5" font-family="'Share Tech Mono',monospace">EXISTING CONTROLS UNTOUCHED</text>
+</svg>
+  </div>
+
+  <!-- DWP explanation box -->
+  <div style="background:var(--console);border:1px solid var(--bhi);border-radius:3px;padding:20px 24px;margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div>
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:#8855dd;text-transform:uppercase;margin-bottom:8px">Design Working Period (DWP)</div>
+      <div style="font-size:12.5px;color:var(--steel);line-height:1.8">DWP is the calculated remaining design life of your crane's critical components — hoist, brake, motor. It starts at 100% when new and counts down based on actual usage. craneIQ Monitoring tracks it continuously, so you know when components are approaching their service interval — before they fail.</div>
+    </div>
+    <div>
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:#8855dd;text-transform:uppercase;margin-bottom:8px">Why it matters</div>
+      <div style="font-size:12.5px;color:var(--steel);line-height:1.8">Without DWP tracking, maintenance is either done too early — wasting money — or too late, risking unexpected failure. With craneIQ Monitoring, maintenance intervals are driven by actual crane usage rather than calendar dates or guesswork. Plan maintenance. Don't react to breakdowns.</div>
+    </div>
+  </div>
+
+  <!-- Two col -->
+  <div class="two-col">
+    <div class="col">
+      <div class="sec-lbl">What it does for you</div>
+      <ul class="feat-list">
+        <li>Catch problems early — before production stops
+          <span>Vibration trends and load data reveal developing mechanical issues weeks before they cause unplanned downtime</span>
+        </li>
+        <li>DWP tracked continuously from day one
+          <span>Design life counts down from 100% based on actual usage — know exactly when hoist, brake and motor components are due for service</span>
+        </li>
+        <li>Every lift recorded automatically
+          <span>Full load spectrum history — what was lifted, how heavy, how many times. No manual logging, no gaps in the record</span>
+        </li>
+        <li>Make data-driven maintenance decisions
+          <span>Replace speculation with facts. Know the condition of every monitored crane before deciding what action to take</span>
+        </li>
+        <li>Hours run and total operation count logged
+          <span>Complete usage history for maintenance planning, insurance records and statutory compliance</span>
+        </li>
+        <li>Zero risk to existing operations
+          <span>Completely standalone — watches and records without touching the crane controls. No changes to existing systems</span>
+        </li>
+        <li>View data without accessing the crane
+          <span>All monitoring data available remotely via craneIQ Cloud — no need to climb to the crane or access high-voltage panels to check status</span>
+        </li>
+        <li>Works on any crane from any manufacturer
+          <span>No dependency on the crane OEM — fits any overhead crane regardless of who made it or how old it is</span>
+        </li>
+      </ul>
+    </div>
+    <div class="col col-dark">
+      <div class="sec-lbl">Compatibility &amp; installation</div>
+      <table class="spec-table">
+        <tr><td class="spec-lbl">Works on</td><td class="spec-val">Any overhead crane</td></tr>
+        <tr><td class="spec-lbl">Installation</td><td class="spec-val">Completely standalone</td></tr>
+        <tr><td class="spec-lbl">Existing controls</td><td class="spec-val">Untouched — zero risk</td></tr>
+        <tr><td class="spec-lbl">Fitted by</td><td class="spec-val">Qualified electrician</td></tr>
+        <tr><td class="spec-lbl">Lock-in</td><td class="spec-val">None — open data formats</td></tr>
+        <tr><td class="spec-lbl">Power supply</td><td class="spec-val">12–24V DC</td></tr>
+        <tr><td class="spec-lbl">Available</td><td class="spec-val">Worldwide</td></tr>
+      </table>
+      <div class="sec-lbl" style="margin-top:24px">What is monitored</div>
+      <table class="spec-table">
+        <tr><td class="spec-lbl">Hoist DWP%</td><td class="spec-val">From 100% — load cycles</td></tr>
+        <tr><td class="spec-lbl">Brake DWP%</td><td class="spec-val">Starts &amp; E-stops based</td></tr>
+        <tr><td class="spec-lbl">Controls DWP%</td><td class="spec-val">Contactor &amp; relay life</td></tr>
+        <tr><td class="spec-lbl">Hours run</td><td class="spec-val">Continuous logging</td></tr>
+        <tr><td class="spec-lbl">Total lifts</td><td class="spec-val">Every cycle counted</td></tr>
+        <tr><td class="spec-lbl">Overloads &amp; E-stops</td><td class="spec-val">Incidents logged</td></tr>
+        <tr><td class="spec-lbl">Vibration</td><td class="spec-val">Mechanical health trending</td></tr>
+      </table>
+      <div class="certs">
+        <span class="cert">CE</span><span class="cert">UKCA</span><span class="cert">RoHS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Who it's for -->
+  <div class="sec-lbl">Who it's for</div>
+  <div class="audience-grid">
+    <div class="aud-cell">
+      <div class="aud-title">Plant Managers</div>
+      <div class="aud-body">Know the condition of every crane on your floor without waiting for an annual inspection. Make decisions based on real usage data — not guesswork — and eliminate surprise breakdowns.</div>
+    </div>
+    <div class="aud-cell">
+      <div class="aud-title">Engineering Managers</div>
+      <div class="aud-body">Data in open formats your team can work with directly. No manufacturer login required, no proprietary portal. Integrates with your existing maintenance reporting and compliance records.</div>
+    </div>
+    <div class="aud-cell">
+      <div class="aud-title">Crane Partners</div>
+      <div class="aud-body">Add continuous condition monitoring to any crane you supply or service — regardless of manufacturer. One product that works across your entire customer base and fleet.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-bar">
+    <div class="cta-text">
+      <strong>Talk to us about craneIQ Monitoring</strong>
+      <p>We work with plant managers, engineering teams and crane partners worldwide. Engineered in the West Midlands, UK — installed globally. Get in touch to discuss your application.</p>
+    </div>
+    <div class="btn-row">
+      <a href="mailto:joe@pointnode.io" class="btn-primary">Contact Us</a>
+      <a href="../index.html#products" class="btn-ghost">← All Products</a>
+    </div>
+  </div>
+
+  <!-- Products strip -->
+  <div class="strip-wrap">
+    <div class="strip-lbl">Other craneIQ products</div>
+    <div class="strip-grid" id="sg"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-wm" style="font-family:var(--ff);font-size:16px;letter-spacing:-.01em">
+    <span class="crane">crane</span><span class="iq">IQ</span>
+  </div>
+  <p>Pointnode Ltd · West Midlands, UK &nbsp;·&nbsp; 
+    <a href="mailto:joe@pointnode.io">joe@pointnode.io</a> &nbsp;·&nbsp; 
+    <a href="../index.html">craneiq.co.uk</a>
+  </p>
+</footer>
+
+<script>
+const P=[
+  {id:'core',      a:'#008B9A',n:'Core',      t:'Hoist & trolley controller'},
+  {id:'automation',a:'#4488cc',n:'Automation',t:'Crane automation'},
+  {id:'monitoring',a:'#8855dd',n:'Monitoring',t:'Condition monitoring'},
+  {id:'cloud',     a:'#2299bb',n:'Cloud',     t:'Remote visibility'},
+  {id:'vision',    a:'#009966',n:'Vision',    t:'Hook tracking'},
+  {id:'antisway',  a:'#cc7700',n:'Antisway',  t:'Anti-sway system'},
+  {id:'zoning',    a:'#cc3344',n:'Zoning',    t:'No-fly zones'},
+  {id:'loadtrack', a:'#cc9900',n:'LoadTrack', t:'Load logging'},
+];
+const sg=document.getElementById('sg');
+P.forEach(p=>{
+  const a=document.createElement('a');
+  a.className='strip-card';
+  a.href='craneiq-'+p.id+'.html';
+  a.style.borderTopColor=p.a;
+  a.innerHTML='<div class="sc"><span class="c">crane</span><span class="iq" style="color:'+p.a+'">IQ</span></div>'
+    +'<div class="sp" style="color:'+p.a+'">'+p.n+'</div>';
+  sg.appendChild(a);
+});
+</script>
+</body>
+</html>

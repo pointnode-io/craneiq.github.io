@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="320" height="72">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&amp;display=swap');
+      .crane{font-family:'Open Sans',sans-serif;font-weight:300;font-size:42px;fill:#c4d8e8;letter-spacing:-0.01em}
+      .iq{font-family:'Open Sans',sans-serif;font-weight:600;font-size:42px;fill:#8855dd;letter-spacing:-0.01em}
+      .pname{font-family:'Open Sans',sans-serif;font-weight:400;font-size:13px;fill:#8855dd;letter-spacing:0.06em;text-transform:uppercase}
+    </style>
+  </defs>
+  <!-- Product icon box -->
+  <rect x="0" y="4" width="64" height="64" rx="8" fill="#8855dd12" stroke="#8855dd30" stroke-width="1"/>
+  <g transform="translate(16, 20) scale(2)">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <rect x="3" y="20" width="5" height="9" rx="1" stroke="#8855dd" stroke-width="1.2" fill="#8855dd33"/>
+      <rect x="10" y="15" width="5" height="14" rx="1" stroke="#8855dd" stroke-width="1.2" fill="#8855dd33"/>
+      <rect x="17" y="10" width="5" height="19" rx="1" stroke="#8855dd" stroke-width="1.2" fill="#8855dd33"/>
+      <rect x="24" y="6" width="5" height="23" rx="1" stroke="#8855dd" stroke-width="1.2" fill="#8855dd33"/>
+      <polyline points="5.5,19 12.5,14 19.5,9 26.5,5" stroke="#8855dd" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+    </svg>
+  </g>
+  <!-- Wordmark -->
+  <text x="80" y="46"><tspan class="crane">crane</tspan><tspan class="iq">IQ</tspan></text>
+  <text x="81" y="62" class="pname">Monitoring</text>
+  <!-- Accent line -->
+  <line x1="80" y1="50" x2="310" y2="50" stroke="#8855dd" stroke-width="0.5" opacity="0.2"/>
+</svg>
