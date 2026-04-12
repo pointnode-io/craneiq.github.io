@@ -11,7 +11,7 @@
   <ellipse cx="350" cy="200" rx="200" ry="150" fill="#009966" opacity="0.03"/>
 
   <text x="350" y="38" text-anchor="middle" fill="#e4f0f8" font-size="16" font-weight="bold" letter-spacing="2">craneIQ Vision</text>
-  <text x="350" y="56" text-anchor="middle" fill="#3a5a78" font-size="9" letter-spacing="3">CAMERA ON CRANE · PASSIVE TARGET ON HOOK · ANY REEVING ARRANGEMENT</text>
+  <text x="350" y="56" text-anchor="middle" fill="#3a5a78" font-size="11.5" letter-spacing="3">CAMERA ON CRANE · PASSIVE TARGET ON HOOK · ANY REEVING ARRANGEMENT</text>
 
   <!-- Runway -->
   <rect x="80" y="88" width="540" height="22" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
@@ -35,7 +35,7 @@
   <circle cx="387" cy="70" r="6" fill="#D4A017"/>
   <rect x="330" y="76" width="40" height="18" rx="3" fill="#009966" filter="url(#gvs)"/>
   <rect x="332" y="78" width="36" height="14" rx="2" fill="#006644"/>
-  <text x="350" y="88" text-anchor="middle" fill="#4ccc80" font-size="6" font-weight="bold" letter-spacing="0.5">craneIQ</text>
+  <text x="350" y="88" text-anchor="middle" fill="#4ccc80" font-size="11" font-weight="bold" letter-spacing="0.5">craneIQ</text>
 
   <!-- Camera on bridge -->
   <rect x="406" y="110" width="6" height="22" rx="2" fill="#D4A017"/>
@@ -45,13 +45,13 @@
   <circle cx="392" cy="141" r="2" fill="#009966" opacity="0.8"/>
   <circle cx="389" cy="138" r="1" fill="#fff" opacity="0.4"/>
   <rect x="402" y="144" width="28" height="10" rx="2" fill="#162840" stroke="#009966" stroke-width="0.8"/>
-  <text x="416" y="152" text-anchor="middle" fill="#009966" font-size="6.5" letter-spacing="0.5">IP67</text>
+  <text x="416" y="152" text-anchor="middle" fill="#009966" font-size="11.5" letter-spacing="0.5">IP67</text>
 
   <!-- Camera callout -->
   <line x1="428" y1="141" x2="488" y2="141" stroke="#009966" stroke-width="1" stroke-dasharray="3 2" opacity="0.7"/>
   <rect x="488" y="126" width="170" height="34" rx="4" fill="#071a15" stroke="#009966" stroke-width="1.5"/>
-  <text x="573" y="141" text-anchor="middle" fill="#e4f0f8" font-size="10" font-weight="bold">Camera</text>
-  <text x="573" y="153" text-anchor="middle" fill="#3a5a78" font-size="8">Mounted on crane structure</text>
+  <text x="573" y="141" text-anchor="middle" fill="#e4f0f8" font-size="12.5" font-weight="bold">Camera</text>
+  <text x="573" y="153" text-anchor="middle" fill="#3a5a78" font-size="13">Mounted on crane structure</text>
 
   <!-- View cone -->
   <polygon points="392,152 308,305 490,305" fill="#009966" opacity="0.04"/>
@@ -78,9 +78,9 @@
   <line x1="330" y1="242" x2="210" y2="234" stroke="#009966" stroke-width="1" stroke-dasharray="3 2" opacity="0.7"/>
   <rect x="38" y="214" width="172" height="48" rx="4" fill="#071a15" stroke="#009966" stroke-width="1.5"/>
   <rect x="38" y="214" width="172" height="4" rx="2" fill="#009966"/>
-  <text x="124" y="231" text-anchor="middle" fill="#e4f0f8" font-size="10" font-weight="bold">Passive Target</text>
-  <text x="124" y="244" text-anchor="middle" fill="#3a5a78" font-size="8">No electronics</text>
-  <text x="124" y="255" text-anchor="middle" fill="#3a5a78" font-size="8">No moving parts · Any reeving</text>
+  <text x="124" y="231" text-anchor="middle" fill="#e4f0f8" font-size="12.5" font-weight="bold">Passive Target</text>
+  <text x="124" y="244" text-anchor="middle" fill="#3a5a78" font-size="13">No electronics</text>
+  <text x="124" y="255" text-anchor="middle" fill="#3a5a78" font-size="13">No moving parts · Any reeving</text>
 
   <!-- Load -->
   <rect x="305" y="268" width="90" height="64" rx="4" fill="#0b1722" stroke="#009966" stroke-width="1.5"/>
@@ -94,6 +94,6 @@
   <rect x="198" y="358" width="304" height="3" rx="1" fill="#009966"/>
   <circle cx="224" cy="376" r="8" fill="#009966" opacity="0.15" stroke="#009966" stroke-width="1.2"/>
   <text x="224" y="381" text-anchor="middle" fill="#4ccc80" font-size="11">✓</text>
-  <text x="360" y="373" text-anchor="middle" fill="#e4f0f8" font-size="10" font-weight="bold">HOOK POSITION: CENTRED</text>
-  <text x="360" y="386" text-anchor="middle" fill="#009966" font-size="8" letter-spacing="1">SIDE PULL: NONE DETECTED</text>
+  <text x="360" y="373" text-anchor="middle" fill="#e4f0f8" font-size="12.5" font-weight="bold">HOOK POSITION: CENTRED</text>
+  <text x="360" y="386" text-anchor="middle" fill="#009966" font-size="13" letter-spacing="1">SIDE PULL: NONE DETECTED</text>
 </svg>

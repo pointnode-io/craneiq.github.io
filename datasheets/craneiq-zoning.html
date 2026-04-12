@@ -18,18 +18,18 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:14px;line-height:1.7}
+body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:14px;line-height:1.85}
 ::-webkit-scrollbar{width:3px;background:var(--void)}
 ::-webkit-scrollbar-thumb{background:var(--bhi)}
 
 /* NAV */
-.nav{height:52px;background:var(--hull);border-bottom:1px solid var(--border);
+.nav{height:54px;background:var(--hull);border-bottom:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;padding:0 40px;
   position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
-.nav-logo{font-family:var(--ff);font-size:17px;line-height:1;letter-spacing:-.01em;text-decoration:none}
+.nav-logo{font-family:var(--ff);font-size:18px;line-height:1;letter-spacing:-.01em;text-decoration:none}
 .nav-logo .crane{font-weight:300;color:var(--bright)}
 .nav-logo .iq{font-weight:600;color:var(--brand)}
-.nav-back{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted);
+.nav-back{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);
   text-decoration:none;text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color .14s}
 .nav-back::before{content:'←'}
 .nav-back:hover{color:var(--accent)}
@@ -46,31 +46,31 @@ body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:1
 .hero-wm .crane{font-weight:300;color:var(--bright)}
 .hero-wm .iq{font-weight:600;color:var(--accent)}
 .hero-wm .pname{font-weight:400;font-size:23px;color:var(--accent);margin-left:5px}
-.hero-tagline{font-family:var(--ff);font-weight:300;font-size:17px;color:var(--mid);margin-top:7px;letter-spacing:-.005em}
+.hero-tagline{font-family:var(--ff);font-weight:300;font-size:18px;color:var(--mid);margin-top:8px;letter-spacing:-.005em}
 .hero-meta{text-align:right;flex-shrink:0}
 .hero-code{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--mid);display:block}
-.hero-model{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--muted);display:block;margin-top:3px}
-.hero-stats{display:flex;gap:0;border-top:1px solid var(--border);padding-top:22px;flex-wrap:wrap;gap:0}
+.hero-model{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);display:block;margin-top:4px}
+.hero-stats{display:flex;gap:0;border-top:1px solid var(--border);padding-top:22px;flex-wrap:wrap}
 .hstat{padding:0 28px 0 0;margin-right:28px;border-right:1px solid var(--border)}
 .hstat:last-child{border:none;margin:0;padding:0}
-.hstat-val{font-family:var(--ff);font-weight:600;font-size:18px;color:var(--white);line-height:1}
-.hstat-lbl{font-family:var(--mono);font-size:7.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-top:3px}
+.hstat-val{font-family:var(--ff);font-weight:600;font-size:20px;color:var(--white);line-height:1}
+.hstat-lbl{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-top:4px}
 
 /* BODY */
 .body-wrap{max-width:1060px;margin:0 auto;padding:52px 40px}
-.sec-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:var(--accent);
+.sec-lbl{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--accent);
   text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.sec-lbl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,#cc334455,transparent)}
+.sec-lbl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,#008B9A55,transparent)}
 
 /* Differentiator banner */
 .diff-banner{background:var(--console);border:1px solid var(--bhi);border-radius:3px;
-  padding:18px 24px;margin-bottom:28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.diff-banner-icon{font-family:var(--mono);font-size:18px;color:var(--accent);flex-shrink:0}
-.diff-banner-text{font-size:13px;color:var(--steel);line-height:1.65}
-.diff-banner-text strong{color:var(--white);font-weight:600}
+  padding:20px 24px;margin-bottom:28px;display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.diff-banner-icon{font-family:var(--mono);font-size:18px;color:var(--accent);flex-shrink:0;padding-top:2px}
+.diff-banner-text{font-size:14px;color:var(--steel);line-height:1.75}
+.diff-banner-text strong{color:var(--white);font-weight:600;display:block;margin-bottom:4px}
 
 /* Overview */
-.overview{font-size:13.5px;color:var(--steel);line-height:1.9;margin-bottom:28px}
+.overview{font-size:14px;color:var(--steel);line-height:1.95;margin-bottom:28px}
 .overview strong{color:var(--white);font-weight:600}
 
 /* Two col */
@@ -81,70 +81,70 @@ body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:1
 
 /* Feature list */
 .feat-list{list-style:none;display:flex;flex-direction:column;gap:11px}
-.feat-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;
-  color:var(--bright);line-height:1.5;padding-bottom:11px;border-bottom:1px solid var(--border)}
+.feat-list li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;
+  color:var(--bright);line-height:1.55;padding-bottom:12px;border-bottom:1px solid var(--border)}
 .feat-list li:last-child{border:none;padding:0}
-.feat-list li::before{content:'—';color:var(--accent);font-weight:600;flex-shrink:0;margin-top:1px}
-.feat-list li span{color:var(--muted);font-size:11.5px;display:block;margin-top:2px}
+.feat-list li::before{content:'—';color:var(--accent);font-weight:600;flex-shrink:0;margin-top:2px}
+.feat-list li span{color:var(--muted);font-size:12.5px;display:block;margin-top:3px;line-height:1.8}
 
 /* Spec table */
 .spec-table{width:100%;border-collapse:collapse}
 .spec-table tr:nth-child(even) td{background:var(--panel)}
-.spec-table td{padding:9px 14px;border-bottom:1px solid var(--border);font-size:12px;vertical-align:middle}
+.spec-table td{padding:10px 14px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle}
 .spec-table tr:last-child td{border-bottom:none}
-.spec-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
-.spec-val{font-family:var(--ff);font-weight:600;font-size:12.5px;color:var(--white);text-align:right}
+.spec-lbl{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.spec-val{font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);text-align:right}
 
 /* Certs */
 .certs{display:flex;gap:8px;margin-top:20px}
-.cert{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;
-  padding:5px 12px;border:1px solid var(--bhi);border-radius:2px;color:var(--mid)}
+.cert{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;
+  padding:6px 14px;border:1px solid var(--bhi);border-radius:2px;color:var(--mid)}
 
 /* Who it's for */
 .audience-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
   gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;
   overflow:hidden;margin-bottom:24px}
-.aud-cell{background:var(--panel);padding:20px 22px}
-.aud-title{font-family:var(--ff);font-weight:600;font-size:12px;color:var(--white);margin-bottom:5px}
-.aud-body{font-size:11.5px;color:var(--muted);line-height:1.65}
+.aud-cell{background:var(--panel);padding:22px 24px}
+.aud-title{font-family:var(--ff);font-weight:600;font-size:14px;color:var(--white);margin-bottom:7px}
+.aud-body{font-size:13px;color:var(--muted);line-height:1.8}
 
 /* CTA bar */
 .cta-bar{background:var(--hull);border:1px solid var(--border);border-radius:3px;
-  padding:24px 28px;display:flex;align-items:center;justify-content:space-between;
+  padding:28px 32px;display:flex;align-items:center;justify-content:space-between;
   margin-bottom:32px;gap:16px;flex-wrap:wrap;position:relative;overflow:hidden}
 .cta-bar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,var(--accent),transparent)}
-.cta-text strong{display:block;color:var(--white);font-size:15px;font-weight:600;margin-bottom:4px}
-.cta-text p{font-size:12px;color:var(--muted);line-height:1.65;max-width:480px}
+.cta-text strong{display:block;color:var(--white);font-size:16px;font-weight:600;margin-bottom:6px}
+.cta-text p{font-size:13px;color:var(--muted);line-height:1.75;max-width:480px}
 .btn-primary{background:var(--accent);color:var(--void);font-family:var(--ff);font-weight:600;
-  font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:12px 26px;
+  font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;padding:13px 28px;
   border-radius:2px;text-decoration:none;white-space:nowrap;transition:background .14s;display:inline-block}
 .btn-primary:hover{opacity:.88}
 .btn-ghost{background:transparent;color:var(--steel);font-family:var(--ff);font-weight:400;
-  font-size:11px;letter-spacing:.05em;padding:11px 22px;border-radius:2px;
+  font-size:11.5px;letter-spacing:.05em;padding:12px 24px;border-radius:2px;
   border:1px solid var(--bhi);text-decoration:none;white-space:nowrap;transition:.14s;display:inline-block}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 .btn-row{display:flex;gap:10px;flex-wrap:wrap}
 
 /* Products strip */
 .strip-wrap{border-top:1px solid var(--border);padding-top:40px}
-.strip-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:var(--muted);
-  text-transform:uppercase;margin-bottom:14px}
+.strip-lbl{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--muted);
+  text-transform:uppercase;margin-bottom:16px}
 .strip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));
   gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
-.strip-card{background:var(--panel);padding:14px 16px;text-decoration:none;
+.strip-card{background:var(--panel);padding:16px 18px;text-decoration:none;
   border-top:2px solid;transition:background .15s}
 .strip-card:hover{background:var(--console)}
-.strip-card .sc{font-family:var(--ff);font-size:12px;line-height:1}
+.strip-card .sc{font-family:var(--ff);font-size:13px;line-height:1}
 .strip-card .sc .c{font-weight:300;color:var(--mid)}
 .strip-card .sc .iq{font-weight:600}
-.strip-card .sp{font-family:var(--mono);font-size:7.5px;letter-spacing:.06em;
-  color:var(--dim);text-transform:uppercase;margin-top:3px}
+.strip-card .sp{font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+  color:var(--dim);text-transform:uppercase;margin-top:4px}
 
 /* FOOTER */
 footer{background:var(--hull);border-top:1px solid var(--border);
   padding:22px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-footer p{font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+footer p{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
 footer a{color:var(--muted);text-decoration:none;transition:color .14s}
 footer a:hover{color:var(--accent)}
 .footer-wm .crane{font-weight:300;color:var(--bright)}
@@ -217,7 +217,7 @@ footer a:hover{color:var(--accent)}
   <rect width="700" height="460" fill="url(#grid4)"/>
 
   <text x="350" y="36" text-anchor="middle" fill="#e4f0f8" font-size="16" font-weight="bold" letter-spacing="2">craneIQ Zoning</text>
-  <text x="350" y="54" text-anchor="middle" fill="#3a5a78" font-size="9" letter-spacing="3">SOFTWARE-DEFINED ZONES · UNLIMITED BOUNDARIES · AUTO DECELERATION &amp; STOP</text>
+  <text x="350" y="54" text-anchor="middle" fill="#3a5a78" font-size="11.5" letter-spacing="3">SOFTWARE-DEFINED ZONES · UNLIMITED BOUNDARIES · AUTO DECELERATION &amp; STOP</text>
 
   <!-- Factory floor — top down view -->
   <rect x="50" y="70" width="600" height="350" rx="6" fill="#07101a" stroke="#162840" stroke-width="2"/>
@@ -238,10 +238,10 @@ footer a:hover{color:var(--accent)}
   <rect x="100" y="326" width="80" height="48" rx="2" fill="#07101a"/>
   <circle cx="140" cy="350" r="14" fill="#162840" stroke="#3a5a78" stroke-width="1"/>
   <circle cx="140" cy="350" r="6" fill="#3a5a78"/>
-  <text x="140" y="295" text-anchor="middle" fill="#cc3344" font-size="8" letter-spacing="1">NO-FLY ZONE</text>
-  <text x="140" y="284" text-anchor="middle" fill="#cc3344" font-size="7" opacity="0.7">MACHINE CENTRE</text>
+  <text x="140" y="295" text-anchor="middle" fill="#cc3344" font-size="13" letter-spacing="1">NO-FLY ZONE</text>
+  <text x="140" y="284" text-anchor="middle" fill="#cc3344" font-size="12" opacity="0.7">MACHINE CENTRE</text>
   <circle cx="72" cy="279" r="10" fill="#cc3344" opacity="0.2" stroke="#cc3344" stroke-width="1.2"/>
-  <text x="72" y="283" text-anchor="middle" fill="#cc3344" font-size="10" font-weight="bold">1</text>
+  <text x="72" y="283" text-anchor="middle" fill="#cc3344" font-size="12.5" font-weight="bold">1</text>
 
   <!-- ZONE 2: Pedestrian walkway -->
   <rect x="446" y="72" width="58" height="348" rx="0" fill="#cc3344" opacity="0.07" stroke="#cc3344" stroke-width="1.5" stroke-dasharray="6 3"/>
@@ -254,18 +254,18 @@ footer a:hover{color:var(--accent)}
   <line x1="475" y1="260" x2="485" y2="270" stroke="#3a5a78" stroke-width="2" stroke-linecap="round"/>
   <line x1="475" y1="274" x2="466" y2="288" stroke="#3a5a78" stroke-width="2" stroke-linecap="round"/>
   <line x1="475" y1="274" x2="484" y2="288" stroke="#3a5a78" stroke-width="2" stroke-linecap="round"/>
-  <text x="475" y="176" text-anchor="middle" fill="#cc3344" font-size="8" letter-spacing="0.5" transform="rotate(-90,475,176)">PEDESTRIAN ZONE</text>
+  <text x="475" y="176" text-anchor="middle" fill="#cc3344" font-size="13" letter-spacing="0.5" transform="rotate(-90,475,176)">PEDESTRIAN ZONE</text>
   <circle cx="446" cy="80" r="10" fill="#cc3344" opacity="0.2" stroke="#cc3344" stroke-width="1.2"/>
-  <text x="446" y="84" text-anchor="middle" fill="#cc3344" font-size="10" font-weight="bold">2</text>
+  <text x="446" y="84" text-anchor="middle" fill="#cc3344" font-size="12.5" font-weight="bold">2</text>
 
   <!-- ZONE 3: Building wall -->
   <rect x="584" y="72" width="66" height="348" rx="0" fill="#cc3344" opacity="0.1" stroke="#cc3344" stroke-width="1.5" stroke-dasharray="6 3"/>
-  <text x="617" y="258" text-anchor="middle" fill="#cc3344" font-size="7.5" letter-spacing="0.5" transform="rotate(-90,617,258)">BUILDING WALL</text>
+  <text x="617" y="258" text-anchor="middle" fill="#cc3344" font-size="12.5" letter-spacing="0.5" transform="rotate(-90,617,258)">BUILDING WALL</text>
   <line x1="594" y1="80" x2="594" y2="412" stroke="#cc3344" stroke-width="0.6" opacity="0.3"/>
   <line x1="610" y1="80" x2="610" y2="412" stroke="#cc3344" stroke-width="0.6" opacity="0.3"/>
   <line x1="626" y1="80" x2="626" y2="412" stroke="#cc3344" stroke-width="0.6" opacity="0.3"/>
   <circle cx="584" cy="80" r="10" fill="#cc3344" opacity="0.2" stroke="#cc3344" stroke-width="1.2"/>
-  <text x="584" y="84" text-anchor="middle" fill="#cc3344" font-size="10" font-weight="bold">3</text>
+  <text x="584" y="84" text-anchor="middle" fill="#cc3344" font-size="12.5" font-weight="bold">3</text>
 
   <!-- Crane runway rails — top down -->
   <rect x="50" y="98" width="600" height="8" rx="2" fill="#D4A017" opacity="0.7"/>
@@ -277,7 +277,7 @@ footer a:hover{color:var(--accent)}
   <!-- Trolley top-down with crosshair target (load position) -->
   <rect x="293" y="92" width="34" height="44" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
   <rect x="299" y="100" width="22" height="28" rx="3" fill="#cc3344" opacity="0.9" filter="url(#gzs)"/>
-  <text x="310" y="117" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="bold">IQ</text>
+  <text x="310" y="117" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">IQ</text>
 
   <!-- Load crosshair (below crane, projected on floor) -->
   <g opacity="0.5">
@@ -294,19 +294,19 @@ footer a:hover{color:var(--accent)}
 
   <!-- Decel zone -->
   <rect x="424" y="78" width="16" height="44" rx="2" fill="#cc7700" opacity="0.2" stroke="#cc7700" stroke-width="1" stroke-dasharray="3 2"/>
-  <text x="432" y="70" text-anchor="middle" fill="#cc7700" font-size="7" letter-spacing="0.5">SLOW</text>
+  <text x="432" y="70" text-anchor="middle" fill="#cc7700" font-size="12" letter-spacing="0.5">SLOW</text>
   <rect x="440" y="78" width="8" height="44" rx="1" fill="#cc3344" opacity="0.25" stroke="#cc3344" stroke-width="1"/>
-  <text x="444" y="70" text-anchor="middle" fill="#cc3344" font-size="7">STOP</text>
+  <text x="444" y="70" text-anchor="middle" fill="#cc3344" font-size="12">STOP</text>
 
   <!-- Status badges -->
   <rect x="56" y="436" width="130" height="16" rx="3" fill="#071a15" stroke="#cc3344" stroke-width="1"/>
-  <text x="121" y="448" text-anchor="middle" fill="#cc3344" font-size="8" letter-spacing="1">3 ZONES ACTIVE</text>
+  <text x="121" y="448" text-anchor="middle" fill="#cc3344" font-size="13" letter-spacing="1">3 ZONES ACTIVE</text>
   <rect x="276" y="428" width="148" height="24" rx="4" fill="#071a15" stroke="#cc3344" stroke-width="1.5"/>
   <circle cx="300" cy="440" r="6" fill="#cc3344" opacity="0.2"/>
-  <text x="300" y="444" text-anchor="middle" fill="#4ccc80" font-size="10">✓</text>
-  <text x="375" y="444" text-anchor="middle" fill="#e4f0f8" font-size="9" font-weight="bold">PROTECTION ACTIVE</text>
+  <text x="300" y="444" text-anchor="middle" fill="#4ccc80" font-size="12.5">✓</text>
+  <text x="375" y="444" text-anchor="middle" fill="#e4f0f8" font-size="11.5" font-weight="bold">PROTECTION ACTIVE</text>
   <rect x="514" y="436" width="132" height="16" rx="3" fill="#071a15" stroke="#cc3344" stroke-width="1"/>
-  <text x="580" y="448" text-anchor="middle" fill="#cc3344" font-size="8" letter-spacing="1">RESPONSE &lt;50ms</text>
+  <text x="580" y="448" text-anchor="middle" fill="#cc3344" font-size="13" letter-spacing="1">RESPONSE &lt;50ms</text>
 </svg>
   </div>
 
@@ -315,19 +315,19 @@ footer a:hover{color:var(--accent)}
   <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-bottom:24px">
     <div style="background:var(--panel);padding:20px 22px">
       <div style="font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);margin-bottom:5px">Crane to crane — shared runways</div>
-      <div style="font-size:12px;color:var(--muted);line-height:1.7">Two or more cranes sharing the same runway. craneIQ Zoning prevents them getting too close — automatically decelerating the approaching crane before contact can occur. No reliance on operators watching each other.</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.85">Two or more cranes sharing the same runway. craneIQ Zoning prevents them getting too close — automatically decelerating the approaching crane before contact can occur. No reliance on operators watching each other.</div>
     </div>
     <div style="background:var(--console);padding:20px 22px">
       <div style="font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);margin-bottom:5px">Crane to building — structural protection</div>
-      <div style="font-size:12px;color:var(--muted);line-height:1.7">Keep the crane away from columns, end walls, roof steelwork and other structural elements. Particularly important where cranes operate close to the building fabric or where visibility is limited.</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.85">Keep the crane away from columns, end walls, roof steelwork and other structural elements. Particularly important where cranes operate close to the building fabric or where visibility is limited.</div>
     </div>
     <div style="background:var(--console);padding:20px 22px">
       <div style="font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);margin-bottom:5px">No-fly zones — floor level machinery</div>
-      <div style="font-size:12px;color:var(--muted);line-height:1.7">Restrict crane entry above sensitive equipment, machine centres, or areas where a swinging load would cause damage. Zone boundaries can be defined at any height — crane level, load level, or both.</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.85">Restrict crane entry above sensitive equipment, machine centres, or areas where a swinging load would cause damage. Zone boundaries can be defined at any height — crane level, load level, or both.</div>
     </div>
     <div style="background:var(--panel);padding:20px 22px">
       <div style="font-family:var(--ff);font-weight:600;font-size:13px;color:var(--white);margin-bottom:5px">Personnel protection — walkways and offices</div>
-      <div style="font-size:12px;color:var(--muted);line-height:1.7">Prevent crane operation above pedestrian routes, welfare areas, or in-plant offices. A zone boundary above these areas ensures automatic intervention before the crane can enter — without relying on operator awareness.</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.85">Prevent crane operation above pedestrian routes, welfare areas, or in-plant offices. A zone boundary above these areas ensures automatic intervention before the crane can enter — without relying on operator awareness.</div>
     </div>
   </div>
 

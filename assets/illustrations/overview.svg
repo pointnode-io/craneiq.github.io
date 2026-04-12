@@ -16,7 +16,7 @@
 
   <!-- Title -->
   <text x="500" y="38" text-anchor="middle" fill="#e4f0f8" font-size="18" font-weight="bold" letter-spacing="3">craneIQ</text>
-  <text x="500" y="56" text-anchor="middle" fill="#3a5a78" font-size="9" letter-spacing="4">COMPLETE CRANE INTELLIGENCE · ANY CRANE · ANY MANUFACTURER · NO LOCK-IN</text>
+  <text x="500" y="56" text-anchor="middle" fill="#3a5a78" font-size="11.5" letter-spacing="4">COMPLETE CRANE INTELLIGENCE · ANY CRANE · ANY MANUFACTURER · NO LOCK-IN</text>
 
   <!-- ══════════════════════════════════════════
        CRANE STRUCTURE — front/slightly 3/4 view
@@ -125,41 +125,41 @@
   <!-- 1. CORE — on the trolley/control box -->
   <!-- Core unit on trolley -->
   <rect x="456" y="152" width="30" height="18" rx="2" fill="#008B9A" filter="url(#gs)"/>
-  <text x="471" y="164" text-anchor="middle" fill="#020406" font-size="6" font-weight="bold">IQ</text>
+  <text x="471" y="164" text-anchor="middle" fill="#020406" font-size="11" font-weight="bold">IQ</text>
   <!-- Callout line -->
   <line x1="486" y1="161" x2="580" y2="80"  stroke="#628098" stroke-width="1" marker-end="url(#al)" opacity="0.8"/>
   <!-- Callout box -->
   <rect x="580" y="44" width="168" height="52" rx="4" fill="#071a15" stroke="#008B9A" stroke-width="1.8"/>
   <rect x="580" y="44" width="168" height="4" rx="2" fill="#008B9A"/>
   <text x="596" y="62" fill="#e4f0f8" font-size="11" font-weight="bold">craneIQ Core</text>
-  <text x="596" y="75" fill="#3a5a78" font-size="8">Hoist controller · DWP · Load</text>
-  <text x="596" y="85" fill="#3a5a78" font-size="8">spectrum · Overload protection</text>
+  <text x="596" y="75" fill="#3a5a78" font-size="13">Hoist controller · DWP · Load</text>
+  <text x="596" y="85" fill="#3a5a78" font-size="13">spectrum · Overload protection</text>
 
   <!-- 2. ANTISWAY — VFDs on end carriage left -->
   <!-- VFD unit on left carriage -->
   <rect x="78" y="155" width="24" height="18" rx="2" fill="#cc7700" filter="url(#gs)"/>
-  <text x="90" y="167" text-anchor="middle" fill="#020406" font-size="6" font-weight="bold">VFD</text>
+  <text x="90" y="167" text-anchor="middle" fill="#020406" font-size="11" font-weight="bold">VFD</text>
   <!-- Callout line -->
   <line x1="78" y1="164" x2="44" y2="258"  stroke="#628098" stroke-width="1" marker-end="url(#al)" opacity="0.8"/>
   <!-- Callout box -->
   <rect x="20" y="258" width="168" height="52" rx="4" fill="#1a0f00" stroke="#cc7700" stroke-width="1.8"/>
   <rect x="20" y="258" width="168" height="4" rx="2" fill="#cc7700"/>
   <text x="36" y="276" fill="#e4f0f8" font-size="11" font-weight="bold">craneIQ Antisway</text>
-  <text x="36" y="289" fill="#3a5a78" font-size="8">No sensors · No encoders</text>
-  <text x="36" y="299" fill="#3a5a78" font-size="8">Uses existing VFDs only</text>
+  <text x="36" y="289" fill="#3a5a78" font-size="13">No sensors · No encoders</text>
+  <text x="36" y="299" fill="#3a5a78" font-size="13">Uses existing VFDs only</text>
 
   <!-- 3. MONITORING — standalone unit on bridge -->
   <!-- Monitoring unit on bridge -->
   <rect x="300" y="152" width="30" height="18" rx="2" fill="#8855dd" filter="url(#gs)"/>
-  <text x="315" y="164" text-anchor="middle" fill="#fff" font-size="6" font-weight="bold">MON</text>
+  <text x="315" y="164" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">MON</text>
   <!-- Callout line -->
   <line x1="300" y1="161" x2="200" y2="88"  stroke="#628098" stroke-width="1" marker-end="url(#al)" opacity="0.8"/>
   <!-- Callout box -->
   <rect x="20" y="44" width="168" height="52" rx="4" fill="#120a1f" stroke="#8855dd" stroke-width="1.8"/>
   <rect x="20" y="44" width="168" height="4" rx="2" fill="#8855dd"/>
   <text x="36" y="62" fill="#e4f0f8" font-size="11" font-weight="bold">craneIQ Monitoring</text>
-  <text x="36" y="75" fill="#3a5a78" font-size="8">Standalone · Zero risk · DWP</text>
-  <text x="36" y="85" fill="#3a5a78" font-size="8">Brake · Motor · Vibration</text>
+  <text x="36" y="75" fill="#3a5a78" font-size="13">Standalone · Zero risk · DWP</text>
+  <text x="36" y="85" fill="#3a5a78" font-size="13">Brake · Motor · Vibration</text>
 
   <!-- 4. VISION — camera on bridge + target on rope -->
   <!-- Camera on bridge -->
@@ -172,13 +172,13 @@
   <rect x="760" y="54" width="168" height="52" rx="4" fill="#001a0f" stroke="#009966" stroke-width="1.8"/>
   <rect x="760" y="54" width="168" height="4" rx="2" fill="#009966"/>
   <text x="776" y="72" fill="#e4f0f8" font-size="11" font-weight="bold">craneIQ Vision</text>
-  <text x="776" y="85" fill="#3a5a78" font-size="8">Camera on crane · Passive target</text>
-  <text x="776" y="95" fill="#3a5a78" font-size="8">Side pull &amp; snag prevention</text>
+  <text x="776" y="85" fill="#3a5a78" font-size="13">Camera on crane · Passive target</text>
+  <text x="776" y="95" fill="#3a5a78" font-size="13">Side pull &amp; snag prevention</text>
 
   <!-- 5. ZONING — laser on right end carriage -->
   <!-- Laser unit on right carriage -->
   <rect x="898" y="155" width="24" height="18" rx="2" fill="#cc3344" filter="url(#gs)"/>
-  <text x="910" y="167" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="bold">ZONE</text>
+  <text x="910" y="167" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">ZONE</text>
   <!-- Zone boundary dashed line from carriage -->
   <line x1="898" y1="164" x2="860" y2="164" stroke="#cc3344" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/>
   <!-- Callout line -->
@@ -187,8 +187,8 @@
   <rect x="812" y="258" width="168" height="52" rx="4" fill="#1a0007" stroke="#cc3344" stroke-width="1.8"/>
   <rect x="812" y="258" width="168" height="4" rx="2" fill="#cc3344"/>
   <text x="828" y="276" fill="#e4f0f8" font-size="11" font-weight="bold">craneIQ Zoning</text>
-  <text x="828" y="289" fill="#3a5a78" font-size="8">Software-defined no-fly zones</text>
-  <text x="828" y="299" fill="#3a5a78" font-size="8">Multi-crane collision prevention</text>
+  <text x="828" y="289" fill="#3a5a78" font-size="13">Software-defined no-fly zones</text>
+  <text x="828" y="299" fill="#3a5a78" font-size="13">Multi-crane collision prevention</text>
 
   <!-- 6. AUTOMATION — on pendant / control -->
   <!-- Automation indicator on pendant -->
@@ -199,18 +199,18 @@
   <rect x="20" y="340" width="168" height="52" rx="4" fill="#000d1a" stroke="#4488cc" stroke-width="1.8"/>
   <rect x="20" y="340" width="168" height="4" rx="2" fill="#4488cc"/>
   <text x="36" y="358" fill="#e4f0f8" font-size="11" font-weight="bold">craneIQ Automation</text>
-  <text x="36" y="371" fill="#3a5a78" font-size="8">Teach &amp; replay · No code</text>
-  <text x="36" y="381" fill="#3a5a78" font-size="8">Any operator · Commissions in 1 day</text>
+  <text x="36" y="371" fill="#3a5a78" font-size="13">Teach &amp; replay · No code</text>
+  <text x="36" y="381" fill="#3a5a78" font-size="13">Any operator · Commissions in 1 day</text>
 
   <!-- 7. LOADTRACK — load cell on hoist / display -->
   <!-- LoadTrack unit on hoist -->
   <rect x="540" y="152" width="30" height="18" rx="2" fill="#cc9900" filter="url(#gs)"/>
-  <text x="555" y="164" text-anchor="middle" fill="#020406" font-size="5.5" font-weight="bold">LOAD</text>
+  <text x="555" y="164" text-anchor="middle" fill="#020406" font-size="13" font-weight="bold">LOAD</text>
   <!-- Display unit on wall (right side, floor level) -->
   <rect x="820" y="420" width="56" height="36" rx="4" fill="#0b1722" stroke="#cc9900" stroke-width="1.8"/>
   <rect x="826" y="426" width="44" height="24" rx="2" fill="#07101a"/>
-  <text x="848" y="438" text-anchor="middle" fill="#cc9900" font-size="7">LOAD</text>
-  <text x="848" y="449" text-anchor="middle" fill="#e4f0f8" font-size="10" font-weight="bold">4.2 t</text>
+  <text x="848" y="438" text-anchor="middle" fill="#cc9900" font-size="12">LOAD</text>
+  <text x="848" y="449" text-anchor="middle" fill="#e4f0f8" font-size="12.5" font-weight="bold">4.2 t</text>
   <!-- Wireless signal from hoist to display -->
   <line x1="820" y1="438" x2="650" y2="300" stroke="#cc9900" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
   <!-- Callout line from LoadTrack unit -->
@@ -218,9 +218,9 @@
   <!-- Callout box -->
   <rect x="680" y="44" width="70" height="52" rx="4" fill="#1a0f00" stroke="#cc9900" stroke-width="1.8"/>
   <rect x="680" y="44" width="70" height="4" rx="2" fill="#cc9900"/>
-  <text x="715" y="62" text-anchor="middle" fill="#e4f0f8" font-size="9" font-weight="bold">LoadTrack</text>
-  <text x="715" y="75" text-anchor="middle" fill="#3a5a78" font-size="7">Every lift</text>
-  <text x="715" y="85" text-anchor="middle" fill="#3a5a78" font-size="7">logged</text>
+  <text x="715" y="62" text-anchor="middle" fill="#e4f0f8" font-size="11.5" font-weight="bold">LoadTrack</text>
+  <text x="715" y="75" text-anchor="middle" fill="#3a5a78" font-size="12">Every lift</text>
+  <text x="715" y="85" text-anchor="middle" fill="#3a5a78" font-size="12">logged</text>
 
   <!-- 8. CLOUD — signal rising from Core unit -->
   <!-- WiFi/signal arcs above crane -->
@@ -233,8 +233,8 @@
   <!-- Cloud callout box -->
   <rect x="640" y="24" width="112" height="38" rx="4" fill="#001219" stroke="#2299bb" stroke-width="1.8"/>
   <rect x="640" y="24" width="112" height="4" rx="2" fill="#2299bb"/>
-  <text x="696" y="40" text-anchor="middle" fill="#e4f0f8" font-size="9" font-weight="bold">craneIQ Cloud</text>
-  <text x="696" y="53" text-anchor="middle" fill="#3a5a78" font-size="7">Live data · Alerts · Remote</text>
+  <text x="696" y="40" text-anchor="middle" fill="#e4f0f8" font-size="11.5" font-weight="bold">craneIQ Cloud</text>
+  <text x="696" y="53" text-anchor="middle" fill="#3a5a78" font-size="12">Live data · Alerts · Remote</text>
 
   <!-- ══════════════════════════════════════════
        BOTTOM STRIP — key message
@@ -249,7 +249,7 @@
   <circle cx="445" cy="580" r="5" fill="#cc7700"/>
   <circle cx="510" cy="580" r="5" fill="#cc3344"/>
   <circle cx="575" cy="580" r="5" fill="#cc9900"/>
-  <text x="610" y="584" fill="#3a5a78" font-size="8" letter-spacing="1">·</text>
-  <text x="630" y="584" fill="#628098" font-size="8" letter-spacing="1.5">ALL PRODUCTS SIT ALONGSIDE EXISTING CONTROLS</text>
-  <text x="630" y="594" fill="#3a5a78" font-size="7.5" letter-spacing="1">NO PROPRIETARY LOCK-IN · ANY CRANE · ANY MANUFACTURER · WORLDWIDE</text>
+  <text x="610" y="584" fill="#3a5a78" font-size="13" letter-spacing="1">·</text>
+  <text x="630" y="584" fill="#628098" font-size="13" letter-spacing="1.5">ALL PRODUCTS SIT ALONGSIDE EXISTING CONTROLS</text>
+  <text x="630" y="594" fill="#3a5a78" font-size="12.5" letter-spacing="1">NO PROPRIETARY LOCK-IN · ANY CRANE · ANY MANUFACTURER · WORLDWIDE</text>
 </svg>
