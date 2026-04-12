@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>craneIQ — Product Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:'Open Sans',sans-serif;background:#e0e0e0;font-size:8.5pt;color:#1a2332;line-height:1.5}
+.page{width:210mm;height:297mm;margin:0 auto 10mm;background:#fff;display:flex;flex-direction:column;overflow:hidden}
+@media print{body{background:#fff}.page{margin:0;page-break-after:always}.page:last-child{page-break-after:avoid}.print-btn{display:none!important}}
+.sec-label{font-family:'Share Tech Mono',monospace;font-size:6pt;letter-spacing:.2em;color:#008B9A;text-transform:uppercase;margin-bottom:3mm;display:flex;align-items:center;gap:5px}
+.sec-label::before{content:'';width:10px;height:1px;background:#008B9A;flex-shrink:0}
+
+/* PAGE 1 */
+.header{background:#020406;padding:5.5mm 11mm 4.5mm;display:flex;align-items:flex-start;justify-content:space-between;border-bottom:3px solid #008B9A;flex-shrink:0}
+.wordmark{font-size:26pt;line-height:1;letter-spacing:-.02em;margin-bottom:2px}
+.wordmark .c{font-weight:300;color:#c4d8e8}.wordmark .iq{font-weight:700;color:#008B9A}
+.header-tagline{font-size:8pt;color:#628098;font-weight:300}
+.hright{text-align:right;padding-top:2px}
+.hl{font-family:'Share Tech Mono',monospace;font-size:6pt;letter-spacing:.16em;color:#3a5a78;text-transform:uppercase;margin-bottom:1.5px}
+.hv{font-size:7.5pt;color:#628098}
+
+.intro{background:#07101a;padding:4.5mm 11mm;display:grid;grid-template-columns:1fr 2fr;gap:7mm;align-items:center;flex-shrink:0}
+.intro-headline{font-size:11.5pt;font-weight:700;color:#e4f0f8;letter-spacing:-.01em;line-height:1.25}
+.intro-accent{color:#008B9A}
+.intro-body{font-size:7.5pt;color:#628098;line-height:1.7}
+.intro-body strong{color:#92b0c4;font-weight:600}
+
+/* Products — grid rows fill flex space equally */
+.products{background:#f4f5f7;padding:4mm 11mm 3mm;flex:1;display:flex;flex-direction:column}
+.prod-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:1fr 1fr;
+  gap:2px;
+  flex:1;
+}
+.prod{background:#fff;padding:3.5mm 3.5mm;border-top:3px solid;display:flex;flex-direction:column}
+.prod-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:2mm;flex-shrink:0}
+.prod-logo{line-height:1}
+.prod-logo .lc{font-size:8pt;font-weight:300;color:#9aaabb}
+.prod-logo .liq{font-size:8pt;font-weight:700}
+.prod-logo .lname{font-size:8pt;font-weight:700}
+.prod-code{font-family:'Share Tech Mono',monospace;font-size:5pt;letter-spacing:.1em;color:#c8d4de;text-transform:uppercase;margin-bottom:2mm}
+.prod-desc{font-size:6.5pt;color:#6b7f96;line-height:1.55;flex:1}
+.prod-feats{list-style:none;display:flex;flex-direction:column;gap:1.5px;margin-top:2.5mm;flex-shrink:0}
+.prod-feats li{font-size:6pt;color:#9aaabb;padding-left:7px;position:relative;line-height:1.45}
+.prod-feats li::before{content:'—';position:absolute;left:0;color:#d8e2ea}
+
+/* Compatibility band — fills remaining page 1 space */
+.compat{background:#07101a;padding:5mm 11mm;flex-shrink:0;border-top:1px solid #0e1d2c}
+.compat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8mm}
+.compat-col-title{font-size:9pt;font-weight:700;color:#c4d8e8;margin-bottom:2.5mm;line-height:1.2}
+.compat-body{font-size:7pt;color:#3a5a78;line-height:1.7;margin-bottom:3mm}
+.compat-tags{display:flex;flex-wrap:wrap;gap:2px}
+.compat-tag{font-family:'Share Tech Mono',monospace;font-size:6pt;letter-spacing:.07em;color:#628098;padding:1.5mm 3mm;border:1px solid #162840;border-radius:2px;text-transform:uppercase}
+
+/* PAGE 2 */
+.header2{background:#020406;padding:5mm 11mm;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #008B9A;flex-shrink:0}
+.header2 .wordmark{font-size:17pt}
+.header2-label{font-family:'Share Tech Mono',monospace;font-size:7pt;letter-spacing:.14em;color:#3a5a78;text-transform:uppercase}
+.how{padding:5.5mm 11mm 5mm;background:#fff;flex-shrink:0}
+.how-diagram{display:flex;align-items:stretch;margin-bottom:3mm}
+.how-node{flex:1;background:#f4f5f7;border:1px solid #e2e5ea;border-radius:3px;padding:4mm 3mm;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.how-node.hl{background:#071a15;border:1.5px solid #008B9A}
+.how-node.cl{background:#f0f8fa;border:1.5px solid #2299bb}
+.hn-lbl{font-family:'Share Tech Mono',monospace;font-size:5.5pt;letter-spacing:.14em;color:#9aaabb;text-transform:uppercase;margin-bottom:2px}
+.how-node.hl .hn-lbl{color:#008B9A}.how-node.cl .hn-lbl{color:#2299bb}
+.hn-name{font-size:9pt;font-weight:700;color:#1a2332;line-height:1.1}
+.how-node.hl .hn-name{color:#008B9A}.how-node.cl .hn-name{color:#1a7fa8}
+.hn-sub{font-size:6pt;color:#9aaabb;margin-top:2px}
+.how-arrow{font-size:11pt;color:#d0d5de;padding:0 1.5mm;display:flex;align-items:center;flex-shrink:0}
+.how-pts{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.how-pt{background:#f4f5f7;border-left:3px solid #008B9A;padding:3.5mm 4mm}
+.how-pt-title{font-size:8pt;font-weight:700;color:#1a2332;margin-bottom:2px}
+.how-pt-body{font-size:7pt;color:#6b7f96;line-height:1.6}
+.who{padding:5mm 11mm;background:#f4f5f7;flex:1;display:flex;flex-direction:column}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;align-items:stretch;flex:1}
+.who-card{background:#fff;padding:5mm 4.5mm;border-top:3px solid;display:flex;flex-direction:column}
+.who-role{font-family:'Share Tech Mono',monospace;font-size:6pt;letter-spacing:.16em;text-transform:uppercase;margin-bottom:2.5mm}
+.who-headline{font-size:9pt;font-weight:700;color:#1a2332;margin-bottom:3mm;line-height:1.3}
+.who-body{font-size:7.5pt;color:#6b7f96;line-height:1.75;margin-bottom:3mm;flex:1}
+.who-pts{list-style:none;display:flex;flex-direction:column;gap:2.5px;margin-top:auto}
+.who-pts li{font-size:7pt;color:#6b7f96;padding-left:11px;position:relative;line-height:1.5}
+.who-pts li::before{content:'→';position:absolute;left:0;color:#9aaabb}
+.proven{background:#07101a;padding:5mm 11mm;flex-shrink:0}
+.proven .sec-label{color:#008B9A}
+.proven .sec-label::before{background:#008B9A}
+.proven-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;align-items:stretch}
+.proven-card{background:#0b1722;border-left:3px solid #008B9A;padding:4mm 3.5mm;display:flex;flex-direction:column}
+.proven-lbl{font-family:'Share Tech Mono',monospace;font-size:5.5pt;letter-spacing:.14em;color:#008B9A;text-transform:uppercase;margin-bottom:2px}
+.proven-title{font-size:8pt;font-weight:700;color:#c4d8e8;margin-bottom:3px;line-height:1.25}
+.proven-body{font-size:7pt;color:#3a5a78;line-height:1.6;flex:1}
+.footer{background:#020406;padding:5mm 11mm;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #0e1d2c;flex-shrink:0}
+.footer-wm{font-size:14pt;letter-spacing:-.01em}
+.footer-wm .c{font-weight:300;color:#3a5a78}.footer-wm .iq{font-weight:700;color:#008B9A}
+.footer-mid{font-family:'Share Tech Mono',monospace;font-size:7pt;letter-spacing:.09em;color:#3a5a78;text-transform:uppercase;text-align:center;line-height:1.9}
+.footer-right{font-size:7pt;color:#3a5a78;text-align:right;line-height:1.75}
+.footer-pg{font-family:'Share Tech Mono',monospace;font-size:5pt;letter-spacing:.1em;color:#162840;margin-top:2px;text-transform:uppercase}
+.print-btn{position:fixed;top:16px;right:16px;background:#008B9A;color:#fff;border:none;padding:10px 22px;font-family:'Open Sans',sans-serif;font-size:12px;font-weight:600;border-radius:3px;cursor:pointer;z-index:999;letter-spacing:.05em;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Save as PDF ↓</button>
+
+<!-- PAGE 1 -->
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="wordmark"><span class="c">crane</span><span class="iq">IQ</span></div>
+      <div class="header-tagline">Complete crane intelligence — on any crane, from any manufacturer</div>
+    </div>
+    <div class="hright">
+      <div class="hl">A product of</div>
+      <div class="hv">Pointnode Ltd · West Midlands, UK</div>
+      <div class="hl" style="margin-top:4px">Installed</div>
+      <div class="hv">Worldwide</div>
+    </div>
+  </div>
+
+  <div class="intro">
+    <div class="intro-headline">The intelligence layer<br>your crane <span class="intro-accent">never had.</span></div>
+    <div class="intro-body">craneIQ sits between the operator and the existing crane controller — adding protection, monitoring and automation <strong>without replacing anything</strong>. No proprietary lock-in. No rip-and-replace. No changes to existing controls. Fits any overhead crane from any manufacturer, new or existing. Proven in galvanizing plants, steel mills, foundries and automotive facilities across the UK and worldwide.</div>
+  </div>
+
+  <div class="products">
+    <div class="sec-label">Eight Products · One Intelligent Platform</div>
+    <div class="prod-grid">
+
+      <div class="prod" style="border-color:#008B9A">
+        <div class="prod-header">
+          <div>
+            <div class="prod-logo"><span class="lc">crane</span><span class="liq" style="color:#008B9A">IQ&nbsp;</span><span class="lname" style="color:#008B9A">Core</span></div>
+            <div class="prod-code">CIQ-COR</div>
+          </div>
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="30" height="30" rx="5" fill="#008B9A14" stroke="#008B9A" stroke-width="1.2"/><rect x="6" y="16" width="20" height="10" rx="2" stroke="#008B9A" stroke-width="1.3" fill="none"/><circle cx="16" cy="21" r="3" stroke="#008B9A" stroke-width="1.1" fill="none"/><circle cx="16" cy="21" r="1" fill="#008B9A"/><line x1="16" y1="6" x2="16" y2="16" stroke="#008B9A" stroke-width="1.3" stroke-linecap="round"/><line x1="10" y1="6" x2="22" y2="6" stroke="#008B9A" stroke-width="1.8" stroke-linecap="round" opacity=".45"/></svg>
+        </div>
+        <div class="prod-desc">Hoist controller with overload protection at 110% of rated capacity. Tracks Hoist DWP, Brake DWP and Controls DWP separately from 100% — based on actual usage, not calendar estimates. Every lift, start, braking and E-stop recorded automatically from day one.</div>
+        <ul class="prod-feats">
+          <li>Prevents slack rope, shock loads &amp; side pull</li>
+          <li>Motor thermal protection &amp; overheat logging</li>
+          <li>Supports tandem hoist operations</li>
+        </ul>
+      </div>
+
+      <div class="prod" style="border-color:#4488cc">
+        <div class="prod-header">
+          <div>
+            <div class="prod-logo"><span class="lc">crane</span><span class="liq" style="color:#4488cc">IQ&nbsp;</span><span class="lname" style="color:#4488cc">Automation</span></div>
+            <div class="prod-code">CIQ-AUT</div>
+          </div>
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="30" height="30" rx="5" fill="#4488cc14" stroke="#4488cc" stroke-width="1.2"/><path d="M16 4L28 11L28 21L16 28L4 21L4 11Z" stroke="#4488cc" stroke-width="1.3" fill="none"/><path d="M13 13L21 16L13 20Z" stroke="#4488cc" stroke-width="1.1" fill="#4488cc44" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="prod-desc">Teach-and-replay crane automation. Drive the crane to record a movement, replay it on demand at the press of a button. No code written. No specialist engineers needed. Any operator runs complex automated cycles safely and consistently from day one.</div>
+        <ul class="prod-feats">
+          <li>Unlimited recipe storage</li>
+          <li>Built-in anti-sway as standard</li>
+          <li>Condition monitoring included</li>
+        </ul>
+      </div>
+
+      <div class="prod" style="border-color:#8855dd">
+        <div class="prod-header">
+          <div>
+            <div class="prod-logo"><span class="lc">crane</span><span class="liq" style="color:#8855dd">IQ&nbsp;</span><span class="lname" style="color:#8855dd">Monitoring</span></div>
+            <div class="prod-code">CIQ-MON</div>
+          </div>
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="30" height="30" rx="5" fill="#8855dd14" stroke="#8855dd" stroke-width="1.2"/><rect x="4" y="21" width="5" height="8" rx="1" fill="#8855dd" opacity=".5"/><rect x="11" y="16" width="5" height="13" rx="1" fill="#8855dd" opacity=".65"/><rect x="18" y="11" width="5" height="18" rx="1" fill="#8855dd" opacity=".8"/><rect x="25" y="7" width="4" height="22" rx="1" fill="#8855dd"/><polyline points="6.5,20 13.5,15 20.5,10 27,6" stroke="#8855dd" stroke-width="1.2" fill="none" stroke-linecap="round" opacity=".7"/></svg>
+        </div>
+        <div class="prod-desc">Standalone condition monitoring — completely independent of existing controls. You wouldn't run a fleet of vehicles without an odometer. craneIQ Monitoring is exactly that for your crane. Hoist DWP, Brake DWP and Controls DWP tracked continuously from 100%.</div>
+        <ul class="prod-feats">
+          <li>Every lift logged · Vibration monitoring</li>
+          <li>E-stops &amp; over-temperatures counted</li>
+          <li>Zero risk — existing controls untouched</li>
+        </ul>
+      </div>
+
+      <div class="prod" style="border-color:#2299bb">
+        <div class="prod-header">
+          <div>
+            <div class="prod-logo"><span class="lc">crane</span><span class="liq" style="color:#2299bb">IQ&nbsp;</span><span class="lname" style="color:#2299bb">Cloud</span></div>
+            <div class="prod-code">CIQ-CLD</div>
+          </div>
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="30" height="30" rx="5" fill="#2299bb14" stroke="#2299bb" stroke-width="1.2"/><path d="M23 23H11C8 23 6 21 6 18.5C6 16 8 14 10.5 14C10.2 13.3 10 12.6 10 12C10 9.2 12.2 7 15 7C17.3 7 19.2 8.5 19.8 10.5C20.2 10.2 20.6 10 21 10C23.2 10 25 11.8 25 14C27.2 14.5 29 16.4 29 18.8C29 21.2 26.9 23 24.5 23Z" stroke="#2299bb" stroke-width="1.3" fill="none"/><line x1="16" y1="25" x2="16" y2="29" stroke="#2299bb" stroke-width="1.2" stroke-linecap="round" opacity=".5"/><line x1="12" y1="27" x2="20" y2="27" stroke="#2299bb" stroke-width="1.2" stroke-linecap="round" opacity=".4"/></svg>
+        </div>
+        <div class="prod-desc">Live crane data in any browser or on any phone — without accessing the crane itself. Email and SMS alerts the moment thresholds are exceeded. Remote diagnostics without a site visit. Multi-site overview for managers responsible for multiple facilities.</div>
+        <ul class="prod-feats">
+          <li>5-year data retention</li>
+          <li>Role-based access · Multi-site</li>
+          <li>Remote software updates</li>
+        </ul>
+      </div>
+
+      <div class="prod" style="border-color:#009966">
+        <div class="prod-header">
+          <div>
+            <div class="prod-logo"><span class="lc">crane</span><span class="liq" style="color:#009966">IQ&nbsp;</span><span class="lname" style="color:#009966">Vision</span></div>
+            <div class="prod-code">CIQ-VIS</div>
+          </div>
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="30" height="30" rx="5" fill="#00996614" stroke="#009966" stroke-width="1.2"/><rect x="5" y="11" width="18" height="12" rx="2" stroke="#009966" stroke-width="1.3" fill="none"/><path d="M23 14L29 11L29 21L23 18" stroke="#009966" stroke-width="1.3" fill="none" stroke-linejoin="round"/><circle cx="14" cy="17" r="3" stroke="#009966" stroke-width="1.1" fill="none"/><circle cx="14" cy="17" r="1" fill="#009966" opacity=".8"/></svg>
+        </div>
+        <div class="prod-desc">Camera mounted on the crane structure. Passive reflective target on the hook block — no electronics on the hook, no wiring to moving parts. Works for any reeving arrangement. Stops side pull and snag events before damage or injury can occur.</div>
+        <ul class="prod-feats">
+          <li>Detection range up to 15m</li>
+          <li>IP67 rated — harsh environments</li>
+          <li>Auto hook centring before lift</li>
+        </ul>
+      </div>
+
+      <div class="prod" style="border-color:#cc7700">
+        <div class="prod-header">
+          <div>
+            <div class="prod-logo"><span class="lc">crane</span><span class="liq" style="color:#cc7700">IQ&nbsp;</span><span class="lname" style="color:#cc7700">Antisway</span></div>
+            <div class="prod-code">CIQ-ASW</div>
+          </div>
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="30" height="30" rx="5" fill="#cc770014" stroke="#cc7700" stroke-width="1.2"/><line x1="16" y1="4" x2="16" y2="11" stroke="#cc7700" stroke-width="1.4" stroke-linecap="round"/><line x1="7" y1="4" x2="25" y2="4" stroke="#cc7700" stroke-width="1.8" stroke-linecap="round" opacity=".4"/><path d="M16 11Q24 18 21 26" stroke="#cc7700" stroke-width="1.4" fill="none" stroke-linecap="round"/><path d="M16 11Q8 18 11 26" stroke="#cc7700" stroke-width="1" fill="none" stroke-linecap="round" opacity=".35" stroke-dasharray="2 2"/><circle cx="21" cy="26" r="2.5" stroke="#cc7700" stroke-width="1.2" fill="#cc770033"/></svg>
+        </div>
+        <div class="prod-desc">Dramatically reduces load swing with no sensors, no encoders and no cameras. Works purely from the Variable Frequency Drives already on the crane's travel motions. Open-loop algorithm. Single, dual or triple axis. Commissions in under a day.</div>
+        <ul class="prod-feats">
+          <li>No sensors, encoders or cameras needed</li>
+          <li>All major VFD brands supported</li>
+          <li>Operators perform safely from day one</li>
+        </ul>
+      </div>
+
+      <div class="prod" style="border-color:#cc3344">
+        <div class="prod-header">
+          <div>
+            <div class="prod-logo"><span class="lc">crane</span><span class="liq" style="color:#cc3344">IQ&nbsp;</span><span class="lname" style="color:#cc3344">Zoning</span></div>
+            <div class="prod-code">CIQ-ZON</div>
+          </div>
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="30" height="30" rx="5" fill="#cc334414" stroke="#cc3344" stroke-width="1.2"/><rect x="5" y="5" width="22" height="22" rx="2" stroke="#cc3344" stroke-width="1.2" fill="none" stroke-dasharray="3 2"/><line x1="12" y1="12" x2="20" y2="20" stroke="#cc3344" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="12" x2="12" y2="20" stroke="#cc3344" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="5" stroke="#cc3344" stroke-width="1.1" fill="none"/></svg>
+        </div>
+        <div class="prod-desc">Software-defined no-fly zones throughout the facility. Change zone boundaries in software — no sensors to move, no hardware to reposition. Protects buildings, steelwork and personnel below. Smooth automatic deceleration and stop before every boundary.</div>
+        <ul class="prod-feats">
+          <li>Multi-crane collision prevention</li>
+          <li>Floor-level personnel zones</li>
+          <li>Response time &lt;50ms</li>
+        </ul>
+      </div>
+
+      <div class="prod" style="border-color:#cc9900">
+        <div class="prod-header">
+          <div>
+            <div class="prod-logo"><span class="lc">crane</span><span class="liq" style="color:#cc9900">IQ&nbsp;</span><span class="lname" style="color:#cc9900">LoadTrack</span></div>
+            <div class="prod-code">CIQ-LTK</div>
+          </div>
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="30" height="30" rx="5" fill="#cc990014" stroke="#cc9900" stroke-width="1.2"/><line x1="5" y1="10" x2="27" y2="10" stroke="#cc9900" stroke-width="1.4" stroke-linecap="round"/><line x1="16" y1="5" x2="16" y2="10" stroke="#cc9900" stroke-width="1.4" stroke-linecap="round"/><path d="M5 10C5 10,3 17,8 19C12 21,14 19,14 19C14 19,16 16,14 10" stroke="#cc9900" stroke-width="1.2" fill="none" opacity=".75"/><path d="M27 10C27 10,29 17,24 19C20 21,18 19,18 19C18 19,16 16,18 10" stroke="#cc9900" stroke-width="1.2" fill="none" opacity=".75"/><rect x="13" y="22" width="6" height="5" rx="1" stroke="#cc9900" stroke-width="1.1" fill="none" opacity=".6"/></svg>
+        </div>
+        <div class="prod-desc">Every lift weighed and logged automatically without operator input. Wireless displays mountable anywhere in the facility — up to 100m range. Galvanizing dip cycle and waste-to-energy feed cycle logging. Replaces manual weight records entirely and permanently.</div>
+        <ul class="prod-feats">
+          <li>Wireless display — up to 100m range</li>
+          <li>Galvanizing &amp; process cycle logging</li>
+          <li>Replaces manual weight records</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Compatibility section -->
+  <div class="compat">
+    <div class="compat-grid">
+      <div>
+        <div class="compat-col-title">Fits any crane — new or existing</div>
+        <div class="compat-body">craneIQ connects into the pendant circuit — the hardwired interface that every overhead crane has had since the first one was built. No crane modifications. No changes to the existing controller. A qualified electrician connects it in a single shift and it starts working. Retrofit to cranes from the 1980s or specify on a new build — the installation process is identical.</div>
+        <div class="compat-tags">
+          <span class="compat-tag">Hardwired I/O</span>
+          <span class="compat-tag">Modbus TCP</span>
+          <span class="compat-tag">Profinet</span>
+          <span class="compat-tag">EtherNet/IP</span>
+          <span class="compat-tag">CANopen</span>
+          <span class="compat-tag">4–20mA</span>
+          <span class="compat-tag">RS485</span>
+        </div>
+      </div>
+      <div>
+        <div class="compat-col-title">Open architecture — no proprietary lock-in</div>
+        <div class="compat-body">craneIQ does not require a proprietary portal, a manufacturer login or a specialist engineer to access your data. Standard industrial protocols mean your engineering team, your maintenance contractors and your SCADA or MES system can all connect directly. Your data is yours — in open formats, accessible by anyone you choose.</div>
+        <div class="compat-tags">
+          <span class="compat-tag">CE · UKCA · RoHS</span>
+          <span class="compat-tag">Any crane OEM</span>
+          <span class="compat-tag">New or retrofit</span>
+          <span class="compat-tag">Worldwide</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footer">
+    <div class="footer-wm"><span class="c">crane</span><span class="iq">IQ</span></div>
+    <div class="footer-mid">joe@pointnode.io · craneiq.co.uk<br>A product of Pointnode Ltd</div>
+    <div class="footer-right">Engineered in the West Midlands, UK<br>Installed Worldwide<div class="footer-pg">Page 1 of 2</div></div>
+  </div>
+
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page">
+
+  <div class="header2">
+    <div class="wordmark"><span class="c">crane</span><span class="iq">IQ</span></div>
+    <div class="header2-label">Complete Crane Intelligence · craneiq.co.uk</div>
+  </div>
+
+  <!-- HOW IT WORKS — generous sizing, fills space properly -->
+  <div class="how">
+    <div class="sec-label">How It Works</div>
+    <div class="how-diagram">
+      <div class="how-node">
+        <div class="hn-lbl">Operator</div>
+        <div class="hn-name">Pendant</div>
+        <div class="hn-sub">Push-button or radio</div>
+      </div>
+      <div class="how-arrow">→</div>
+      <div class="how-node hl">
+        <div class="hn-lbl">craneIQ</div>
+        <div class="hn-name">Platform</div>
+        <div class="hn-sub">Intercepts · Protects · Monitors</div>
+      </div>
+      <div class="how-arrow">→</div>
+      <div class="how-node">
+        <div class="hn-lbl">Existing</div>
+        <div class="hn-name">Controller</div>
+        <div class="hn-sub">Untouched — zero risk</div>
+      </div>
+      <div class="how-arrow">→</div>
+      <div class="how-node">
+        <div class="hn-lbl">Crane</div>
+        <div class="hn-name">Motors &amp; VFDs</div>
+        <div class="hn-sub">Hoist · Bridge · Travel</div>
+      </div>
+    </div>
+    <div class="how-pts">
+      <div class="how-pt">
+        <div class="how-pt-title">Zero risk to existing systems</div>
+        <div class="how-pt-body">The existing crane controller is completely untouched. If craneIQ were removed, the crane would operate exactly as it did before. No modifications, no dependencies created. The crane simply runs as normal.</div>
+      </div>
+      <div class="how-pt">
+        <div class="how-pt-title">Commissions in hours, not days</div>
+        <div class="how-pt-body">No PLC reprogramming. No control system modifications. A qualified electrician connects craneIQ into the existing pendant circuit and powers it up. Typically commissioned and running within a single shift.</div>
+      </div>
+      <div class="how-pt">
+        <div class="how-pt-title">Works on any crane, any age</div>
+        <div class="how-pt-body">The pendant circuit is a standard interface on every overhead crane ever made — regardless of manufacturer or age. craneIQ connects to this interface and works. Any crane. Any manufacturer. However old.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHO IT'S FOR — full sized, designed to fill the space -->
+  <div class="who">
+    <div class="sec-label">Who It's For</div>
+    <div class="who-grid">
+
+      <div class="who-card" style="border-color:#008B9A">
+        <div class="who-role" style="color:#008B9A">Plant Manager</div>
+        <div class="who-headline">Stop reacting to crane breakdowns. Start preventing them.</div>
+        <div class="who-body">craneIQ tells you a component is approaching its service interval weeks before it fails — driven by how hard the crane has actually been working, not a calendar date. When something goes wrong, you find out before production stops — not after.</div>
+        <ul class="who-pts">
+          <li>Reduce unplanned downtime significantly</li>
+          <li>Know the condition of every crane on the floor</li>
+          <li>Safer operations — fewer near misses and incidents</li>
+          <li>No production shutdown required to install</li>
+        </ul>
+      </div>
+
+      <div class="who-card" style="border-color:#4488cc">
+        <div class="who-role" style="color:#4488cc">Engineering Manager</div>
+        <div class="who-headline">Open data. No proprietary portal. No specialist engineers required.</div>
+        <div class="who-body">craneIQ uses standard industrial protocols and open data formats. Your team can work with it directly — no manufacturer involvement required. Third-party maintenance contractors can access the data. Commission in a day, not a week.</div>
+        <ul class="who-pts">
+          <li>Hardwired I/O · Modbus TCP · Profinet · EtherNet/IP</li>
+          <li>Data in open formats your team controls</li>
+          <li>No changes to existing control systems</li>
+          <li>Any qualified electrician can commission it</li>
+        </ul>
+      </div>
+
+      <div class="who-card" style="border-color:#009966">
+        <div class="who-role" style="color:#009966">Crane Partner</div>
+        <div class="who-headline">Add intelligence to every crane you supply or service.</div>
+        <div class="who-body">One product range that works across your entire customer base — regardless of what cranes they run. Retrofit existing equipment. Specify on new builds. Remote diagnostics means you can support customers without travelling to site every time.</div>
+        <ul class="who-pts">
+          <li>Works across your entire customer fleet</li>
+          <li>Retrofits to cranes of any age or manufacturer</li>
+          <li>Remote diagnostics — support without site visits</li>
+          <li>No OEM dependency for you or your customers</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROVEN — dark band, statement section -->
+  <div class="proven">
+    <div class="sec-label">Proven in the Field</div>
+    <div class="proven-grid">
+
+      <div class="proven-card">
+        <div class="proven-lbl">Galvanizing Plant</div>
+        <div class="proven-title">Double girder crane, 2×20,000kg — continuous operation</div>
+        <div class="proven-body">craneIQ Monitoring deployed on a crane operating in acid fumes, high temperatures and continuous mechanical stress. DWP calculated from actual load spectrum data — not calendar estimates. All condition data accessible remotely via cloud dashboard. Downtime stops production immediately: none tolerated.</div>
+      </div>
+
+      <div class="proven-card">
+        <div class="proven-lbl">Mixed Crane Fleet</div>
+        <div class="proven-title">Four decades of cranes — one consistent safety system</div>
+        <div class="proven-body">craneIQ retrofitted across an entire facility's crane fleet, including equipment dating to the 1980s. No-fly zones, anti-collision, anti-sway and load angle detection — operating consistently across every crane in the building, regardless of age, brand or original control system.</div>
+      </div>
+
+      <div class="proven-card">
+        <div class="proven-lbl">Crane Specialist</div>
+        <div class="proven-title">Standard fit across an entire crane supply business</div>
+        <div class="proven-body">A UK crane specialist with 60+ years of engineering experience and a major OEM country partnership has adopted craneIQ as standard — deploying it on cranes supplied into galvanizing, foundry, automotive and aerospace facilities across the UK and beyond.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-wm"><span class="c">crane</span><span class="iq">IQ</span></div>
+    <div class="footer-mid">joe@pointnode.io · craneiq.co.uk<br>A product of Pointnode Ltd</div>
+    <div class="footer-right">Engineered in the West Midlands, UK<br>Installed Worldwide<div class="footer-pg">Page 2 of 2</div></div>
+  </div>
+
+</div>
+
+</body>
+</html>

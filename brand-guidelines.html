@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>craneIQ Brand Guidelines</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#020406;--hull:#07101a;--panel:#0b1722;--console:#0e1d2c;
+  --border:#162840;--bhi:#204060;--muted:#3a5a78;--mid:#628098;
+  --steel:#92b0c4;--bright:#c4d8e8;--white:#e4f0f8;
+  --brand:#008B9A;--radar:#4ccc80;
+  --ff:'Open Sans',sans-serif;--mono:'Share Tech Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:14px;line-height:1.75}
+a{color:var(--brand);text-decoration:none}
+a:hover{color:var(--radar)}
+
+.nav{position:fixed;top:0;left:0;right:0;height:52px;background:rgba(2,4,6,.96);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 48px;z-index:100}
+.nav-logo{font-size:18px;line-height:1}
+.nav-logo .c{font-weight:300;color:var(--bright)}
+.nav-logo .iq{font-weight:600;color:var(--brand)}
+.nav-tag{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+
+.wrap{max-width:900px;margin:0 auto;padding:88px 48px 80px}
+
+/* Heading styles */
+h1{font-size:32px;font-weight:600;color:var(--white);letter-spacing:-.02em;margin-bottom:8px}
+h2{font-size:11px;font-family:var(--mono);letter-spacing:.22em;color:var(--brand);
+  text-transform:uppercase;margin:48px 0 20px;display:flex;align-items:center;gap:10px}
+h2::before{content:'';width:16px;height:1px;background:var(--brand);flex-shrink:0}
+h3{font-size:15px;font-weight:600;color:var(--bright);margin:24px 0 10px}
+p{color:var(--mid);margin-bottom:12px;line-height:1.8}
+ul,ol{padding-left:20px;margin-bottom:12px}
+li{color:var(--mid);margin-bottom:4px;line-height:1.7}
+li strong{color:var(--steel)}
+code{font-family:var(--mono);font-size:12px;background:var(--console);
+  border:1px solid var(--border);padding:2px 7px;border-radius:2px;color:var(--brand)}
+pre{background:var(--console);border:1px solid var(--border);border-radius:3px;
+  padding:16px 20px;font-family:var(--mono);font-size:12px;color:var(--brand);
+  margin-bottom:16px;overflow-x:auto;line-height:1.7}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13px}
+th{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:400}
+td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--mid);vertical-align:top}
+td:first-child{color:var(--steel);font-weight:600}
+tr:last-child td{border:none}
+
+/* Colour swatches */
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:20px}
+.swatch{padding:12px;border-radius:2px}
+.swatch-name{font-weight:600;font-size:12px;margin-bottom:2px}
+.swatch-hex{font-family:var(--mono);font-size:11px;opacity:.7}
+
+/* Wordmark demo */
+.wm-demo{background:var(--hull);border:1px solid var(--border);border-radius:3px;
+  padding:24px 32px;margin-bottom:12px;display:inline-flex;gap:32px;align-items:center}
+.wm-dark{font-family:var(--ff);font-size:36px;line-height:1}
+.wm-dark .c{font-weight:300;color:var(--bright)}
+.wm-dark .iq{font-weight:600;color:var(--brand)}
+.wm-light-bg{background:#f4f5f7;border-radius:2px;padding:12px 20px}
+.wm-light{font-family:var(--ff);font-size:36px;line-height:1}
+.wm-light .c{font-weight:300;color:#9aaabb}
+.wm-light .iq{font-weight:600;color:#008B9A}
+
+/* Product pills */
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:20px}
+.prod-pill{background:var(--panel);border-top:3px solid;padding:10px 14px}
+.prod-pill-name{font-size:13px;font-weight:600}
+.prod-pill-name .c{font-weight:300;color:var(--muted)}
+.prod-pill-code{font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+  color:var(--muted);text-transform:uppercase;margin-top:2px}
+
+/* Diagram */
+.diagram{background:var(--console);border:1px solid var(--border);border-radius:3px;
+  padding:20px 24px;margin-bottom:16px;display:flex;align-items:center;gap:0;flex-wrap:wrap}
+.diag-node{background:var(--panel);border:1px solid var(--border);border-radius:3px;
+  padding:10px 14px;text-align:center;flex:1;min-width:120px}
+.diag-node.hl{background:#071a15;border:1.5px solid var(--brand)}
+.diag-node-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:var(--muted);
+  text-transform:uppercase;margin-bottom:2px}
+.diag-node.hl .diag-node-lbl{color:var(--brand)}
+.diag-node-name{font-size:13px;font-weight:600;color:var(--bright)}
+.diag-node.hl .diag-node-name{color:var(--brand)}
+.diag-arrow{color:var(--border);font-size:18px;padding:0 8px;flex-shrink:0}
+
+/* Callout */
+.callout{background:var(--hull);border-left:3px solid var(--brand);
+  padding:14px 18px;border-radius:0 3px 3px 0;margin-bottom:16px}
+.callout p{margin:0;color:var(--steel)}
+
+/* Version tag */
+.version{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);
+  text-transform:uppercase;margin-bottom:32px}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo"><span class="c">crane</span><span class="iq">IQ</span></a>
+  <div class="nav-tag">Brand Guidelines · Internal Reference</div>
+</nav>
+
+<div class="wrap">
+
+  <div class="version">Version 1.0 · A product of Pointnode Ltd</div>
+  <h1>craneIQ Brand Guidelines</h1>
+  <p style="font-size:16px;color:var(--steel);margin-bottom:8px">Internal reference for consistent use of the craneIQ brand across all materials.</p>
+  <p style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">This page is not indexed. Share the URL directly: craneiq.co.uk/brand-guidelines.html</p>
+
+  <!-- BRAND OVERVIEW -->
+  <h2>Brand Overview</h2>
+  <div class="callout"><p>"Complete crane intelligence — on any crane, from any manufacturer."</p></div>
+  <p>craneIQ is an overhead crane technology platform — a suite of products that sits alongside existing crane controls to add intelligence, safety and monitoring. Engineered in the West Midlands, UK. Installed worldwide.</p>
+  <ul>
+    <li>Works alongside existing controls — nothing replaced, zero risk</li>
+    <li>No proprietary lock-in — open architecture, open data</li>
+    <li>Commissions in a single shift</li>
+    <li>Proven in galvanizing plants, steel mills, foundries and automotive facilities</li>
+    <li>UK engineered, globally installed</li>
+  </ul>
+
+  <!-- WORDMARK -->
+  <h2>Wordmark</h2>
+  <div class="wm-demo">
+    <div class="wm-dark"><span class="c">crane</span><span class="iq">IQ</span></div>
+    <div class="wm-light-bg"><div class="wm-light"><span class="c">crane</span><span class="iq">IQ</span></div></div>
+  </div>
+  <table>
+    <tr><th>Part</th><th>Weight</th><th>Dark background</th><th>Light background</th></tr>
+    <tr><td>crane</td><td>Open Sans 300</td><td><code>#c4d8e8</code></td><td><code>#9aaabb</code></td></tr>
+    <tr><td>IQ</td><td>Open Sans 600</td><td><code>#008B9A</code></td><td><code>#008B9A</code></td></tr>
+  </table>
+  <h3>Rules</h3>
+  <ul>
+    <li>Never write "CraneIQ", "Crane IQ", "craneiq" or "CRANEIQ"</li>
+    <li>Always <code>crane</code> + <code>IQ</code> — lowercase crane, uppercase IQ, no space</li>
+    <li>In body copy: write <strong>craneIQ</strong> — no special styling needed</li>
+  </ul>
+
+  <!-- COLOURS -->
+  <h2>Colour Palette</h2>
+  <h3>Core Dark Theme</h3>
+  <div class="swatches">
+    <div class="swatch" style="background:#020406;border:1px solid #162840"><div class="swatch-name" style="color:#e4f0f8">Void</div><div class="swatch-hex" style="color:#628098">#020406</div></div>
+    <div class="swatch" style="background:#07101a;border:1px solid #162840"><div class="swatch-name" style="color:#e4f0f8">Hull</div><div class="swatch-hex" style="color:#628098">#07101a</div></div>
+    <div class="swatch" style="background:#0b1722;border:1px solid #162840"><div class="swatch-name" style="color:#e4f0f8">Panel</div><div class="swatch-hex" style="color:#628098">#0b1722</div></div>
+    <div class="swatch" style="background:#0e1d2c;border:1px solid #162840"><div class="swatch-name" style="color:#e4f0f8">Console</div><div class="swatch-hex" style="color:#628098">#0e1d2c</div></div>
+    <div class="swatch" style="background:#162840;border:1px solid #204060"><div class="swatch-name" style="color:#e4f0f8">Border</div><div class="swatch-hex" style="color:#628098">#162840</div></div>
+    <div class="swatch" style="background:#3a5a78;border:1px solid #162840"><div class="swatch-name" style="color:#e4f0f8">Muted</div><div class="swatch-hex" style="color:#c4d8e8">#3a5a78</div></div>
+    <div class="swatch" style="background:#628098;border:1px solid #162840"><div class="swatch-name" style="color:#020406">Mid</div><div class="swatch-hex" style="color:#020406">#628098</div></div>
+    <div class="swatch" style="background:#92b0c4;border:1px solid #162840"><div class="swatch-name" style="color:#020406">Steel</div><div class="swatch-hex" style="color:#020406">#92b0c4</div></div>
+  </div>
+  <h3>Brand Colours</h3>
+  <div class="swatches" style="grid-template-columns:repeat(2,1fr)">
+    <div class="swatch" style="background:#008B9A;border:1px solid #005f6b"><div class="swatch-name" style="color:#020406">Brand Teal</div><div class="swatch-hex" style="color:#020406">#008B9A — Primary brand colour</div></div>
+    <div class="swatch" style="background:#4ccc80;border:1px solid #2a8a50"><div class="swatch-name" style="color:#020406">Radar Green</div><div class="swatch-hex" style="color:#020406">#4ccc80 — Success / active states</div></div>
+  </div>
+
+  <!-- PRODUCT ACCENTS -->
+  <h2>Product Accent Colours</h2>
+  <div class="products">
+    <div class="prod-pill" style="border-color:#008B9A"><div class="prod-pill-name"><span class="c" style="font-weight:300;color:var(--muted)">crane</span><span style="color:#008B9A;font-weight:600">IQ Core</span></div><div class="prod-pill-code">CIQ-COR · #008B9A</div></div>
+    <div class="prod-pill" style="border-color:#4488cc"><div class="prod-pill-name"><span class="c" style="font-weight:300;color:var(--muted)">crane</span><span style="color:#4488cc;font-weight:600">IQ Automation</span></div><div class="prod-pill-code">CIQ-AUT · #4488cc</div></div>
+    <div class="prod-pill" style="border-color:#8855dd"><div class="prod-pill-name"><span class="c" style="font-weight:300;color:var(--muted)">crane</span><span style="color:#8855dd;font-weight:600">IQ Monitoring</span></div><div class="prod-pill-code">CIQ-MON · #8855dd</div></div>
+    <div class="prod-pill" style="border-color:#2299bb"><div class="prod-pill-name"><span class="c" style="font-weight:300;color:var(--muted)">crane</span><span style="color:#2299bb;font-weight:600">IQ Cloud</span></div><div class="prod-pill-code">CIQ-CLD · #2299bb</div></div>
+    <div class="prod-pill" style="border-color:#009966"><div class="prod-pill-name"><span class="c" style="font-weight:300;color:var(--muted)">crane</span><span style="color:#009966;font-weight:600">IQ Vision</span></div><div class="prod-pill-code">CIQ-VIS · #009966</div></div>
+    <div class="prod-pill" style="border-color:#cc7700"><div class="prod-pill-name"><span class="c" style="font-weight:300;color:var(--muted)">crane</span><span style="color:#cc7700;font-weight:600">IQ Antisway</span></div><div class="prod-pill-code">CIQ-ASW · #cc7700</div></div>
+    <div class="prod-pill" style="border-color:#cc3344"><div class="prod-pill-name"><span class="c" style="font-weight:300;color:var(--muted)">crane</span><span style="color:#cc3344;font-weight:600">IQ Zoning</span></div><div class="prod-pill-code">CIQ-ZON · #cc3344</div></div>
+    <div class="prod-pill" style="border-color:#cc9900"><div class="prod-pill-name"><span class="c" style="font-weight:300;color:var(--muted)">crane</span><span style="color:#cc9900;font-weight:600">IQ LoadTrack</span></div><div class="prod-pill-code">CIQ-LTK · #cc9900</div></div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <h2>Typography</h2>
+  <table>
+    <tr><th>Role</th><th>Font</th><th>Weight</th><th>Use</th></tr>
+    <tr><td>Primary</td><td>Open Sans</td><td>300 Light</td><td>"crane" in wordmark, body copy</td></tr>
+    <tr><td>Primary</td><td>Open Sans</td><td>400 Regular</td><td>Body copy, UI labels</td></tr>
+    <tr><td>Primary</td><td>Open Sans</td><td>600 SemiBold</td><td>"IQ" in wordmark, headings, CTAs</td></tr>
+    <tr><td>Primary</td><td>Open Sans</td><td>700 Bold</td><td>Display headings (brochure/print only)</td></tr>
+    <tr><td>Mono</td><td>Share Tech Mono</td><td>400</td><td>Section labels, product codes, data readouts, technical tags</td></tr>
+  </table>
+  <h3>Section label format</h3>
+  <p>Share Tech Mono · 9–10px · letter-spacing 0.2em · uppercase · Brand Teal · short rule prefix</p>
+  <h3>Never use</h3>
+  <p>Arial, Roboto, Inter, or system fonts in branded materials.</p>
+
+  <!-- HOW IT WORKS DIAGRAM -->
+  <h2>How It Works — Canonical Diagram</h2>
+  <div class="diagram">
+    <div class="diag-node"><div class="diag-node-lbl">Operator</div><div class="diag-node-name">Pendant</div></div>
+    <div class="diag-arrow">→</div>
+    <div class="diag-node hl"><div class="diag-node-lbl">craneIQ</div><div class="diag-node-name">Platform</div></div>
+    <div class="diag-arrow">→</div>
+    <div class="diag-node"><div class="diag-node-lbl">Existing</div><div class="diag-node-name">Controller</div></div>
+    <div class="diag-arrow">→</div>
+    <div class="diag-node"><div class="diag-node-lbl">Crane</div><div class="diag-node-name">Motors & VFDs</div></div>
+  </div>
+  <ul>
+    <li>The craneIQ node is labelled <strong>Platform</strong> — not "Core" (Core is one product within the platform)</li>
+    <li>Cloud is <strong>not</strong> a node in the signal path — it sits within the platform</li>
+    <li>Existing controller and crane are always "Untouched — zero risk"</li>
+    <li>A dashed feedback line runs from crane back to craneIQ (load data, vibration, position)</li>
+  </ul>
+
+  <!-- PROTOCOLS -->
+  <h2>Protocol Order</h2>
+  <p>Always list in this order — hardwired first, fieldbus options after:</p>
+  <ol>
+    <li><strong>Hardwired I/O</strong> — always first</li>
+    <li>Modbus TCP</li>
+    <li>Profinet</li>
+    <li>EtherNet/IP</li>
+    <li>CANopen (optional, lower priority)</li>
+  </ol>
+
+  <!-- KEY MESSAGES -->
+  <h2>Approved Key Messages</h2>
+  <ul>
+    <li><strong>"Complete crane intelligence — on any crane, from any manufacturer."</strong> — hero tagline</li>
+    <li><strong>"The intelligence layer your crane never had."</strong> — brochure headline</li>
+    <li><strong>"Sits alongside your existing controls — nothing replaced."</strong></li>
+    <li><strong>"No proprietary lock-in."</strong></li>
+    <li><strong>"Commissions in a single shift."</strong></li>
+    <li><strong>"You wouldn't run a fleet of vehicles without an odometer."</strong> — Monitoring analogy, approved</li>
+    <li><strong>"DWP counts down from 100% based on actual usage."</strong> — always explain DWP this way</li>
+    <li><strong>"Existing controls untouched — zero risk."</strong></li>
+    <li><strong>"UK engineered. Installed worldwide."</strong></li>
+  </ul>
+
+  <!-- TECHNICAL RULES -->
+  <h2>Technical Messaging Rules</h2>
+  <h3>DWP</h3>
+  <ul>
+    <li>Always explained as "counts down from 100% based on actual usage" — never "counts up"</li>
+    <li>Three components tracked separately: Hoist DWP, Brake DWP, Controls DWP</li>
+    <li>Odometer analogy is approved for Monitoring copy</li>
+  </ul>
+  <h3>Antisway</h3>
+  <ul>
+    <li>Open-loop algorithm — no sensors, no encoders, no cameras</li>
+    <li>Uses existing travel VFDs only</li>
+    <li>Single, dual or triple axis</li>
+    <li>Never claim specific sway reduction percentages without supporting data</li>
+  </ul>
+  <h3>Vision</h3>
+  <ul>
+    <li>Camera on crane structure — not on the hook</li>
+    <li>Passive reflective target on hook block — no electronics on the hook</li>
+    <li>Works for any reeving arrangement</li>
+  </ul>
+  <h3>Do not use as selling points</h3>
+  <ul>
+    <li>110% overload threshold — standard EN practice, not a differentiator</li>
+  </ul>
+
+  <!-- TONE OF VOICE -->
+  <h2>Tone of Voice</h2>
+  <p>Technical but not impenetrable. Write as a knowledgeable engineer talking to another engineer — not a salesperson.</p>
+  <ul>
+    <li>Lead with what it does, not what it is</li>
+    <li>Be specific — "counts down from 100%" not "tracks wear"</li>
+    <li>Avoid superlatives — "dramatically reduces" is fine, "the best" is not</li>
+    <li>Never mention competitors by name</li>
+    <li>"Worldwide" not "UK/Ireland/EU"</li>
+    <li>"Galvanizing" with z throughout</li>
+  </ul>
+  <h3>Avoid</h3>
+  <ul>
+    <li>"Revolutionary", "industry-leading", "cutting-edge", "next-generation"</li>
+    <li>Vague safety claims without specifics</li>
+    <li>Overclaiming — if it's standard practice, don't present it as a differentiator</li>
+  </ul>
+
+  <!-- DIGITAL PRESENCE -->
+  <h2>Digital Presence</h2>
+  <table>
+    <tr><th>Channel</th><th>Detail</th></tr>
+    <tr><td>Website</td><td>craneiq.co.uk</td></tr>
+    <tr><td>Contact</td><td>joe@pointnode.io</td></tr>
+    <tr><td>Company</td><td>Pointnode Ltd, West Midlands, UK</td></tr>
+    <tr><td>GitHub</td><td>pointnode-io/craneIQ.github.io</td></tr>
+    <tr><td>Formspree</td><td>xeevjlgd (contact form endpoint)</td></tr>
+  </table>
+
+  <!-- FILE REFERENCE -->
+  <h2>File Reference</h2>
+  <table>
+    <tr><th>Asset</th><th>Location</th></tr>
+    <tr><td>Product overview brochure</td><td><code>craneiq-overview.html</code> — print to PDF from Chrome, tick Background graphics</td></tr>
+    <tr><td>Main website</td><td><code>index.html</code></td></tr>
+    <tr><td>Product datasheets (8)</td><td><code>datasheets/craneiq-[product].html</code></td></tr>
+    <tr><td>SVG logos (11 variants)</td><td><code>assets/logos/</code></td></tr>
+    <tr><td>Illustrations (5 SVGs)</td><td><code>assets/illustrations/</code></td></tr>
+    <tr><td>Brand guidelines</td><td><code>brand-guidelines.html</code> — this page</td></tr>
+  </table>
+
+  <!-- PROVEN INSTALLATIONS -->
+  <h2>Proven Installations (Public)</h2>
+  <ul>
+    <li><strong>Galvanizing Plant</strong> — 2×20,000kg double girder crane, craneIQ Monitoring via Modbus TCP, load spectrum DWP, cloud dashboard. Published by CDP Studio.</li>
+    <li><strong>Mixed Crane Fleet</strong> — Retrofit across cranes spanning four decades, multiple manufacturers. Anti-sway, zoning, anti-collision. Published by Fortop UK.</li>
+    <li><strong>Levate Solutions</strong> — Official Demag Country Partner, 60+ years experience, craneIQ standard fit across their crane supply business. Published by Fortop UK and Levate Solutions website.</li>
+  </ul>
+  <p style="font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-top:8px">Case studies in draft — awaiting customer sign-off for full publication</p>
+
+  <div style="margin-top:64px;padding-top:24px;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">
+    craneIQ is a product of Pointnode Ltd · West Midlands, UK · craneiq.co.uk
+  </div>
+
+</div>
+</body>
+</html>
