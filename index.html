@@ -188,7 +188,7 @@ section{border-bottom:1px solid var(--border)}
 
 /* CTA */
 .cta-band{background:var(--hull);padding:80px 48px;
-  text-align:center;border-bottom:1px solid var(--border)}
+  border-bottom:1px solid var(--border)}
 .cta-band .sec-title{margin:0 auto 10px}
 .cta-band .sec-sub{margin:0 auto 32px;max-width:480px}
 .cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
@@ -250,6 +250,12 @@ section{border-bottom:1px solid var(--border)}
   .stat{border:none;padding:0;margin:0}
   .hero-graphic{display:none}
 }
+
+@media(max-width:680px){
+  #contact .section-inner>div{grid-template-columns:1fr!important;gap:40px!important}
+  #who .section-inner>div:last-child{grid-template-columns:1fr!important}
+  #how-it-works .section-inner>div:last-child{grid-template-columns:1fr!important}
+}
 </style>
 </head>
 <body>
@@ -258,6 +264,7 @@ section{border-bottom:1px solid var(--border)}
   <a href="#" class="nav-logo"><span class="crane">crane</span><span class="iq">IQ</span></a>
   <div class="nav-links">
     <a href="#products">Products</a>
+    <a href="#how-it-works">How It Works</a>
     <a href="#why">Why craneIQ</a>
     <a href="#industries">Industries</a>
     <a href="#compatibility">Compatibility</a>
@@ -269,6 +276,7 @@ section{border-bottom:1px solid var(--border)}
 </nav>
 <div class="nav-mobile" id="navMobile">
   <a href="#products" onclick="toggleNav()">Products</a>
+  <a href="#how-it-works" onclick="toggleNav()">How It Works</a>
   <a href="#why" onclick="toggleNav()">Why craneIQ</a>
   <a href="#industries" onclick="toggleNav()">Industries</a>
   <a href="#compatibility" onclick="toggleNav()">Compatibility</a>
@@ -369,172 +377,127 @@ section{border-bottom:1px solid var(--border)}
     <div class="sec-title">Eight products.<br>One intelligent platform.</div>
     <div class="sec-sub">Each craneIQ product sits alongside your existing crane controls. Start with one, add more as you need them. All work together as part of the craneIQ platform.</div>
 
-    <!-- Overview — responsive HTML + crane SVG -->
-    <style>
-    .ov-wrap{background:var(--hull);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:0}
-    .ov-top,.ov-bot{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
-    .ov-card{background:var(--panel);padding:18px 20px}
-    .ov-card-name{font-family:var(--ff);font-size:13px;font-weight:600;margin-bottom:6px;line-height:1}
-    .ov-card-name .c{font-weight:300;color:var(--mid)}
-    .ov-card-sub{font-size:12px;color:var(--muted);line-height:1.65}
-    .ov-crane{background:var(--console);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:24px 32px;display:flex;align-items:center;justify-content:center}
-    @media(max-width:800px){.ov-top,.ov-bot{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:480px){.ov-top,.ov-bot{grid-template-columns:1fr}}
-    </style>
-    <div class="ov-wrap">
 
-      <!-- Top 4 products -->
-      <div class="ov-top">
-        <div class="ov-card" style="border-top:3px solid #8855dd">
-          <div class="ov-card-name"><span class="c">crane</span><span style="color:#8855dd">IQ Monitoring</span></div>
-          <div class="ov-card-sub">Standalone DWP tracking · Hoist, brake &amp; motor health · Zero risk to existing controls</div>
-        </div>
-        <div class="ov-card" style="border-top:3px solid #008B9A">
-          <div class="ov-card-name"><span class="c">crane</span><span style="color:#008B9A">IQ Core</span></div>
-          <div class="ov-card-sub">Hoist controller · Overload stops at 110% · Load spectrum · DWP from 100%</div>
-        </div>
-        <div class="ov-card" style="border-top:3px solid #2299bb">
-          <div class="ov-card-name"><span class="c">crane</span><span style="color:#2299bb">IQ Cloud</span></div>
-          <div class="ov-card-sub">Live data anywhere · Email &amp; SMS alerts · Remote diagnostics · Any device</div>
-        </div>
-        <div class="ov-card" style="border-top:3px solid #009966">
-          <div class="ov-card-name"><span class="c">crane</span><span style="color:#009966">IQ Vision</span></div>
-          <div class="ov-card-sub">Camera on crane · Passive target on hook · Side pull &amp; snag prevention</div>
-        </div>
-      </div>
-
-      <!-- Crane illustration -->
-      <div class="ov-crane">
-        <svg viewBox="0 0 900 130" style="width:100%;max-width:1000px;height:auto;display:block" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="cgs2"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            <clipPath id="cr1"><rect x="10" y="10" width="880" height="14" rx="3"/></clipPath>
-            <clipPath id="cr2"><rect x="10" y="68" width="880" height="14" rx="3"/></clipPath>
-          </defs>
-          <!-- Rail 1 -->
-          <rect x="10" y="10" width="880" height="14" rx="3" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
-          <g clip-path="url(#cr1)" opacity="0.2">
-            <line x1="10" y1="10" x2="28" y2="24" stroke="#020406" stroke-width="7"/><line x1="36" y1="10" x2="54" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="62" y1="10" x2="80" y2="24" stroke="#020406" stroke-width="7"/><line x1="88" y1="10" x2="106" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="114" y1="10" x2="132" y2="24" stroke="#020406" stroke-width="7"/><line x1="140" y1="10" x2="158" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="166" y1="10" x2="184" y2="24" stroke="#020406" stroke-width="7"/><line x1="192" y1="10" x2="210" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="218" y1="10" x2="236" y2="24" stroke="#020406" stroke-width="7"/><line x1="244" y1="10" x2="262" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="270" y1="10" x2="288" y2="24" stroke="#020406" stroke-width="7"/><line x1="296" y1="10" x2="314" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="322" y1="10" x2="340" y2="24" stroke="#020406" stroke-width="7"/><line x1="348" y1="10" x2="366" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="374" y1="10" x2="392" y2="24" stroke="#020406" stroke-width="7"/><line x1="400" y1="10" x2="418" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="426" y1="10" x2="444" y2="24" stroke="#020406" stroke-width="7"/><line x1="452" y1="10" x2="470" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="478" y1="10" x2="496" y2="24" stroke="#020406" stroke-width="7"/><line x1="504" y1="10" x2="522" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="530" y1="10" x2="548" y2="24" stroke="#020406" stroke-width="7"/><line x1="556" y1="10" x2="574" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="582" y1="10" x2="600" y2="24" stroke="#020406" stroke-width="7"/><line x1="608" y1="10" x2="626" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="634" y1="10" x2="652" y2="24" stroke="#020406" stroke-width="7"/><line x1="660" y1="10" x2="678" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="686" y1="10" x2="704" y2="24" stroke="#020406" stroke-width="7"/><line x1="712" y1="10" x2="730" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="738" y1="10" x2="756" y2="24" stroke="#020406" stroke-width="7"/><line x1="764" y1="10" x2="782" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="790" y1="10" x2="808" y2="24" stroke="#020406" stroke-width="7"/><line x1="816" y1="10" x2="834" y2="24" stroke="#020406" stroke-width="7"/>
-            <line x1="842" y1="10" x2="860" y2="24" stroke="#020406" stroke-width="7"/><line x1="868" y1="10" x2="886" y2="24" stroke="#020406" stroke-width="7"/>
-          </g>
-          <!-- Rail 2 -->
-          <rect x="10" y="68" width="880" height="14" rx="3" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
-          <g clip-path="url(#cr2)" opacity="0.2">
-            <line x1="10" y1="68" x2="28" y2="82" stroke="#020406" stroke-width="7"/><line x1="36" y1="68" x2="54" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="62" y1="68" x2="80" y2="82" stroke="#020406" stroke-width="7"/><line x1="88" y1="68" x2="106" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="114" y1="68" x2="132" y2="82" stroke="#020406" stroke-width="7"/><line x1="140" y1="68" x2="158" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="166" y1="68" x2="184" y2="82" stroke="#020406" stroke-width="7"/><line x1="192" y1="68" x2="210" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="218" y1="68" x2="236" y2="82" stroke="#020406" stroke-width="7"/><line x1="244" y1="68" x2="262" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="270" y1="68" x2="288" y2="82" stroke="#020406" stroke-width="7"/><line x1="296" y1="68" x2="314" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="322" y1="68" x2="340" y2="82" stroke="#020406" stroke-width="7"/><line x1="348" y1="68" x2="366" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="374" y1="68" x2="392" y2="82" stroke="#020406" stroke-width="7"/><line x1="400" y1="68" x2="418" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="426" y1="68" x2="444" y2="82" stroke="#020406" stroke-width="7"/><line x1="452" y1="68" x2="470" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="478" y1="68" x2="496" y2="82" stroke="#020406" stroke-width="7"/><line x1="504" y1="68" x2="522" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="530" y1="68" x2="548" y2="82" stroke="#020406" stroke-width="7"/><line x1="556" y1="68" x2="574" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="582" y1="68" x2="600" y2="82" stroke="#020406" stroke-width="7"/><line x1="608" y1="68" x2="626" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="634" y1="68" x2="652" y2="82" stroke="#020406" stroke-width="7"/><line x1="660" y1="68" x2="678" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="686" y1="68" x2="704" y2="82" stroke="#020406" stroke-width="7"/><line x1="712" y1="68" x2="730" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="738" y1="68" x2="756" y2="82" stroke="#020406" stroke-width="7"/><line x1="764" y1="68" x2="782" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="790" y1="68" x2="808" y2="82" stroke="#020406" stroke-width="7"/><line x1="816" y1="68" x2="834" y2="82" stroke="#020406" stroke-width="7"/>
-            <line x1="842" y1="68" x2="860" y2="82" stroke="#020406" stroke-width="7"/><line x1="868" y1="68" x2="886" y2="82" stroke="#020406" stroke-width="7"/>
-          </g>
-          <!-- End carriages -->
-          <rect x="4" y="4" width="26" height="88" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
-          <circle cx="17" cy="4" r="7" fill="#D4A017"/><circle cx="17" cy="92" r="7" fill="#D4A017"/>
-          <rect x="870" y="4" width="26" height="88" rx="4" fill="#F5C518" stroke="#D4A017" stroke-width="1.5"/>
-          <circle cx="883" cy="4" r="7" fill="#D4A017"/><circle cx="883" cy="92" r="7" fill="#D4A017"/>
-          <!-- Bridge -->
-          <rect x="30" y="24" width="840" height="44" rx="5" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
-          <line x1="180" y1="24" x2="180" y2="68" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
-          <line x1="360" y1="24" x2="360" y2="68" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
-          <line x1="540" y1="24" x2="540" y2="68" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
-          <line x1="720" y1="24" x2="720" y2="68" stroke="#D4A017" stroke-width="1.5" opacity="0.4"/>
-          <!-- Trolley -->
-          <rect x="400" y="17" width="150" height="58" rx="5" fill="#F5C518" stroke="#D4A017" stroke-width="2"/>
-          <circle cx="420" cy="17" r="8" fill="#D4A017"/><circle cx="532" cy="17" r="8" fill="#D4A017"/>
-          <!-- Hoist drum -->
-          <rect x="418" y="28" width="112" height="36" rx="4" fill="#D4A017" stroke="#B8860B" stroke-width="1.5"/>
-          <ellipse cx="474" cy="46" rx="12" ry="14" fill="#B8860B"/>
-          <ellipse cx="474" cy="46" rx="7" ry="8" fill="#D4A017"/>
-          <!-- Product units -->
-          <!-- Core -->
-          <rect x="418" y="30" width="38" height="18" rx="2" fill="#008B9A" filter="url(#cgs2)"/>
-          <text x="437" y="42" text-anchor="middle" fill="#020406" font-size="9" font-weight="bold" font-family="Open Sans,sans-serif">CORE</text>
-          <!-- Monitoring -->
-          <rect x="240" y="31" width="42" height="18" rx="2" fill="#8855dd" filter="url(#cgs2)"/>
-          <text x="261" y="43" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold" font-family="Open Sans,sans-serif">MON</text>
-          <!-- LoadTrack -->
-          <rect x="534" y="31" width="42" height="18" rx="2" fill="#cc9900" filter="url(#cgs2)"/>
-          <text x="555" y="43" text-anchor="middle" fill="#020406" font-size="7.5" font-weight="bold" font-family="Open Sans,sans-serif">LOAD</text>
-          <!-- Vision camera -->
-          <rect x="680" y="27" width="32" height="22" rx="3" fill="#009966" filter="url(#cgs2)"/>
-          <circle cx="682" cy="38" r="7" fill="#020406" stroke="#009966" stroke-width="1.5"/>
-          <circle cx="682" cy="38" r="3.5" fill="#009966" opacity="0.9"/>
-          <!-- Antisway VFD left carriage -->
-          <rect x="6" y="36" width="26" height="18" rx="2" fill="#cc7700" filter="url(#cgs2)"/>
-          <text x="19" y="48" text-anchor="middle" fill="#020406" font-size="8" font-weight="bold" font-family="Open Sans,sans-serif">VFD</text>
-          <!-- Zoning right carriage -->
-          <rect x="872" y="36" width="24" height="18" rx="2" fill="#cc3344" filter="url(#cgs2)"/>
-          <text x="884" y="48" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Open Sans,sans-serif">ZON</text>
-          <!-- Cloud wifi -->
-          <path d="M 466 16 Q 474 6 482 16" fill="none" stroke="#2299bb" stroke-width="2" opacity="0.8"/>
-          <path d="M 460 10 Q 474 -2 488 10" fill="none" stroke="#2299bb" stroke-width="1.4" opacity="0.5"/>
-          <circle cx="474" cy="18" r="3" fill="#2299bb" opacity="0.8"/>
-          <!-- Rope -->
-          <line x1="474" y1="75" x2="474" y2="120" stroke="#92b0c4" stroke-width="3" stroke-linecap="round"/>
-          <!-- Crosshair at bottom -->
-          <circle cx="474" cy="123" r="9" fill="none" stroke="#008B9A" stroke-width="2.2" filter="url(#cgs2)"/>
-          <circle cx="474" cy="123" r="3" fill="#008B9A"/>
-          <line x1="459" y1="123" x2="465" y2="123" stroke="#008B9A" stroke-width="2"/>
-          <line x1="483" y1="123" x2="489" y2="123" stroke="#008B9A" stroke-width="2"/>
-          <line x1="474" y1="108" x2="474" y2="114" stroke="#008B9A" stroke-width="2"/>
-          <!-- Automation pendant -->
-          <line x1="370" y1="68" x2="370" y2="120" stroke="#4488cc" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
-          <rect x="358" y="112" width="24" height="16" rx="3" fill="#0b1722" stroke="#4488cc" stroke-width="1"/>
-          <rect x="362" y="116" width="16" height="3" rx="1" fill="#4488cc" opacity="0.7"/>
-          <rect x="362" y="121" width="16" height="3" rx="1" fill="#4488cc" opacity="0.5"/>
-        </svg>
-      </div>
-
-      <!-- Bottom 4 products -->
-      <div class="ov-bot">
-        <div class="ov-card" style="border-bottom:3px solid #cc7700">
-          <div class="ov-card-name"><span class="c">crane</span><span style="color:#cc7700">IQ Antisway</span></div>
-          <div class="ov-card-sub">No sensors · No encoders · Uses existing travel VFDs only</div>
-        </div>
-        <div class="ov-card" style="border-bottom:3px solid #4488cc">
-          <div class="ov-card-name"><span class="c">crane</span><span style="color:#4488cc">IQ Automation</span></div>
-          <div class="ov-card-sub">Teach &amp; replay · No code · Any operator · Commissions in 1 day</div>
-        </div>
-        <div class="ov-card" style="border-bottom:3px solid #cc9900">
-          <div class="ov-card-name"><span class="c">crane</span><span style="color:#cc9900">IQ LoadTrack</span></div>
-          <div class="ov-card-sub">Every lift weighed &amp; logged · Wireless display · Process cycle logging</div>
-        </div>
-        <div class="ov-card" style="border-bottom:3px solid #cc3344">
-          <div class="ov-card-name"><span class="c">crane</span><span style="color:#cc3344">IQ Zoning</span></div>
-          <div class="ov-card-sub">Software-defined no-fly zones · Multi-crane collision prevention</div>
-        </div>
-      </div>
-
-    </div>
 
 
     <div class="prod-grid" id="prodGrid"></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" style="background:var(--void)">
+  <div class="section-inner">
+    <div class="sec-tag">How It Works</div>
+    <div class="sec-title">Sits between the operator<br>and the existing controller.</div>
+    <div class="sec-sub">craneIQ intercepts and enriches the signal path between operator and crane. Nothing is replaced. The existing controller keeps doing exactly what it did. craneIQ adds a layer of intelligence on top.</div>
+
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+    <svg viewBox="0 0 960 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:960px;height:auto;display:block;min-width:480px" font-family="'Open Sans',sans-serif">
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+          <path d="M0 0 L7 3 L0 6 Z" fill="#3a5a78"/>
+        </marker>
+        <marker id="arr2" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+          <path d="M0 0 L7 3 L0 6 Z" fill="#008B9A"/>
+        </marker>
+        <marker id="arr3" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+          <path d="M0 0 L7 3 L0 6 Z" fill="#8855dd"/>
+        </marker>
+      </defs>
+
+      <!-- Row 1: main signal path -->
+
+      <!-- Operator Pendant -->
+      <rect x="20" y="100" width="140" height="80" rx="4" fill="#0b1722" stroke="#162840" stroke-width="1.5"/>
+      <text x="90" y="132" text-anchor="middle" fill="#628098" font-size="9" letter-spacing="1" font-family="'Share Tech Mono',monospace">OPERATOR</text>
+      <text x="90" y="148" text-anchor="middle" fill="#c4d8e8" font-size="12" font-weight="600">Pendant</text>
+      <text x="90" y="164" text-anchor="middle" fill="#3a5a78" font-size="9">Push-button or radio</text>
+
+      <!-- Arrow: Pendant → craneIQ -->
+      <line x1="160" y1="140" x2="228" y2="140" stroke="#3a5a78" stroke-width="1.5" marker-end="url(#arr)"/>
+      <text x="194" y="132" text-anchor="middle" fill="#3a5a78" font-size="8" font-family="'Share Tech Mono',monospace">command</text>
+
+      <!-- craneIQ Core — highlighted -->
+      <rect x="230" y="84" width="160" height="112" rx="4" fill="#071a15" stroke="#008B9A" stroke-width="2"/>
+      <rect x="230" y="84" width="160" height="4" rx="2" fill="#008B9A"/>
+      <text x="310" y="116" text-anchor="middle" fill="#008B9A" font-size="9" letter-spacing="1" font-family="'Share Tech Mono',monospace">craneIQ</text>
+      <text x="310" y="133" text-anchor="middle" fill="#c4d8e8" font-size="14" font-weight="700">Core</text>
+      <text x="310" y="152" text-anchor="middle" fill="#3a5a78" font-size="9">Intercepts · Protects</text>
+      <text x="310" y="165" text-anchor="middle" fill="#3a5a78" font-size="9">Monitors · Records</text>
+      <text x="310" y="182" text-anchor="middle" fill="#4ccc80" font-size="8" font-family="'Share Tech Mono',monospace">ACTIVE</text>
+
+      <!-- Arrow: craneIQ → Existing Controller -->
+      <line x1="390" y1="140" x2="458" y2="140" stroke="#3a5a78" stroke-width="1.5" marker-end="url(#arr)"/>
+      <text x="424" y="132" text-anchor="middle" fill="#3a5a78" font-size="8" font-family="'Share Tech Mono',monospace">safe cmd</text>
+
+      <!-- Existing Controller -->
+      <rect x="460" y="100" width="150" height="80" rx="4" fill="#0b1722" stroke="#162840" stroke-width="1.5"/>
+      <text x="535" y="132" text-anchor="middle" fill="#628098" font-size="9" letter-spacing="1" font-family="'Share Tech Mono',monospace">EXISTING</text>
+      <text x="535" y="148" text-anchor="middle" fill="#c4d8e8" font-size="12" font-weight="600">Controller</text>
+      <text x="535" y="164" text-anchor="middle" fill="#3a5a78" font-size="9">Untouched · Zero risk</text>
+
+      <!-- Arrow: Controller → Crane Motors -->
+      <line x1="610" y1="140" x2="678" y2="140" stroke="#3a5a78" stroke-width="1.5" marker-end="url(#arr)"/>
+
+      <!-- Crane Motors -->
+      <rect x="680" y="100" width="140" height="80" rx="4" fill="#0b1722" stroke="#162840" stroke-width="1.5"/>
+      <text x="750" y="132" text-anchor="middle" fill="#628098" font-size="9" letter-spacing="1" font-family="'Share Tech Mono',monospace">CRANE</text>
+      <text x="750" y="148" text-anchor="middle" fill="#F5C518" font-size="12" font-weight="600">Motors & VFDs</text>
+      <text x="750" y="164" text-anchor="middle" fill="#3a5a78" font-size="9">Hoist · Bridge · Travel</text>
+
+      <!-- Arrow: Crane → craneIQ (feedback) -->
+      <path d="M750 100 Q750 60 310 60 Q310 84" fill="none" stroke="#008B9A" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arr2)" opacity="0.6"/>
+      <text x="530" y="52" text-anchor="middle" fill="#008B9A" font-size="8" font-family="'Share Tech Mono',monospace" opacity="0.7">load data · vibration · position</text>
+
+      <!-- DOWN arrows from craneIQ to Cloud and Monitoring -->
+      <!-- craneIQ → Cloud -->
+      <line x1="280" y1="196" x2="280" y2="248" stroke="#2299bb" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arr2)" opacity="0.7"/>
+      <!-- craneIQ → Monitoring -->
+      <line x1="340" y1="196" x2="340" y2="248" stroke="#8855dd" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arr3)" opacity="0.7"/>
+
+      <!-- Cloud box -->
+      <rect x="200" y="250" width="140" height="56" rx="4" fill="#001219" stroke="#2299bb" stroke-width="1.5"/>
+      <rect x="200" y="250" width="140" height="3" rx="2" fill="#2299bb"/>
+      <text x="270" y="268" text-anchor="middle" fill="#2299bb" font-size="9" letter-spacing="1" font-family="'Share Tech Mono',monospace">craneIQ CLOUD</text>
+      <text x="270" y="284" text-anchor="middle" fill="#c4d8e8" font-size="10" font-weight="600">Remote Dashboard</text>
+      <text x="270" y="297" text-anchor="middle" fill="#3a5a78" font-size="9">Browser · Phone · Alerts</text>
+
+      <!-- Monitoring data box -->
+      <rect x="360" y="250" width="140" height="56" rx="4" fill="#120a1f" stroke="#8855dd" stroke-width="1.5"/>
+      <rect x="360" y="250" width="140" height="3" rx="2" fill="#8855dd"/>
+      <text x="430" y="268" text-anchor="middle" fill="#8855dd" font-size="9" letter-spacing="1" font-family="'Share Tech Mono',monospace">MONITORING</text>
+      <text x="430" y="284" text-anchor="middle" fill="#c4d8e8" font-size="10" font-weight="600">DWP · Load Spectrum</text>
+      <text x="430" y="297" text-anchor="middle" fill="#3a5a78" font-size="9">Brake · Motor · Vibration</text>
+
+      <!-- Optional modules row right -->
+      <rect x="560" y="250" width="120" height="56" rx="4" fill="#0b1722" stroke="#162840" stroke-width="1.5"/>
+      <text x="620" y="272" text-anchor="middle" fill="#3a5a78" font-size="9" font-family="'Share Tech Mono',monospace">OPTIONAL</text>
+      <text x="620" y="288" text-anchor="middle" fill="#c4d8e8" font-size="10" font-weight="600">Add-on Modules</text>
+      <text x="620" y="301" text-anchor="middle" fill="#3a5a78" font-size="9">Antisway · Vision · Zoning</text>
+      <line x1="390" y1="196" x2="620" y2="250" stroke="#162840" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+
+      <!-- Existing label -->
+      <text x="90" y="210" text-anchor="middle" fill="#162840" font-size="8" font-family="'Share Tech Mono',monospace">UNCHANGED</text>
+      <text x="535" y="210" text-anchor="middle" fill="#162840" font-size="8" font-family="'Share Tech Mono',monospace">UNCHANGED</text>
+      <text x="750" y="210" text-anchor="middle" fill="#162840" font-size="8" font-family="'Share Tech Mono',monospace">UNCHANGED</text>
+    </svg>
+    </div>
+
+    <!-- Three key points below diagram -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-top:24px">
+      <div style="background:var(--console);padding:22px 24px">
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--brand);text-transform:uppercase;margin-bottom:8px">Zero risk to existing systems</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.75">The existing crane controller is completely untouched. craneIQ sits alongside it — not inside it. If craneIQ were removed, the crane would operate exactly as before.</div>
+      </div>
+      <div style="background:var(--console);padding:22px 24px;border-left:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--brand);text-transform:uppercase;margin-bottom:8px">Commissions in hours, not days</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.75">No PLC reprogramming. No control system modifications. A qualified electrician connects craneIQ to the existing pendant circuit and powers it up. Typically commissioned in a single shift.</div>
+      </div>
+      <div style="background:var(--console);padding:22px 24px;border-left:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--brand);text-transform:uppercase;margin-bottom:8px">Works on any crane, any age</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.75">The pendant circuit is a standard interface on every overhead crane ever made. craneIQ connects to this interface — making it compatible with any crane from any manufacturer, however old.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -614,6 +577,60 @@ section{border-bottom:1px solid var(--border)}
   </div>
 </section>
 
+<!-- WHO IS IT FOR -->
+<section id="who" style="background:var(--void)">
+  <div class="section-inner">
+    <div class="sec-tag">Who It's For</div>
+    <div class="sec-title">The same product.<br>Three different conversations.</div>
+    <div class="sec-sub">craneIQ means different things to different people. Here's how it looks from where you stand.</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden">
+
+      <!-- Plant Manager -->
+      <div style="background:var(--panel);padding:32px 28px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--brand)"></div>
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--brand);text-transform:uppercase;margin-bottom:16px">Plant Manager</div>
+        <div style="font-size:16px;font-weight:600;color:var(--white);margin-bottom:16px;line-height:1.2">Stop reacting to crane breakdowns. Start preventing them.</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:20px">You find out a crane has failed when production stops. craneIQ tells you a component is approaching its service interval weeks before it fails — driven by how hard the crane has actually been working, not a calendar date.</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:var(--brand);flex-shrink:0">→</span>Reduce unplanned downtime</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:var(--brand);flex-shrink:0">→</span>Safer crane operations, fewer near misses</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:var(--brand);flex-shrink:0">→</span>Know the condition of every crane on the floor</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:var(--brand);flex-shrink:0">→</span>No production shutdown to install</div>
+        </div>
+      </div>
+
+      <!-- Engineering Manager -->
+      <div style="background:var(--console);padding:32px 28px;position:relative;overflow:hidden;border-left:1px solid var(--border);border-right:1px solid var(--border)">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#4488cc"></div>
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:#4488cc;text-transform:uppercase;margin-bottom:16px">Engineering Manager</div>
+        <div style="font-size:16px;font-weight:600;color:var(--white);margin-bottom:16px;line-height:1.2">Open data. No specialist engineers. No proprietary portal.</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:20px">craneIQ uses standard industrial protocols and open data formats. Your team can work with it directly — no manufacturer involvement, no proprietary software, no locked dashboards. If you need a third-party maintenance contractor to access the data, they can.</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#4488cc;flex-shrink:0">→</span>Modbus TCP, Profinet, EtherNet/IP, CANopen</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#4488cc;flex-shrink:0">→</span>Data in open formats your team can use</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#4488cc;flex-shrink:0">→</span>No changes to existing controls</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#4488cc;flex-shrink:0">→</span>Commission in a day, not a week</div>
+        </div>
+      </div>
+
+      <!-- Crane Partner -->
+      <div style="background:var(--panel);padding:32px 28px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#009966"></div>
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:#009966;text-transform:uppercase;margin-bottom:16px">Crane Partner</div>
+        <div style="font-size:16px;font-weight:600;color:var(--white);margin-bottom:16px;line-height:1.2">Add intelligence to any crane you supply or service.</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:20px">craneIQ works on any crane from any manufacturer — new or existing. One product range that fits your entire customer base, regardless of what cranes they run. Retrofit to old equipment. Specify on new builds. No OEM dependency.</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#009966;flex-shrink:0">→</span>Works across your entire customer fleet</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#009966;flex-shrink:0">→</span>Retrofits to cranes of any age or brand</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#009966;flex-shrink:0">→</span>Remote diagnostics — support without site visits</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#009966;flex-shrink:0">→</span>No proprietary lock-in for you or your customers</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- COMPATIBILITY -->
 <section id="compatibility" style="background:var(--panel)">
   <div class="section-inner">
@@ -648,21 +665,103 @@ section{border-bottom:1px solid var(--border)}
   </div>
 </section>
 
-<!-- CTA -->
+<!-- CONTACT -->
 <div class="cta-band" id="contact">
-  <div class="sec-tag" style="justify-content:center">Get in Touch</div>
-  <div class="sec-title" style="text-align:center">Talk to us about<br>your crane application.</div>
-  <div class="sec-sub" style="text-align:center;margin:0 auto 32px">We work with plant managers, engineering teams, and crane partners worldwide. Tell us what you're trying to achieve — we'll tell you which products are right for your application.</div>
-  <div class="cta-actions">
-    <a href="mailto:joe@pointnode.io" class="btn btn-primary">Email Us</a>
-    <a href="mailto:joe@pointnode.io" class="btn btn-secondary">joe@pointnode.io</a>
-  </div>
-  <div class="cta-note" style="margin-top:20px">
-    <a href="mailto:joe@pointnode.io">joe@pointnode.io</a>
-    &nbsp;·&nbsp; West Midlands, UK
-    &nbsp;·&nbsp; craneiq.co.uk
+  <div class="section-inner" style="max-width:900px;padding-top:0;padding-bottom:0">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+
+      <!-- Left: copy -->
+      <div>
+        <div class="sec-tag">Get in Touch</div>
+        <div class="sec-title">Talk to us about<br>your crane application.</div>
+        <div style="font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:32px">We work with plant managers, engineering teams and crane partners worldwide. Tell us what you're trying to achieve and we'll tell you which products are right for your application.</div>
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;line-height:2">
+          joe@pointnode.io<br>
+          West Midlands, UK<br>
+          Engineered in the UK · Installed Worldwide
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div>
+        <div data-fs-success style="display:none;background:var(--console);border:1px solid var(--brand);border-radius:3px;padding:28px 24px;text-align:center">
+          <div style="font-size:28px;margin-bottom:12px">✓</div>
+          <div style="font-size:15px;font-weight:600;color:var(--white);margin-bottom:8px">Message sent</div>
+          <div style="font-size:13px;color:var(--muted)">Thanks — we'll be in touch shortly.</div>
+        </div>
+        <div data-fs-error style="display:none;background:#1a0007;border:1px solid #cc3344;border-radius:3px;padding:14px 18px;margin-bottom:16px;font-size:13px;color:#ff6b7a"></div>
+
+        <form id="craneiq-contact" style="display:flex;flex-direction:column;gap:14px">
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div>
+              <label style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:6px">Name *</label>
+              <input type="text" name="name" required data-fs-field
+                style="width:100%;background:var(--console);border:1px solid var(--bhi);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--white);font-family:var(--ff);outline:none;transition:border-color .15s"
+                onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--bhi)'"/>
+              <span data-fs-error="name" style="font-size:11px;color:#ff6b7a;margin-top:4px;display:block"></span>
+            </div>
+            <div>
+              <label style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:6px">Company</label>
+              <input type="text" name="company"
+                style="width:100%;background:var(--console);border:1px solid var(--bhi);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--white);font-family:var(--ff);outline:none;transition:border-color .15s"
+                onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--bhi)'"/>
+            </div>
+          </div>
+
+          <div>
+            <label style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:6px">Email *</label>
+            <input type="email" name="email" required data-fs-field
+              style="width:100%;background:var(--console);border:1px solid var(--bhi);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--white);font-family:var(--ff);outline:none;transition:border-color .15s"
+              onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--bhi)'"/>
+            <span data-fs-error="email" style="font-size:11px;color:#ff6b7a;margin-top:4px;display:block"></span>
+          </div>
+
+          <div>
+            <label style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:8px">Interested in</label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+              <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer"><input type="checkbox" name="interest" value="Core" style="accent-color:var(--brand)"> Core</label>
+              <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer"><input type="checkbox" name="interest" value="Automation" style="accent-color:var(--brand)"> Automation</label>
+              <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer"><input type="checkbox" name="interest" value="Monitoring" style="accent-color:var(--brand)"> Monitoring</label>
+              <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer"><input type="checkbox" name="interest" value="Cloud" style="accent-color:var(--brand)"> Cloud</label>
+              <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer"><input type="checkbox" name="interest" value="Vision" style="accent-color:var(--brand)"> Vision</label>
+              <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer"><input type="checkbox" name="interest" value="Antisway" style="accent-color:var(--brand)"> Antisway</label>
+              <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer"><input type="checkbox" name="interest" value="Zoning" style="accent-color:var(--brand)"> Zoning</label>
+              <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer"><input type="checkbox" name="interest" value="LoadTrack" style="accent-color:var(--brand)"> LoadTrack</label>
+            </div>
+          </div>
+
+          <div>
+            <label style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:6px">Message *</label>
+            <textarea name="message" required data-fs-field rows="4"
+              placeholder="Tell us about your crane application, what you're trying to achieve, or any questions you have..."
+              style="width:100%;background:var(--console);border:1px solid var(--bhi);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--white);font-family:var(--ff);outline:none;resize:vertical;transition:border-color .15s;min-height:100px"
+              onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--bhi)'"></textarea>
+            <span data-fs-error="message" style="font-size:11px;color:#ff6b7a;margin-top:4px;display:block"></span>
+          </div>
+
+          <!-- honeypot -->
+          <input type="text" name="_gotcha" style="display:none"/>
+
+          <button type="submit" data-fs-submit-btn
+            style="background:var(--brand);color:var(--void);font-family:var(--ff);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:14px 28px;border:none;border-radius:2px;cursor:pointer;transition:background .15s;text-align:center"
+            onmouseover="this.style.background='var(--brand-hi)'" onmouseout="this.style.background='var(--brand)'">
+            Send Message
+          </button>
+
+        </form>
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- Formspree Ajax -->
+<script>
+  window.formspree = window.formspree || function(){(formspree.q=formspree.q||[]).push(arguments)};
+  formspree('initForm',{formElement:'#craneiq-contact',formId:'xeevjlgd'});
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
 
 <!-- FOOTER -->
 <footer class="site-footer">
