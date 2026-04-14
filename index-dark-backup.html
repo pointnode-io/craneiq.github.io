@@ -14,105 +14,100 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#ffffff;
-  --bg2:#f4f5f7;
-  --bg3:#eef0f3;
-  --surface:#ffffff;
-  --border:#e2e5ea;
-  --border2:#d0d5de;
-  --text:#1a2332;
-  --text2:#3d4f63;
-  --muted:#6b7f96;
-  --dim:#9aaabb;
-  --brand:#007a88;
-  --brand-hi:#008B9A;
-  --brand-lo:#005f6b;
-  --brand-bg:#edf7f8;
-  --radar:#1a8c4e;
-  --ff:'Open Sans',sans-serif;
-  --mono:'Share Tech Mono',monospace;
+  --void:#020406;--deep:#040810;--hull:#07101a;--panel:#0b1722;--console:#0e1d2c;
+  --border:#162840;--bhi:#204060;
+  --dim:#1c3450;--muted:#3a5a78;--mid:#628098;--steel:#92b0c4;--bright:#c4d8e8;--white:#e4f0f8;
+  --brand:#008B9A;--brand-hi:#00a8ba;--brand-lo:#005f6b;--radar:#4ccc80;
+  --ff:'Open Sans',sans-serif;--mono:'Share Tech Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--ff);font-size:14px;line-height:1.7;overflow-x:hidden}
-::-webkit-scrollbar{width:4px;background:var(--bg2)}
-::-webkit-scrollbar-thumb{background:var(--border2)}
+body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:14px;line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:3px;background:var(--void)}
+::-webkit-scrollbar-thumb{background:var(--bhi)}
 
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;
-  background:rgba(255,255,255,.97);backdrop-filter:blur(14px);
+  background:rgba(2,4,6,.94);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;padding:0 48px;
-  box-shadow:0 1px 8px rgba(0,0,0,.06)}
+  display:flex;align-items:center;justify-content:space-between;padding:0 48px}
 .nav-logo{font-family:var(--ff);font-size:18px;line-height:1;letter-spacing:-.01em;text-decoration:none}
-.nav-logo .crane{font-weight:300;color:var(--muted)}
+.nav-logo .crane{font-weight:300;color:var(--bright)}
 .nav-logo .iq{font-weight:600;color:var(--brand)}
 .nav-links{display:flex;align-items:center}
-.nav-links a{font-size:12px;font-weight:400;color:var(--muted);
+.nav-links a{font-family:var(--ff);font-size:12px;font-weight:400;color:var(--muted);
   text-decoration:none;padding:0 18px;letter-spacing:.02em;
   transition:color .15s;border-right:1px solid var(--border);line-height:56px}
 .nav-links a:hover{color:var(--brand)}
-.nav-cta{background:var(--brand)!important;color:#fff!important;
+.nav-cta{background:var(--brand)!important;color:var(--void)!important;
   font-weight:600!important;padding:0 20px!important;border-radius:2px;
   letter-spacing:.06em;font-size:11px!important;text-transform:uppercase;border:none!important}
 .nav-cta:hover{background:var(--brand-hi)!important}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:4px}
-.nav-toggle span{display:block;width:20px;height:1.5px;background:var(--muted)}
+.nav-toggle span{display:block;width:20px;height:1.5px;background:var(--steel)}
 .pulse{width:5px;height:5px;border-radius:50%;background:var(--radar);
   display:inline-block;margin-right:7px;vertical-align:middle;
   animation:pa 2.8s ease-in-out infinite}
-@keyframes pa{0%,100%{box-shadow:0 0 0 0 rgba(26,140,78,.45)}50%{box-shadow:0 0 0 4px rgba(26,140,78,0)}}
+@keyframes pa{0%,100%{box-shadow:0 0 0 0 rgba(76,204,128,.45)}50%{box-shadow:0 0 0 4px rgba(76,204,128,0)}}
 .nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;z-index:99;
-  background:#fff;border-bottom:1px solid var(--border);padding:8px 0;
-  box-shadow:0 4px 16px rgba(0,0,0,.08)}
+  background:var(--hull);border-bottom:1px solid var(--border);padding:8px 0}
 .nav-mobile.open{display:block}
-.nav-mobile a{display:block;font-size:13px;color:var(--text2);text-decoration:none;
+.nav-mobile a{display:block;font-size:13px;color:var(--steel);text-decoration:none;
   padding:12px 28px;border-bottom:1px solid var(--border);transition:color .14s}
 .nav-mobile a:hover{color:var(--brand)}
 
 /* HERO */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;
-  justify-content:center;overflow:hidden;padding:100px 48px 80px;background:#fff}
-.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--brand),#4ccc80 60%,var(--brand))}
+  justify-content:center;overflow:hidden;padding:100px 48px 80px}
 .hero-grid{position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(rgba(0,122,136,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,122,136,.04) 1px,transparent 1px);
+  background:linear-gradient(rgba(0,139,154,.016) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,139,154,.016) 1px,transparent 1px);
   background-size:56px 56px}
 .hero-glow{position:absolute;top:10%;right:0;width:640px;height:640px;
   border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,rgba(0,122,136,.06) 0%,transparent 65%)}
+  background:radial-gradient(circle,rgba(0,139,154,.07) 0%,transparent 65%)}
 .hero-graphic{position:absolute;right:4%;top:50%;transform:translateY(-50%);
   width:480px;height:480px;pointer-events:none}
 .hero-graphic svg{width:100%;height:100%}
+
+/* Pendulum */
 #antisway-label{opacity:0;transition:opacity .8s ease}
 #status-nominal{transition:opacity .6s ease}
 #status-active{opacity:0;transition:opacity .8s ease}
+
 .hero-content{position:relative;z-index:2;max-width:660px}
 .hero-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.3em;
   color:var(--brand);text-transform:uppercase;margin-bottom:24px;
   display:flex;align-items:center;gap:12px}
 .hero-eyebrow::before{content:'';width:20px;height:1px;background:var(--brand)}
-.hero-wm{font-size:clamp(54px,8vw,96px);line-height:.95;letter-spacing:-.025em;margin-bottom:14px}
-.hero-wm .crane{font-weight:300;color:var(--muted)}
+.hero-wm{font-family:var(--ff);font-size:clamp(54px,8vw,96px);
+  line-height:.95;letter-spacing:-.025em;margin-bottom:14px}
+.hero-wm .crane{font-weight:300;color:var(--bright)}
 .hero-wm .iq{font-weight:600;color:var(--brand)}
-.hero-headline{font-weight:300;font-size:clamp(17px,2.2vw,24px);color:var(--text2);
+.hero-headline{font-family:var(--ff);font-weight:300;
+  font-size:clamp(17px,2.2vw,24px);color:var(--mid);
   line-height:1.45;margin-bottom:28px;letter-spacing:-.005em}
-.hero-body{font-size:13.5px;color:var(--muted);line-height:1.85;max-width:500px;margin-bottom:36px}
+.hero-body{font-size:13.5px;color:var(--muted);line-height:1.85;
+  max-width:500px;margin-bottom:36px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;text-decoration:none;
   font-family:var(--ff);border-radius:2px;transition:.15s;white-space:nowrap}
-.btn-primary{background:var(--brand);color:#fff;font-weight:600;font-size:11.5px;
-  letter-spacing:.08em;text-transform:uppercase;padding:13px 28px}
+.btn-primary{background:var(--brand);color:var(--void);
+  font-weight:600;font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;padding:13px 28px}
 .btn-primary:hover{background:var(--brand-hi)}
-.btn-secondary{background:transparent;color:var(--text2);font-weight:400;
-  font-size:11.5px;letter-spacing:.05em;padding:12px 28px;border:1.5px solid var(--border2)}
+.btn-secondary{background:transparent;color:var(--steel);
+  font-weight:400;font-size:11.5px;letter-spacing:.05em;
+  padding:12px 28px;border:1px solid var(--bhi)}
 .btn-secondary:hover{border-color:var(--brand);color:var(--brand)}
-.hero-stats{display:flex;margin-top:52px;border-top:1px solid var(--border);padding-top:24px;flex-wrap:wrap}
+.hero-stats{display:flex;margin-top:52px;
+  border-top:1px solid var(--border);padding-top:24px;flex-wrap:wrap}
 .stat{padding:0 28px 0 0;margin-right:28px;border-right:1px solid var(--border)}
 .stat:last-child{border:none;margin:0;padding:0}
-.stat-num{font-weight:600;font-size:24px;color:var(--text);letter-spacing:-.01em;line-height:1}
-.stat-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+.stat-num{font-family:var(--ff);font-weight:600;font-size:24px;
+  color:var(--white);letter-spacing:-.01em;line-height:1}
+.stat-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  color:var(--muted);text-transform:uppercase;margin-top:4px}
 
 /* SECTIONS */
 section{border-bottom:1px solid var(--border)}
@@ -121,88 +116,110 @@ section{border-bottom:1px solid var(--border)}
   color:var(--brand);text-transform:uppercase;margin-bottom:14px;
   display:flex;align-items:center;gap:10px}
 .sec-tag::before{content:'';width:16px;height:1px;background:var(--brand)}
-.sec-title{font-weight:600;font-size:clamp(24px,3vw,38px);color:var(--text);
+.sec-title{font-family:var(--ff);font-weight:600;
+  font-size:clamp(24px,3vw,38px);color:var(--white);
   letter-spacing:-.01em;line-height:1.1;margin-bottom:12px}
-.sec-sub{font-size:14px;color:var(--muted);line-height:1.9;max-width:520px;margin-bottom:48px}
+.sec-sub{font-size:14px;color:var(--muted);line-height:1.9;
+  max-width:520px;margin-bottom:48px}
 
 /* PRODUCT GRID */
 .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;background:var(--border);border-radius:3px;overflow:hidden;border:1px solid var(--border);
-  box-shadow:0 2px 16px rgba(0,0,0,.05)}
-.prod-card{background:#fff;padding:28px 24px;position:relative;overflow:hidden;
-  transition:background .18s;text-decoration:none;display:flex;flex-direction:column;color:inherit}
-.prod-card:hover{background:var(--brand-bg)}
+  gap:1px;background:var(--border);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
+.prod-card{background:var(--panel);padding:28px 24px;position:relative;
+  overflow:hidden;transition:background .2s;text-decoration:none;
+  display:flex;flex-direction:column;color:inherit}
+.prod-card:hover{background:var(--console)}
 .prod-card:hover .prod-arrow{opacity:1;transform:translateX(0)}
-.prod-bar{position:absolute;top:0;left:0;right:0;height:3px}
+.prod-bar{position:absolute;top:0;left:0;right:0;height:2px}
 .prod-icon{width:34px;height:34px;margin-bottom:14px;flex-shrink:0}
-.prod-wm{font-size:16px;line-height:1;letter-spacing:-.01em;margin-bottom:5px}
-.prod-wm .crane{font-weight:300;color:var(--dim)}
+.prod-wm{font-family:var(--ff);font-size:16px;line-height:1;
+  letter-spacing:-.01em;margin-bottom:5px}
+.prod-wm .crane{font-weight:300;color:var(--mid)}
 .prod-wm .iq{font-weight:600}
-.pn{font-weight:400;font-size:11px;letter-spacing:.07em;display:block;margin-top:3px;text-transform:uppercase}
-.prod-tagline{font-size:12.5px;color:var(--text2);line-height:1.6;margin-bottom:14px;flex:1}
-.prod-features{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
-.prod-features li{font-size:11px;color:var(--muted);padding-left:12px;position:relative;line-height:1.55}
-.prod-features li::before{content:'—';position:absolute;left:0;color:var(--border2)}
-.prod-features li.hi{color:var(--text2)}
+.pn{font-weight:400;font-size:11px;letter-spacing:.07em;
+  display:block;margin-top:3px;text-transform:uppercase}
+.prod-tagline{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:14px;flex:1}
+.prod-features{list-style:none;display:flex;flex-direction:column;
+  gap:6px;margin-bottom:16px}
+.prod-features li{font-size:11px;color:var(--dim);
+  padding-left:12px;position:relative;line-height:1.55}
+.prod-features li::before{content:'—';position:absolute;left:0;color:var(--border)}
+.prod-features li.hi{color:var(--mid)}
 .prod-features li.hi::before{color:var(--brand)}
 .prod-footer{display:flex;justify-content:space-between;align-items:center;
   padding-top:12px;border-top:1px solid var(--border);margin-top:auto}
 .prod-code{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--dim)}
-.prod-arrow{font-size:12px;color:var(--brand);opacity:0;transform:translateX(-6px);transition:.18s}
-
-/* HOW IT WORKS inline styles */
+.prod-arrow{font-family:var(--mono);font-size:12px;color:var(--brand);
+  opacity:0;transform:translateX(-6px);transition:opacity .2s,transform .2s}
 
 /* WHY */
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);
   gap:1px;background:var(--border);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
-.why-card{background:#fff;padding:32px 28px}
-.why-num{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--brand);margin-bottom:12px}
-.why-title{font-weight:600;font-size:16px;color:var(--text);margin-bottom:10px}
+.why-card{background:var(--console);padding:32px 28px}
+.why-num{font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+  color:var(--brand);margin-bottom:12px}
+.why-title{font-family:var(--ff);font-weight:600;font-size:16px;
+  color:var(--white);margin-bottom:10px}
 .why-body{font-size:13px;color:var(--muted);line-height:1.85}
 
 /* COMPATIBILITY */
 .compat-grid{display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
-.compat-cell{background:#fff;padding:36px 32px}
-.compat-cell:nth-child(2){background:var(--bg2)}
-.compat-title{font-weight:600;font-size:18px;color:var(--text);margin-bottom:10px}
+  gap:1px;background:var(--border);border:1px solid var(--border);
+  border-radius:3px;overflow:hidden}
+.compat-cell{background:var(--panel);padding:36px 32px}
+.compat-cell:nth-child(2){background:var(--console)}
+.compat-title{font-family:var(--ff);font-weight:600;font-size:18px;
+  color:var(--white);margin-bottom:10px}
 .compat-body{font-size:13.5px;color:var(--muted);line-height:1.85;margin-bottom:20px}
 .tags{display:flex;gap:7px;flex-wrap:wrap}
 .tag{font-family:var(--mono);font-size:10px;letter-spacing:.07em;
-  color:var(--text2);padding:6px 12px;border:1.5px solid var(--border);
-  border-radius:2px;text-transform:uppercase;white-space:nowrap;background:#fff}
+  color:var(--mid);padding:6px 12px;border:1px solid var(--bhi);
+  border-radius:2px;text-transform:uppercase;white-space:nowrap}
 
 /* INDUSTRIES */
 .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
-.ind-cell{background:#fff;padding:26px}
-.ind-cell:nth-child(even){background:var(--bg2)}
-.ind-name{font-weight:600;font-size:15px;color:var(--text);margin-bottom:8px}
+  gap:1px;background:var(--border);border:1px solid var(--border);
+  border-radius:3px;overflow:hidden}
+.ind-cell{background:var(--panel);padding:26px 26px}
+.ind-cell:nth-child(even){background:var(--console)}
+.ind-name{font-family:var(--ff);font-weight:600;font-size:15px;
+  color:var(--white);margin-bottom:8px}
 .ind-desc{font-size:13px;color:var(--muted);line-height:1.8}
 
-/* CONTACT */
-.cta-band{background:var(--bg2);padding:80px 48px;border-bottom:1px solid var(--border)}
+/* CTA */
+.cta-band{background:var(--hull);padding:80px 48px;
+  border-bottom:1px solid var(--border)}
+.cta-band .sec-title{margin:0 auto 10px}
+.cta-band .sec-sub{margin:0 auto 32px;max-width:480px}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.cta-note{font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  color:var(--dim);text-transform:uppercase}
+.cta-note a{color:var(--muted);text-decoration:none;transition:color .14s}
+.cta-note a:hover{color:var(--brand)}
 
 /* FOOTER */
-.site-footer{background:var(--text);padding:52px 48px 32px;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
-.footer-logo{font-size:20px;line-height:1;letter-spacing:-.01em;margin-bottom:12px}
-.footer-logo .crane{font-weight:300;color:rgba(255,255,255,.4)}
-.footer-logo .iq{font-weight:600;color:var(--brand-hi)}
-.footer-tagline{font-size:13px;color:rgba(255,255,255,.38);line-height:1.8;margin-bottom:16px}
+.site-footer{background:var(--hull);border-top:1px solid var(--border);
+  padding:52px 48px 32px;display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-logo{font-family:var(--ff);font-size:20px;line-height:1;
+  letter-spacing:-.01em;margin-bottom:12px}
+.footer-logo .crane{font-weight:300;color:var(--bright)}
+.footer-logo .iq{font-weight:600;color:var(--brand)}
+.footer-tagline{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:16px}
 .footer-contact a{display:block;font-family:var(--mono);font-size:10px;
-  letter-spacing:.08em;color:rgba(255,255,255,.38);text-decoration:none;
-  margin-bottom:6px;transition:color .14s;text-transform:uppercase}
-.footer-contact a:hover{color:var(--brand-hi)}
-.footer-col h4{font-weight:600;font-size:11px;letter-spacing:.08em;
-  text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px}
-.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.38);
+  letter-spacing:.08em;color:var(--muted);text-decoration:none;
+  margin-bottom:6px;transition:color .14s}
+.footer-contact a:hover{color:var(--brand)}
+.footer-col h4{font-family:var(--ff);font-weight:600;font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--steel);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:var(--muted);
   text-decoration:none;margin-bottom:8px;transition:color .14s}
-.footer-col a:hover{color:var(--brand-hi)}
-.footer-bottom{background:rgba(0,0,0,.25);border-top:1px solid rgba(255,255,255,.08);
-  padding:18px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-col a:hover{color:var(--brand)}
+.footer-bottom{background:var(--void);border-top:1px solid var(--border);
+  padding:18px 48px;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:8px}
 .footer-bottom p{font-family:var(--mono);font-size:9px;letter-spacing:.08em;
-  color:rgba(255,255,255,.2);text-transform:uppercase}
+  color:var(--dim);text-transform:uppercase}
 
 /* Animations */
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
@@ -213,12 +230,6 @@ section{border-bottom:1px solid var(--border)}
 .hero-content>*:nth-child(4){animation-delay:.30s}
 .hero-content>*:nth-child(5){animation-delay:.38s}
 
-/* Form */
-input,textarea,select{background:#fff!important;color:var(--text)!important;border-color:var(--border2)!important}
-input:focus,textarea:focus{border-color:var(--brand)!important}
-input::placeholder,textarea::placeholder{color:var(--dim)!important}
-
-/* Responsive */
 @media(max-width:1000px){
   .prod-grid{grid-template-columns:repeat(2,1fr)}
   .site-footer{grid-template-columns:1fr 1fr}
@@ -233,8 +244,14 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
   .section-inner{padding:60px 20px}
   .prod-grid,.why-grid,.compat-grid,.ind-grid{grid-template-columns:1fr}
   .cta-band{padding:60px 20px}
-  .site-footer{grid-template-columns:1fr;padding:40px 20px}
+  .site-footer{grid-template-columns:1fr;padding:40px 20px 24px}
   .footer-bottom{padding:14px 20px}
+  .hero-stats{gap:14px}
+  .stat{border:none;padding:0;margin:0}
+  .hero-graphic{display:none}
+}
+
+@media(max-width:680px){
   #contact .section-inner>div{grid-template-columns:1fr!important;gap:40px!important}
   #who .section-inner>div:last-child{grid-template-columns:1fr!important}
   #how-it-works .section-inner>div:last-child{grid-template-columns:1fr!important}
@@ -273,7 +290,7 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
 
   <div class="hero-graphic">
     <svg id="heroSVG" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g opacity="0.12">
+      <g opacity="0.18">
         <circle cx="240" cy="240" r="220" stroke="#008B9A" stroke-width="1"/>
         <circle cx="240" cy="240" r="160" stroke="#008B9A" stroke-width="0.75"/>
         <circle cx="240" cy="240" r="80" stroke="#008B9A" stroke-width="0.75"/>
@@ -354,7 +371,7 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
 </div>
 
 <!-- PRODUCTS -->
-<section id="products" style="background:var(--bg2)">
+<section id="products">
   <div class="section-inner">
     <div class="sec-tag">Product Family</div>
     <div class="sec-title">Eight products.<br>One intelligent platform.</div>
@@ -368,7 +385,7 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
 </section>
 
 <!-- HOW IT WORKS -->
-<section id="how-it-works" style="background:#fff">
+<section id="how-it-works" style="background:var(--void)">
   <div class="section-inner">
     <div class="sec-tag">How It Works</div>
     <div class="sec-title">Sits between the operator<br>and the existing controller.</div>
@@ -459,15 +476,15 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
 
     <!-- Three key points below diagram -->
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-top:24px">
-      <div style="background:var(--hull);padding:22px 24px;border-bottom:1px solid var(--border)">
+      <div style="background:var(--console);padding:22px 24px">
         <div style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--brand);text-transform:uppercase;margin-bottom:8px">Zero risk to existing systems</div>
         <div style="font-size:13px;color:var(--muted);line-height:1.75">The existing crane controller is completely untouched. craneIQ sits alongside it — not inside it. If craneIQ were removed, the crane would operate exactly as before.</div>
       </div>
-      <div style="background:var(--deep);padding:22px 24px;border-left:1px solid var(--border);border-bottom:1px solid var(--border)">
+      <div style="background:var(--console);padding:22px 24px;border-left:1px solid var(--border)">
         <div style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--brand);text-transform:uppercase;margin-bottom:8px">Commissions in hours, not days</div>
         <div style="font-size:13px;color:var(--muted);line-height:1.75">No PLC reprogramming. No control system modifications. A qualified electrician connects craneIQ to the existing pendant circuit and powers it up. Typically commissioned in a single shift.</div>
       </div>
-      <div style="background:var(--deep);padding:22px 24px;border-left:1px solid var(--border);border-bottom:1px solid var(--border)">
+      <div style="background:var(--console);padding:22px 24px;border-left:1px solid var(--border)">
         <div style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--brand);text-transform:uppercase;margin-bottom:8px">Works on any crane, any age</div>
         <div style="font-size:13px;color:var(--muted);line-height:1.75">The pendant circuit is a standard interface on every overhead crane ever made. craneIQ connects to this interface — making it compatible with any crane from any manufacturer, however old.</div>
       </div>
@@ -476,7 +493,7 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
 </section>
 
 <!-- WHY -->
-<section id="why" style="background:var(--deep)">
+<section id="why" style="background:var(--panel)">
   <div class="section-inner">
     <div class="sec-tag">Why craneIQ</div>
     <div class="sec-title">Intelligence that works alongside<br>what you already have.</div>
@@ -552,7 +569,7 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
 </section>
 
 <!-- WHO IS IT FOR -->
-<section id="who" style="background:var(--bg2)">
+<section id="who" style="background:var(--void)">
   <div class="section-inner">
     <div class="sec-tag">Who It's For</div>
     <div class="sec-title">The same product.<br>Three different conversations.</div>
@@ -560,44 +577,44 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden">
 
       <!-- Plant Manager -->
-      <div style="background:var(--hull);padding:32px 28px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)">
+      <div style="background:var(--panel);padding:32px 28px;position:relative;overflow:hidden">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--brand)"></div>
         <div style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--brand);text-transform:uppercase;margin-bottom:16px">Plant Manager</div>
-        <div style="font-size:16px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.2">Stop reacting to crane breakdowns. Start preventing them.</div>
+        <div style="font-size:16px;font-weight:600;color:var(--white);margin-bottom:16px;line-height:1.2">Stop reacting to crane breakdowns. Start preventing them.</div>
         <div style="font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:20px">You find out a crane has failed when production stops. craneIQ tells you a component is approaching its service interval weeks before it fails — driven by how hard the crane has actually been working, not a calendar date.</div>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--text2)"><span style="color:var(--brand);flex-shrink:0">→</span>Reduce unplanned downtime</div>
-          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--text2)"><span style="color:var(--brand);flex-shrink:0">→</span>Safer crane operations, fewer near misses</div>
-          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--text2)"><span style="color:var(--brand);flex-shrink:0">→</span>Know the condition of every crane on the floor</div>
-          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--text2)"><span style="color:var(--brand);flex-shrink:0">→</span>No production shutdown to install</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:var(--brand);flex-shrink:0">→</span>Reduce unplanned downtime</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:var(--brand);flex-shrink:0">→</span>Safer crane operations, fewer near misses</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:var(--brand);flex-shrink:0">→</span>Know the condition of every crane on the floor</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:var(--brand);flex-shrink:0">→</span>No production shutdown to install</div>
         </div>
       </div>
 
       <!-- Engineering Manager -->
-      <div style="background:var(--deep);padding:32px 28px;position:relative;overflow:hidden;border-left:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)">
+      <div style="background:var(--console);padding:32px 28px;position:relative;overflow:hidden;border-left:1px solid var(--border);border-right:1px solid var(--border)">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#4488cc"></div>
         <div style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:#4488cc;text-transform:uppercase;margin-bottom:16px">Engineering Manager</div>
-        <div style="font-size:16px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.2">Open data. No specialist engineers. No proprietary portal.</div>
+        <div style="font-size:16px;font-weight:600;color:var(--white);margin-bottom:16px;line-height:1.2">Open data. No specialist engineers. No proprietary portal.</div>
         <div style="font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:20px">craneIQ uses standard industrial protocols and open data formats. Your team can work with it directly — no manufacturer involvement, no proprietary software, no locked dashboards. If you need a third-party maintenance contractor to access the data, they can.</div>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--text2)"><span style="color:#4488cc;flex-shrink:0">→</span>Hardwired I/O · Modbus TCP · Profinet · EtherNet/IP</div>
-          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--text2)"><span style="color:#4488cc;flex-shrink:0">→</span>Data in open formats your team can use</div>
-          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--text2)"><span style="color:#4488cc;flex-shrink:0">→</span>No changes to existing controls</div>
-          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--text2)"><span style="color:#4488cc;flex-shrink:0">→</span>Commission in a day, not a week</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#4488cc;flex-shrink:0">→</span>Hardwired I/O · Modbus TCP · Profinet · EtherNet/IP</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#4488cc;flex-shrink:0">→</span>Data in open formats your team can use</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#4488cc;flex-shrink:0">→</span>No changes to existing controls</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#4488cc;flex-shrink:0">→</span>Commission in a day, not a week</div>
         </div>
       </div>
 
       <!-- Crane Partner -->
-      <div style="background:var(--hull);padding:32px 28px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)">
+      <div style="background:var(--panel);padding:32px 28px;position:relative;overflow:hidden">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#009966"></div>
         <div style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:#009966;text-transform:uppercase;margin-bottom:16px">Crane Partner</div>
-        <div style="font-size:16px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.2">Add intelligence to any crane you supply or service.</div>
+        <div style="font-size:16px;font-weight:600;color:var(--white);margin-bottom:16px;line-height:1.2">Add intelligence to any crane you supply or service.</div>
         <div style="font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:20px">craneIQ works on any crane from any manufacturer — new or existing. One product range that fits your entire customer base, regardless of what cranes they run. Retrofit to old equipment. Specify on new builds. No OEM dependency.</div>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--text2)"><span style="color:#009966;flex-shrink:0">→</span>Works across your entire customer fleet</div>
-          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--text2)"><span style="color:#009966;flex-shrink:0">→</span>Retrofits to cranes of any age or brand</div>
-          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--text2)"><span style="color:#009966;flex-shrink:0">→</span>Remote diagnostics — support without site visits</div>
-          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--text2)"><span style="color:#009966;flex-shrink:0">→</span>No proprietary lock-in for you or your customers</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#009966;flex-shrink:0">→</span>Works across your entire customer fleet</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#009966;flex-shrink:0">→</span>Retrofits to cranes of any age or brand</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#009966;flex-shrink:0">→</span>Remote diagnostics — support without site visits</div>
+          <div style="display:flex;gap:10px;font-size:12.5px;color:var(--steel)"><span style="color:#009966;flex-shrink:0">→</span>No proprietary lock-in for you or your customers</div>
         </div>
       </div>
 
@@ -606,7 +623,7 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
 </section>
 
 <!-- COMPATIBILITY -->
-<section id="compatibility" style="background:#fff">
+<section id="compatibility" style="background:var(--panel)">
   <div class="section-inner">
     <div class="sec-tag">Compatibility</div>
     <div class="sec-title">Fits what you have.<br>Works the way you work.</div>
@@ -656,23 +673,23 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
           Engineered in the UK · Installed Worldwide
         </div>
         <a href="/craneiq-overview.html" target="_blank"
-          style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--border);border-radius:3px;padding:13px 18px;text-decoration:none;transition:border-color .15s;box-shadow:0 1px 4px rgba(0,0,0,.06)"
+          style="display:inline-flex;align-items:center;gap:10px;background:var(--console);border:1px solid var(--border);border-radius:3px;padding:13px 18px;text-decoration:none;transition:border-color .15s"
           onmouseover="this.style.borderColor='var(--brand)'" onmouseout="this.style.borderColor='var(--border)'">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#008B9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/>
           </svg>
-          <span style="font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--text2);text-transform:uppercase">Download Product Overview</span>
+          <span style="font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--steel);text-transform:uppercase">Download Product Overview</span>
         </a>
       </div>
 
       <!-- Right: form -->
       <div>
-        <div data-fs-success style="display:none;background:#edf7f8;border:1.5px solid var(--brand);border-radius:3px;padding:28px 24px;text-align:center">
+        <div data-fs-success style="display:none;background:var(--console);border:1px solid var(--brand);border-radius:3px;padding:28px 24px;text-align:center">
           <div style="font-size:28px;margin-bottom:12px">✓</div>
-          <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">Message sent</div>
+          <div style="font-size:15px;font-weight:600;color:var(--white);margin-bottom:8px">Message sent</div>
           <div style="font-size:13px;color:var(--muted)">Thanks — we'll be in touch shortly.</div>
         </div>
-        <div data-fs-error style="display:none;background:#fff0f0;border:1.5px solid #cc3344;border-radius:3px;padding:14px 18px;margin-bottom:16px;font-size:13px;color:#aa1122"></div>
+        <div data-fs-error style="display:none;background:#1a0007;border:1px solid #cc3344;border-radius:3px;padding:14px 18px;margin-bottom:16px;font-size:13px;color:#ff6b7a"></div>
 
         <form id="craneiq-contact" style="display:flex;flex-direction:column;gap:14px">
 
@@ -680,23 +697,23 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
             <div>
               <label style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:6px">Name *</label>
               <input type="text" name="name" required data-fs-field
-                style="width:100%;background:#fff;border:1.5px solid var(--border);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--text2);font-family:var(--ff);outline:none;transition:border-color .15s"
-                onfocus="this.style.borderColor='#007a88'" onblur="this.style.borderColor='#d0d5de'"/>
+                style="width:100%;background:var(--console);border:1px solid var(--bhi);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--white);font-family:var(--ff);outline:none;transition:border-color .15s"
+                onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--bhi)'"/>
               <span data-fs-error="name" style="font-size:11px;color:#ff6b7a;margin-top:4px;display:block"></span>
             </div>
             <div>
               <label style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:6px">Company</label>
               <input type="text" name="company"
-                style="width:100%;background:#fff;border:1.5px solid var(--border);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--text2);font-family:var(--ff);outline:none;transition:border-color .15s"
-                onfocus="this.style.borderColor='#007a88'" onblur="this.style.borderColor='#d0d5de'"/>
+                style="width:100%;background:var(--console);border:1px solid var(--bhi);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--white);font-family:var(--ff);outline:none;transition:border-color .15s"
+                onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--bhi)'"/>
             </div>
           </div>
 
           <div>
             <label style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:6px">Email *</label>
             <input type="email" name="email" required data-fs-field
-              style="width:100%;background:#fff;border:1.5px solid var(--border);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--text2);font-family:var(--ff);outline:none;transition:border-color .15s"
-              onfocus="this.style.borderColor='#007a88'" onblur="this.style.borderColor='#d0d5de'"/>
+              style="width:100%;background:var(--console);border:1px solid var(--bhi);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--white);font-family:var(--ff);outline:none;transition:border-color .15s"
+              onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--bhi)'"/>
             <span data-fs-error="email" style="font-size:11px;color:#ff6b7a;margin-top:4px;display:block"></span>
           </div>
 
@@ -718,8 +735,8 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
             <label style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:6px">Message *</label>
             <textarea name="message" required data-fs-field rows="4"
               placeholder="Tell us about your crane application, what you're trying to achieve, or any questions you have..."
-              style="width:100%;background:#fff;border:1.5px solid var(--border);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--text2);font-family:var(--ff);outline:none;resize:vertical;transition:border-color .15s;min-height:100px"
-              onfocus="this.style.borderColor='#007a88'" onblur="this.style.borderColor='#d0d5de'"></textarea>
+              style="width:100%;background:var(--console);border:1px solid var(--bhi);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--white);font-family:var(--ff);outline:none;resize:vertical;transition:border-color .15s;min-height:100px"
+              onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--bhi)'"></textarea>
             <span data-fs-error="message" style="font-size:11px;color:#ff6b7a;margin-top:4px;display:block"></span>
           </div>
 
@@ -727,7 +744,7 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
           <input type="text" name="_gotcha" style="display:none"/>
 
           <button type="submit" data-fs-submit-btn
-            style="background:var(--brand);color:#fff;font-family:var(--ff);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:14px 28px;border:none;border-radius:2px;cursor:pointer;transition:background .15s;text-align:center"
+            style="background:var(--brand);color:var(--void);font-family:var(--ff);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:14px 28px;border:none;border-radius:2px;cursor:pointer;transition:background .15s;text-align:center"
             onmouseover="this.style.background='var(--brand-hi)'" onmouseout="this.style.background='var(--brand)'">
             Send Message
           </button>

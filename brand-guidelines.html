@@ -8,40 +8,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 :root{
-  --void:#020406;--hull:#07101a;--panel:#0b1722;--console:#0e1d2c;
-  --border:#162840;--bhi:#204060;--muted:#3a5a78;--mid:#628098;
-  --steel:#92b0c4;--bright:#c4d8e8;--white:#e4f0f8;
-  --brand:#008B9A;--radar:#4ccc80;
+  /* Brand guidelines page uses dark theme intentionally for readability of colour swatches */
+  --bg:#ffffff;--bg2:#f4f5f7;
+  --border:#e2e5ea;--border2:#d0d5de;
+  --text:#1a2332;--text2:#3d4f63;--muted:#6b7f96;--dim:#9aaabb;
+  --brand:#007a88;--brand-hi:#008B9A;--brand-bg:#edf7f8;
   --ff:'Open Sans',sans-serif;--mono:'Share Tech Mono',monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--void);color:var(--steel);font-family:var(--ff);font-size:14px;line-height:1.75}
+body{background:var(--bg2);color:var(--text2);font-family:var(--ff);font-size:14px;line-height:1.75}
 a{color:var(--brand);text-decoration:none}
 a:hover{color:var(--radar)}
 
-.nav{position:fixed;top:0;left:0;right:0;height:52px;background:rgba(2,4,6,.96);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
+.nav{position:fixed;top:0;left:0;right:0;height:52px;background:rgba(255,255,255,.97);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--border);box-shadow:0 1px 8px rgba(0,0,0,.06);
   display:flex;align-items:center;justify-content:space-between;padding:0 48px;z-index:100}
 .nav-logo{font-size:18px;line-height:1}
-.nav-logo .c{font-weight:300;color:var(--bright)}
+.nav-logo .c{font-weight:300;color:var(--text)}
 .nav-logo .iq{font-weight:600;color:var(--brand)}
 .nav-tag{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
 
 .wrap{max-width:900px;margin:0 auto;padding:88px 48px 80px}
 
 /* Heading styles */
-h1{font-size:32px;font-weight:600;color:var(--white);letter-spacing:-.02em;margin-bottom:8px}
+h1{font-size:32px;font-weight:600;color:var(--text);letter-spacing:-.02em;margin-bottom:8px}
 h2{font-size:11px;font-family:var(--mono);letter-spacing:.22em;color:var(--brand);
   text-transform:uppercase;margin:48px 0 20px;display:flex;align-items:center;gap:10px}
 h2::before{content:'';width:16px;height:1px;background:var(--brand);flex-shrink:0}
-h3{font-size:15px;font-weight:600;color:var(--bright);margin:24px 0 10px}
-p{color:var(--mid);margin-bottom:12px;line-height:1.8}
+h3{font-size:15px;font-weight:600;color:var(--text);margin:24px 0 10px}
+p{color:var(--muted);margin-bottom:12px;line-height:1.8}
 ul,ol{padding-left:20px;margin-bottom:12px}
-li{color:var(--mid);margin-bottom:4px;line-height:1.7}
-li strong{color:var(--steel)}
-code{font-family:var(--mono);font-size:12px;background:var(--console);
+li{color:var(--muted);margin-bottom:4px;line-height:1.7}
+li strong{color:var(--text2)}
+code{font-family:var(--mono);font-size:12px;background:var(--bg2);
   border:1px solid var(--border);padding:2px 7px;border-radius:2px;color:var(--brand)}
-pre{background:var(--console);border:1px solid var(--border);border-radius:3px;
+pre{background:var(--bg2);border:1px solid var(--border);border-radius:3px;
   padding:16px 20px;font-family:var(--mono);font-size:12px;color:var(--brand);
   margin-bottom:16px;overflow-x:auto;line-height:1.7}
 
@@ -49,8 +50,8 @@ pre{background:var(--console);border:1px solid var(--border);border-radius:3px;
 table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13px}
 th{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted);border-bottom:1px solid var(--border);padding:8px 12px;text-align:left;font-weight:400}
-td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--mid);vertical-align:top}
-td:first-child{color:var(--steel);font-weight:600}
+td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top}
+td:first-child{color:var(--text2);font-weight:600}
 tr:last-child td{border:none}
 
 /* Colour swatches */
@@ -60,10 +61,10 @@ tr:last-child td{border:none}
 .swatch-hex{font-family:var(--mono);font-size:11px;opacity:.7}
 
 /* Wordmark demo */
-.wm-demo{background:var(--hull);border:1px solid var(--border);border-radius:3px;
+.wm-demo{background:#fff;border:1px solid var(--border);border-radius:3px;
   padding:24px 32px;margin-bottom:12px;display:inline-flex;gap:32px;align-items:center}
 .wm-dark{font-family:var(--ff);font-size:36px;line-height:1}
-.wm-dark .c{font-weight:300;color:var(--bright)}
+.wm-dark .c{font-weight:300;color:var(--text)}
 .wm-dark .iq{font-weight:600;color:var(--brand)}
 .wm-light-bg{background:#f4f5f7;border-radius:2px;padding:12px 20px}
 .wm-light{font-family:var(--ff);font-size:36px;line-height:1}
@@ -72,29 +73,29 @@ tr:last-child td{border:none}
 
 /* Product pills */
 .products{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:20px}
-.prod-pill{background:var(--panel);border-top:3px solid;padding:10px 14px}
+.prod-pill{background:#fff;border-top:3px solid;padding:10px 14px}
 .prod-pill-name{font-size:13px;font-weight:600}
 .prod-pill-name .c{font-weight:300;color:var(--muted)}
 .prod-pill-code{font-family:var(--mono);font-size:9px;letter-spacing:.1em;
   color:var(--muted);text-transform:uppercase;margin-top:2px}
 
 /* Diagram */
-.diagram{background:var(--console);border:1px solid var(--border);border-radius:3px;
+.diagram{background:var(--bg2);border:1px solid var(--border);border-radius:3px;
   padding:20px 24px;margin-bottom:16px;display:flex;align-items:center;gap:0;flex-wrap:wrap}
-.diag-node{background:var(--panel);border:1px solid var(--border);border-radius:3px;
+.diag-node{background:#fff;border:1px solid var(--border);border-radius:3px;
   padding:10px 14px;text-align:center;flex:1;min-width:120px}
 .diag-node.hl{background:#071a15;border:1.5px solid var(--brand)}
 .diag-node-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:var(--muted);
   text-transform:uppercase;margin-bottom:2px}
 .diag-node.hl .diag-node-lbl{color:var(--brand)}
-.diag-node-name{font-size:13px;font-weight:600;color:var(--bright)}
+.diag-node-name{font-size:13px;font-weight:600;color:var(--text)}
 .diag-node.hl .diag-node-name{color:var(--brand)}
 .diag-arrow{color:var(--border);font-size:18px;padding:0 8px;flex-shrink:0}
 
 /* Callout */
-.callout{background:var(--hull);border-left:3px solid var(--brand);
+.callout{background:#fff;border-left:3px solid var(--brand);
   padding:14px 18px;border-radius:0 3px 3px 0;margin-bottom:16px}
-.callout p{margin:0;color:var(--steel)}
+.callout p{margin:0;color:var(--text2)}
 
 /* Version tag */
 .version{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);
@@ -112,11 +113,13 @@ tr:last-child td{border:none}
 
   <div class="version">Version 1.0 · A product of Pointnode Ltd</div>
   <h1>craneIQ Brand Guidelines</h1>
-  <p style="font-size:16px;color:var(--steel);margin-bottom:8px">Internal reference for consistent use of the craneIQ brand across all materials.</p>
+  <div style="background:#1a8c4e;color:#fff;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border-radius:2px;display:inline-block;margin-bottom:20px">Active theme: Light · Updated April 2025</div>
+  <p style="font-size:16px;color:var(--text2);margin-bottom:8px">Internal reference for consistent use of the craneIQ brand across all materials.</p>
   <p style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">This page is not indexed. Share the URL directly: craneiq.co.uk/brand-guidelines.html</p>
 
   <!-- BRAND OVERVIEW -->
   <h2>Brand Overview</h2>
+  <p style="background:#fff;border:1px solid var(--border);border-left:3px solid var(--brand);padding:12px 16px;border-radius:0 3px 3px 0;margin-bottom:16px;font-size:12px">The website now uses a <strong style="color:var(--text)">light theme</strong> as the primary presentation. Dark theme is retained for the brochure, footer, and print materials. Both palettes are documented below.</p>
   <div class="callout"><p>"Complete crane intelligence — on any crane, from any manufacturer."</p></div>
   <p>craneIQ is an overhead crane technology platform — a suite of products that sits alongside existing crane controls to add intelligence, safety and monitoring. Engineered in the West Midlands, UK. Installed worldwide.</p>
   <ul>
@@ -149,7 +152,7 @@ tr:last-child td{border:none}
   <h2>Colour Palette</h2>
   <h3>Core Dark Theme</h3>
   <div class="swatches">
-    <div class="swatch" style="background:#020406;border:1px solid #162840"><div class="swatch-name" style="color:#e4f0f8">Void</div><div class="swatch-hex" style="color:#628098">#020406</div></div>
+    <div class="swatch" style="background:var(--text);border:1px solid #162840"><div class="swatch-name" style="color:#e4f0f8">Void</div><div class="swatch-hex" style="color:#628098">#020406</div></div>
     <div class="swatch" style="background:#07101a;border:1px solid #162840"><div class="swatch-name" style="color:#e4f0f8">Hull</div><div class="swatch-hex" style="color:#628098">#07101a</div></div>
     <div class="swatch" style="background:#0b1722;border:1px solid #162840"><div class="swatch-name" style="color:#e4f0f8">Panel</div><div class="swatch-hex" style="color:#628098">#0b1722</div></div>
     <div class="swatch" style="background:#0e1d2c;border:1px solid #162840"><div class="swatch-name" style="color:#e4f0f8">Console</div><div class="swatch-hex" style="color:#628098">#0e1d2c</div></div>

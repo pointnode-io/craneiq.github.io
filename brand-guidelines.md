@@ -6,6 +6,9 @@ A product of Pointnode Ltd, West Midlands, UK
 
 ## 1. Brand Overview
 
+**Active theme:** Light (as of April 2025 — switched from dark based on user readability feedback)
+
+
 **craneIQ** is an overhead crane technology platform — a suite of products that sits alongside existing crane controls to add intelligence, safety and monitoring. It is engineered in the West Midlands, UK and installed worldwide.
 
 **Core brand positioning:**
@@ -33,18 +36,19 @@ The craneIQ wordmark is always written as two parts, no space:
 - Never write "CraneIQ", "Crane IQ", "craneiq" or "CRANEIQ"
 - Always `crane` + `IQ` — lowercase crane, uppercase IQ
 - On dark backgrounds: `crane` in `#c4d8e8` (bright), `IQ` in `#008B9A`
-- On light backgrounds: `crane` in `#9aaabb` (muted), `IQ` in `#008B9A`
+- On light backgrounds: `crane` in `#6b7f96` (muted grey), `IQ` in `#007a88` (deeper teal)
 - In body copy references: write `craneIQ` (no special styling needed)
 
 ---
 
 ## 3. Colour Palette
 
-### Core Palette (Dark Theme — Primary)
+### Light Theme (Primary — active)
 
 | Name | Hex | Usage |
 |------|-----|-------|
-| Void | `#020406` | Page background, header/footer backgrounds |
+| Background | `#ffffff` | Page background — pure white |
+| Surface | `#f4f5f7` | Section backgrounds |
 | Hull | `#07101a` | Section backgrounds (intro bands, dark sections) |
 | Panel | `#0b1722` | Card backgrounds |
 | Console | `#0e1d2c` | Secondary card backgrounds |
@@ -60,7 +64,8 @@ The craneIQ wordmark is always written as two parts, no space:
 
 | Name | Hex | Usage |
 |------|-----|-------|
-| Brand Teal | `#008B9A` | Primary brand colour — craneIQ wordmark IQ, borders, CTAs, section labels |
+| Brand Teal (dark bg) | `#008B9A` | Use on dark backgrounds (brochure, footer) |
+| Brand Teal (light bg) | `#007a88` | Use on light backgrounds (website) — slightly deeper for contrast |
 | Brand Teal Hi | `#00a8ba` | Hover states |
 | Brand Teal Lo | `#005f6b` | Pressed states |
 | Radar Green | `#4ccc80` | Success states, positive indicators, live/active status |
@@ -80,16 +85,18 @@ Each craneIQ product has a dedicated accent colour used for its top border, name
 | craneIQ Zoning | CIQ-ZON | `#cc3344` |
 | craneIQ LoadTrack | CIQ-LTK | `#cc9900` |
 
-### Light Theme (Secondary — print/brochure)
+### Dark Theme (Available — brochure/print)
 
 | Name | Hex | Usage |
 |------|-----|-------|
-| Background | `#f4f5f7` | Page/section background |
-| Surface | `#ffffff` | Card backgrounds |
-| Border | `#e2e5ea` | Borders |
-| Text Primary | `#1a2332` | Headings |
-| Text Secondary | `#6b7f96` | Body copy |
-| Text Muted | `#9aaabb` | Labels, secondary info |
+| Background | `#f4f5f7` | Page background — warm off-white |
+| Surface | `#ffffff` | Card/panel backgrounds |
+| Deep | `#eef0f3` | Secondary section background |
+| Border | `#dde1e8` | Borders, dividers |
+| Text Primary | `#1a2a38` | Headings, strong text |
+| Text Body | `#4d6070` | Body copy |
+| Text Muted | `#6b7f96` | Labels, secondary info |
+| Brand Teal (light) | `#007a88` | Slightly deeper on white for contrast |
 
 ---
 
@@ -216,6 +223,9 @@ The canonical signal path diagram is:
 ---
 
 ## 10. Digital Presence
+
+**Website theme:** Light — warm off-white backgrounds, dark navy text, teal brand accents. Dark footer retained for grounding. Switched from dark theme April 2025 based on readability feedback.
+
 
 | Channel | URL / Handle |
 |---------|-------------|
