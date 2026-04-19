@@ -345,7 +345,7 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
       <a href="#contact" class="btn btn-secondary">Contact Us</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">8</div><div class="stat-lbl">Products</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-lbl">Products</div></div>
       <div class="stat"><div class="stat-num">Any</div><div class="stat-lbl">Crane — any manufacturer</div></div>
       <div class="stat"><div class="stat-num">No</div><div class="stat-lbl">Proprietary lock-in</div></div>
       <div class="stat"><div class="stat-num">Worldwide</div><div class="stat-lbl">UK engineered · globally installed</div></div>
@@ -357,7 +357,7 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
 <section id="products" style="background:var(--bg2)">
   <div class="section-inner">
     <div class="sec-tag">Product Family</div>
-    <div class="sec-title">Eight products.<br>One intelligent platform.</div>
+    <div class="sec-title">Nine products.<br>One intelligent platform.</div>
     <div class="sec-sub">Each craneIQ product sits alongside your existing crane controls. Start with one, add more as you need them. All work together as part of the craneIQ platform.</div>
 
 
@@ -711,6 +711,7 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
               <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer"><input type="checkbox" name="interest" value="Antisway" style="accent-color:var(--brand)"> Antisway</label>
               <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer"><input type="checkbox" name="interest" value="Zoning" style="accent-color:var(--brand)"> Zoning</label>
               <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer"><input type="checkbox" name="interest" value="LoadTrack" style="accent-color:var(--brand)"> LoadTrack</label>
+              <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer"><input type="checkbox" name="interest" value="Guard" style="accent-color:var(--brand)"> Guard</label>
             </div>
           </div>
 
@@ -766,6 +767,7 @@ input::placeholder,textarea::placeholder{color:var(--dim)!important}
     <a href="datasheets/craneiq-antisway.html">craneIQ Antisway</a>
     <a href="datasheets/craneiq-zoning.html">craneIQ Zoning</a>
     <a href="datasheets/craneiq-loadtrack.html">craneIQ LoadTrack</a>
+      <a href="datasheets/craneiq-guard.html">craneIQ Guard</a>
   </div>
   <div class="footer-col">
     <h4>Company</h4>
@@ -816,10 +818,13 @@ const products = [
   { id:'loadtrack', name:'LoadTrack', accent:'#cc9900', icon:'loadtrack',
     tagline:'Weighs and logs every lift — wireless displays anywhere, process cycles recorded.',
     features:['Every lift weighed & recorded','Wireless displays up to 100m','Galvanizing dip cycle logging','Waste to energy cycle tracking','Replaces manual weight records'] },
+  { id:'guard', name:'Guard', accent:'#d45800', icon:'guard',
+    tagline:'Pre-use inspection that physically prevents crane operation until every check passes.',
+    features:['Crane stays locked until check passes','Blocks untrained or unassigned operators','Engineer lockout enforced by crane itself','Full LOLER audit trail automatically','Works on any crane — commissions in a shift'] },
 ];
 
 const codes = {core:'CIQ-COR',automation:'CIQ-AUT',monitoring:'CIQ-MON',cloud:'CIQ-CLD',
-  vision:'CIQ-VIS',antisway:'CIQ-ASW',zoning:'CIQ-ZON',loadtrack:'CIQ-LTK'};
+  vision:'CIQ-VIS',antisway:'CIQ-ASW',zoning:'CIQ-ZON',loadtrack:'CIQ-LTK',guard:'CIQ-GRD'};
 
 const icons = {
   core:`<rect x="4" y="14" width="24" height="12" rx="2" stroke="{c}" stroke-width="1.4" fill="none"/>
@@ -856,6 +861,8 @@ const icons = {
     <path d="M4 9 C4 9,2 16,7 18 C11 20,13 18,13 18 C13 18,15 15,13 9" stroke="{c}" stroke-width="1.2" fill="none" opacity=".8"/>
     <path d="M28 9 C28 9,30 16,25 18 C21 20,19 18,19 18 C19 18,17 15,19 9" stroke="{c}" stroke-width="1.2" fill="none" opacity=".8"/>
     <circle cx="20" cy="25" r="1.2" fill="{c}"/>`,
+  guard:`<path d="M16 3 L27 7 L27 16 C27 21.5 22 26 16 29 C10 26 5 21.5 5 16 L5 7 Z" stroke="{c}" stroke-width="1.4" fill="{c}0f" stroke-linejoin="round"/>
+    <polyline points="11,16 14.5,19.5 21,13" stroke="{c}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
 };
 
 const pg = document.getElementById('prodGrid');
