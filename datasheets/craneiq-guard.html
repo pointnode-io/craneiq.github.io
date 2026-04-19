@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="craneIQ Monitoring — standalone crane condition monitoring. Load spectrum, DWP, vibration, hours run. No control system changes. Worldwide.">
-<title>craneIQ Monitoring — Keep your cranes running — catch problems before they become failures</title>
+<meta name="description" content="craneIQ Guard — Pre-use inspection that physically prevents crane operation until every check passes. LOLER compliant. Any crane, any manufacturer.">
+<title>craneIQ Guard — Pre-use inspection enforcement</title>
 <link rel="icon" type="image/svg+xml" href="../assets/logos/craneiq-monogram.svg">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
@@ -213,6 +213,21 @@ footer a:hover{color:var(--brand-hi)}
   footer{padding:24px 20px}
   #sg{grid-template-columns:repeat(4,1fr)}
 }
+
+/* Guard accent override */
+.hero{--accent:#d45800}
+.hero::before{background:#d45800}
+.hero-wm .iq{color:#d45800}
+.hero-code{color:#d45800;border-color:#d45800}
+.sec-lbl{color:#d45800}
+.sec-lbl::before{background:#d45800}
+.diff-banner{border-color:#d45800;border-left-color:#d45800}
+.diff-banner-icon{color:#d45800}
+.diff-banner-text strong{color:#1a2332}
+.aud-cell{border-top-color:#d45800}
+.cta-bar{background:#d45800}
+.btn-primary{background:#fff;color:#d45800}
+.hstat-val{color:#1a2332}
 </style>
 </head>
 <body>
@@ -226,16 +241,21 @@ footer a:hover{color:var(--brand-hi)}
     <div class="hero-top">
       <div>
         <div class="hero-wm">
-          <span class="crane">crane</span><span class="iq">IQ</span><span class="pname">Monitoring</span>
+          <span class="crane">crane</span><span class="iq">IQ</span><span class="pname"> Guard</span>
         </div>
-        <div class="hero-tagline">Keep your cranes running — catch problems before they become failures</div>
+        <div class="hero-tagline">Pre-use inspection that physically prevents crane operation until every check passes</div>
       </div>
       <div class="hero-meta">
-        <span class="hero-code">CIQ-MON</span>
-        <span class="hero-model">Model CIQ-M1 &nbsp;·&nbsp; Worldwide</span>
+        <span class="hero-code">CIQ-GRD</span>
+        <span class="hero-model">Any crane · Any manufacturer · Worldwide</span>
       </div>
     </div>
-    <div class="hero-stats"><div class="hstat"><div class="hstat-val">Standalone</div><div class="hstat-lbl">No control system changes</div></div><div class="hstat"><div class="hstat-val">Early warning</div><div class="hstat-lbl">Diagnose before failure</div></div><div class="hstat"><div class="hstat-val">32 GB</div><div class="hstat-lbl">Onboard storage</div></div><div class="hstat"><div class="hstat-val">Any crane</div><div class="hstat-lbl">Retrofit instantly</div></div></div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-val">Locked</div><div class="hstat-lbl">Until check passes</div></div>
+      <div class="hstat"><div class="hstat-val">LOLER</div><div class="hstat-lbl">Full audit trail</div></div>
+      <div class="hstat"><div class="hstat-val">Any crane</div><div class="hstat-lbl">Any manufacturer</div></div>
+      <div class="hstat"><div class="hstat-val">1 shift</div><div class="hstat-lbl">To commission</div></div>
+    </div>
   </div>
 </div>
 
@@ -243,58 +263,92 @@ footer a:hover{color:var(--brand-hi)}
 
   <!-- Differentiator banner -->
   <div class="diff-banner">
-    <div class="diff-banner-icon">⊕</div>
+    <div class="diff-banner-icon">🔒</div>
     <div class="diff-banner-text">
-      <strong>Your crane's odometer — fitted to any crane, from any manufacturer.</strong>
-      Stands completely alone alongside existing controls. Nothing touched, nothing changed, zero risk.
-      Fits any overhead crane regardless of age, make or control system.
+      <strong>Other pre-use check apps record that an inspection happened. craneIQ Guard makes sure one actually does.</strong>
+      The crane is physically locked until a passing inspection is recorded. Skipping the check is not a policy breach — it is impossible.
     </div>
   </div>
 
   <!-- Overview -->
   <div class="sec-lbl">Overview</div>
-  <p class="overview">You would never run a fleet of vehicles with no odometers, no service indicators, and no way of knowing when something was wearing out. Yet most overhead cranes run exactly like that — no record of how many lifts they've made, no visibility of how much design life they've used, no early warning when something is changing. <strong>craneIQ Monitoring fixes that.</strong> It fits alongside any existing crane control system without touching it — no rewiring, no changes, zero risk to existing operations. From the moment it's switched on it starts recording: every lift logged, design life counted down from 100% based on actual usage, brake condition tracked, vibration trended. When something starts to change, you know about it before it becomes a breakdown. The data is yours — accessible on-site or via craneIQ Cloud — in open formats your engineers and third-party maintenance teams can work with directly.
+  <p class="overview">Existing pre-use check apps are compliance recording tools. They digitise the paper checklist, timestamp it, and store the evidence. But if an operator skips the check or waves through a defect, the crane can still be used. The app records that it happened — it doesn't stop it happening. <strong>craneIQ Guard is a safety enforcement system.</strong> Operators tap their phone on an NFC tag mounted on the crane, complete a guided inspection, and the crane only unlocks if every check passes. If training has expired, if the operator isn't assigned to that crane, if an engineer has placed a lockout, or if any inspection item fails — the crane stays locked. It sits alongside your existing controls. Nothing is replaced. The interlock wires in series with the existing E-stop chain, which means Guard can only inhibit operation — it can never cause unintended motion. Commissions in a single shift on any overhead crane, any manufacturer.</p>
 
-  <!-- DWP explanation box -->
-  <div style="background:var(--bg2);border:1px solid var(--bhi);border-radius:3px;padding:20px 24px;margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
-    <div>
-      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:#8855dd;text-transform:uppercase;margin-bottom:8px">Design Working Period (DWP)</div>
-      <div style="font-size:12.5px;color:var(--text2);line-height:1.8">DWP is the calculated remaining design life of your crane's critical components — hoist, brake, motor. It starts at 100% when new and counts down based on actual usage. craneIQ Monitoring tracks it continuously, so you know when components are approaching their service interval — before they fail.</div>
+  <!-- The difference table -->
+  <div class="sec-lbl" style="margin-bottom:14px">What makes Guard different</div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-bottom:24px">
+    <table class="spec-table" style="margin-bottom:0">
+      <thead>
+        <tr>
+          <th style="width:42%">Capability</th>
+          <th style="color:var(--muted)">Existing check apps</th>
+          <th style="color:#d45800">craneIQ Guard</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="spec-lbl">Records the check happened</td><td class="spec-val" style="color:var(--muted)">Yes</td><td class="spec-val" style="color:#d45800;font-weight:600">Yes</td></tr>
+        <tr><td class="spec-lbl">Stops the crane if check is skipped</td><td class="spec-val" style="color:var(--muted)">No</td><td class="spec-val" style="color:#d45800;font-weight:600">Yes</td></tr>
+        <tr><td class="spec-lbl">Stops the crane if check fails</td><td class="spec-val" style="color:var(--muted)">No</td><td class="spec-val" style="color:#d45800;font-weight:600">Yes</td></tr>
+        <tr><td class="spec-lbl">Blocks untrained operators</td><td class="spec-val" style="color:var(--muted)">No</td><td class="spec-val" style="color:#d45800;font-weight:600">Yes</td></tr>
+        <tr><td class="spec-lbl">Enforces engineer lockout/tagout</td><td class="spec-val" style="color:var(--muted)">No</td><td class="spec-val" style="color:#d45800;font-weight:600">Yes</td></tr>
+        <tr><td class="spec-lbl">Full LOLER audit trail</td><td class="spec-val" style="color:var(--muted)">Yes</td><td class="spec-val" style="color:#d45800;font-weight:600">Yes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- How it works — operator journey -->
+  <div class="sec-lbl" style="margin-bottom:14px">How it works — operator journey</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-bottom:24px">
+    <div style="background:#fff;padding:18px 16px">
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:#d45800;text-transform:uppercase;margin-bottom:6px">01 — Sign in</div>
+      <div style="font-size:12px;color:var(--text2);font-weight:600;margin-bottom:4px">Open the app</div>
+      <div style="font-size:11.5px;color:var(--muted);line-height:1.75">Operator logs in with their credentials. Training certifications are checked automatically at this point.</div>
     </div>
-    <div>
-      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:#8855dd;text-transform:uppercase;margin-bottom:8px">Why it matters</div>
-      <div style="font-size:12.5px;color:var(--text2);line-height:1.8">Without DWP tracking, maintenance is either done too early — wasting money — or too late, risking unexpected failure. With craneIQ Monitoring, maintenance intervals are driven by actual crane usage rather than calendar dates or guesswork. Plan maintenance. Don't react to breakdowns.</div>
+    <div style="background:var(--bg2);padding:18px 16px">
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:#d45800;text-transform:uppercase;margin-bottom:6px">02 — Tap</div>
+      <div style="font-size:12px;color:var(--text2);font-weight:600;margin-bottom:4px">NFC tag on crane</div>
+      <div style="font-size:11.5px;color:var(--muted);line-height:1.75">A single factory-locked NFC tag on the pendant identifies the crane. Three gates checked: lockout status, operator assignment, valid certifications.</div>
+    </div>
+    <div style="background:#fff;padding:18px 16px">
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:#d45800;text-transform:uppercase;margin-bottom:6px">03 — Inspect</div>
+      <div style="font-size:12px;color:var(--text2);font-weight:600;margin-bottom:4px">Complete checklist</div>
+      <div style="font-size:11.5px;color:var(--muted);line-height:1.75">Guided inspection covers all statutory items. Photos and voice notes can be attached. Defects require a photo — no defect without evidence.</div>
+    </div>
+    <div style="background:var(--bg2);padding:18px 16px">
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:#d45800;text-transform:uppercase;margin-bottom:6px">04 — Unlock</div>
+      <div style="font-size:12px;color:var(--text2);font-weight:600;margin-bottom:4px">Crane releases</div>
+      <div style="font-size:11.5px;color:var(--muted);line-height:1.75">If every check passes the app sends a signed unlock command. The crane acknowledges, the interlock releases. If any check fails, the crane stays locked and a defect ticket is raised.</div>
     </div>
   </div>
 
   <!-- Two col -->
   <div class="two-col">
     <div class="col">
-      <div class="sec-lbl">What it does for you</div>
+      <div class="sec-lbl">Core features</div>
       <ul class="feat-list">
-        <li>Catch problems early — before production stops
-          <span>Vibration trends and load data reveal developing mechanical issues weeks before they cause unplanned downtime</span>
+        <li>Hard enforcement — crane locked until check passes
+          <span>The interlock wires in series with the existing E-stop chain. The crane is physically prevented from operating until a passing inspection is recorded. Skipping is impossible.</span>
         </li>
-        <li>DWP tracked continuously from day one
-          <span>Design life counts down from 100% based on actual usage — know exactly when hoist, brake and motor components are due for service</span>
+        <li>Training verification — expired certs block unlock
+          <span>Each crane requires specific certifications. Expired or missing training blocks the unlock automatically — no manual gatekeeping, no relying on supervisors to remember.</span>
         </li>
-        <li>Every lift recorded automatically
-          <span>Full load spectrum history — what was lifted, how heavy, how many times. No manual logging, no gaps in the record</span>
+        <li>Engineer lockout/tagout — honoured by the crane itself
+          <span>Engineers isolate a crane from the admin console. Only the issuer or a supervisor can clear. The lockout is honoured by the crane — not just displayed in the app.</span>
         </li>
-        <li>Make data-driven maintenance decisions
-          <span>Replace speculation with facts. Know the condition of every monitored crane before deciding what action to take</span>
+        <li>Automatic defect tickets with photo evidence
+          <span>A failed inspection raises a ticket with photos, voice notes and operator context. Routed to supervisors and maintenance. Other operators scanning the same crane see the open defect.</span>
         </li>
-        <li>Hours run and total operation count logged
-          <span>Complete usage history for maintenance planning, insurance records and statutory compliance</span>
+        <li>Offline operation — no network required to inspect
+          <span>Inspections can be completed without connectivity. The signed submission queues locally and delivers when connectivity returns. The crane stays locked until it does — no optimistic unlock.</span>
         </li>
-        <li>Zero risk to existing operations
-          <span>Completely standalone — watches and records without touching the crane controls. No changes to existing systems</span>
+        <li>Operator assignments — crane-specific access control
+          <span>Site managers assign operators to specific cranes. Scanning a crane outside the assignment is rejected — even with valid training.</span>
         </li>
-        <li>View data without accessing the crane
-          <span>All monitoring data available remotely via craneIQ Cloud — no need to climb to the crane or access high-voltage panels to check status</span>
+        <li>Configurable checklists per crane or company
+          <span>Standard LOLER template works out of the box. Customise items, requirements, which need photos, which require specific certifications — per company or per crane.</span>
         </li>
-        <li>Works on any crane from any manufacturer
-          <span>No dependency on the crane OEM — fits any overhead crane regardless of who made it or how old it is</span>
+        <li>Haptic feedback — designed for gloved hands
+          <span>Tactile confirmation on every action. Built for noisy, gloved industrial environments where screens are hard to read.</span>
         </li>
       </ul>
     </div>
@@ -302,25 +356,26 @@ footer a:hover{color:var(--brand-hi)}
       <div class="sec-lbl">Compatibility &amp; installation</div>
       <table class="spec-table">
         <tr><td class="spec-lbl">Works on</td><td class="spec-val">Any overhead crane</td></tr>
-        <tr><td class="spec-lbl">Installation</td><td class="spec-val">Completely standalone</td></tr>
+        <tr><td class="spec-lbl">New or retrofit</td><td class="spec-val">Both</td></tr>
+        <tr><td class="spec-lbl">Commissioning</td><td class="spec-val">Single shift</td></tr>
+        <tr><td class="spec-lbl">Interlock method</td><td class="spec-val">Series with existing E-stop chain</td></tr>
         <tr><td class="spec-lbl">Existing controls</td><td class="spec-val">Untouched — zero risk</td></tr>
-        <tr><td class="spec-lbl">Fitted by</td><td class="spec-val">Qualified electrician</td></tr>
-        <tr><td class="spec-lbl">Lock-in</td><td class="spec-val">None — open data formats</td></tr>
-        <tr><td class="spec-lbl">Power supply</td><td class="spec-val">12–24V DC</td></tr>
+        <tr><td class="spec-lbl">Operator device</td><td class="spec-val">iPhone 7+ (NFC-capable)</td></tr>
+        <tr><td class="spec-lbl">Connectivity</td><td class="spec-val">Offline-capable</td></tr>
         <tr><td class="spec-lbl">Available</td><td class="spec-val">Worldwide</td></tr>
       </table>
-      <div class="sec-lbl" style="margin-top:24px">What is monitored</div>
+      <div class="sec-lbl" style="margin-top:24px">Compliance</div>
       <table class="spec-table">
-        <tr><td class="spec-lbl">Hoist DWP%</td><td class="spec-val">From 100% — load cycles</td></tr>
-        <tr><td class="spec-lbl">Brake DWP%</td><td class="spec-val">Starts &amp; E-stops based</td></tr>
-        <tr><td class="spec-lbl">Controls DWP%</td><td class="spec-val">Contactor &amp; relay life</td></tr>
-        <tr><td class="spec-lbl">Hours run</td><td class="spec-val">Continuous logging</td></tr>
-        <tr><td class="spec-lbl">Total lifts</td><td class="spec-val">Every cycle counted</td></tr>
-        <tr><td class="spec-lbl">Overloads &amp; E-stops</td><td class="spec-val">Incidents logged</td></tr>
-        <tr><td class="spec-lbl">Vibration</td><td class="spec-val">Mechanical health trending</td></tr>
+        <tr><td class="spec-lbl">LOLER 1998</td><td class="spec-val">Full pre-use inspection records with photo evidence and operator context</td></tr>
+        <tr><td class="spec-lbl">PUWER 1998</td><td class="spec-val">Only trained, assigned operators can unlock. Equipment with open defects stays locked.</td></tr>
+        <tr><td class="spec-lbl">LOTO</td><td class="spec-val">Engineer lockouts honoured by the crane itself — full audit of who applied, who cleared, and why</td></tr>
       </table>
-      <div class="certs">
-        <span class="cert">CE</span><span class="cert">UKCA</span><span class="cert">RoHS</span>
+      <div style="background:#fff8f5;border:1.5px solid #d45800;border-radius:3px;padding:14px 16px;margin-top:16px">
+        <div style="font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:#d45800;text-transform:uppercase;margin-bottom:6px">Safety principle</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7">Guard can only inhibit operation — it cannot cause unintended motion. It wires in series with the existing hardwired E-stop chain, never in place of it. A hardware E-stop always cuts power regardless of Guard's state.</div>
+      </div>
+      <div class="certs" style="margin-top:16px">
+        <span class="cert">CE</span><span class="cert">UKCA</span><span class="cert">RoHS</span><span class="cert">LOLER</span>
       </div>
     </div>
   </div>
@@ -329,24 +384,24 @@ footer a:hover{color:var(--brand-hi)}
   <div class="sec-lbl">Who it's for</div>
   <div class="audience-grid">
     <div class="aud-cell">
-      <div class="aud-title">Plant Managers</div>
-      <div class="aud-body">Know the condition of every crane on your floor without waiting for an annual inspection. Make decisions based on real usage data — not guesswork — and eliminate surprise breakdowns.</div>
+      <div class="aud-title">Plant Managers &amp; HSE</div>
+      <div class="aud-body">Moves pre-use checks from policy to enforcement. Measurable compliance dashboards across every crane and operator. Complete, tamper-proof audit trail for LOLER, PUWER and insurance investigations.</div>
     </div>
     <div class="aud-cell">
-      <div class="aud-title">Engineering Managers</div>
-      <div class="aud-body">Data in open formats your team can work with directly. No manufacturer login required, no proprietary portal. Integrates with your existing maintenance reporting and compliance records.</div>
+      <div class="aud-title">Engineering &amp; Maintenance</div>
+      <div class="aud-body">Defects reported with photos before maintenance gets called out. Faster diagnosis, fewer wasted trips. LOTO enforcement honoured by the crane itself — not just a sign on the pendant.</div>
     </div>
     <div class="aud-cell">
       <div class="aud-title">Crane Partners</div>
-      <div class="aud-body">Add continuous condition monitoring to any crane you supply or service — regardless of manufacturer. One product that works across your entire customer base and fleet.</div>
+      <div class="aud-body">Add enforceable pre-use inspection to any crane you supply or service — any manufacturer, any age, commissioned in a single shift. One product that works across your entire customer fleet.</div>
     </div>
   </div>
 
   <!-- CTA -->
   <div class="cta-bar">
     <div class="cta-text">
-      <strong>Talk to us about craneIQ Monitoring</strong>
-      <p>We work with plant managers, engineering teams and crane partners worldwide. Engineered in the West Midlands, UK — installed globally. Get in touch to discuss your application.</p>
+      <strong>Talk to us about craneIQ Guard</strong>
+      <p>We work with plant managers, HSE teams and crane partners worldwide. Engineered in the West Midlands, UK — installed globally. Get in touch to discuss your application.</p>
     </div>
     <div class="btn-row">
       <a href="mailto:joe@pointnode.io" class="btn-primary">Contact Us</a>
@@ -365,8 +420,8 @@ footer a:hover{color:var(--brand-hi)}
   <div class="footer-wm" style="font-family:var(--ff);font-size:16px;letter-spacing:-.01em">
     <span class="crane">crane</span><span class="iq">IQ</span>
   </div>
-  <p>Pointnode Ltd · West Midlands, UK &nbsp;·&nbsp; 
-    <a href="mailto:joe@pointnode.io">joe@pointnode.io</a> &nbsp;·&nbsp; 
+  <p>Pointnode Ltd · West Midlands, UK &nbsp;·&nbsp;
+    <a href="mailto:joe@pointnode.io">joe@pointnode.io</a> &nbsp;·&nbsp;
     <a href="../index.html">craneiq.co.uk</a>
   </p>
 </footer>
@@ -381,7 +436,6 @@ const P=[
   {id:'antisway',  a:'#cc7700',n:'Antisway',  t:'Anti-sway system'},
   {id:'zoning',    a:'#cc3344',n:'Zoning',    t:'No-fly zones'},
   {id:'loadtrack', a:'#cc9900',n:'LoadTrack', t:'Load logging'},
-  {id:'guard',     a:'#d45800',n:'Guard',     t:'Pre-use inspection'},
 ];
 const sg=document.getElementById('sg');
 P.forEach(p=>{
