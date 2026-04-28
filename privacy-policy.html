@@ -10,26 +10,25 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:var(--ff);font-size:14px;line-height:1.8;padding:0 24px 80px}
 body::before{content:'';position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),#4ccc80 60%,var(--brand));z-index:100}
-.doc{max-width:760px;margin:0 auto;padding-top:56px}
+.doc{max-width:780px;margin:0 auto;padding-top:56px}
 .wordmark{font-size:26px;letter-spacing:-.01em;line-height:1;margin-bottom:4px;text-decoration:none;display:inline-block}
-.wordmark .c{font-weight:300;color:var(--muted)}
-.wordmark .iq{font-weight:600;color:var(--brand)}
+.wordmark .c{font-weight:300;color:var(--muted)}.wordmark .iq{font-weight:600;color:var(--brand)}
 .doc-title{font-weight:600;font-size:28px;color:var(--text);margin-top:8px;letter-spacing:-.01em}
 .doc-meta{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-top:16px;margin-bottom:40px;display:flex;align-items:center;gap:10px}
 .doc-meta::before{content:'';width:20px;height:1px;background:var(--muted)}
-h2{font-weight:600;font-size:17px;color:var(--text);margin:36px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
-h3{font-weight:600;font-size:14px;color:var(--text);margin:20px 0 8px}
+h2{font-weight:600;font-size:18px;color:var(--text);margin:40px 0 12px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+h3{font-weight:600;font-size:14.5px;color:var(--text);margin:22px 0 8px}
 p{color:#2a3a4a;margin-bottom:12px}
-ul,ol{padding-left:20px;margin:8px 0 14px;color:#2a3a4a}
-li{margin-bottom:6px}
+ul,ol{padding-left:22px;margin:8px 0 14px;color:#2a3a4a}
+li{margin-bottom:7px}
 strong{color:var(--text);font-weight:600}
-.callout{background:var(--surface);border-left:3px solid var(--brand);padding:14px 18px;margin:20px 0;border-radius:0 3px 3px 0;border:1px solid var(--border);border-left-color:var(--brand)}
+.callout{background:var(--surface);border-left:3px solid var(--brand);padding:16px 20px;margin:20px 0;border-radius:0 3px 3px 0;border:1px solid var(--border);border-left-color:var(--brand)}
 .callout p{margin:0;font-size:13.5px}
 table{width:100%;border-collapse:collapse;margin:14px 0 20px;background:var(--surface);border:1px solid var(--border);border-radius:3px;overflow:hidden}
 th{background:var(--bg);text-align:left;padding:10px 14px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400;border-bottom:1px solid var(--border)}
 td{padding:11px 14px;border-bottom:1px solid var(--border);font-size:13.5px;vertical-align:top}
 tr:last-child td{border:none}
-.footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;line-height:2}
+.footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--border);font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;line-height:2}
 </style>
 </head>
 <body>
@@ -37,152 +36,175 @@ tr:last-child td{border:none}
 
 <a href="/" class="wordmark"><span class="c">crane</span><span class="iq">IQ</span></a>
 <div class="doc-title">Privacy Policy</div>
-<div class="doc-meta">Pointnode Ltd · Last updated April 2025</div>
+<div class="doc-meta">Pointnode Ltd &nbsp;·&nbsp; Last updated April 2025</div>
 
 <div class="callout">
-  <p>This Privacy Policy covers all craneIQ products and applications developed and operated by Pointnode Ltd, including the craneIQ mobile app and any associated cloud services. We handle personal data responsibly and in line with the UK GDPR and the Data Protection Act 2018.</p>
+  <p>This Privacy Policy describes how Pointnode Ltd collects, uses and protects Your personal data when You use the craneIQ application and associated services. We comply with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
 </div>
 
-<h2>1. Who We Are</h2>
-<p><strong>Pointnode Ltd</strong> is the data controller for all personal data processed through craneIQ products and services. We are based in the West Midlands, United Kingdom.</p>
-<p><strong>Contact:</strong> joe@pointnode.io · craneiq.co.uk</p>
+<h2>Interpretation and Definitions</h2>
 
-<h2>2. What craneIQ Is</h2>
-<p>craneIQ is a platform of products for overhead crane technology — including condition monitoring, safety enforcement, automation, load tracking and cloud visibility. The platform includes a mobile application, cloud dashboard and hardware installed on overhead cranes. This policy covers all of these.</p>
+<h3>Interpretation</h3>
+<p>Words with capitalised initial letters have the meanings defined below. These definitions apply whether the terms appear in singular or plural.</p>
 
-<h2>3. Data We Collect</h2>
+<h3>Definitions</h3>
+<ul>
+  <li><strong>Account</strong> means a unique account created for You to access the Service or parts of it.</li>
+  <li><strong>Application</strong> refers to the craneIQ mobile application provided by Pointnode Ltd, distributed via the Apple App Store and Apple TestFlight.</li>
+  <li><strong>Company</strong> (referred to as "the Company", "We", "Us" or "Our") refers to Pointnode Ltd, West Midlands, United Kingdom.</li>
+  <li><strong>Country</strong> refers to the United Kingdom.</li>
+  <li><strong>Device</strong> means any device used to access the Service, such as a smartphone or tablet.</li>
+  <li><strong>NFC Tag</strong> means a factory-locked Near Field Communication tag installed on a crane or crane pendant as part of the craneIQ hardware installation, used to identify the crane and initiate the inspection workflow.</li>
+  <li><strong>Personal Data</strong> means any information that relates to an identified or identifiable individual.</li>
+  <li><strong>Platform</strong> means the craneIQ hardware nodes, mobile application, HiveMQ MQTT broker and cloud backend infrastructure collectively.</li>
+  <li><strong>Service</strong> refers to the craneIQ Application and all associated products including craneIQ Guard, craneIQ Monitoring, craneIQ Core, craneIQ Cloud and all other craneIQ products provided by Pointnode Ltd.</li>
+  <li><strong>Service Provider</strong> means any third party that processes data on behalf of the Company to support the Service.</li>
+  <li><strong>Usage Data</strong> means data collected automatically through use of the Service, including operational and diagnostic data.</li>
+  <li><strong>You</strong> means the individual accessing or using the Service, or the organisation on whose behalf that individual is acting.</li>
+</ul>
+
+<h2>Collecting and Using Your Personal Data</h2>
 
 <h3>Account and Identity Data</h3>
+<p>When You register to use the Service, We may collect:</p>
 <ul>
-  <li>Name and email address</li>
+  <li>Full name and email address</li>
   <li>Job role and employer organisation</li>
-  <li>Training certifications and expiry dates (where applicable to your product)</li>
-  <li>Operator assignments — which cranes or sites you are authorised to access</li>
+  <li>Training certifications and their expiry dates (where applicable to Your role and product)</li>
+  <li>Operator assignments — which cranes or sites You are authorised to access</li>
 </ul>
 
-<h3>Operational and Inspection Data</h3>
+<h3>Inspection and Access Control Data</h3>
+<p>When You use craneIQ Guard or other inspection features, We collect:</p>
 <ul>
-  <li>Pre-use inspection records — responses, timestamps, pass/fail outcomes</li>
-  <li>Photos and voice notes attached to inspection items or defect reports</li>
-  <li>Crane unlock, lock and session records</li>
-  <li>Defect reports and their resolution status</li>
-  <li>Engineer lockout and tagout records</li>
+  <li>Pre-use inspection records — individual checklist responses, timestamps and pass/fail outcomes</li>
+  <li>Photographs and voice notes attached to inspection items or defect reports</li>
+  <li>Crane access session records — unlock events, lock events, session durations and operator identity</li>
+  <li>Defect reports, including description, photographs, timestamps and resolution status</li>
+  <li>Engineer lockout and tagout records — who applied the lockout, who cleared it and the stated reason</li>
+  <li>NFC tag scan events — crane identifier, timestamp and operator identity</li>
 </ul>
 
-<h3>Crane and Monitoring Data</h3>
+<h3>Crane Condition and Monitoring Data</h3>
+<p>Where craneIQ monitoring products are installed, We collect operational data transmitted from the crane hardware via the HiveMQ MQTT broker, including:</p>
 <ul>
-  <li>Load data — individual lift weights, load spectrum</li>
-  <li>Design working period (DWP) — hoist, brake and controls</li>
-  <li>Vibration data, motor temperatures, running hours</li>
-  <li>Starts, brakings, E-stops and over-temperature events</li>
-  <li>Crane identifier and installation details</li>
+  <li>Load data — individual lift weights and load spectrum over time</li>
+  <li>Design Working Period (DWP) — hoist, brake and controls DWP tracked from 100% based on actual usage</li>
+  <li>Vibration data, motor temperatures and running hours</li>
+  <li>Starts, brakings, emergency stops and over-temperature events</li>
+  <li>Crane identifier, hardware node version and firmware details</li>
 </ul>
 
-<h3>Device and Technical Data</h3>
+<h3>Device and Usage Data</h3>
+<p>Usage Data is collected automatically when You use the Application and may include:</p>
 <ul>
-  <li>Device type and operating system version</li>
-  <li>App version</li>
+  <li>Device type, manufacturer and operating system version</li>
+  <li>Application version and build number</li>
+  <li>IP address and network connection type</li>
+  <li>Session timestamps, app launch events and feature usage logs</li>
   <li>Crash reports and error logs</li>
-  <li>Session timestamps and connectivity status</li>
 </ul>
 
 <h3>Location Data</h3>
-<p>The app may record device location at the time an inspection is submitted, where your device permissions allow. This is associated with inspection records for audit purposes. You can manage location access in your device settings.</p>
+<p>The Application may record the location of Your Device at the time an inspection is submitted, where Your device permissions allow. Location data is associated with inspection records for audit trail purposes. You can manage location access at any time through Your Device settings. Disabling location access may reduce the completeness of the inspection audit trail.</p>
 
-<h2>4. How We Use Your Data</h2>
+<h2>Use of Your Personal Data</h2>
 
 <table>
   <thead>
-    <tr><th>Purpose</th><th>Legal basis</th></tr>
+    <tr><th>Purpose</th><th>Legal Basis</th></tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Verifying operator identity, training status and crane assignment</td>
-      <td>Legitimate interests — safety; contractual obligation</td>
-    </tr>
-    <tr>
-      <td>Recording pre-use inspection outcomes for LOLER and PUWER compliance</td>
-      <td>Legal obligation (LOLER 1998, PUWER 1998)</td>
-    </tr>
-    <tr>
-      <td>Maintaining audit trail of crane operations, inspections, defects and lockouts</td>
-      <td>Legal obligation; legitimate interests</td>
-    </tr>
-    <tr>
-      <td>Monitoring crane condition — DWP, load spectrum, vibration, running data</td>
-      <td>Contractual obligation; legitimate interests</td>
-    </tr>
-    <tr>
-      <td>Notifying supervisors and maintenance teams of defects or threshold breaches</td>
-      <td>Legitimate interests — safety and operations</td>
-    </tr>
-    <tr>
-      <td>Managing user accounts and access rights</td>
-      <td>Contractual obligation</td>
-    </tr>
-    <tr>
-      <td>Improving the platform — crash reports and usage data</td>
-      <td>Legitimate interests; consent where applicable</td>
-    </tr>
-    <tr>
-      <td>Responding to support requests</td>
-      <td>Legitimate interests; contractual obligation</td>
-    </tr>
+    <tr><td>Creating and managing Your Account and providing access to the Service</td><td>Contractual obligation; legitimate interests</td></tr>
+    <tr><td>Verifying operator identity, training status and crane assignment before permitting access</td><td>Legitimate interests — operational safety; contractual obligation</td></tr>
+    <tr><td>Recording pre-use inspection outcomes to support LOLER and PUWER compliance</td><td>Legal obligation (LOLER 1998, PUWER 1998)</td></tr>
+    <tr><td>Maintaining a complete audit trail of crane access sessions, inspections, defects and lockouts</td><td>Legal obligation; legitimate interests</td></tr>
+    <tr><td>Monitoring crane condition — DWP, load spectrum, vibration and operational data</td><td>Contractual obligation; legitimate interests</td></tr>
+    <tr><td>Notifying supervisors and maintenance teams of failed inspections, defects or threshold breaches</td><td>Legitimate interests — operational safety</td></tr>
+    <tr><td>Providing remote diagnostics and support without requiring a site visit</td><td>Contractual obligation; legitimate interests</td></tr>
+    <tr><td>Improving the Platform — crash reports, usage patterns and diagnostic data</td><td>Legitimate interests; consent where applicable</td></tr>
+    <tr><td>Responding to support requests and technical queries</td><td>Contractual obligation; legitimate interests</td></tr>
+    <tr><td>Business transfers — evaluation of mergers, acquisitions or asset sales</td><td>Legitimate interests</td></tr>
   </tbody>
 </table>
 
-<h2>5. Data Sharing</h2>
+<h2>Sharing Your Personal Data</h2>
 
 <h3>Within Your Organisation</h3>
-<p>Inspection records, crane data, operator assignments and access logs are visible to authorised personnel within your organisation — typically site managers, supervisors and engineering teams. The scope is configured by your administrator.</p>
+<p>Inspection records, crane data, operator assignments and access logs are visible to authorised personnel within Your organisation — typically site managers, supervisors and engineering teams. The scope of access is configured by Your organisation's administrator within the craneIQ platform.</p>
 
 <h3>Pointnode Ltd</h3>
-<p>As platform operator, Pointnode Ltd can access data for technical support, maintenance and investigating reported safety issues. We do not use your data for our own commercial or marketing purposes.</p>
+<p>As operator of the craneIQ Platform, Pointnode Ltd may access Your data for the purposes of technical support, platform maintenance and investigating reported issues. We do not use Your data for our own commercial or marketing purposes.</p>
 
-<h3>Third-Party Infrastructure</h3>
-<p>We use trusted third-party providers to host and operate the craneIQ backend. They act as data processors under our instruction and are bound by appropriate data processing agreements. We do not sell personal data.</p>
+<h3>Service Providers</h3>
+<p>We share data with the following third-party Service Providers as necessary to operate the Platform:</p>
+<ul>
+  <li><strong>HiveMQ GmbH</strong> — provides the cloud MQTT broker used for real-time communication between craneIQ hardware nodes and the platform backend. Receives operational and monitoring data transmitted from crane hardware.</li>
+  <li><strong>Supabase Inc.</strong> — provides backend database, authentication and storage services. Receives account data, inspection records, operational data and usage logs.</li>
+  <li><strong>Apple Inc.</strong> — distributes the Application via the Apple App Store and Apple TestFlight. Processes app distribution and, where applicable, in-app purchase transactions in accordance with Apple's own privacy policy.</li>
+</ul>
+<p>Each of these providers acts as a data processor under our instruction and is bound by appropriate data processing agreements. We do not sell personal data to third parties.</p>
 
 <h3>Legal Requirements</h3>
-<p>We may disclose data where required by law or to cooperate with regulatory investigations — including those under LOLER, PUWER or the Health and Safety at Work Act 1974.</p>
+<p>We may disclose personal data where required by law or in response to valid requests from public authorities — including in connection with regulatory inspections or investigations under LOLER, PUWER, the Health and Safety at Work Act 1974, or other applicable legislation.</p>
 
-<h2>6. Data Retention</h2>
-<p>Inspection records, audit logs and defect reports are kept for a minimum of two years in line with LOLER requirements. Your administrator may configure longer retention. Account data is kept while your account is active and for a reasonable period after closure to support compliance obligations.</p>
+<h3>Business Transfers</h3>
+<p>If the Company is involved in a merger, acquisition or asset sale, Your personal data may be transferred as part of that transaction. We will provide notice before Your data becomes subject to a different privacy policy.</p>
 
-<h2>7. Data Security</h2>
-<p>We use appropriate technical and organisational measures to protect personal data, including:</p>
+<h2>Retention of Your Personal Data</h2>
+<p>Inspection records, audit logs and defect reports are retained for a minimum of two years, in line with LOLER record-keeping obligations. Your organisation's administrator may configure longer retention periods where required by internal policy or applicable law.</p>
+<p>Account data is retained for as long as Your account remains active, and for a reasonable period following account closure to support compliance and legal obligations. Usage data and crash reports are generally retained for a shorter period unless required to support security or functionality improvements.</p>
+<p>You may request deletion of Your personal data at any time by contacting Us. Please note that We may be unable to delete data that We are legally required to retain — for example, LOLER inspection records.</p>
+
+<h2>Transfer of Your Personal Data</h2>
+<p>Our primary infrastructure is located within the United Kingdom and/or the European Economic Area. Where data is transferred outside these regions — for example, through the services of third-party providers — We ensure appropriate safeguards are in place as required by UK GDPR, including standard contractual clauses where applicable.</p>
+
+<h2>Security of Your Personal Data</h2>
+<p>We implement appropriate technical and organisational measures to protect personal data against unauthorised access, loss, alteration or disclosure. These include:</p>
 <ul>
-  <li>Encrypted data transmission (TLS) between the app and our servers</li>
-  <li>Multi-tenant data isolation — your organisation's data is kept separate at database level</li>
-  <li>Role-based access controls</li>
-  <li>Append-only audit log — inspection and access records cannot be modified once written</li>
+  <li>Encrypted data transmission (TLS) between the Application, MQTT broker and backend services</li>
+  <li>Multi-tenant data isolation — Your organisation's data is kept logically separate from other organisations at database level</li>
+  <li>Role-based access controls — users access only data within their assigned scope</li>
+  <li>Append-only audit log — inspection and access records cannot be modified or deleted once written</li>
+  <li>Authenticated MQTT connections — only authorised hardware nodes can publish to the broker</li>
 </ul>
-<p>In the event of a breach likely to affect your rights and freedoms, we will notify the ICO within 72 hours and affected individuals as required.</p>
+<p>No method of transmission over the internet is 100% secure. While We strive to protect Your data using commercially accepted means, We cannot guarantee absolute security. In the event of a data breach likely to result in risk to Your rights and freedoms, We will notify the relevant supervisory authority within 72 hours and affected individuals where required by law.</p>
 
-<h2>8. Your Rights</h2>
-<p>Under UK GDPR you have the right to access, correct, delete, restrict or port your personal data, and to object to processing. To exercise any of these rights, contact us at <strong>joe@pointnode.io</strong>. We will respond within one month.</p>
-<p>Note that some rights are limited where we have a legal obligation to retain data — for example, LOLER inspection records.</p>
-<p>If you are not satisfied with our response you can complain to the Information Commissioner's Office: <strong>ico.org.uk</strong> · 0303 123 1113.</p>
+<h2>Children's Privacy</h2>
+<p>craneIQ products are intended for use by adults in industrial workplaces. The Service does not address anyone under the age of 18. We do not knowingly collect personal data from individuals under 18. If You believe that a person under 18 has provided Us with personal data, please contact Us and We will take steps to remove that information.</p>
 
-<h2>9. Cookies and Analytics</h2>
-<p>The craneIQ app does not use cookies. The craneiq.co.uk website uses minimal analytics. No advertising or tracking cookies are used on any craneIQ property.</p>
+<h2>Tracking and Analytics</h2>
+<p>The craneIQ Application does not use advertising trackers or third-party analytics platforms. Diagnostic and usage data collected within the Application is used solely to support and improve the Service. The craneiq.co.uk website uses minimal analytics. No advertising cookies are used on any craneIQ property.</p>
 
-<h2>10. Children</h2>
-<p>craneIQ products are intended for use by adults in industrial workplaces. We do not knowingly collect data from anyone under 18.</p>
+<h2>Your Rights Under UK GDPR</h2>
+<p>As a resident of the United Kingdom, You have the following rights in relation to Your personal data:</p>
+<ul>
+  <li><strong>Right of access</strong> — to request a copy of the personal data We hold about You</li>
+  <li><strong>Right to rectification</strong> — to ask Us to correct inaccurate or incomplete data</li>
+  <li><strong>Right to erasure</strong> — to request deletion of Your data in certain circumstances</li>
+  <li><strong>Right to restrict processing</strong> — to ask Us to limit how We process Your data</li>
+  <li><strong>Right to data portability</strong> — to receive Your data in a structured, machine-readable format</li>
+  <li><strong>Right to object</strong> — to object to processing based on legitimate interests</li>
+  <li><strong>Right to withdraw consent</strong> — where processing is based on consent, to withdraw it at any time</li>
+</ul>
+<p>To exercise any of these rights, contact Us at <strong>joe@pointnode.io</strong>. We will respond within 30 days. Note that some rights are limited where We have a legal obligation to retain data — for example, LOLER inspection records.</p>
+<p>You have the right to lodge a complaint with the Information Commissioner's Office (ICO): <strong>ico.org.uk</strong> &nbsp;·&nbsp; 0303 123 1113.</p>
 
-<h2>11. International Transfers</h2>
-<p>Our infrastructure is within the UK and/or European Economic Area. Where data is transferred outside these regions, appropriate safeguards are in place under UK GDPR.</p>
+<h2>Links to Other Services</h2>
+<p>The Service may contain links to third-party websites or services not operated by Us. We have no control over and assume no responsibility for the content or privacy practices of any third-party sites. We encourage You to review the privacy policy of any third-party site You visit.</p>
 
-<h2>12. Changes to This Policy</h2>
-<p>We may update this policy from time to time. Material changes will be communicated to administrators. Continued use of craneIQ products after an updated policy is published constitutes acceptance.</p>
+<h2>Changes to This Privacy Policy</h2>
+<p>We may update this Privacy Policy from time to time. We will notify You of material changes by posting the updated policy on this page and updating the "Last updated" date. Where the Service includes a notification mechanism, We will use it to inform administrators of material changes. Continued use of the Service after changes are posted constitutes acceptance of the revised policy.</p>
 
-<h2>13. Contact</h2>
+<h2>Contact Us</h2>
+<p>For questions about this Privacy Policy, to exercise Your rights, or to raise a concern:</p>
 <p><strong>Pointnode Ltd</strong><br>
 West Midlands, United Kingdom<br>
 <strong>joe@pointnode.io</strong><br>
 craneiq.co.uk</p>
 
 <div class="footer">
-  craneIQ is a product of Pointnode Ltd · West Midlands, UK · craneiq.co.uk · joe@pointnode.io
+  craneIQ is a product of Pointnode Ltd &nbsp;·&nbsp; West Midlands, UK &nbsp;·&nbsp; craneiq.co.uk &nbsp;·&nbsp; joe@pointnode.io
 </div>
 
 </div>
